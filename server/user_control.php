@@ -2,7 +2,7 @@
 	session_start();
 	
 	//UTILITY FUNCTIONS
-	public function db_Query($query){
+	function db_Query($query){
 		$con = mysqli_connect('localhost','root','','mathrelay3');
 		$result = mysqli_query($con, $query);
 	
@@ -15,8 +15,8 @@
 		return $result;
 	} 
 	
-	public function getEvent(){
-		return 'none'
+	function getEvent(){
+		return 'open';
 	}
 	
 	$action = $_REQUEST['action'];

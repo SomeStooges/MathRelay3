@@ -1,0 +1,1 @@
+A place for all the images needed in the program.

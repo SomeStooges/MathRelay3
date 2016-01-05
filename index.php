@@ -13,6 +13,6 @@
 		<p> My name is Roland Ip </p>
 		<p> My name is Kyle Murdoch </p>
 
-		<button type="welcome_button"> Go to LOGIN </button>
+		<button id="welcome_button"> Go to LOGIN </button>
 	</body>
 </html>

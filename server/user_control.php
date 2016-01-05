@@ -15,10 +15,12 @@
 		return $result;
 	} 
 	
+	//FUNCTION DEFINITIONS
 	function getEvent(){
 		return 'open';
 	}
 	
+	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = true;
 	switch( $action ){

@@ -2,6 +2,7 @@
 $(document).ready( function() {
 	$("welcome_button").click( function() {
 		window.location.href = "user_login.php";
+		console.log("welcome_button was pushed");
 	});
 
 	$("admin_button").click( function() {

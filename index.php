@@ -12,6 +12,7 @@
 		<p> My name is Roland Ip </p>
 		<p> My name is Kyle Murdoch </p>
 
-		<button id="welcome_button"> Go to LOGIN </button>
+		<button id="welcomeButton"> Go to LOGIN </button>
+		<button id="adminButton"> Go to ADMIN </button>
 	</body>
 </html>

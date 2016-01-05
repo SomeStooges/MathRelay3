@@ -2,7 +2,7 @@
 $(document).ready( function() {
 	$("#reset_button").click( function() {
 		var action = 'adminReset';
-		$.post("/MathRelay3/server/admin_controls.php", action, function(data) {
+		$.post("./server/admin_control.php", action, function(data) {
 			console.log(data);
 		});
 	});

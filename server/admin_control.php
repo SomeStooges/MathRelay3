@@ -27,12 +27,15 @@
 	}
 	
 	//FUNCTION DEFINITIONS
+	function adminReset() {
+		return "Santosh was here! (adminReset() called)";
+	}
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;
 	switch( $action ){
-		
+		case 'adminReset': $return = adminReset(); break;
 	}
 	print json_encode($return);
 ?>

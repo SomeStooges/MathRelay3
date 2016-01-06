@@ -5,6 +5,9 @@
 		<script type="text/javascript" src="./scripts/scripts_control_panel.js"></script>
 	</head>
 	<body>
+		<h1> Admin Control Panel </h1>
+		<p> Push the RESET button for a total system reset </p>
+		
 		<button id="reset_button">RESET</button>
 	</body>
 </html>

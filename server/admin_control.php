@@ -43,14 +43,11 @@
 	}
 	
 	function makePassword($size){
-		//some bug is in this, but not too sure...
-		$chars='ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
-		$length=strlen($chars)-1;
-		$i=0;
-		$out='';
-		while($i<$size){
-			$out.=$chars[rand(0,$length)];
-			$i++;
+		$chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
+		$length = strlen( $chars ) - 1;
+		$out = '';
+		for( $i=0; $i<$size; $i++){
+			$out .= $chars[ rand( 0,$length ) ];
 		}
 		return $out;
 	}

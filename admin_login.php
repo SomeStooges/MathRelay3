@@ -8,4 +8,6 @@
 	
 	<body>
 		<h1>Admin Login</h1>
+		<button id="admin_login"> LOGIN </button>
 	</body>
+</html>

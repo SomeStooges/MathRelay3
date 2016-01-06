@@ -27,8 +27,32 @@
 	}
 	
 	//FUNCTION DEFINITIONS
+	
+	//regenerates all the team data
 	function adminReset() {
-		return "Santosh was here! (adminReset() called)";
+		$number = 50;
+		$passwordLength = 6;
+		db_Query('DELETE FROM team_data;');
+		
+		for( $i=1; $i<=$number; $i++){
+			$tempPass = makePassword($passwordLength);
+			db_Query("INSERT INTO team_data VALUES ('$i','','$tempPass','0','0','0','0','0','0');");
+		}
+		
+		return "Regenerated all team data";
+	}
+	
+	function makePassword($size){
+		//sum bug is in this, but not too sure...
+		$chars="ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
+		$length=strlen($chars);
+		$i=0;
+		$out='';
+		while($i<$size){
+			$out.=$chars[rand(0,$length)];
+			$i++;
+		}
+		return $out;
 	}
 	
 	//REQUEST SWITCH

@@ -54,12 +54,16 @@
 		}
 		return $out;
 	}
+	function adminLogin() {
+		return "The function 'adminLogin()' was called!";
+	}
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;
 	switch( $action ){
 		case 'adminReset': $return = adminReset(); break;
+		case 'adminLogin': $return = adminLogin(); break;
 	}
 	print json_encode($return);
 ?>

@@ -4,6 +4,13 @@ $(document).ready( function() {
 	var action = "action=adminLogin";
 		$.post("./server/admin_control.php", action, function(data) {
 			console.log(data);
+
+			if (data) {
+				window.location.href="../control_panel.php";
+			}
+			else {
+				console.log("Not authorized");
+			}
 		});
 	});
 });

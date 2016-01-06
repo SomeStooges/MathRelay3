@@ -43,7 +43,7 @@
 	}
 	
 	function makePassword($size){
-		//sum bug is in this, but not too sure...
+		//some bug is in this, but not too sure...
 		$chars="ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
 		$length=strlen($chars);
 		$i=0;
@@ -54,6 +54,7 @@
 		}
 		return $out;
 	}
+	
 	function adminLogin() {
 		return "The function 'adminLogin()' was called!";
 	}

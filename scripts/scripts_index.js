@@ -4,7 +4,7 @@ $(document).ready( function() {
 		
 		obj = new Object;
 		obj.action = 'getEvent';
-		$.post('/MathRelay3/server/user_control.php',obj,function(data){
+		$.post('../server/user_control.php',obj,function(data){
 			console.log(data);
 			var currentEvent = JSON.parse(data);
 			switch( currentEvent ){

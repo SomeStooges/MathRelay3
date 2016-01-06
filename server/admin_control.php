@@ -15,13 +15,24 @@
 		return $result;
 	} 
 	
+	//checks to see whether the specific option exists, and if it doesn't creates it.
+	//specify the class and name, and the default value
+	function checkForOption($class,$name,$default){
+		$reso = db_Query("SELECT * FROM relay_options WHERE class='$class' AND name='$name';");
+		$num = mysqli_num_rows($reso);
+		if($num == 0){
+			db_Query("INSERT INTO relay_options VALUES ('$class','$name','$default');");
+		}
+		return true;
+	}
+	
 	//FUNCTION DEFINITIONS
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
-	$return = true;
+	$return = false;
 	switch( $action ){
-		case 'getEvent': $return = getEvent(); break;
+		
 	}
 	print json_encode($return);
 ?>

@@ -6,7 +6,7 @@ $(document).ready( function() {
 			console.log(data);
 
 			if (data) {
-				window.location.href="../control_panel.php";
+				window.location.href="../MathRelay3/control_panel.php";
 			}
 			else {
 				console.log("Not authorized");

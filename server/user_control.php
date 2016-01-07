@@ -19,12 +19,16 @@
 	function getEvent(){
 		return 'open';
 	}
+	function userLogin(){
+		return 'userLogin() called, success!';
+	}
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = true;
 	switch( $action ){
 		case 'getEvent': $return = getEvent(); break;
+		case 'userLogin': $return = userLogin();break;
 	}
 	print json_encode($return);
 ?>

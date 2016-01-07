@@ -6,4 +6,8 @@ $(document).ready( function() {
 			console.log(data);
 		});
 	});
+	
+	$('#leaderboardLink').click (function(){
+		window.location.href="leaderboard.php";
+	});
 });

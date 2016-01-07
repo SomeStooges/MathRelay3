@@ -9,5 +9,6 @@
 		<p> Push the RESET button for a total system reset </p>
 		
 		<button id="reset_button">RESET</button>
+		<button id="leaderboardLink">GO TO LEADERBOARD</button>
 	</body>
 </html>

@@ -30,7 +30,7 @@
 	
 	//regenerates all the team data
 	function adminReset() {
-		$number = 50;
+		$number = 10;
 		$passwordLength = 6;
 		db_Query('DELETE FROM team_data;');
 		

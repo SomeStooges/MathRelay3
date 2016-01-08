@@ -86,6 +86,7 @@
 	('display','level3PointsColumn','true'),
 	('display','level2PointsColumn','true'),
 	('display','level1PointsColumn','true'),
+	('display','numTeams','7'),
 	('reset','numTeams','10'),
 	('reset','passwordLength','6'),
 	('answerkey','numQuestion','40');

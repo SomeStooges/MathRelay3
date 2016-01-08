@@ -22,13 +22,17 @@
 	function userLogin(){
 		return 'userLogin() called, success!';
 	}
+	function userLogout(){
+		return 'userLogout() called, success!';
+	}
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
-	$return = true;
+	$return = false;
 	switch( $action ){
 		case 'getEvent': $return = getEvent(); break;
-		case 'userLogin': $return = userLogin();break;
+		case 'userLogin': $return = userLogin(); break;
+		case 'userLogout': $return = userLogout(); break;
 	}
 	print json_encode($return);
 ?>

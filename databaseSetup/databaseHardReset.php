@@ -49,7 +49,7 @@
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `team_data` (
 		  `team_id` int(8) NOT NULL,
-		  `team_nickname` varchar(8) NOT NULL,
+		  `team_nickname` varchar(50) NOT NULL,
 		  `password` varchar(8) NOT NULL,
 		  `level_3` int(8) NOT NULL,
 		  `level_2` int(8) NOT NULL,

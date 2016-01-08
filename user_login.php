@@ -1,3 +1,10 @@
+<?php
+	require 'server/utilities.php';
+	$currentEvent = getOption('event','currentEvent');
+	/*if($currentEvent == 'none'){
+		header('location: index.php');
+	}*/
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -12,5 +19,6 @@
 		<p> Team ID: <input id='teamID'></p>
 		<p> Team Password: <input id='teamPassword'></p>
 		<button id="user_login"> User Login </button>
+		<br> <?php print $currentEvent ?>
 	</body>
 </html>

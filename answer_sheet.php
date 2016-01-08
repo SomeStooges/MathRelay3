@@ -4,6 +4,13 @@
 	if(!isset($_SESSION['teamID'])){
 		header('location: index.php');
 	}
+	/*require 'server/utilities.php';
+	$currentEvent = getOption('event','currentEvent');
+	if($currentEvent == 'none'){
+		header('location: index.php');
+	} elseif ($currentEvent == 'close'){
+		header('location: finish_page.php');
+	}*/
 ?>
 <!DOCTYPE HTML>
 <html>

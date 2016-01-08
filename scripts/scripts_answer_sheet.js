@@ -31,4 +31,22 @@ $(document).ready( function() {
 		
 		});
 	});
+	$("#submitNickname").click( function(){
+		 obj = new Object;
+		 obj.action = "submitNickname";
+		 obj.nickname =  $("#nicknameInput").val();
+		$.post("server/user_control.php", obj, function(data) {
+			console.log(data)
+			console.log(nickname)
+			if(data){
+				$("#nickname").text(obj.nickname);
+				console.log(data);
+			}
+			else {
+				console.log("Oops! Something went wrong. :(")
+			}
+			
+		});
+			
+	});
 });

@@ -56,12 +56,8 @@
 		  `level_1` int(8) NOT NULL,
 		  `rank_freetime` int(8) NOT NULL,
 		  `last_checkin_time` int(18) NOT NULL,
-		  `last_point` int(18) NOT NULL
-		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
-	
-	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `user_log` (
-		  `team_id` int(8) NOT NULL,
-		  `history` varchar(50) NOT NULL
+		  `last_point` int(18) NOT NULL,
+		  `history` varchar(150) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 	
 	//Adds records to the tables, especially configuration infroatmion to relay_options.

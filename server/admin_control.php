@@ -30,17 +30,29 @@
 	
 	//regenerates all the team data
 	function adminReset() {
+		//gets initial parameters
 		$numTeams = 10;
 		$passwordLength = 6;
+		$numQuestions = 40;
+		
+		//clears old table
 		db_Query('DELETE FROM team_data;');
 		
+		//creates the $newhistory string with enough characters for each question
+		$newhistory = "";
+		for($i = 0; $i<$numQuestions; $i++){ $newhistory .= "0;"; }
+		$newhistory = substr( $newhistory, 0, strlen($newhistory)-1);
+		
 		if($numTeams >= 1){
+			//creates the query statement for each team
 			$query = "INSERT INTO team_data VALUES ";
 			for( $i=1; $i<=$numTeams; $i++){
 				$tempPass = makePassword($passwordLength);
-				$query .= "('$i','','$tempPass','0','0','0','0','0','0'), ";
+				$query .= "('$i','','$tempPass','0','0','0','0','0','0','$newhistory'), ";
 			}
 			$query = substr( $query, 0, strlen($query)-2) . ";";
+			
+			//inserts the values
 			db_Query($query);
 		}		
 		return "Regenerated all team data";

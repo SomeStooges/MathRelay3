@@ -47,6 +47,6 @@ $(document).ready( function() {
 			}
 			
 		});
-			
+		document.getElementById("nicknameInput").value = "";
 	});
 });

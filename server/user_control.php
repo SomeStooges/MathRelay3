@@ -35,7 +35,8 @@
 		3. after PHP layer knows, tell database the nickname
 		4. needs to tell javascript that the database received it*/
 		$nickname = $_REQUEST['nickname'];
-		db_Query("UPDATE team_data SET team_nickname ='$nickname'  WHERE team_id = 1");
+		$teamID = $_SESSION['teamID'];
+		db_Query("UPDATE team_data SET team_nickname ='$nickname'  WHERE team_id = '$teamID';");
 		
 		
 		return 'Nickname Received!';

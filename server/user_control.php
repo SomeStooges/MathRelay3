@@ -8,8 +8,23 @@
 		return 'open';
 	}
 	function userLogin(){
-		return 'userLogin() called, success!';
+		//Get the teamID and password
+		$teamID = $_REQUEST['teamID'];
+		$teamPassword = $_REQUEST['teamPassword'];
+		//check to see if the teamID is possible
+		
+		//Query the database and process the return
+		$num = mysqli_num_rows(db_Query("SELECT team_ID FROM team_data WHERE team_ID='$teamID' AND password='$teamPassword';"));
+		if($num){
+			$_SESSION['teamID'] = $teamID;
+			$response = "Successful";
+		} 
+		else{
+			$response = "Failed";
+		}
+		return $response;
 	}
+	
 	function userLogout(){
 		return 'userLogout() called, success!';
 	}

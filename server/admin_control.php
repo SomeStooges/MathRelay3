@@ -46,7 +46,18 @@
 	}
 	
 	function adminLogin() {
-		return "The function 'adminLogin()' was called!";
+		//Get admin password
+		$adminPassword = $_REQUEST['adminPassword'];
+		//query the database and process the return
+		$num = mysqli_num_rows(db_Query("SELECT value FROM relay_options WHERE class='$adminPassword' AND value='$adminPassword'"));
+		if($num){
+			$_SESSION['admin'] = 'Santosh';
+			$response = "Successful";
+		} 
+		else{
+			$response = "Failed";
+		}
+		return $response;
 	}
 	
 	//REQUEST SWITCH

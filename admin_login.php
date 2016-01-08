@@ -8,7 +8,8 @@
 	
 	<body>
 		<h1>Admin Login</h1>
-		<p> Password: <input id='adminPasswordInput'> <button id='passwordSubmit'>SUBMIT</button> </p>
+		<p> Password: <input id='adminPassword'> 
 		<button id="admin_login"> LOGIN </button>
+		<div id="adminverify"><div>
 	</body>
 </html>

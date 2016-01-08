@@ -1,3 +1,13 @@
+<?php
+	//Protection against premature entrance
+	session_start();
+	if( false/*!isset($_SESSION['teamID']) || !isset($_SESSION['adminLogin'])*/){
+		//currently disabled
+		
+		//redirects the page
+		header('location: index.php');
+	}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>

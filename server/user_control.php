@@ -13,6 +13,9 @@
 	function userLogout(){
 		return 'userLogout() called, success!';
 	}
+	function submitNickname() {
+		return 'Nickname Received!';
+	}
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
@@ -21,6 +24,7 @@
 		case 'getEvent': $return = getEvent(); break;
 		case 'userLogin': $return = userLogin(); break;
 		case 'userLogout': $return = userLogout(); break;
+		case 'submitNickname': $return = submitNickname(); break;
 	}
 	print json_encode($return);
 ?>

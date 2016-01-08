@@ -18,11 +18,18 @@
 	</head>
 
 	<body>
-		<h1> Answer Sheet </h1>
-		<p> Enter nickname <input id='nicknameInput'></p>
+		<h1 id="nickname"> Answer Sheet </h1>
+		<p> 
+			Enter nickname <input id='nicknameInput'>
+			<button id = 'submitNickname'>SUBMIT</button>
+		</p>
+		
+		
 		<p> <i> Some GUI to enter answer inforamtion...</i></p>
 		<p><i> Some GUI to enter series number and show answer history...</i></p>
 		<p> <button id='logoutButton'>LOGOUT</button></p>
 		<p> Answer sheet for team. </p>	
 	</body>
 </html>
+
+.val

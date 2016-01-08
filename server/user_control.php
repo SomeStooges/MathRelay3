@@ -26,7 +26,8 @@
 	}
 	
 	function userLogout(){
-		return 'userLogout() called, success!';
+		unset($_SESSION['teamID']);
+		return true;
 	}
 	function submitNickname() {
 		/* 

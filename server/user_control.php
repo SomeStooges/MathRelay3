@@ -37,10 +37,10 @@
 		4. needs to tell javascript that the database received it*/
 		$nickname = $_REQUEST['nickname'];
 		$teamID = $_SESSION['teamID'];
-		db_Query("UPDATE team_data SET team_nickname ='$nickname'  WHERE team_id = '$teamID';");
+		db_Query("UPDATE team_data SET team_nickname ='$nickname'  WHERE team_id='$teamID';");
 		
 		
-		return 'Nickname Received!';
+		return $teamID;
 	}
 	
 	//REQUEST SWITCH

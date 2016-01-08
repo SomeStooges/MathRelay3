@@ -26,14 +26,24 @@
 		return true;
 	}
 	
+	function getOption($class,$name){
+		$ret = mysqli_fetch_row(db_Query("SELECT value FROM relay_options WHERE class='$class' AND name='$name';"));
+		return $ret[0];
+	}
+	
+	function setOption($class,$name,$value){
+		db_Query("UPDATE relay_options SET value='$value' WHERE class='$class' AND name='$name';");
+		return true;
+	}
+	
 	//FUNCTION DEFINITIONS
 	
 	//regenerates all the team data
 	function adminReset() {
 		//gets initial parameters
-		$numTeams = 10;
-		$passwordLength = 6;
-		$numQuestions = 40;
+		$numTeams = getOption("reset","numTeams");
+		$passwordLength = getOption("reset",'passwordLength');
+		$numQuestions = getOption('answerkey','numQuestion');
 		
 		//clears old table
 		db_Query('DELETE FROM team_data;');
@@ -78,6 +88,7 @@
 	switch( $action ){
 		case 'adminReset': $return = adminReset(); break;
 		case 'adminLogin': $return = adminLogin(); break;
+		case 'getOption': $return = getOption($_REQUEST['class'],$_REQUEST['name']); break;
 	}
 	print json_encode($return);
 ?>

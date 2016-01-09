@@ -17,7 +17,7 @@
 		<h1> User Login </h1>
 		<p> Enter login information below </p>
 		<p> Team ID: <input id='teamID'></p>
-		<p> Team Password: <input id='teamPassword'></p>
+		<p> Team Password: <input type = "password" id='teamPassword'></p>
 		<button id="user_login"> User Login </button>
 		<br> <?php print $currentEvent ?>
 	</body>

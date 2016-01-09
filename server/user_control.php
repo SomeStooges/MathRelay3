@@ -29,18 +29,23 @@
 		unset($_SESSION['teamID']);
 		return true;
 	}
-	function submitNickname() {
-		/* 
-		1. Needs to know which team id (manually enter nickname in to team id 1); will need to update with "get" function
-		2. needs to know what nickname is being sent
-		3. after PHP layer knows, tell database the nickname
-		4. needs to tell javascript that the database received it*/
+	function setNickname(){
 		$nickname = $_REQUEST['nickname'];
 		$teamID = $_SESSION['teamID'];
 		db_Query("UPDATE team_data SET team_nickname ='$nickname'  WHERE team_id='$teamID';");
-		
-		
+	
 		return $teamID;
+	}
+	function getNickname(){
+		$teamID = $_SESSION['teamID'];
+	//	$num = mysqli_num_rows(db_Query("SELECT team_nickname FROM team_data WHERE team_ID='$team_ID'"));
+		$nickname = mysqli_fetch_object(db_Query("SELECT team_nickname FROM team_data WHERE team_id = '$teamID';"));
+		if($nickname) {
+			return $nickname->team_nickname;
+		}
+		else{
+			return false;
+		}
 	}
 	
 	//REQUEST SWITCH
@@ -50,7 +55,8 @@
 		case 'getEvent': $return = getEvent(); break;
 		case 'userLogin': $return = userLogin(); break;
 		case 'userLogout': $return = userLogout(); break;
-		case 'submitNickname': $return = submitNickname(); break;
+		case 'setNickname': $return = setNickname(); break;
+		case 'getNickname': $return = getNickname(); break;
 	}
 	print json_encode($return);
 ?>

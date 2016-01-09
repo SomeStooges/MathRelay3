@@ -1,39 +1,19 @@
 // Scripts for the corresponding answer_sheet.php page
 $(document).ready( function() {
-	var action;
-	/*$("#nicknameInput").click( function() {
-		action = "action=userLogin";
-		$.post("server/user_control.php", action, function(data) {
-			console.log(data)
-
-			if (data) {
-				window.location.href = "";
-			}
-			else {
-				console.log("");
-			}
-			
-		}); 
-	});*/
 	
-	$("#logoutButton").click( function() {
-		action = "action=userLogout";
-		$.post("server/user_control.php", action, function(data) {
-			console.log(data)
-			
+	var action;
+		$.post("server/user_control.php", action= "action=getNickname", function(data) {
+			console.log("Retrieving nickname if available.");
+			//console.log(JSON.parse(data));
 			if(data){
-				window.location.href = "index.php";
+				$("#nickname").text(JSON.parse(data));
 			}
-			else {
-				console.log("Logout failed.");
-			}
-		
-		
 		});
-	});
+		
+	
 	$("#submitNickname").click( function(){
 		 obj = new Object;
-		 obj.action = "submitNickname";
+		 obj.action = "setNickname";
 		 obj.nickname =  $("#nicknameInput").val();
 		$.post("server/user_control.php", obj, function(data) {
 			console.log(data)
@@ -48,5 +28,19 @@ $(document).ready( function() {
 			
 		});
 		document.getElementById("nicknameInput").value = "";
+	});
+	
+	$("#logoutButton").click( function() {
+		action = "action=userLogout";
+		$.post("server/user_control.php", action, function(data) {
+			console.log(data)
+			
+			if(data){
+				window.location.href = "index.php";
+			}
+			else {
+				console.log("Logout failed.");
+			}
+		});
 	});
 });

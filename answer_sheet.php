@@ -22,7 +22,8 @@
 	</head>
 
 	<body>
-		<h1 id="nickname"> Answer Sheet </h1>
+		<h1> Answer Sheet </h1>
+		<h1 id="nickname"></h1>
 		<p> 
 			Enter nickname <input id='nicknameInput'>
 			<button id = 'submitNickname'>SUBMIT</button>

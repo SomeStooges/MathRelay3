@@ -10,7 +10,7 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="./scripts/scripts_control_panel.js"></script>
-		<link rel="stylesheet" type="text/css" href="Styles/control_panel.css">
+		<link rel="stylesheet" type="text/css" href="Styles/styles_control_panel.css">
 	</head>
 	<body id = "body">
 		<div id = "ribbon1">
@@ -25,12 +25,7 @@
 			<button class="ribbonButton" id="freezeLeaderboard">Freeze Leaderboard</button>
 			<button class="ribbonButton" id="stop">Stop</button>
 			<button class="ribbonButton" id="close">Close</button>
-			<div id="timer">
-				<span>
-				some time
-				<!ENTER SOME setInterval(function,milliseconds) FUNCTION TO UPDATE TIMER>
-				</span>
-			</div>
+			<div id="timer">00:00:00</div>
 		</div>
 		<div id = "toolbar">
 			

@@ -1,0 +1,62 @@
+<style>
+/*Style sheet for control panel*/
+	#body{
+		overflow-x:scroll;
+		margin:0px;
+	}
+	#ribbon1{
+			white-space: nowrap;
+			background-color: Peru;
+			height: 93px;
+			width: 25%;
+			float:left;
+	}
+	#ribbon2{
+			white-space: nowrap;
+			background-color: Peru;
+			height: 93px;
+			width: 75%;
+			float:right;
+	}
+	#toolbar{
+		background-color: LightGray;
+		width: 150px;
+		height: 100%;
+		float: left;
+	}
+	#logoutButton{
+		float: right;
+	}
+	#timer{
+		background-color: green;
+		float:right;
+		height: 93px;
+	}
+	.toolbarButton{
+		width: 150px;
+		text-align: left;
+		background: none;
+		padding: 10px;
+		border: none;
+		transition: background-color 0.25s ease;
+	}
+	.toolbarButton:hover{
+		background-color: DimGray;
+	}
+	.ribbonButton{
+		width:100px;
+		height: 93px;
+		background: none;
+		padding:0;
+		border:none;
+		transition: background-color 0.25s ease;
+	}
+	.ribbonButton:hover{
+		background-color: Chocolate;
+	}
+	
+
+
+
+
+</style>

@@ -1,0 +1,26 @@
+td.questions {
+	height: 30px;
+	width: 30px;
+	border: 1px solid Black;
+	text-align: center;
+	background-color: Gray;
+	font-weight: bold;
+}
+td.answer_sheet {
+	height: 30px;
+	width: 100px;
+	text-align: center;
+	border: 1px solid Black;
+	background-color: Gray;
+}
+th.level_header {
+	border: 1px solid Black;
+	text-align: center;
+	background-color: Gray;
+}
+#submit_answer {
+	width: 150px;
+	height: 180px;
+}
+
+

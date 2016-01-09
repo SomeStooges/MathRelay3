@@ -10,4 +10,17 @@ $(document).ready( function() {
 	$('#leaderboardLink').click (function(){
 		window.location.href="leaderboard.php";
 	});
+	$("#logoutButton").click( function() {
+		action = "action=adminLogout";
+		$.post("server/admin_control.php", action, function(data) {
+			console.log(data)
+			
+			if(data){
+				window.location.href = "index.php";
+			}
+			else {
+				console.log("Logout failed.");
+			}
+		});
+	});
 });

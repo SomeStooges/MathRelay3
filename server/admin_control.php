@@ -60,6 +60,12 @@
 		return $response;
 	}
 	
+	function adminLogout(){
+		unset($_SESSION['admin']);
+		return true;
+	}
+	
+	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;
@@ -67,6 +73,7 @@
 		case 'adminReset': $return = adminReset(); break;
 		case 'adminLogin': $return = adminLogin(); break;
 		case 'getOption': $return = getOption($_REQUEST['class'],$_REQUEST['name']); break;
+		case 'adminLogout': $return = adminLogout(); break;
 	}
 	print json_encode($return);
 ?>

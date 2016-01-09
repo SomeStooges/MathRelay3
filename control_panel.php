@@ -17,5 +17,6 @@
 		
 		<button id="reset_button">RESET</button>
 		<button id="leaderboardLink">GO TO LEADERBOARD</button>
+		<p><button id="logoutButton">LOGOUT</button></p>
 	</body>
 </html>

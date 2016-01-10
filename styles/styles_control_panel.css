@@ -26,12 +26,13 @@
 	}
 	#logoutButton{
 		float: right;
-		background-color: #275327;
+		background-color: #377638;
 	}
 	#timer{
 		background-color: #377638;
 		float:right;
-		height: 93px;
+		height: 56px;
+		margin-top: 37px;
 	}
 	.toolbarButton{
 		width: 150px;
@@ -51,9 +52,11 @@
 		padding:0;
 		border:none;
 		transition: background-color 0.25s ease;
+		transition: color 0.25s ease;
 	}
 	.ribbonButton:hover{
-		background-color: #008000;
+		background-color: #011858;
+		color: white;
 	}
 	
 

@@ -26,6 +26,7 @@ $(document).ready( function() {
 		$("#start").prop("disabled",true);
 
 	});
+	
 	$("#stop").click( function() {
 		clearTimeout(t);
 		$("#start").prop("disabled",false);

@@ -7,8 +7,8 @@ td.questions {
 	font-weight: bold;
 }
 td.answer_sheet {
-	height: 30px;
-	width: 100px;
+	height: 80px;
+	width: 125px;
 	text-align: center;
 	border: 1px solid Black;
 	background-color: Gray;
@@ -18,9 +18,21 @@ th.level_header {
 	text-align: center;
 	background-color: Gray;
 }
+#questionGrid {
+	float: left;
+	background-color: Tomato;
+}
+#answerChoices {
+	float: left;
+	background-color: SteelBlue;
+}
 #submit_answer {
-	width: 150px;
-	height: 180px;
+	width: 20%;
+	height: 250px;
+	float: right;
+}
+#logoutButton {
+	float: right;
 }
 
 

@@ -13,7 +13,7 @@
 		<title> User Login </title>
 	<head>
 
-	<body>
+	<body style="text-align:center">
 		<h1> User Login </h1>
 		<p> Enter login information below </p>
 		<p> Team ID: <input id='teamID'></p>

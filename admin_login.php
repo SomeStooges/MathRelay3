@@ -6,10 +6,11 @@
 		<title> Admin </title>
 	</head>
 	
-	<body>
+	<body style="text-align:center">
 		<h1>Admin Login</h1>
 		<p> Password: <input type = "password" id='adminPassword'> 
 		<button id="admin_login"> LOGIN </button> <br>
+		<p>If you are not an administrator, please click the back button below. Thank you.</p>
 		<button id="back_button">BACK</button>
 		<div id="adminverify"><div>
 	</body>

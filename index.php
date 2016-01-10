@@ -6,7 +6,7 @@
 		<title> Welcome Page </title>
 	</head>
 
-	<body>
+	<body style="text-align:center">
 		<h1> WELCOME TO THE WORLD </h1>
 		<p> My name is Ethan Freeburg </p>
 		<p> My name is Roland Ip </p>

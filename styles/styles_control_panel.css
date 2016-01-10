@@ -6,14 +6,14 @@
 	}
 	#ribbon1{
 			white-space: nowrap;
-			background-color: Peru;
+			background-color: #377638;
 			height: 93px;
 			width: 25%;
 			float:left;
 	}
 	#ribbon2{
 			white-space: nowrap;
-			background-color: Peru;
+			background-color: #377638;
 			height: 93px;
 			width: 75%;
 			float:right;
@@ -26,9 +26,10 @@
 	}
 	#logoutButton{
 		float: right;
+		background-color: #275327;
 	}
 	#timer{
-		background-color: green;
+		background-color: #377638;
 		float:right;
 		height: 93px;
 	}
@@ -52,7 +53,7 @@
 		transition: background-color 0.25s ease;
 	}
 	.ribbonButton:hover{
-		background-color: Chocolate;
+		background-color: #008000;
 	}
 	
 

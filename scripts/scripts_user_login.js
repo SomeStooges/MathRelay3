@@ -1,5 +1,8 @@
 // Script for the user_login.php page
 $(document).ready( function() {
+	$("#back_button").click(function() {
+		window.location.href = "index.php";
+	});
 	$("#user_login").click( function() {
 		obj = new Object;
 		obj.action = "userLogin";

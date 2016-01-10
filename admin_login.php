@@ -9,7 +9,8 @@
 	<body>
 		<h1>Admin Login</h1>
 		<p> Password: <input type = "password" id='adminPassword'> 
-		<button id="admin_login"> LOGIN </button>
+		<button id="admin_login"> LOGIN </button> <br>
+		<button id="back_button">BACK</button>
 		<div id="adminverify"><div>
 	</body>
 </html>

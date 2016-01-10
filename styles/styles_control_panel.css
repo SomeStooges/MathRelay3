@@ -24,15 +24,28 @@
 		height: 100%;
 		float: left;
 	}
+	#freezeLeaderboard{
+		width: 150;
+		height: 93px;
+		text-align: left;
+		background: none;
+		padding: 10px;
+		border: none;
+		transition: background-color 0.25s ease;
+	}
+	#freezeLeaderboard:hover{
+		color: white;
+		background-color: #011858;	
+	}
 	#logoutButton{
 		float: right;
-		background-color: #377638;
 	}
 	#timer{
 		background-color: #377638;
 		float:right;
-		height: 56px;
-		margin-top: 37px;
+		height: 40px;
+		margin-top: 27px;
+		padding: 12px;
 	}
 	.toolbarButton{
 		width: 150px;
@@ -51,12 +64,12 @@
 		background: none;
 		padding:0;
 		border:none;
-		transition: background-color 0.25s ease;
+		transition: background-color 0.5s ease;
 		transition: color 0.25s ease;
 	}
 	.ribbonButton:hover{
-		background-color: #011858;
 		color: white;
+		background-color: #011858;	
 	}
 	
 

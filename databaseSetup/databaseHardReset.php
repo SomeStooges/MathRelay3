@@ -37,7 +37,9 @@
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `answer_key` (
 		  `series_number` int(8) NOT NULL,
-		  `level_number` int(8) NOT NULL,
+		  `level_3` varchar(4) NOT NULL,
+		  `level_2` varchar(4) NOT NULL,
+		  `level_1` varchar(4) NOT NULL,
 		  `answer` varchar(8) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 	

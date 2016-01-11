@@ -32,15 +32,14 @@
 		`check_2` int(8) NOT NULL,
 		`answer_1` varchar(8) NOT NULL,
 		`check_1` int(8) NOT NULL,
-		`timestamp` bigint(18) NOT NULL
+		`timestamp` varchar(35) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `answer_key` (
 		  `series_number` int(8) NOT NULL,
 		  `level_3` varchar(4) NOT NULL,
 		  `level_2` varchar(4) NOT NULL,
-		  `level_1` varchar(4) NOT NULL,
-		  `answer` varchar(8) NOT NULL
+		  `level_1` varchar(4) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `relay_options` (
@@ -53,9 +52,7 @@
 		  `team_id` int(8) NOT NULL,
 		  `team_nickname` varchar(50) NOT NULL,
 		  `password` varchar(8) NOT NULL,
-		  `level_3` int(8) NOT NULL,
-		  `level_2` int(8) NOT NULL,
-		  `level_1` int(8) NOT NULL,
+		  `points` int(8) NOT NULL,
 		  `rank_freetime` int(8) NOT NULL,
 		  `last_checkin_time` int(18) NOT NULL,
 		  `last_point` int(18) NOT NULL,
@@ -64,17 +61,17 @@
 	
 	//Adds records to the tables, especially configuration infroatmion to relay_options.
 	print "<p> Our wonderful trolls will even fill the database with some important information for the teams!</p>";
-	mysqli_query($con, "INSERT INTO `team_data` (`team_id`, `team_nickname`, `password`, `level_3`, `level_2`, `level_1`, `rank_freetime`, `last_checkin_time`, `last_point`, `history`) VALUES
-		(1, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(2, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(3, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(4, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(5, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(6, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(7, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(8, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(9, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
-		(10, '', 'AAAAAA', 0, 0, 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0');");
+	mysqli_query($con, "INSERT INTO `team_data` (`team_id`, `team_nickname`, `password`, `points`, `rank_freetime`, `last_checkin_time`, `last_point`, `history`) VALUES
+		(1, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(2, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(3, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(4, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(5, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(6, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(7, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(8, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(9, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0'),
+		(10, '', 'AAAAAA', 0, 0, 0, 0, '0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0');");
 	
 	//ADDS RECORDS TO RELAY_OPTIONS
 	print "<p> ...and those ever important relay options!";
@@ -94,6 +91,13 @@
 	('answerkey','numQuestion','40');
 	");
 	
+	mysqli_query($con, "INSERT INTO `answer_key`(`series_number`, `level_3`, `level_2`, `level_1`) VALUES
+	('1','A','A','A'),
+	('2','B','B','B'),
+	('3','C','C','C'),
+	('4','A','B','C'),
+	('5','C','B','C');
+	");
 	//Closes the connection
 	print "<p> And now we'll close the connection and be on our way.</p>";
 	mysqli_close($con);

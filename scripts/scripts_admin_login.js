@@ -1,5 +1,10 @@
 // Login page for administrators
 $(document).ready( function() {
+	$("#back_button").click( function() {
+		window.location.href="index.php";
+	});
+	
+	
 	$("#admin_login").click( function() {
 		obj = new Object;
 		obj.action = "adminLogin";

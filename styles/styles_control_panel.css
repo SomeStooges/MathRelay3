@@ -6,14 +6,14 @@
 	}
 	#ribbon1{
 			white-space: nowrap;
-			background-color: Peru;
+			background-color: #377638;
 			height: 93px;
 			width: 25%;
 			float:left;
 	}
 	#ribbon2{
 			white-space: nowrap;
-			background-color: Peru;
+			background-color: #377638;
 			height: 93px;
 			width: 75%;
 			float:right;
@@ -24,13 +24,28 @@
 		height: 100%;
 		float: left;
 	}
+	#freezeLeaderboard{
+		width: 150;
+		height: 93px;
+		text-align: left;
+		background: none;
+		padding: 10px;
+		border: none;
+		transition: background-color 0.25s ease;
+	}
+	#freezeLeaderboard:hover{
+		color: white;
+		background-color: #011858;	
+	}
 	#logoutButton{
 		float: right;
 	}
 	#timer{
-		background-color: green;
+		background-color: #377638;
 		float:right;
-		height: 93px;
+		height: 40px;
+		margin-top: 27px;
+		padding: 12px;
 	}
 	.toolbarButton{
 		width: 150px;
@@ -49,10 +64,12 @@
 		background: none;
 		padding:0;
 		border:none;
-		transition: background-color 0.25s ease;
+		transition: background-color 0.5s ease;
+		transition: color 0.25s ease;
 	}
 	.ribbonButton:hover{
-		background-color: Chocolate;
+		color: white;
+		background-color: #011858;	
 	}
 	
 

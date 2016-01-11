@@ -21,33 +21,39 @@
 		$res1 = ($answer->level_1==$l1 ? 1 : 0);
 
 		//update the points in teamdata
-		$ansHis = null;
 		$resource = mysqli_fetch_object(db_Query("SELECT points,history,attempts FROM team_data WHERE team_id='$teamID';"));
-		if($res1 && $res2 && $res3){
-			//if correct
-			$attempts = explode(';',$resource->attempts);
-			$specA = $attempts[ $series-1 ];
-			$addition = 10 - 2 * intval($specA);
-			$attempts = implode(';',$attempts);
-			
-			$points = $resource->points;
-			$points += $addition;
-			db_Query("UPDATE team_data SET points = '$points' WHERE team_id='$teamID';");
-			
-			$ansHis = explode(';',$resource->history);
-			$ansHis[ $series-1 ] = '1';
-			$ansHis = implode(';', $ansHis);
+		$attempts = explode(';',$resource->attempts);
+		$points = $resource->points;
+		$ansHis = explode(';',$resource->history);
+		$numAtt = intval($attempts[ $series-1 ]) + 1;
+		$attempts[ $series-1 ] = strval($numAtt);
+		
+		if( $numAtt < 6 && strval($ansHis[ $series-1 ])!='1'){
+			if($res1 && $res2 && $res3){
+				//if correct, and will score more than zero points
+				$points += 12 - 2 * intval( $attempts[ $series-1 ] );
+				$ansHis[ $series-1 ] = '1';
+			} else {
+				//if incorrect
+				$ansHis[ $series-1 ] = '2';
+			}
 		} else {
-			//if incorrect
-			$ansHis = explode(';',$resource->history);
-			$ansHis[ $series-1 ] = '2';
-			$ansHis = implode(';', $ansHis);
 			
-			$attempts = explode(';',$resource->attempts);
-			$attempts[ $series-1 ] = strval (intval($attempts[ $series-1 ]) + 1);
-			$attempts = implode(';',$attempts);
+			if(strval($ansHis[ $series-1 ])=='1'){
+				//if the question has already been answered
+				$res1 = 4; $res2 = 4; $res3 = 4;
+			} else {
+				//if no more points can be scored
+				$ansHis[ $series-1 ]='3';
+				$res1 = 3; $res2 = 3; $res3 = 3;
+			}
 		}
-		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts' WHERE team_id='$teamID';");
+		
+		
+		$ansHis = implode(';', $ansHis);
+		$attempts = implode(';',$attempts);
+		
+		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points' WHERE team_id='$teamID';");
 		
 		//Update the answer log
 		$ctime = date('g:i:s l, M d, Y');
@@ -56,11 +62,13 @@
 			VALUES ('$teamID','$series','$l3','$res3','$l2','$res2','$l1','$res1','$ctime')");
 		
 		//Return the response to the user
+		
 		$response = array(
 			0 => $ansHis,
 			1 => $res1,
 			2 => $res2,
-			3 => $res3
+			3 => $res3,
+			4 => $points
 		);
 		return $response;
 	}

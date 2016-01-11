@@ -23,9 +23,13 @@ function gradeAnswer(qNum, l3, l2, l1){
 
 $(document).ready( function() {
 	gradeAnswer(1,'A','A','A');
-	gradeAnswer(2,'C','C','C');
+	gradeAnswer(1,'C','C','C');
 	gradeAnswer(3,'C','A','A');
-	gradeAnswer(3,'C','C','C');
+	gradeAnswer(3,'C','A','A');
+	gradeAnswer(3,'C','A','A');
+	gradeAnswer(3,'C','A','A');
+	gradeAnswer(3,'C','A','A');
+	gradeAnswer(3,'C','A','A');
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			console.log("Retrieving nickname if available.");

@@ -54,6 +54,19 @@ function getAnswerKey(){
 		*/
 		
 		//WRITE GUI CHANGE HERE
+		var message = "<table>";
+		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level w<br>Answer</th><th>Level 1<br>Answer</th>"
+		for(var i = 0; i<data.length ; i++){
+			message += "<tr>";
+			for( var j = 0; j<data[i].length ; j++){
+				message += "<td>" + data[i][j] + "</td>"
+			}
+			message += "</tr>";
+		}
+		
+		message += "</table>";
+		
+		$("#tooltab3").html(message)
 	});
 }
 
@@ -71,6 +84,7 @@ function getSettings(){
 
 $(document).ready( function() {
 	getSettings();
+	getAnswerKey();
 	$("#start").click( function(){
 		timer();
 		$("#start").prop("disabled",true);

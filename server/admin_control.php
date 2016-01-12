@@ -75,7 +75,7 @@
 	}
 	
 	function getAdminLog(){
-		$teamID = $_REQUEST($teamID);
+		$teamID = $_REQUEST['teamID'];
 		
 		$resource = db_Query("SELECT * FROM admin_log WHERE team_id='$teamID';");
 		$response = array();

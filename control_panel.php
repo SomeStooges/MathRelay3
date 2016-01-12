@@ -37,8 +37,27 @@
 			<button class="toolbarButton" id="settings">Settings</button>
 		</div>
 		<div id = "content">
-			<button id="reset_button">RESET</button>
-			<p> Push the RESET button for a total system reset </p>
+			<div id='tooltab1' style='background-color: #CCFFFF'>
+				<!-- Content for Team Data tab -->
+				<i>tool 1</i>
+				<p> <button id="reset_button">RESET</button> Push RESET to clear all points, change passwords, and change the number of teams. </p>
+			</div>
+			<div id='tooltab3' style='background-color: #FFFFCC'>
+				<!-- Content for Answer Key tab -->
+				<i>tool 3</i>
+			</div>
+			<div id='tooltab4' style='background-color: #CCFFFF'>
+				<!-- Content for Team Activity log tab-->
+				<i>tool 4</i>
+			</div>
+			<div id='tooltab5' style='background-color: #FFFFCC'>
+				<!-- Content for statistics tab -->
+				<i>tool 5</i>
+			</div>
+			<div id='tooltab6' style='background-color: #CCFFFF'>
+				<i>tool 6</i>
+				<!-- Content for settings tab -->
+			</div>
 		</div>
 
 		

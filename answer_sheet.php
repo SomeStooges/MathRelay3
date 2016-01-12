@@ -4,8 +4,8 @@
 	if(!isset($_SESSION['teamID'])){
 		header('location: index.php');
 	}
-	/*require 'server/utilities.php';
-	$currentEvent = getOption('event','currentEvent');
+	require 'server/utilities.php';
+	/*$currentEvent = getOption('event','currentEvent');
 	if($currentEvent == 'none'){
 		header('location: index.php');
 	} elseif ($currentEvent == 'close'){
@@ -42,7 +42,8 @@
 		<div id="content">
 			<div id="questionGrid">
 				<?php
-					$numQuestions = 40;
+					
+					$numQuestions = getOption('answerkey','numQuestion');
 
 					print "<table class='questions'>";
 					print "<tr> <th class='questions' colspan='5'> Questions </th> </tr>";

@@ -11,7 +11,7 @@ function gradeAnswer(qNum, l3, l2, l1){
 	$.post('server/user_runner.php',obj,function(data){
 		console.log(data);
 		data = JSON.parse(data);
-		var hist = data[0];	//new history statement, in format "0;0;0;0;2;1;1;0...": 0 = unattempted, 1 = correct, 2 = incorrect
+		var hist = data[0];	//new history statement, in format "0;0;0;0;2;1;1;0...": 0 = unattempted, 1 = correct, 2 = incorrect, 3 = too many attempts
 		var res1 = data[1];	//result for level 1: 1 = correct, 0 = incorrect, 3 = too many attempts, 4 = already graded
 		var res2 = data[2];	//result for level 2
 		var res3 = data[3];	//result for level 3

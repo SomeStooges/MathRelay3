@@ -19,6 +19,44 @@ function add() {
     $("#timer").text((hours?(hours>9?hours:"0"+hours):"00")+":"+(minutes?(minutes>9?minutes:"0"+minutes):"00")+":"+(seconds>9?seconds:"0"+seconds));
     timer();
 }
+
+function getTeamData(){
+	$.post('server/admin_control.php','action=getTeamData',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
+			The first index contains the record number
+			The second index contains the table column, read left to right starting from 0.
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
+
+function getAdminLog(){
+	$.post('server/admin_control.php','action=getAdminLog',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Data contains an object array, with each column name as a property and each record as an index
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
+
+function getAnswerKey(){
+	$.post('server/admin_control.php','action=getAnswerKey',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
+			The first index contains the record number
+			The second index contains the question number, level 3 answer, level 2 answer, and level 1 answer.
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
+
 function getSettings(){
 	$.post('server/admin_control.php','action=getSettings',function(data){
 		console.log(data);

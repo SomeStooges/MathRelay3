@@ -65,8 +65,37 @@
 		return true;
 	}
 	
+	function getTeamData(){
+		$resource = db_Query("SELECT team_id,team_nickname,password,points,rank_freetime,last_checkin_time,last_point FROM team_data;");
+		$response = array();
+		while($tempObj = mysqli_fetch_row($resource)){
+			$response[] = $tempObj;
+		}
+		return $response;
+	}
+	
+	function getAdminLog(){
+		$teamID = $_REQUEST($teamID);
+		
+		$resource = db_Query("SELECT * FROM admin_log WHERE team_id='$teamID';");
+		$response = array();
+		while($tempObj = mysqli_fetch_row($resource)){
+			$response[] = $tempObj;
+		}
+		return $response;
+	}
+	
+	function getAnswerKey(){
+		$resource = db_Query("SELECT * FROM answer_key;");
+		$response = array();
+		while($tempObj = mysqli_fetch_row($resource)){
+			$response[] = $tempObj;
+		}
+		return $response;
+	}
+	
 	function getSettings(){
-		$resource = db_Query("SELECT * FROM relay_options");
+		$resource = db_Query("SELECT * FROM relay_options;");
 		$response = array();
 		while($tempObj = mysqli_fetch_row($resource)){
 			$response[] = $tempObj;
@@ -81,6 +110,9 @@
 		case 'adminReset': $return = adminReset(); break;
 		case 'adminLogin': $return = adminLogin(); break;
 		case 'getOption': $return = getOption($_REQUEST['class'],$_REQUEST['name']); break;
+		case 'getTeamData': $return = getTeamData(); break;
+		case 'getAdminLog': $return = getAdminLog(); break;
+		case 'getAnswerKey': $return = getAnswerKey(); break;
 		case 'getSettings': $return = getSettings(); break;
 		case 'adminLogout': $return = adminLogout(); break;
 	}

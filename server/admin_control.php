@@ -65,6 +65,14 @@
 		return true;
 	}
 	
+	function getSettings(){
+		$resource = db_Query("SELECT * FROM relay_options");
+		$response = array();
+		while($tempObj = mysqli_fetch_row($resource)){
+			$response[] = $tempObj;
+		}
+		return $response;
+	}
 	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
@@ -73,6 +81,7 @@
 		case 'adminReset': $return = adminReset(); break;
 		case 'adminLogin': $return = adminLogin(); break;
 		case 'getOption': $return = getOption($_REQUEST['class'],$_REQUEST['name']); break;
+		case 'getSettings': $return = getSettings(); break;
 		case 'adminLogout': $return = adminLogout(); break;
 	}
 	print json_encode($return);

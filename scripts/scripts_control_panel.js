@@ -19,8 +19,20 @@ function add() {
     $("#timer").text((hours?(hours>9?hours:"0"+hours):"00")+":"+(minutes?(minutes>9?minutes:"0"+minutes):"00")+":"+(seconds>9?seconds:"0"+seconds));
     timer();
 }
+function getSettings(){
+	$.post('server/admin_control.php','action=getSettings',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Data is a two dimensional array. THe first index determines which setting it is for.
+		the second index lists the class, name, and value of the setting, in that order (from 0 to 2).
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
 
 $(document).ready( function() {
+	getSettings();
 	$("#start").click( function(){
 		timer();
 		$("#start").prop("disabled",true);

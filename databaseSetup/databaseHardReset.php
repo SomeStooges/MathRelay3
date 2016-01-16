@@ -37,9 +37,14 @@
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `answer_key` (
 		  `series_number` int(8) NOT NULL,
-		  `level_3` varchar(4) NOT NULL,
-		  `level_2` varchar(4) NOT NULL,
-		  `level_1` varchar(4) NOT NULL
+		  `level_number` int(8) NOT NULL,
+		  `correct_index` int(8) NOT NULL,
+		  `choice_1` varchar(16) NOT NULL,
+		  `choice_2` varchar(16) NOT NULL,
+		  `choice_3` varchar(16) NOT NULL,
+		  `choice_4` varchar(16) NOT NULL,
+		  `choice_5` varchar(16) NOT NULL,
+		  `choice_6` varchar(16) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `relay_options` (
@@ -92,12 +97,16 @@
 	('answerkey','numQuestion','40');
 	");
 	
-	mysqli_query($con, "INSERT INTO `answer_key`(`series_number`, `level_3`, `level_2`, `level_1`) VALUES
-	('1','A','A','A'),
-	('2','B','B','B'),
-	('3','C','C','C'),
-	('4','A','B','C'),
-	('5','C','B','C');
+	mysqli_query($con, "INSERT INTO `answer_key`(`series_number`, `level_number`, `correct_index`, `choice_1`,`choice_2`,`choice_3`,`choice_4`,`choice_5`,`choice_6`) VALUES
+	('1','1','1','A','A','A','A','A','A'),
+	('1','2','1','B','B','B','B','B','B'),
+	('1','3','1','C','C','C','C','C','C'),
+	('2','1','1','A','B','C','D','E','F'),
+	('2','2','1','G','H','I','J','K','L'),
+	('2','3','1','M','N','O','P','Q','R'),
+	('3','1','1','-17','-6','1','12','35','100'),
+	('3','2','1','Linear','Quadratic','Cubic','Logrithmic','Exponential','Differential'),
+	('3','3','1','pi','2pi','4pi','5pi','7pi','10pi');
 	");
 	//Closes the connection
 	print "<p> And now we'll close the connection and be on our way.</p>";

@@ -22,6 +22,7 @@ function gradeAnswer(qNum, l3, l2, l1){
 }
 
 $(document).ready( function() {
+	//console.log(choiceBank[1][2][3]);
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			console.log("Retrieving nickname if available.");

@@ -35,4 +35,9 @@ th.level_header {
 	float: right;
 }
 
+td.choiceButtons{
+	height: 200px;
+	width: 125px;
+}
+
 

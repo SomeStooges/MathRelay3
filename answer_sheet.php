@@ -71,7 +71,7 @@
 						for ($countIn = 1; $countIn <= 5; $countIn++) {
 							$currentNum = $countIn + (5 * $countOut);
 							if ($currentNum <= $numQuestions) {
-								print "<td class='questions' id='q" . $currentNum . "'> " . $currentNum . " </td>";
+								print "<td><button class='seriesNumbers' id='q" . $currentNum . "'> " . $currentNum . " </button></td>";
 							}	
 						}
 						print "</tr>"; 				

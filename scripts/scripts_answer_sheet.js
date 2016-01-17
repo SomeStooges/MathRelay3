@@ -21,8 +21,15 @@ function gradeAnswer(qNum, l3, l2, l1){
 	});
 }
 
+function getChoices(series){
+	for(i=1;i<=3;i++){
+		for(j=1;j<=6;j++){
+			$('#c'+i+'_'+j+'').html(choiceBank[series][i][j]);
+		}
+	}
+}
+
 $(document).ready( function() {
-	//console.log(choiceBank[1][2][3]);
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			console.log("Retrieving nickname if available.");
@@ -64,5 +71,10 @@ $(document).ready( function() {
 				console.log("Logout failed.");
 			}
 		});
+	});
+	
+	$(".seriesNumbers").click( function(){
+		series = $(this).prop('id');
+		getChoices(series.substring(1,series.length));
 	});
 });

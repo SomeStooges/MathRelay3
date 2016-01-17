@@ -13,12 +13,15 @@
 		$l1 = $_REQUEST['level1'];
 		
 		//Check whether those answers were correct
-		$resource = db_Query("SELECT level_3, level_2, level_1 FROM answer_key WHERE series_number='$series';");
+		$resource = db_Query("SELECT correct_index FROM answer_key WHERE series_number='$series' ORDER BY level_number DESC;");
 		$answer = mysqli_fetch_object($resource);
+		$res3 = ($answer->correct_index==$l3 ? 1 : 0);
 		
-		$res3 = ($answer->level_3==$l3 ? 1 : 0);
-		$res2 = ($answer->level_2==$l2 ? 1 : 0);
-		$res1 = ($answer->level_1==$l1 ? 1 : 0);
+		$answer = mysqli_fetch_object($resource);
+		$res2 = ($answer->correct_index==$l2 ? 1 : 0);
+		
+		$answer = mysqli_fetch_object($resource);
+		$res1 = ($answer->correct_index==$l1 ? 1 : 0);
 
 		//update the points in teamdata
 		$resource = mysqli_fetch_object(db_Query("SELECT points,history,attempts FROM team_data WHERE team_id='$teamID';"));

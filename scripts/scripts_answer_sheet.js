@@ -1,7 +1,14 @@
 // Scripts for the corresponding answer_sheet.php page
 
+//Global variables saving whatever answer has been selected.
+var seriesSelected = '';
+var level3selected = '';
+var level2selected = '';
+var level1selected = '';
+
 //Sends the answer to the server to be graded
 function gradeAnswer(qNum, l3, l2, l1){
+	console.log('Sending answer: series: '+qNum+' ; '+l3+' ; '+l2+' ; '+l1+' ;');
 	obj = new Object;
 	obj.action = 'gradeAnswer';
 	obj.question = qNum;	//question number, as an INT
@@ -74,7 +81,35 @@ $(document).ready( function() {
 	});
 	
 	$(".seriesNumbers").click( function(){
+		//resets the selected answers
+		level3selected = '';
+		level2selected = '';
+		level1selected = '';
+		
+		//gets the answer choices for the selected series
 		series = $(this).prop('id');
-		getChoices(series.substring(1,series.length));
+		series = series.substring(1,series.length);
+		getChoices(series);
+		seriesSelected = series;
+	});
+	
+	$(".level3Buttons").click( function(){
+		selid = $(this).prop('id');
+		level3selected = selid.substring(3,4);
+		//SOME GUI CHANGE
+	});
+	$(".level2Buttons").click( function(){
+		selid = $(this).prop('id');
+		level2selected = selid.substring(3,4);
+		//SOME GUI CHANGE
+	});
+	$(".level1Buttons").click( function(){
+		selid = $(this).prop('id');
+		level1selected = selid.substring(3,4);
+		//SOME GUI CHANGE
+	});
+	$('#submit_answer').click( function(){
+		console.log("submitting answer");
+		gradeAnswer(seriesSelected,level3selected,level2selected,level1selected);
 	});
 });

@@ -25,6 +25,8 @@ function gradeAnswer(qNum, l3, l2, l1){
 		//console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
 		
 		//WRITE GUI CHANGE HERE
+		
+		$('#currentPoints').html(data[4]);
 	});
 }
 

@@ -116,6 +116,7 @@
 					</table>
 				</div>
 			</div>
+			<div>Points <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></div>
 			
 			<button id="submit_answer"> SUBMIT </button>
 		</div>

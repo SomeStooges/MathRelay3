@@ -20,7 +20,71 @@ function add() {
     timer();
 }
 
+function getTeamData(){
+	$.post('server/admin_control.php','action=getTeamData',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
+			The first index contains the record number
+			The second index contains the table column, read left to right starting from 0.
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
+
+function getAdminLog(){
+	$.post('server/admin_control.php','action=getAdminLog',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Data contains an object array, with each column name as a property and each record as an index
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
+
+function getAnswerKey(){
+	$.post('server/admin_control.php','action=getAnswerKey',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
+			The first index contains the record number
+			The second index contains the question number, level 3 answer, level 2 answer, and level 1 answer.
+		*/
+		
+		//WRITE GUI CHANGE HERE
+		var message = "<table>";
+		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level w<br>Answer</th><th>Level 1<br>Answer</th>"
+		for(var i = 0; i<data.length ; i++){
+			message += "<tr>";
+			for( var j = 0; j<data[i].length ; j++){
+				message += "<td>" + data[i][j] + "</td>"
+			}
+			message += "</tr>";
+		}
+		
+		message += "</table>";
+		
+		$("#tooltab3").html(message)
+	});
+}
+
+function getSettings(){
+	$.post('server/admin_control.php','action=getSettings',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Data is a two dimensional array. THe first index determines which setting it is for.
+		the second index lists the class, name, and value of the setting, in that order (from 0 to 2).
+		*/
+		
+		//WRITE GUI CHANGE HERE
+	});
+}
+
 $(document).ready( function() {
+	getSettings();
+	getAnswerKey();
 	$("#start").click( function(){
 		timer();
 		$("#start").prop("disabled",true);

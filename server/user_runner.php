@@ -5,7 +5,6 @@
 	
 	function gradeAnswer(){
 		//Get the variables that were submitted
-		//?action=gradeAnswer&question=1&level3=A&level2=B&level1=C
 		$teamID = $_SESSION['teamID'];
 		$series = $_REQUEST['question'];
 		$l3 = $_REQUEST['level3'];
@@ -24,18 +23,20 @@
 		$res1 = ($answer->correct_index==$l1 ? 1 : 0);
 
 		//update the points in teamdata
-		$resource = mysqli_fetch_object(db_Query("SELECT points,history,attempts FROM team_data WHERE team_id='$teamID';"));
+		$resource = mysqli_fetch_object(db_Query("SELECT points,history,attempts,last_point FROM team_data WHERE team_id='$teamID';"));
 		$attempts = explode(';',$resource->attempts);
 		$points = $resource->points;
 		$ansHis = explode(';',$resource->history);
 		$numAtt = intval($attempts[ $series-1 ]) + 1;
 		$attempts[ $series-1 ] = strval($numAtt);
+		$lastPoint = $resource->last_point;
 		
 		if( $numAtt < 6 && strval($ansHis[ $series-1 ])!='1'){
 			if($res1 && $res2 && $res3){
 				//if correct, and will score more than zero points
 				$points += 12 - 2 * intval( $attempts[ $series-1 ] );
 				$ansHis[ $series-1 ] = '1';
+				$lastPoint = time();
 			} else {
 				//if incorrect
 				$ansHis[ $series-1 ] = '2';
@@ -56,7 +57,7 @@
 		$ansHis = implode(';', $ansHis);
 		$attempts = implode(';',$attempts);
 		
-		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points' WHERE team_id='$teamID';");
+		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points',last_point='$lastPoint' WHERE team_id='$teamID';");
 		
 		//Update the answer log
 		$ctime = date('g:i:s l, M d, Y');

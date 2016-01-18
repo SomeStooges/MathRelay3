@@ -29,7 +29,7 @@ function setCleanupParagraph(inputText){
 		data = JSON.parse(data);
 		
 		//WRITE GUI CHANGE HERE
-	}
+	});
 }
 
 function getTeamData(){

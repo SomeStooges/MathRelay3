@@ -67,7 +67,7 @@ function getAnswerKey(){
 		
 		//WRITE GUI CHANGE HERE
 		var message = "<table>";
-		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level w<br>Answer</th><th>Level 1<br>Answer</th>"
+		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level 2<br>Answer</th><th>Level 1<br>Answer</th>"
 		for(var i = 0; i<data.length ; i++){
 			message += "<tr>";
 			for( var j = 0; j<data[i].length ; j++){
@@ -95,6 +95,7 @@ function getSettings(){
 }
 
 $(document).ready( function() {
+	var defaultHTML = $("#content").html();
 	getSettings();
 	getAnswerKey();
 	$("#start").click( function(){
@@ -115,9 +116,40 @@ $(document).ready( function() {
 		});
 	});
 	
+	$(".toolbarButton").click( function() {
+		switch($(this).attr("id")){
+			case "teamData":
+				$("#content").html(defaultHTML); 
+				console.log("Team Data pressed"); break;
+			case "answerKey":
+				$("#content").empty();
+				console.log("Answer Key pressed"); break; 
+			case "teamLog": 
+				$("#content").empty();
+				console.log("Team Activity Log pressed");break;
+			case "statistics":  
+				$("#content").empty(); 
+				console.log("Statistics pressed"); break;
+			case "settings": 
+				$("#content").empty(); 
+				console.log("Settings pressed"); break;
+		};
+	});
+	
+	
+	
 	$('#leaderboardLink').click(function(){
 		window.location.href="leaderboard.php";
 	});
+	
+	$("#teamData").click(function() {
+		$("#content").html(defaultHTML);
+	});
+	
+	$("#answerKey").click(function() {
+		$("#content").empty();
+	});
+	
 	$("#logoutButton").click( function() {
 		action = "action=adminLogout";
 		$.post("server/admin_control.php", action, function(data) {

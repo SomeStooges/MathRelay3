@@ -78,10 +78,39 @@ function getAnswerKey(){
 		
 		message += "</table>";
 		
-		$("#tooltab3").html(message)
+		$("#tooltab3").html(message);
 	});
 }
-
+//THIS IS JUST A TEMPORARY FUNCTION, SHOWING THAT THE BUTTON FOR ANSWER KEY WILL UPDATE THE CONTENT DIV WITH JUST ANSWER KEY============================================================================================
+//====================================================================================================================================================================================================================
+function getAnswerKey2(){
+	
+	$.post('server/admin_control.php','action=getAnswerKey',function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		/* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
+			The first index contains the record number
+			The second index contains the question number, level 3 answer, level 2 answer, and level 1 answer.
+		*/
+		
+		//WRITE GUI CHANGE HERE
+		var message = "<table>";
+		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level 2<br>Answer</th><th>Level 1<br>Answer</th>";
+		for(var i = 0; i<data.length ; i++){
+			message += "<tr>";
+			for( var j = 0; j<data[i].length ; j++){
+				message += "<td>" + data[i][j] + "</td>"
+			}
+			message += "</tr>";
+		}
+		
+		message += "</table>";
+		$("#content").html(message);
+		
+	});
+}
+//END TEMPORARY FUNCTION ================================================================================================================================================================================================
+//=======================================================================================================================================================================================================================
 function getSettings(){
 	$.post('server/admin_control.php','action=getSettings',function(data){
 		console.log(data);
@@ -95,13 +124,12 @@ function getSettings(){
 }
 
 $(document).ready( function() {
-	var defaultHTML = $("#content").html();
-	getSettings();
-	getAnswerKey();
+	var defaultHTML = $("#content").html();//gets existing HTML from refreshing the page
+	getSettings();//TEMPORARY! displays settings content for Michael to see
+	getAnswerKey();//TEMPORARY! displays answer key content for Michael to see
 	$("#start").click( function(){
 		timer();
 		$("#start").prop("disabled",true);
-
 	});
 	
 	$("#stop").click( function() {
@@ -120,19 +148,28 @@ $(document).ready( function() {
 		switch($(this).attr("id")){
 			case "teamData":
 				$("#content").html(defaultHTML); 
-				console.log("Team Data pressed"); break;
+				console.log("Team Data pressed"); 
+				break;
+				
 			case "answerKey":
-				$("#content").empty();
-				console.log("Answer Key pressed"); break; 
+				getAnswerKey2();
+				console.log("Answer Key pressed");
+				break; 
+				
 			case "teamLog": 
 				$("#content").empty();
-				console.log("Team Activity Log pressed");break;
+				console.log("Team Activity Log pressed");
+				break;
+				
 			case "statistics":  
 				$("#content").empty(); 
-				console.log("Statistics pressed"); break;
+				console.log("Statistics pressed"); 
+				break;
+				
 			case "settings": 
 				$("#content").empty(); 
-				console.log("Settings pressed"); break;
+				console.log("Settings pressed"); 
+				break;
 		};
 	});
 	
@@ -140,14 +177,6 @@ $(document).ready( function() {
 	
 	$('#leaderboardLink').click(function(){
 		window.location.href="leaderboard.php";
-	});
-	
-	$("#teamData").click(function() {
-		$("#content").html(defaultHTML);
-	});
-	
-	$("#answerKey").click(function() {
-		$("#content").empty();
 	});
 	
 	$("#logoutButton").click( function() {

@@ -94,6 +94,17 @@
 		return $response;
 	}
 	
+	function setCleanupParagraph(){
+		$fileName = "cleanupParagraph.txt";
+		$myfile = fopen($fileName,'w');
+		$text = $_REQUEST['paragraph'];
+		fwrite($myfile,$text);
+		$myfile = fopen($fileName,'r');
+		$text = fread($myfile, filesize($fileName));
+		fclose($myfile);
+		return $text;
+	}
+	
 	function getSettings(){
 		$resource = db_Query("SELECT * FROM relay_options;");
 		$response = array();
@@ -115,6 +126,7 @@
 		case 'getAnswerKey': $return = getAnswerKey(); break;
 		case 'getSettings': $return = getSettings(); break;
 		case 'adminLogout': $return = adminLogout(); break;
+		case 'setCleanupParagraph': $return = setCleanupParagraph(); break;
 	}
 	print json_encode($return);
 ?>

@@ -25,7 +25,7 @@
 			$query = "INSERT INTO team_data VALUES ";
 			for( $i=1; $i<=$numTeams; $i++){
 				$tempPass = makePassword($passwordLength);
-				$query .= "('$i','','$tempPass','0','0','0','0','$newhistory','$newhistory'), ";
+				$query .= "('$i','','$tempPass','0','0','0','0','0','$newhistory','$newhistory'), ";
 			}
 			$query = substr( $query, 0, strlen($query)-2) . ";";
 			

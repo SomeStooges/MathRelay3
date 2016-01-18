@@ -7,6 +7,24 @@
 	function getEvent(){
 		return 'open';
 	}
+	
+	function getCleanupParagraph(){
+		$fileName = "cleanupParagraph.txt";
+		if(file_exists($fileName)){
+			$myfile = fopen($fileName,'r');
+			$text = fread($myfile, filesize($fileName));
+		} else {
+			$myfile = fopen($fileName,'w');
+			//default text if the file doesn't exist.
+			$text = "Pay attention to the announcers for future directions.";
+			fwrite($myfile,$text);
+			$myfile = fopen($fileName,'r');
+			$text = fread($myfile, filesize($fileName));
+		}
+		fclose($myfile);
+		return $text;
+	}
+	
 	function userLogin(){
 		//Get the teamID and password
 		$teamID = $_REQUEST['teamID'];
@@ -52,11 +70,12 @@
 	$action = $_REQUEST['action'];
 	$return = false;
 	switch( $action ){
-		case 'getEvent': $return = getEvent(); break;
-		case 'userLogin': $return = userLogin(); break;
-		case 'userLogout': $return = userLogout(); break;
-		case 'setNickname': $return = setNickname(); break;
-		case 'getNickname': $return = getNickname(); break;
+		case 'getEvent': 		$return = getEvent(); 	break;
+		case 'userLogin':		$return = userLogin();	break;
+		case 'userLogout':		$return = userLogout(); break;
+		case 'setNickname':		$return = setNickname(); break;
+		case 'getNickname':		$return = getNickname(); break;
+		case 'getCleanupParagraph': $return = getCleanupParagraph(); break;
 	}
 	print json_encode($return);
 ?>

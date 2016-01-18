@@ -1,19 +1,21 @@
 <!doctype HTML>
+<html lang = "en">
 <html>
 	<head>
+		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="./scripts/scripts_index.js"></script>
-		<title> Welcome Page </title>
+		<link rel="stylesheet" type="text/css" href="../MathRelay3/styles/welcome.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
+		<title>Math Relay 2016</title>
 	</head>
 
-	<body style="text-align:center">
-		<h1> WELCOME TO THE WORLD </h1>
-		<p> My name is Ethan Freeburg </p>
-		<p> My name is Roland Ip </p>
-		<p> My name is Kyle Murdoch </p>
-		<p> My name is Michael Lam </p>
+	<body>
+		<section>
+		<h1>McNeil HS Math Relay 2016</h1>
 
 		<button id="welcomeButton"> Go to LOGIN </button>
 		<button id="adminButton"> Go to ADMIN </button>
+	</section>
 	</body>
 </html>

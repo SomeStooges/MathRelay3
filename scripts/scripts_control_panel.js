@@ -20,6 +20,18 @@ function add() {
     timer();
 }
 
+function setCleanupParagraph(inputText){
+	obj = new Object;
+	obj.action = 'setCleanupParagraph';
+	obj.paragraph = inputText;
+	$.post('server/admin_control.php',obj,function(data){
+		console.log(data);
+		data = JSON.parse(data);
+		
+		//WRITE GUI CHANGE HERE
+	}
+}
+
 function getTeamData(){
 	$.post('server/admin_control.php','action=getTeamData',function(data){
 		console.log(data);

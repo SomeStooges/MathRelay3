@@ -1,0 +1,47 @@
+body {
+
+    text-align: center;
+    background-image: url('/MathRelay3/images/SAM_1343.jpg');
+    background-size: cover;
+
+    font-family: 'Advent Pro', sans-serif;
+
+}
+
+section {
+
+    font-size: 500%;
+    color: white;
+    margin: 5%;
+
+    background-position: center;
+    border: 3px solid black;
+    border:5%;
+    padding: 4%;
+    border-radius: 20px;
+    position:relative;
+
+    background-color: rgba(0,0,0,0.6);
+
+}
+
+h1 {
+
+    margin: auto;
+    color: rgb(16, 86, 146); <!--Blue color -->
+
+}
+
+
+
+
+
+
+
+
+h2 {
+
+
+    color: rgb(36, 132, 97); <!-- Green color -->
+
+}

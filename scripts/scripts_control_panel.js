@@ -111,6 +111,23 @@ function getAnswerKey2(){
 }
 //END TEMPORARY FUNCTION ================================================================================================================================================================================================
 //=======================================================================================================================================================================================================================
+function getTeamLog(){
+	$.post('server/admin_control.php','action=getTeamLog',function(data){
+		data = JSON.parse(data);
+		console.log("getTeamLog called");
+		var message="<p>Some HTML should be returned via a variable string from the database here to display team activity logs!</p>";
+		$("#content").html(message); 
+		console.log(message);
+	});
+}
+
+function getStatistics(){
+	$.post('server/admin_control.php','action=getStatistics',function(data){
+		var message="<div>Some HTML should be returned via a variable string from the database here to display statistics!</div>";
+		$("#content").html(message);
+	});
+}
+
 function getSettings(){
 	$.post('server/admin_control.php','action=getSettings',function(data){
 		console.log(data);
@@ -157,12 +174,12 @@ $(document).ready( function() {
 				break; 
 				
 			case "teamLog": 
-				$("#content").empty();
+				getTeamLog();
 				console.log("Team Activity Log pressed");
 				break;
 				
 			case "statistics":  
-				$("#content").empty(); 
+				getStatistics();
 				console.log("Statistics pressed"); 
 				break;
 				

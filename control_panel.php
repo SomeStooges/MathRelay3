@@ -26,8 +26,8 @@
 				<button class="ribbonButton" id="freezeLeaderboard">Freeze Leaderboard</button>
 				<button class="ribbonButton" id="stop">Stop</button>
 				<button class="ribbonButton" id="close">Close</button>
-				<div id="timer">00:00:00</div>				
 				<button class="ribbonButton" id="logoutButton">Logout</button>
+				<div id="timer">00:00:00</div>				
 
 			</div>
 		</div>

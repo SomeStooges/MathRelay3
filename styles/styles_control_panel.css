@@ -4,28 +4,40 @@
 		overflow-x:scroll;
 		margin:0px;
 	}
+	#ribbon{
+		width: 100vw;
+	}
 	#ribbon1{
-			white-space: nowrap;
-			background-color: #377638;
-			height: 93px;
-			width: 25%;
-			float:left;
+		white-space: nowrap;
+		background-color: #377638;
+		height: 93px;
+		width: 25%;
+		float:left;
 	}
 	#ribbon2{
-			white-space: nowrap;
-			background-color: #377638;
-			height: 93px;
-			width: 75%;
-			float:right;
+		overflow: hidden;
+		background-color: #377638;
+		height: 93px;
+		width: 75%;
+		float:left;
+	}
+	#container{
+		width:100%;
+	}
+	#content{
+		max-width:100%
+		margin-left:150px;
+		width:100%;
 	}
 	#toolbar{
 		background-color: LightGray;
 		width: 150px;
-		height: 100%;
+		height: 100vh;
 		float: left;
 	}
+	
 	#freezeLeaderboard{
-		width: 150;
+		width: 145px;
 		height: 93px;
 		text-align: left;
 		background: none;
@@ -37,15 +49,16 @@
 		color: white;
 		background-color: #011858;	
 	}
-	#logoutButton{
-		float: right;
-	}
 	#timer{
 		background-color: #377638;
 		float:right;
 		height: 40px;
 		margin-top: 27px;
 		padding: 12px;
+	}
+	#logoutButton{
+		float: right;
+		margin:0px;
 	}
 	.toolbarButton{
 		width: 150px;

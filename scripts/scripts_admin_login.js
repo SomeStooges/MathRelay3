@@ -3,7 +3,11 @@ $(document).ready( function() {
 	$("#back_button").click( function() {
 		window.location.href="index.php";
 	});
-	
+	$("#adminPassword").keypress(function(){
+		if(event.which == 13){
+			$("#admin_login").click();
+		}
+	});
 	
 	$("#admin_login").click( function() {
 		obj = new Object;

@@ -80,8 +80,8 @@
 				</table>
 			</div>
 			<!-- 3 tables for answers -->
-			<div id="answerChoices">
-				<div id='level3choice'>
+			<div id="answerChoices" >
+				<div id='level3choice'class="answerLevel">
 				<b>Level 3</b>
 					<table class='choiceButtons'>
 						<?php
@@ -93,7 +93,7 @@
 						?>						
 					</table>
 				</div>
-				<div id='level3choice'>
+				<div id='level2choice'class="answerLevel">
 				<b>Level 2</b>
 					<table class='choiceButtons'>
 						<?php
@@ -104,7 +104,7 @@
 						?>						
 					</table>
 				</div>
-				<div id='level3choice'>
+				<div id='level1choice'class="answerLevel">
 				<b>Level 1</b>
 					<table class='choiceButtons'>
 						<?php

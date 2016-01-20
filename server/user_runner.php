@@ -34,9 +34,13 @@
 		if( $numAtt < 6 && strval($ansHis[ $series-1 ])!='1'){
 			if($res1 && $res2 && $res3){
 				//if correct, and will score more than zero points
-				$points += 12 - 2 * intval( $attempts[ $series-1 ] );
+				$award = 12 - 2 * intval( $attempts[ $series-1 ] );
+				$points += $award;
 				$ansHis[ $series-1 ] = '1';
 				$lastPoint = time();
+				
+				$ctime = date('g:i:s');
+				db_Query("INSERT INTO admin_log VALUES ('$ctime','$series','$award','$points');");
 			} else {
 				//if incorrect
 				$ansHis[ $series-1 ] = '2';
@@ -60,11 +64,7 @@
 		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points',last_point='$lastPoint' WHERE team_id='$teamID';");
 		
 		//Update the answer log
-		$ctime = date('g:i:s l, M d, Y');
-		db_Query("INSERT INTO `admin_log`
-			(`team_id`, `series_number`, `answer_3`, `check_3`, `answer_2`, `check_2`, `answer_1`, `check_1`, `timestamp`) 
-			VALUES ('$teamID','$series','$l3','$res3','$l2','$res2','$l1','$res1','$ctime')");
-		
+		$ctime = date('g:i:s');
 		//Return the response to the user
 		
 		$response = array(

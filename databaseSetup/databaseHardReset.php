@@ -24,15 +24,10 @@
 	mysqli_query($con, 'SET time_zone = "+00:00";');
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `admin_log` (
-		`team_id` int(8) NOT NULL,
-		`series_number` int(8) NOT NULL,
-		`answer_3` varchar(8) NOT NULL,
-		`check_3` int(8) NOT NULL,
-		`answer_2` varchar(8) NOT NULL,
-		`check_2` int(8) NOT NULL,
-		`answer_1` varchar(8) NOT NULL,
-		`check_1` int(8) NOT NULL,
-		`timestamp` varchar(35) NOT NULL
+		`timestamp` varchar(35) NOT NULL,
+		`question_number` int(8) NOT NULL,
+		`award` int(8) NOT NULL,
+		`total` int(8) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 	
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `answer_key` (

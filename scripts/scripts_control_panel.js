@@ -126,7 +126,7 @@ function getSettings(){
 $(document).ready( function() {
 	var defaultHTML = $("#content").html();//gets existing HTML from refreshing the page
 	getSettings();//TEMPORARY! displays settings content for Michael to see
-	getAnswerKey();//TEMPORARY! displays answer key content for Michael to see
+	//getAnswerKey();//TEMPORARY! displays answer key content for Michael to see
 	$("#start").click( function(){
 		timer();
 		$("#start").prop("disabled",true);

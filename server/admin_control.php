@@ -114,6 +114,17 @@
 		return $response;
 	}
 	
+	function getTeamLog(){
+		$resource;
+		$response;
+		return $response;
+	}
+	function getStatistics(){
+		$resource;
+		$response;
+		return $response;
+	}
+	
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;
@@ -125,6 +136,8 @@
 		case 'getAdminLog': $return = getAdminLog(); break;
 		case 'getAnswerKey': $return = getAnswerKey(); break;
 		case 'getSettings': $return = getSettings(); break;
+		case 'getTeamLog': $return = getTeamLog(); break;
+		case 'getStatistics': $return = getStatistics(); break;
 		case 'adminLogout': $return = adminLogout(); break;
 		case 'setCleanupParagraph': $return = setCleanupParagraph(); break;
 	}

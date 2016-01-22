@@ -3,6 +3,14 @@ $(document).ready( function() {
 	$("#back_button").click(function() {
 		window.location.href = "index.php";
 	});
+	
+	
+	$("#teamPassword").keypress(function(){
+		if(event.which == 13){
+			$("#user_login").click();
+		}
+	});
+	
 	$("#user_login").click( function() {
 		obj = new Object;
 		obj.action = "userLogin";

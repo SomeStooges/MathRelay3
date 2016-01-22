@@ -72,9 +72,9 @@
 
 				<!-- Tooltab 2 is missing because it is a hyperlink -->
 				
-				<div id='tooltab3' style='background-color: #FFFFCC'>
+				<div id='tooltab3' style='background-color: #FFFFCC; width: 100%;'>
 					<!-- Content for Answer Key tab -->
-					<div id='questionDiv'>
+					<div id='questionDiv' class='answerKeyElement'>
 						<b> Question Number </b>
 						<table id='questionTable'>
 							<?php
@@ -92,7 +92,7 @@
 							?>
 						</table>
 					</div>
-					<div id='level3Div' class=''>
+					<div id='level3Div' class='answerKeyElement'>
 						<b> Level 3 Answer </b>
 						<table id='level3table'>
 							<?php
@@ -105,7 +105,7 @@
 							?>	
 						</table>
 					</div>
-					<div id='level2Div' class=''>
+					<div id='level2Div' class='answerKeyElement'>
 						<b> Level 2 Answer </b>
 						<table id='level2table'>
 							<?php
@@ -117,7 +117,7 @@
 							?>	
 						</table>
 					</div>
-					<div id='level1Div' class=''>
+					<div id='level1Div' class='answerKeyElement'>
 						<b> Level 1 Answer </b>
 						<table id='level1table'>
 							<?php

@@ -1,11 +1,13 @@
 <style>
 /*Style sheet for control panel*/
 	#body{
+		max-width:100%;
 		overflow-x:scroll;
 		margin:0px;
 	}
 	#ribbon{
 		width: 100vw;
+		margin: 0;
 	}
 	#ribbon1{
 		white-space: nowrap;
@@ -25,7 +27,7 @@
 		width:100%;
 	}
 	#content{
-		max-width:100%
+		max-width:100%;
 		margin-left:150px;
 		width:100%;
 	}
@@ -83,6 +85,10 @@
 	.ribbonButton:hover{
 		color: white;
 		background-color: #011858;	
+	}
+	.answerKeyElement{
+		float: left;
+		background-color: #FFFFCC;
 	}
 	
 

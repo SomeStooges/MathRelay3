@@ -12,7 +12,7 @@
 		header('location: finish_page.php');
 	}*/
 	$choiceBank = array();
-	$numQuestions = 3;//getOption('answerkey','numQuestion');
+	$numQuestions = getOption('answerkey','numQuestion');
 	$resource = db_Query("SELECT choice_1,choice_2,choice_3,choice_4,choice_5,choice_6 FROM answer_key ORDER BY series_number ASC, level_number ASC;");
 	for($i=1;$i<=$numQuestions;$i++){
 		$choiceBank[$i] = array();

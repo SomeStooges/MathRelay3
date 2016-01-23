@@ -1,3 +1,4 @@
+<?php require '../server/utilities.php'; ?>
 <!-- Content for Answer Key tab -->
 <div id='questionDiv' class='answerKeyElement'>
 	<b> Question Number </b>

@@ -1,3 +1,4 @@
+<?php require '../server/utilities.php'; ?>
 <!-- Content for Team Activity log tab-->
 <b> Team ID </b> <button id='freezeButton'>Freeze Log</button>
 <table id='teamActivity'>

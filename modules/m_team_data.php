@@ -1,5 +1,7 @@
 <!-- Content for Team Data tab -->
 <?php
+	require '../server/utilities.php';
+	
 	$resource = db_Query("SELECT team_id,team_nickname,password,points,rank_freetime,last_checkin_time,last_point FROM team_data;");
 	$teamData = array();
 	while($teamRow = mysqli_fetch_row($resource)){

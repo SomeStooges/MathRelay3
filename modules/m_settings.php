@@ -1,3 +1,4 @@
+<?php require '../server/utilities.php'; ?>
 <!-- Content for settings tab -->
 <b> Leaderboard Display Option </b>
 <table>

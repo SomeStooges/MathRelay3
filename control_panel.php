@@ -46,135 +46,19 @@
 		<!-- Adds margin between content and toolbar and ribbon -->
 			<div id = "content">
 			<!-- Dynamic div for content of tabs to display -->
-			
-				<div id='tooltab1' style='background-color: #CCFFFF'>
-					<!-- Content for Team Data tab -->
-					<?php
-						$resource = db_Query("SELECT team_id,team_nickname,password,points,rank_freetime,last_checkin_time,last_point FROM team_data;");
-						$teamData = array();
-						while($teamRow = mysqli_fetch_row($resource)){
-							$teamData[] = $teamRow;
-						}
-						
-						print "<table id='teamDataTable'>";
-						print "<tr><th>Team ID</th><th>Team Nickname</th><th>Password</th><th>Points</th><th>Rank at Freetime</th><th>Last Point Time</th><th>Last Check-in Time</th></tr>";
-						for($i=0;$i<count($teamData);$i++){
-							print "<tr>";
-							for($j=0;$j<count($teamData[$i]);$j++){
-								print "<td>" . $teamData[$i][$j] . "</td>";
-							}
-							print "</tr>";
-						}
-						print "</table>";
-					?>
-					<p> <button id="reset_button">RESET</button> Push RESET to clear all points, change passwords, and change the number of teams. </p>
-				</div>
-
+				
+				<?php include 'modules/m_team_data.php'; ?>
+				
 				<!-- Tooltab 2 is missing because it is a hyperlink -->
 				
-				<div id='tooltab3' style='background-color: #FFFFCC; width: 100%;'>
-					<!-- Content for Answer Key tab -->
-					<div id='questionDiv' class='answerKeyElement'>
-						<b> Question Number </b>
-						<table id='questionTable'>
-							<?php
-								$numQuestions = getOption('answerkey','numQuestion');
-								for ($countOut = 0; $countOut < ($numQuestions / 5); $countOut++) {
-									print "<tr class='questions'>";
-									for ($countIn = 1; $countIn <= 5; $countIn++) {
-										$currentNum = $countIn + (5 * $countOut);
-										if ($currentNum <= $numQuestions) {
-											print "<td><button class='seriesNumbers' id='q" . $currentNum . "'> " . $currentNum . " </button></td>";
-										}	
-									}
-								print "</tr>"; 				
-								}	
-							?>
-						</table>
-					</div>
-					<div id='level3Div' class='answerKeyElement'>
-						<b> Level 3 Answer </b>
-						<table id='level3table'>
-							<?php
-								$numChoices = 6;
-								$level = 3;
-								for($i=1;$i<=6;$i++){
-									print "<tr><td><input id='v".$level."_".$i."' class='level".$level."Values' value='v".$level."_".$i."'<td>";
-									print "<td><button id='s".$level."_".$i."' class='level".$level."Set'>s".$level."_".$i."</button></tr>";
-								}
-							?>	
-						</table>
-					</div>
-					<div id='level2Div' class='answerKeyElement'>
-						<b> Level 2 Answer </b>
-						<table id='level2table'>
-							<?php
-								$level = 2;
-								for($i=1;$i<=6;$i++){
-									print "<tr><td><input id='v".$level."_".$i."' class='level".$level."Values' value='v".$level."_".$i."'<td>";
-									print "<td><button id='s".$level."_".$i."' class='level".$level."Set'>s".$level."_".$i."</button></tr>";
-								}
-							?>	
-						</table>
-					</div>
-					<div id='level1Div' class='answerKeyElement'>
-						<b> Level 1 Answer </b>
-						<table id='level1table'>
-							<?php
-								$level = 1;
-								for($i=1;$i<=6;$i++){
-									print "<tr><td><input id='v".$level."_".$i."' class='level".$level."Values' value='v".$level."_".$i."'<td>";
-									print "<td><button id='s".$level."_".$i."' class='level".$level."Set'>s".$level."_".$i."</button></tr>";
-								}
-							?>	
-						</table>
-					</div>
-				</div>
+				<?php include 'modules/m_answer_key.php'; ?>
 				
-				<div id='tooltab4' style='background-color: #CCFFFF'>
-					<!-- Content for Team Activity log tab-->
-					<b> Team ID </b> <button id='freezeButton'>Freeze Log</button>
-					<table id='teamActivity'>
-						<?php
-							$numTeams = 50;
-							for($i=1;$i<=$numTeams;$i++){
-								print "<tr><td class='teamIDdiv'>";
-								print $i;
-								print "</td></tr>";
-							}
-						?>
-					<table>
-				</div>
+				<?php include 'modules/m_team_activity.php'; ?>
 				
-				<div id='tooltab5' style='background-color: #FFFFCC'>
-					<!-- Content for statistics tab -->
-				</div>
+				<?php include 'modules/m_statistics.php'; ?>
 				
-				<div id='tooltab6' style='background-color: #CCFFFF'>
-					<!-- Content for settings tab -->
-					<b> Leaderboard Display Option </b>
-					<table>
-						<tr><td>Show Team ID</td><td><input type='checkbox' id='showTeamID'></td></tr>
-						<tr><td>Show Nickname</td><td><input type='checkbox' id='showNickname'></td></tr> 
-						<tr><td>Show Points</td><td><input type='checkbox' id='showPoints'></td></tr> 
-						<tr><td>Number of Teams to Show</td><td><input id='numTeamsShow'></td></tr> 
-					</table>
-					<b> Reset Settings </b>
-					<table>
-						<tr><td>Number of Teams to Generate</td><td><input id='numTeamsGen'></td></tr>
-						<tr><td>Number of Teams to Generate</td><td><input id='numTeamsGen'></td></tr>
-					</table>
-					<b> Test Settings </b>
-					<table>
-						<tr><td>Number of Questions</td><td><input id='numQuestions'></td></tr>
-					</table>
-					<b> Password Reset </b>
-					<table>
-						<tr><td>Old Admin Password: </td><td><input id='oldPassword'></td></tr>
-						<tr><td>New Admin Password: </td><td><input id='newPassword'></td></tr>
-						<tr><td>Repeat New Admin Password: </td><td><input id='repeatPassword'></td></tr>
-					</table>
-			</div>
+				<?php include 'modules/m_settings.php'; ?>
+				
 		</div>	
 	</body>
 </html>

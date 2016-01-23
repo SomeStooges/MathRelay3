@@ -26,11 +26,7 @@
 	#container{
 		width:100%;
 	}
-	#content{
-		max-width:100%;
-		margin-left:150px;
-		width:100%;
-	}
+
 	#toolbar{
 		background-color: LightGray;
 		width: 150px;

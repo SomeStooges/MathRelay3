@@ -46,19 +46,22 @@
 		<!-- Adds margin between content and toolbar and ribbon -->
 			<div id = "content">
 			<!-- Dynamic div for content of tabs to display -->
-				
-				<?php include 'modules/m_team_data.php'; ?>
-				
+				<div id='mod1' style='display: block;' class='contentMod'>
+					<?php include 'modules/m_team_data.php'; ?>
+				</div>
 				<!-- Tooltab 2 is missing because it is a hyperlink -->
-				
-				<?php include 'modules/m_answer_key.php'; ?>
-				
-				<?php include 'modules/m_team_activity.php'; ?>
-				
-				<?php include 'modules/m_statistics.php'; ?>
-				
-				<?php include 'modules/m_settings.php'; ?>
-				
+				<div id='mod3' style='display: none;' class='contentMod'>
+					<?php include 'modules/m_answer_key.php'; ?>
+				</div>
+				<div id='mod4' style='display: none;' class='contentMod'>					
+					<?php include 'modules/m_team_activity.php'; ?>
+				</div>
+				<div id='mod5' style='display: none;' class='contentMod'>
+					<?php include 'modules/m_statistics.php'; ?>
+				</div>
+				<div id='mod6' style='display: none;' class='contentMod'>
+					<?php include 'modules/m_settings.php'; ?>
+				</div>
 		</div>	
 	</body>
 </html>

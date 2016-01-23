@@ -141,8 +141,8 @@ function getSettings(){
 }
 
 $(document).ready( function() {
-	var defaultHTML = $("#content").html();//gets existing HTML from refreshing the page
-	getSettings();//TEMPORARY! displays settings content for Michael to see
+	//var defaultHTML = $("#content").html();//gets existing HTML from refreshing the page
+	//getSettings();//TEMPORARY! displays settings content for Michael to see
 	//getAnswerKey();//TEMPORARY! displays answer key content for Michael to see
 	$("#start").click( function(){
 		timer();
@@ -162,34 +162,17 @@ $(document).ready( function() {
 	});
 	
 	$(".toolbarButton").click( function() {
-		switch($(this).attr("id")){
-			case "teamData":
-				$("#content").html(defaultHTML); 
-				console.log("Team Data pressed"); 
-				break;
-				
-			case "answerKey":
-				getAnswerKey2();
-				console.log("Answer Key pressed");
-				break; 
-				
-			case "teamLog": 
-				getTeamLog();
-				console.log("Team Activity Log pressed");
-				break;
-				
-			case "statistics":  
-				getStatistics();
-				console.log("Statistics pressed"); 
-				break;
-				
-			case "settings": 
-				$("#content").empty(); 
-				console.log("Settings pressed"); 
-				break;
-		};
+		$('.contentMod').css('display','none');	//Resets all to none by default
+		var target;	//to save the value of the pointer
+		switch( $(this).attr("id") ){
+			case "teamData": target = $('#mod1'); break;	//get the pointer
+			case "answerKey": target = $('#mod3'); break;	
+			case "teamLog": target = $('#mod4'); break;	
+			case "statistics": target = $('#mod5'); break;	
+			case "settings": target = $('#mod6'); break;
+		}
+		$(target).css('display','block');	//display the pointer's reference
 	});
-	
 	
 	
 	$('#leaderboardLink').click(function(){

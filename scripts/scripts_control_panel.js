@@ -67,34 +67,6 @@ function getAnswerKey(){
 		
 		//WRITE GUI CHANGE HERE
 		var message = "<table>";
-		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level 2<br>Answer</th><th>Level 1<br>Answer</th>"
-		for(var i = 0; i<data.length ; i++){
-			message += "<tr>";
-			for( var j = 0; j<data[i].length ; j++){
-				message += "<td>" + data[i][j] + "</td>"
-			}
-			message += "</tr>";
-		}
-		
-		message += "</table>";
-		
-		$("#tooltab3").html(message);
-	});
-}
-//THIS IS JUST A TEMPORARY FUNCTION, SHOWING THAT THE BUTTON FOR ANSWER KEY WILL UPDATE THE CONTENT DIV WITH JUST ANSWER KEY============================================================================================
-//====================================================================================================================================================================================================================
-function getAnswerKey2(){
-	
-	$.post('server/admin_control.php','action=getAnswerKey',function(data){
-		console.log(data);
-		data = JSON.parse(data);
-		/* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
-			The first index contains the record number
-			The second index contains the question number, level 3 answer, level 2 answer, and level 1 answer.
-		*/
-		
-		//WRITE GUI CHANGE HERE
-		var message = "<table>";
 		message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level 2<br>Answer</th><th>Level 1<br>Answer</th>";
 		for(var i = 0; i<data.length ; i++){
 			message += "<tr>";
@@ -109,8 +81,7 @@ function getAnswerKey2(){
 		
 	});
 }
-//END TEMPORARY FUNCTION ================================================================================================================================================================================================
-//=======================================================================================================================================================================================================================
+
 function getTeamLog(){
 	$.post('server/admin_control.php','action=getTeamLog',function(data){
 		data = JSON.parse(data);

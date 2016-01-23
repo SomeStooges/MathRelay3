@@ -4,7 +4,7 @@
 	print "<h1> THIS PAGE RESETS YOUR DATABASE </h1>";
 	print "<p>We hire only the best trolls to do our work, so give us a moment and their make sure everything is as good as new!<p>";
 
-	$con = mysqli_connect('localhost','root','','mathrelay3');
+	$con = mysqli_connect('localhost','root','root','mathrelay3');
 	if(!$con){
 		print "<br> <h1>Our trolls don't know where to look for that database!</h1>";
 		print "<br> Make sure that you have a database called EXACTLY 'mathrelay3' by checking the under the 'Database' tab of 'localhost/phpmyadmin'";

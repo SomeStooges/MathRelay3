@@ -1,6 +1,6 @@
 <?php
 	function db_Query($query){
-		$con = mysqli_connect('localhost','root','','mathrelay3');
+		$con = mysqli_connect('localhost','root','root','mathrelay3');
 		$result = mysqli_query($con, $query);
 	
 		if (!$result) {

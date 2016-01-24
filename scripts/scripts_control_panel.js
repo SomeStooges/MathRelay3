@@ -113,15 +113,25 @@ function getSettings(){
 
 function reloadModules(){
 	$.post('/mathrelay3/modules/m_team_data.php',function(data){
+		$('#mod1').html(data);
 		console.log(data);
+		console.log('something worked!');
+	});
+	$.post('/mathrelay3/modules/m_answer_key.php',function(data){
+		$('#mod3').html(data);
+	});
+	$.post('/mathrelay3/modules/m_team_activity.php',function(data){
+		$('#mod4').html(data);
+	});
+	$.post('/mathrelay3/modules/m_statistics.php',function(data){
+		$('#mod5').html(data);
+	});
+	$.post('/mathrelay3/modules/m_settings.php',function(data){
+		$('#mod6').html(data);
 	});
 }
 
 $(document).ready( function() {
-	reloadModules();
-	//var defaultHTML = $("#content").html();//gets existing HTML from refreshing the page
-	//getSettings();//TEMPORARY! displays settings content for Michael to see
-	//getAnswerKey();//TEMPORARY! displays answer key content for Michael to see
 	$("#start").click( function(){
 		timer();
 		$("#start").prop("disabled",true);
@@ -133,9 +143,10 @@ $(document).ready( function() {
 	});
 	
 	$("#reset_button").click( function() {
-		var action = 'action=adminReset';
-		$.post("./server/admin_control.php", action, function(data) {
+		console.log('checkpoint 1');
+		$.post("./server/admin_control.php", 'action=adminReset', function(data) {
 			console.log(data);
+			reloadModules();
 		});
 	});
 	

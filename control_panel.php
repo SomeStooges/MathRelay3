@@ -4,7 +4,7 @@
 	if(!isset($_SESSION['admin'])){
 		header('location: index.php');
 	}
-	require 'server/utilities.php';
+	//require 'server/utilities.php';
 ?>
 <!DOCTYPE HTML>
 <html>

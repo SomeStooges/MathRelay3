@@ -1,4 +1,4 @@
-<?php require '../server/utilities.php'; ?>
+<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
 <!-- Content for Answer Key tab -->
 <div id='questionDiv' class='answerKeyElement'>
 	<b> Question Number </b>

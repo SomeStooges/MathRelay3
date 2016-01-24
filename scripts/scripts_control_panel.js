@@ -111,7 +111,14 @@ function getSettings(){
 	});
 }
 
+function reloadModules(){
+	$.post('/mathrelay3/modules/m_team_data.php',function(data){
+		console.log(data);
+	});
+}
+
 $(document).ready( function() {
+	reloadModules();
 	//var defaultHTML = $("#content").html();//gets existing HTML from refreshing the page
 	//getSettings();//TEMPORARY! displays settings content for Michael to see
 	//getAnswerKey();//TEMPORARY! displays answer key content for Michael to see

@@ -1,6 +1,8 @@
 <!-- Content for Team Data tab -->
 <?php
-	require '../server/utilities.php';
+	if(!function_exists('db_Query')){
+		require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';
+	}
 	
 	$resource = db_Query("SELECT team_id,team_nickname,password,points,rank_freetime,last_checkin_time,last_point FROM team_data;");
 	$teamData = array();

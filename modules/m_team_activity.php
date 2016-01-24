@@ -1,4 +1,4 @@
-<?php require '../server/utilities.php'; ?>
+<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
 <!-- Content for Team Activity log tab-->
 <b> Team ID </b> <button id='freezeButton'>Freeze Log</button>
 <table id='teamActivity'>

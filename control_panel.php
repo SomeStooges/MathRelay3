@@ -6,6 +6,7 @@
 	}
 	//require 'server/utilities.php';
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -13,7 +14,7 @@
 		<script type="text/javascript" src="./scripts/scripts_control_panel.js">var something = "Hello world";</script>
 		<link rel="stylesheet" type="text/css" href="Styles/styles_control_panel.css">
 	</head>
-	
+
 	<body id = "body">
 		<div id = "ribbon">
 		<!-- The banner running across the top -->
@@ -29,7 +30,7 @@
 				<button class="ribbonButton" id="stop">Stop</button>
 				<button class="ribbonButton" id="close">Close</button>
 				<button class="ribbonButton" id="logoutButton">Logout</button>
-				<div id="timer">00:00:00</div>				
+				<div id="timer">00:00:00</div>
 
 			</div>
 		</div>
@@ -47,13 +48,13 @@
 			<div id = "content">
 			<!-- Dynamic div for content of tabs to display -->
 				<div id='mod1' style='display: block;' class='contentMod'>
-					<?php include 'modules/m_team_data.php'; ?>
+					<iframe src='modules/m_team_data.php' style='width: 500;height: 500px;'></iframe>
 				</div>
 				<!-- Tooltab 2 is missing because it is a hyperlink -->
 				<div id='mod3' style='display: none;' class='contentMod'>
 					<?php include 'modules/m_answer_key.php'; ?>
 				</div>
-				<div id='mod4' style='display: none;' class='contentMod'>					
+				<div id='mod4' style='display: none;' class='contentMod'>
 					<?php include 'modules/m_team_activity.php'; ?>
 				</div>
 				<div id='mod5' style='display: none;' class='contentMod'>
@@ -62,6 +63,6 @@
 				<div id='mod6' style='display: none;' class='contentMod'>
 					<?php include 'modules/m_settings.php'; ?>
 				</div>
-		</div>	
+		</div>
 	</body>
 </html>

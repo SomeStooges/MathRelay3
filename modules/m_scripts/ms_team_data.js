@@ -27,6 +27,7 @@ $(document).ready( function() {
     $.post("../server/admin_control.php", 'action=adminReset', function(data) {
       console.log(data);
       reloadModules();
+      location.reload();
     });
   });
 

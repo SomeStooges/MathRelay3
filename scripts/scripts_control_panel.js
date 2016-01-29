@@ -1,13 +1,13 @@
 // Script for the admin control panel
+
+//Universal timer variables
 var seconds = 0;
 var minutes = 0;
 var hours = 0;
 var t;
-
 function timer() {
   t = setTimeout(add, 1000);
 }
-
 function add() {
   seconds++;
   if (seconds >= 60) {
@@ -33,7 +33,7 @@ function setCleanupParagraph(inputText) {
     //WRITE GUI CHANGE HERE
   });
 }
-
+//Old function, fate TBD --------------------------------------------------------------------------------------------------------------
 function getTeamData() {
   $.post('server/admin_control.php', 'action=getTeamData', function(data) {
     console.log(data);
@@ -58,6 +58,7 @@ function getAdminLog() {
   });
 }
 
+//Old function, may be deleted later-------------------------------------------------------------------------------------------------------------
 function getAnswerKey() {
   $.post('server/admin_control.php', 'action=getAnswerKey', function(data) {
     console.log(data);
@@ -83,36 +84,8 @@ function getAnswerKey() {
 
   });
 }
-
-function getTeamLog() {
-  $.post('server/admin_control.php', 'action=getTeamLog', function(data) {
-    data = JSON.parse(data);
-    console.log("getTeamLog called");
-    var message = "<p>Some HTML should be returned via a variable string from the database here to display team activity logs!</p>";
-    $("#content").html(message);
-    console.log(message);
-  });
-}
-
-function getStatistics() {
-  $.post('server/admin_control.php', 'action=getStatistics', function(data) {
-    var message = "<div>Some HTML should be returned via a variable string from the database here to display statistics!</div>";
-    $("#content").html(message);
-  });
-}
-
-function getSettings() {
-  $.post('server/admin_control.php', 'action=getSettings', function(data) {
-    console.log(data);
-    data = JSON.parse(data);
-    /* Data is a two dimensional array. THe first index determines which setting it is for.
-    the second index lists the class, name, and value of the setting, in that order (from 0 to 2).
-    */
-
-    //WRITE GUI CHANGE HERE
-  });
-}
-
+//-------------------------------------------------------------------------------------------------------------------------------------------
+//Refreshes the modules to reflect database reset
 function reloadModules() {
   $.post('/mathrelay3/modules/m_team_data.php', function(data) {
     $('#mod1').html(data);

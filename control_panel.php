@@ -52,16 +52,16 @@
 				</div>
 				<!-- Tooltab 2 is missing because it is a hyperlink -->
 				<div id='mod3' style='display: none;' class='contentMod'>
-					<?php include 'modules/m_answer_key.php'; ?>
+					<iframe src='modules/m_answer_key.php' style='width: 500px; height: 500px;'></iframe>
 				</div>
 				<div id='mod4' style='display: none;' class='contentMod'>
-					<?php include 'modules/m_team_activity.php'; ?>
+					<iframe src='modules/m_team_activity.php' style='width: 500px; height: 500px;'></iframe>
 				</div>
 				<div id='mod5' style='display: none;' class='contentMod'>
-					<?php include 'modules/m_statistics.php'; ?>
+					<iframe src='modules/m_statistics.php' style='width: 500px; height: 500px;'></iframe>
 				</div>
 				<div id='mod6' style='display: none;' class='contentMod'>
-					<?php include 'modules/m_settings.php'; ?>
+					<iframe src='modules/m_settings.php' style='width: 500px; height: 500px;'></iframe>
 				</div>
 		</div>
 	</body>

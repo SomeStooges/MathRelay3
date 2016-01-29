@@ -32,7 +32,6 @@ $(document).ready( function() {
 		series = series.substring(1,series.length);
 		getChoices(series);
 		seriesSelected = series;
-    console.log("series button clicked");
 	});
 
 });

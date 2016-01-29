@@ -1,4 +1,7 @@
 <!-- Content for the Statistics tab -->
+<?php
+	require '../server/utilities.php';
+ ?>
 <!DOCTYPE HTML>
 <html>
   <head>

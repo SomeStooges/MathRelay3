@@ -143,15 +143,6 @@ $(document).ready(function() {
     clearTimeout(t);
     $("#start").prop("disabled", false);
   });
-
-  $("#reset_button").click(function() {
-    console.log('checkpoint 1');
-    $.post("./server/admin_control.php", 'action=adminReset', function(data) {
-      console.log(data);
-      reloadModules();
-    });
-  });
-
   $(".toolbarButton").click(function() {
     $('.contentMod').css('display', 'none'); //Resets all to none by default
     var target; //to save the value of the pointer

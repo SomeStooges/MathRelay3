@@ -17,8 +17,6 @@ function setAnswer(){
 	//Provide function for when the set answer button is pressed
 }
 $(document).ready( function() {
-  console.log("Hello from the answer key world!");
-
   $(".seriesNumbers").click( function(){
 		//resets the selected answers
 		level3selected = '';

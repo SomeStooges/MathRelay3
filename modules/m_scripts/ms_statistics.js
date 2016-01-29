@@ -6,6 +6,5 @@ function getStatistics() {
 }
 
 $(document).ready( function(){
-  console.log("Hello from the Statistics world!");
   //getStatistics();
 });

@@ -3,7 +3,6 @@
 function getTeamLog() {
   $.post('../server/admin_control.php', 'action=getTeamLog', function(data) {
     data = JSON.parse(data);
-    console.log("getTeamLog called");
     console.log(message);
     //Prints out a constantly updating table that adds new information in to new columns on the left side of the table.
     /*In order, prints out:
@@ -17,7 +16,6 @@ function getTeamLog() {
 }
 
 $(document).ready( function(){
-  console.log("Hello from the Team Activity world!");
   //getTeamLog();
   $("#freezeButton").click( function(){
     console.log("Freeze button clicked. Needs actual functionality");

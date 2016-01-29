@@ -13,7 +13,6 @@ function getSettings() {
 }
 
 $(document).ready( function(){
-  console.log("Hello from the Settings world!");
   getSettings();
 
 });

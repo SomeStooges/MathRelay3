@@ -20,8 +20,6 @@ function reloadModules() {
 }
 
 $(document).ready( function() {
-  console.log("Hello world!");
-
   $("#reset_button").click(function() {
     console.log('checkpoint 1');
     $.post("../server/admin_control.php", 'action=adminReset', function(data) {

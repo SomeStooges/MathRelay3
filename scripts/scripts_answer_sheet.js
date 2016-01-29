@@ -47,25 +47,26 @@ $(document).ready( function() {
 				$("#nickname").text(JSON.parse(data));
 			}
 		});
-
+		$("#nicknameInput").keypress(function(){
+			if(event.which == 13){
+				$("#submitNickname").click();
+			}
+		});
 
 	$("#submitNickname").click( function(){
 		 obj = new Object();
 		 obj.action = "setNickname";
 		 obj.nickname =  $("#nicknameInput").val();
 		$.post("server/user_control.php", obj, function(data) {
-			console.log(data);
-			console.log(nickname);
 			if(data){
-				$("#nickname").text(obj.nickname);
+				$("#nickname").html(obj.nickname);
 				console.log(data);
 			}
 			else {
 				console.log("Oops! Something went wrong. :(");
 			}
-
 		});
-		document.getElementById("nicknameInput").value = "";
+		$("#nicknameInput").val("");
 	});
 
 	$("#logoutButton").click( function() {

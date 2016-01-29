@@ -1,10 +1,34 @@
 <!--Content for Answer Key tab-->
+<?php
+	require '../server/utilities.php';
+	$choiceBank = array();
+	$numQuestions = getOption('answerkey','numQuestion');
+	$resource = db_Query("SELECT choice_1,choice_2,choice_3,choice_4,choice_5,choice_6 FROM answer_key ORDER BY series_number ASC, level_number ASC;");
+	for($i=1;$i<=$numQuestions;$i++){
+		$choiceBank[$i] = array();
+		for($j=1;$j<=3;$j++){
+			$tempObj = mysqli_fetch_object($resource);
+			//die(var_dump($tempObj));
+			$choiceBank[$i][$j] = array(
+				1 => $tempObj->choice_1,
+				2 => $tempObj->choice_2,
+				3 => $tempObj->choice_3,
+				4 => $tempObj->choice_4,
+				5 => $tempObj->choice_5,
+				6 => $tempObj->choice_6
+			);
+		}
+	}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="m_scripts/ms_answer_key.js"></script>
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_answer_key.css">
+		<script type="text/javascript">
+			var choiceBank = JSON.parse('<?php print json_encode($choiceBank) ?>');
+		</script>
 
 	</head>
 	<body id="body">

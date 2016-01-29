@@ -4,8 +4,10 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="m_scripts/ms_answer_key.js"></script>
+		<link rel="stylesheet" type="text/css" href="m_styles/mst_answer_key.css">
+
 	</head>
-	<body>
+	<body id="body">
 		<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
 		<!-- Content for Answer Key tab -->
 		<div id='questionDiv' class='answerKeyElement'>

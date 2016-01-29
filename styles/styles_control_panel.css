@@ -1,94 +1,112 @@
 <style>
 /*Style sheet for control panel*/
-	#body{
-		max-width:100%;
-		overflow-x:scroll;
-		margin:0px;
-	}
-	#ribbon{
-		width: 100vw;
-		margin: 0;
-	}
-	#ribbon1{
-		white-space: nowrap;
-		background-color: #377638;
-		height: 93px;
-		width: 25%;
-		float:left;
-	}
-	#ribbon2{
-		overflow: hidden;
-		background-color: #377638;
-		height: 93px;
-		width: 75%;
-		float:left;
-	}
-	#container{
-		width:100%;
-	}
-
-	#toolbar{
-		background-color: LightGray;
-		width: 150px;
-		height: 100vh;
-		float: left;
-	}
-	
-	#freezeLeaderboard{
-		width: 145px;
-		height: 93px;
-		text-align: left;
-		background: none;
-		padding: 10px;
-		border: none;
-		transition: background-color 0.25s ease;
-	}
-	#freezeLeaderboard:hover{
-		color: white;
-		background-color: #011858;	
-	}
-	#timer{
-		background-color: #377638;
-		float:right;
-		height: 40px;
-		margin-top: 27px;
-		padding: 12px;
-	}
-	#logoutButton{
-		float: right;
-		margin:0px;
-	}
-	.toolbarButton{
-		width: 150px;
-		text-align: left;
-		background: none;
-		padding: 10px;
-		border: none;
-		transition: background-color 0.25s ease;
-	}
-	.toolbarButton:hover{
-		background-color: DimGray;
-	}
-	.ribbonButton{
-		width:100px;
-		height: 93px;
-		background: none;
-		padding:0;
-		border:none;
-		transition: background-color 0.5s ease;
-		transition: color 0.25s ease;
-	}
-	.ribbonButton:hover{
-		color: white;
-		background-color: #011858;	
-	}
-	.answerKeyElement{
-		float: left;
-		background-color: #FFFFCC;
-	}
-	
 
 
+/*Resets all html borders to 0.*/
 
-
+#html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+#body {
+  max-width: 100%;
+  overflow-x: scroll;
+  margin: 0;
+}
+#ribbon {
+  width: 100vw;
+  margin: 0;
+}
+#ribbon1 {
+  white-space: nowrap;
+  background-color: #377638;
+  height: 93px;
+  width: 25%;
+  float: left;
+}
+#ribbon2 {
+  overflow: hidden;
+  background-color: #377638;
+  height: 93px;
+  width: 75%;
+  float: left;
+}
+#container {
+  width: 100%;
+}
+#content {
+  float: left;
+  width: calc(100% - 150px);
+  overflow: hidden;
+}
+#toolbar {
+  background-color: LightGray;
+  width: 150px;
+  height: calc(100vh - 110px);
+  float: left;
+}
+#freezeLeaderboard {
+  width: 145px;
+  height: 93px;
+  text-align: left;
+  background: none;
+  padding: 10px;
+  border: none;
+  transition: background-color 0.25s ease;
+}
+#freezeLeaderboard:hover {
+  color: white;
+  background-color: #011858;
+}
+#timer {
+  background-color: #377638;
+  float: right;
+  height: 40px;
+  margin-top: 27px;
+  padding: 12px;
+}
+#logoutButton {
+  float: right;
+  margin: 0px;
+}
+.iframeMod {
+  width: 100%;
+  height: calc(100vh - 110px);
+  position: fixed;
+  overflow: hidden;
+}
+.contentMod{
+  overflow: hidden;
+}
+.toolbarButton {
+  width: 150px;
+  text-align: left;
+  background: none;
+  padding: 10px;
+  border: none;
+  transition: background-color 0.25s ease;
+}
+.toolbarButton:hover {
+  background-color: DimGray;
+}
+.ribbonButton {
+  width: 100px;
+  height: 93px;
+  background: none;
+  padding: 0;
+  border: none;
+  transition: background-color 0.5s ease;
+  transition: color 0.25s ease;
+}
+.ribbonButton:hover {
+  color: white;
+  background-color: #011858;
+}
 </style>

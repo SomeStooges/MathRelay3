@@ -4,6 +4,8 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="m_scripts/ms_settings.js"></script>
+		<link rel="stylesheet" type="text/css" href="m_styles/mst_settings.css">
+
 	</head>
 	<body>
 		<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>

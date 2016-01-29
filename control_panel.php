@@ -48,20 +48,20 @@
 			<div id = "content">
 			<!-- Dynamic div for content of tabs to display -->
 				<div id='mod1' style='display: block;' class='contentMod'>
-					<iframe src='modules/m_team_data.php' style='width: 500;height: 500px;'></iframe>
+					<iframe src='modules/m_team_data.php' class="iframeMod"></iframe>
 				</div>
 				<!-- Tooltab 2 is missing because it is a hyperlink -->
 				<div id='mod3' style='display: none;' class='contentMod'>
-					<iframe src='modules/m_answer_key.php' style='width: 500px; height: 500px;'></iframe>
+					<iframe src='modules/m_answer_key.php' class="iframeMod"></iframe>
 				</div>
 				<div id='mod4' style='display: none;' class='contentMod'>
-					<iframe src='modules/m_team_activity.php' style='width: 500px; height: 500px;'></iframe>
+					<iframe src='modules/m_team_activity.php' class="iframeMod"></iframe>
 				</div>
 				<div id='mod5' style='display: none;' class='contentMod'>
-					<iframe src='modules/m_statistics.php' style='width: 500px; height: 500px;'></iframe>
+					<iframe src='modules/m_statistics.php' class="iframeMod"></iframe>
 				</div>
 				<div id='mod6' style='display: none;' class='contentMod'>
-					<iframe src='modules/m_settings.php' style='width: 500px; height: 500px;'></iframe>
+					<iframe src='modules/m_settings.php' class="iframeMod"></iframe>
 				</div>
 		</div>
 	</body>

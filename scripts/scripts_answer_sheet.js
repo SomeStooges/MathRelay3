@@ -41,12 +41,16 @@ function getChoices(series){
 $(document).ready( function() {
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
-			console.log("Retrieving nickname if available.");
-			//console.log(JSON.parse(data));
 			if(data){
 				$("#nickname").text(JSON.parse(data));
 			}
 		});
+		$.post("server/user_control.php", action = "action=getPoints", function(data) {
+			if(data){
+				$("#currentPoints").text(JSON.parse(data));
+			}
+		});
+
 		$("#nicknameInput").keypress(function(){
 			if(event.which == 13){
 				$("#submitNickname").click();

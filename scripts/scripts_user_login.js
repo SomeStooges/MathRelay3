@@ -23,7 +23,7 @@ $(document).ready( function() {
 				window.location.href = "answer_sheet.php";
 			}
 			else {
-				console.log("Login failed");
+				$("#passErr").text("Your password or team ID is incorrect.");
 				//Whatever else happens when a login fails...
 			}
 		});

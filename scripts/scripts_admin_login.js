@@ -23,7 +23,7 @@ $(document).ready( function() {
 			}
 			else {
 				console.log(obj.adminPassword);
-				$('#adminreply').text('Incorrect password.');
+				$("#passErr").text("Your password is incorrect.");
 			}
 		});
 	});

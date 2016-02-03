@@ -19,6 +19,7 @@
 		<p> Team ID: <input id='teamID'></p>
 		<p> Team Password: <input type = "password" id='teamPassword'></p>
 		<button id="user_login"> Login </button>
+		<p style="color: Red" id="passErr"></p>
 		<button id="back_button"> BACK </button>
 		<!-- <br> <?php print $currentEvent ?> -->
 	</body>

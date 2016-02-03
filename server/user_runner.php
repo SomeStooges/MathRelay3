@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	
+
 	require 'utilities.php'; //imports some universal utilities
-	
+
 	function gradeAnswer(){
 		//Get the variables that were submitted
 		$teamID = $_SESSION['teamID'];
@@ -10,15 +10,15 @@
 		$l3 = $_REQUEST['level3'];
 		$l2 = $_REQUEST['level2'];
 		$l1 = $_REQUEST['level1'];
-		
+
 		//Check whether those answers were correct
 		$resource = db_Query("SELECT correct_index FROM answer_key WHERE series_number='$series' ORDER BY level_number DESC;");
 		$answer = mysqli_fetch_object($resource);
 		$res3 = ($answer->correct_index==$l3 ? 1 : 0);
-		
+
 		$answer = mysqli_fetch_object($resource);
 		$res2 = ($answer->correct_index==$l2 ? 1 : 0);
-		
+
 		$answer = mysqli_fetch_object($resource);
 		$res1 = ($answer->correct_index==$l1 ? 1 : 0);
 
@@ -30,7 +30,7 @@
 		$numAtt = intval($attempts[ $series-1 ]) + 1;
 		$attempts[ $series-1 ] = strval($numAtt);
 		$lastPoint = $resource->last_point;
-		
+
 		if( $numAtt < 6 && strval($ansHis[ $series-1 ])!='1'){
 			if($res1 && $res2 && $res3){
 				//if correct, and will score more than zero points
@@ -38,15 +38,15 @@
 				$points += $award;
 				$ansHis[ $series-1 ] = '1';
 				$lastPoint = time();
-				
+
 				$ctime = date('g:i:s');
-				db_Query("INSERT INTO admin_log VALUES ('$ctime','$series','$award','$points');");
+				db_Query("INSERT INTO admin_log VALUES ('$teamID','$ctime','$series','$award','$points');");
 			} else {
 				//if incorrect
 				$ansHis[ $series-1 ] = '2';
 			}
 		} else {
-			
+
 			if(strval($ansHis[ $series-1 ])=='1'){
 				//if the question has already been answered
 				$res1 = 4; $res2 = 4; $res3 = 4;
@@ -56,17 +56,17 @@
 				$res1 = 3; $res2 = 3; $res3 = 3;
 			}
 		}
-		
-		
+
+
 		$ansHis = implode(';', $ansHis);
 		$attempts = implode(';',$attempts);
-		
+
 		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points',last_point='$lastPoint' WHERE team_id='$teamID';");
-		
+
 		//Update the answer log
 		$ctime = date('g:i:s');
 		//Return the response to the user
-		
+
 		$response = array(
 			0 => $ansHis,
 			1 => $res1,
@@ -76,7 +76,7 @@
 		);
 		return $response;
 	}
-	
+
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;

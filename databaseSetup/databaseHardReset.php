@@ -24,7 +24,7 @@
 	mysqli_query($con, 'SET time_zone = "+00:00";');
 
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `admin_log` (
-		`team_id` varchar(8) NOT NULL,
+		`team_id` int(8) NOT NULL,
 		`timestamp` varchar(35) NOT NULL,
 		`question_number` int(8) NOT NULL,
 		`award` int(8) NOT NULL,

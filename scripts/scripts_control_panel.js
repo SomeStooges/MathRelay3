@@ -58,64 +58,19 @@ function getAdminLog() {
   });
 }
 
-//Old function, may be deleted later-------------------------------------------------------------------------------------------------------------
-function getAnswerKey() {
-  $.post('server/admin_control.php', 'action=getAnswerKey', function(data) {
-    console.log(data);
-    data = JSON.parse(data);
-    /* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
-    	The first index contains the record number
-    	The second index contains the question number, level 3 answer, level 2 answer, and level 1 answer.
-    */
-
-    //WRITE GUI CHANGE HERE
-    var message = "<table>";
-    message += "<tr> <th>Question<br>Number</th><th>Level 3<br>Answer</th><th>Level 2<br>Answer</th><th>Level 1<br>Answer</th>";
-    for (var i = 0; i < data.length; i++) {
-      message += "<tr>";
-      for (var j = 0; j < data[i].length; j++) {
-        message += "<td>" + data[i][j] + "</td>";
-      }
-      message += "</tr>";
-    }
-
-    message += "</table>";
-    $("#content").html(message);
-
-  });
-}
-//-------------------------------------------------------------------------------------------------------------------------------------------
-//Refreshes the modules to reflect database reset
-function reloadModules() {
-  $.post('/mathrelay3/modules/m_team_data.php', function(data) {
-    $('#mod1').html(data);
-    console.log(data);
-    console.log('something worked!');
-  });
-  $.post('/mathrelay3/modules/m_answer_key.php', function(data) {
-    $('#mod3').html(data);
-  });
-  $.post('/mathrelay3/modules/m_team_activity.php', function(data) {
-    $('#mod4').html(data);
-  });
-  $.post('/mathrelay3/modules/m_statistics.php', function(data) {
-    $('#mod5').html(data);
-  });
-  $.post('/mathrelay3/modules/m_settings.php', function(data) {
-    $('#mod6').html(data);
-  });
-}
-
 $(document).ready(function() {
   $("#start").click(function() {
     timer();
     $("#start").prop("disabled", true);
   });
 
+  //Event handler for stop event button
   $("#stop").click(function() {
     clearTimeout(t);
     $("#start").prop("disabled", false);
   });
+
+  //Event Handler for toolbar buttons
   $(".toolbarButton").click(function() {
     $('.contentMod').css('display', 'none'); //Resets all to none by default
     var target; //to save the value of the pointer
@@ -139,16 +94,16 @@ $(document).ready(function() {
     $(target).css('display', 'block'); //display the pointer's reference
   });
 
-
+  //Event Handler for leaderboard link
   $('#leaderboardLink').click(function() {
     window.location.href = "leaderboard.php";
   });
 
+  //Event Handler for logout button
   $("#logoutButton").click(function() {
     action = "action=adminLogout";
     $.post("server/admin_control.php", action, function(data) {
       console.log(data);
-
       if (data) {
         window.location.href = "index.php";
       } else {

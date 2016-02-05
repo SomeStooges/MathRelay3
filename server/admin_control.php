@@ -1,25 +1,25 @@
 <?php
 	session_start();
-	
+
 	require 'utilities.php'; //imports some universal utilities
-	
+
 	//FUNCTION DEFINITIONS
-	
+
 	//regenerates all the team data
 	function adminReset() {
 		//gets initial parameters
 		$numTeams = getOption("reset","numTeams");
 		$passwordLength = getOption("reset",'passwordLength');
 		$numQuestions = getOption('answerkey','numQuestion');
-		
+
 		//clears old table
 		db_Query('DELETE FROM team_data;');
-		
+
 		//creates the $newhistory string with enough characters for each question
 		$newhistory = "";
 		for($i = 0; $i<$numQuestions; $i++){ $newhistory .= "0;"; }
 		$newhistory = substr( $newhistory, 0, strlen($newhistory)-1);
-		
+
 		if($numTeams >= 1){
 			//creates the query statement for each team
 			$query = "INSERT INTO team_data VALUES ";
@@ -28,13 +28,13 @@
 				$query .= "('$i','','$tempPass','0','0','0','0','0','$newhistory','$newhistory'), ";
 			}
 			$query = substr( $query, 0, strlen($query)-2) . ";";
-			
+
 			//inserts the values
 			db_Query($query);
-		}		
+		}
 		return "Regenerated all team data";
 	}
-	
+
 	function makePassword($size){
 		$chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
 		$length = strlen( $chars ) - 1;
@@ -44,7 +44,7 @@
 		}
 		return $out;
 	}
-	
+
 	function adminLogin() {
 		//Get admin password
 		$adminPassword = $_REQUEST['adminPassword'];
@@ -53,18 +53,18 @@
 		if($num){
 			$_SESSION['admin'] = 'Santosh';
 			$response = "Successful";
-		} 
+		}
 		else{
 			$response = "Failed";
 		}
 		return $response;
 	}
-	
+
 	function adminLogout(){
 		unset($_SESSION['admin']);
 		return true;
 	}
-	
+
 	function getTeamData(){
 		$resource = db_Query("SELECT team_id,team_nickname,password,points,rank_freetime,last_checkin_time,last_point FROM team_data;");
 		$response = array();
@@ -73,10 +73,10 @@
 		}
 		return $response;
 	}
-	
+
 	function getAdminLog(){
 		$teamID = $_REQUEST['teamID'];
-		
+
 		$resource = db_Query("SELECT * FROM admin_log WHERE team_id='$teamID';");
 		$response = array();
 		while($tempObj = mysqli_fetch_object($resource)){
@@ -84,7 +84,7 @@
 		}
 		return $response;
 	}
-	
+
 	function getAnswerKey(){
 		$resource = db_Query("SELECT * FROM answer_key;");
 		$response = array();
@@ -93,7 +93,7 @@
 		}
 		return $response;
 	}
-	
+
 	function setCleanupParagraph(){
 		$fileName = "cleanupParagraph.txt";
 		$myfile = fopen($fileName,'w');
@@ -104,7 +104,7 @@
 		fclose($myfile);
 		return $text;
 	}
-	
+
 	function getSettings(){
 		$resource = db_Query("SELECT * FROM relay_options;");
 		$response = array();
@@ -113,7 +113,7 @@
 		}
 		return $response;
 	}
-	
+
 	function getTeamLog(){
 		$resource;
 		$response;
@@ -124,7 +124,22 @@
 		$response;
 		return $response;
 	}
-	
+
+	function updateEvent(){
+		$newEvent = 'none';
+		switch ($_REQUEST['uEvent']) {
+			case 'none': $newEvent = 'none'; break;
+			case 'open': $newEvent = 'open'; break;
+			case 'start': $newEvent = 'start'; break;
+			case 'freetime': $newEvent = 'freetime'; break;
+			case 'freezeLeaderboard': $newEvent = 'freezeLeaderboard'; break;
+			case 'stop': $newEvent = 'stop'; break;
+			case 'close': $newEvent = 'close'; break;
+		}
+		db_Query("UPDATE relay_options SET value='$newEvent' WHERE class='event' AND name='currentEvent';");
+		return $newEvent;
+	}
+
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;
@@ -140,6 +155,7 @@
 		case 'getStatistics': $return = getStatistics(); break;
 		case 'adminLogout': $return = adminLogout(); break;
 		case 'setCleanupParagraph': $return = setCleanupParagraph(); break;
+		case 'updateEvent': $return = updateEvent(); break;
 	}
 	print json_encode($return);
 ?>

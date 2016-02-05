@@ -25,7 +25,7 @@
 				<button class="ribbonButton" id="none">None</button>
 				<button class="ribbonButton" id="open">Open</button>
 				<button class="ribbonButton" id="start">Start</button>
-				<button class="ribbonButton" id="freeTime">Free Time</button>
+				<button class="ribbonButton" id="freetime">Free Time</button>
 				<button class="ribbonButton" id="freezeLeaderboard">Freeze Leaderboard</button>
 				<button class="ribbonButton" id="stop">Stop</button>
 				<button class="ribbonButton" id="close">Close</button>

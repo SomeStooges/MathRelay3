@@ -1,5 +1,4 @@
 // Script for the admin control panel
-
 //Universal timer variables
 var seconds = 0;
 var minutes = 0;
@@ -8,6 +7,7 @@ var t;
 function timer() {
   t = setTimeout(add, 1000);
 }
+
 function add() {
   seconds++;
   if (seconds >= 60) {
@@ -58,6 +58,17 @@ function getAdminLog() {
   });
 }
 
+function updateEvent(uEvent){
+  obj = new Object;
+  obj.action = 'updateEvent';
+  obj.uEvent = uEvent;
+  $.post('server/admin_control.php',obj, function(data){
+    var bID = JSON.parse(data);
+    $('.ribbonButton').css('background-color','');
+    $('#'+bID).css('background-color','blue');
+  });
+}
+
 $(document).ready(function() {
   $("#start").click(function() {
     timer();
@@ -97,6 +108,11 @@ $(document).ready(function() {
   //Event Handler for leaderboard link
   $('#leaderboardLink').click(function() {
     window.location.href = "leaderboard.php";
+  });
+
+  //Event Handler for event buttons
+  $('.ribbonButton').click(function(){
+    updateEvent( $(this).attr('id') );
   });
 
   //Event Handler for logout button

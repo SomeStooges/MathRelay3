@@ -1,5 +1,25 @@
 // Java Script for the welcome page
+var getEvent; //global getEvent variable
+
+function checkEvent(){
+	$.post('server/user_control.php', 'action=getEvent', function(data) {
+		$('#welcomeButton').prop('disabled', true);
+		getEvent = JSON.parse(data);
+		if (getEvent != "none")
+		{
+			$('#welcomeButton').prop('disabled', false);
+		}
+	});
+}
+
 $(document).ready( function() {
+	var eventChecker;
+	setInterval(checkEvent,1000);
+
+
+
+
+
 	$("#welcomeButton").click( function() {
 		obj = new Object();
 		obj.action = 'getEvent';

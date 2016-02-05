@@ -4,7 +4,7 @@
 	if(!isset($_SESSION['admin'])){
 		header('location: index.php');
 	}
-	//require 'server/utilities.php';
+	require 'server/utilities.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -16,6 +16,11 @@
 	</head>
 
 	<body id = "body">
+		<div id='dataStore' style='display: none;'>
+			<span id='cEvent'>
+				<?php print getOption('event','currentEvent'); ?>
+			</span>
+		</div>
 		<div id = "ribbon">
 		<!-- The banner running across the top -->
 			<div id = "ribbon1">

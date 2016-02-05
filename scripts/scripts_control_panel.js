@@ -69,7 +69,14 @@ function updateEvent(uEvent){
   });
 }
 
+function updateUI(){
+  var currentEvent = $("#cEvent").text().trim();
+  $('#'+currentEvent).css('background-color','blue');
+}
+
 $(document).ready(function() {
+  updateUI();
+
   $("#start").click(function() {
     timer();
     $("#start").prop("disabled", true);

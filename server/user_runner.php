@@ -2,12 +2,6 @@
 	session_start();
 
 	require 'utilities.php'; //imports some universal utilities
-
-	function getEvent(){
-		$resource = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
-		return $resource[0];
-	}
-
 	function gradeAnswer(){
 		//Get the variables that were submitted
 		$teamID = $_SESSION['teamID'];
@@ -87,7 +81,6 @@
 	$return = false;
 	switch( $action ){
 		case 'gradeAnswer': $return = gradeAnswer(); break;
-		case 'getEvent': $return = getEvent(); break;
 	}
 	print json_encode($return);
 ?>

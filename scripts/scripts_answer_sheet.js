@@ -6,16 +6,6 @@ var level3selected = '';
 var level2selected = '';
 var level1selected = '';
 
-//Checks the current event
-function checkEvent(){
-	$.post('server/user_runner.php', 'action=getEvent', function(data) {
-		var checker = JSON.parse(data);
-		if(checker == "close"){
-			window.location.href = "finish_page.php";
-		}
-	});
-}
-
 //Sends the answer to the server to be graded
 function gradeAnswer(qNum, l3, l2, l1){
 	console.log('Sending answer: series: '+qNum+' ; '+l3+' ; '+l2+' ; '+l1+' ;');
@@ -49,8 +39,6 @@ function getChoices(series){
 }
 
 $(document).ready( function() {
-	setInterval(checkEvent,1000);
-
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			if(data){

@@ -5,6 +5,10 @@
 		header('location: index.php');
 	}
 	require 'server/utilities.php';
+	$checkEvent = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
+	if($checkEvent[0] == "close"){
+		header('location: finish_page.php');
+	}
 	/*$currentEvent = getOption('event','currentEvent');
 	if($currentEvent == 'none'){
 		header('location: index.php');

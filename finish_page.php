@@ -22,7 +22,7 @@
 
 	<body>
 		<h1> Finish Page </h1>
-		<div style = "display: hidden" id = "congrats"> </div>
+		<div id = "congratulations">
 			<?php
 				$team_ID = $_SESSION['teamID'];
 				$teamRank = mysqli_fetch_row(db_Query("SELECT `rank_final` FROM `team_data` WHERE `team_id`='" . $team_ID . "';"));
@@ -45,9 +45,17 @@
 					}else{
 						print "<span>Congratulations on finishing the Math Relay! Thanks for participating!</span>";
 					}
-			 ?>
+			?>
+		</div>
 		<!-- We can probably run the PHP from here and not a JQUERY post, except to reject the page if too premature -->
-		<p> <span id='rankMessage'><i>Some print out of rank or generic congratulation message </i></span></p>
-		<p> <span id='cleanupParagraph'><i>Some large paragraph of instructions for the team captain.</i></span></p>
+		<div id = "cleanUpParagraph">
+			<?php
+				$fileName = "server/cleanupParagraph.txt";
+				$myfile = fopen($fileName,'r');
+				$text = fread($myfile, filesize($fileName));
+				fclose($myfile);
+				print "<span>".$text."</span>";
+			?>
+		</div>
 	</body>
 </html>

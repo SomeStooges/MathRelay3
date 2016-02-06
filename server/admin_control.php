@@ -125,6 +125,23 @@
 		return $response;
 	}
 
+	function updateAnswerKey(){
+		$series = $_REQUEST['series'];
+		$level = $_REQUEST['level'];
+		$choice = $_REQUEST['choice'];
+		$value = $_REQUEST['value'];
+		db_Query("UPDATE answer_key SET `choice_$choice`='$value' WHERE `series_number`='$series' AND `level_number`='$level'");
+		return true;
+	}
+
+	function setAnswer(){
+		$series = $_REQUEST['series'];
+		$level = $_REQUEST['level'];
+		$choice = $_REQUEST['choice'];
+		db_Query("UPDATE answer_key SET `correct_index`='$choice' WHERE `series_number`='$series' AND `level_number`='$level';");
+		return true;
+	}
+
 	function updateEvent(){
 		$newEvent = 'none';
 		switch ($_REQUEST['uEvent']) {
@@ -156,6 +173,8 @@
 		case 'adminLogout': $return = adminLogout(); break;
 		case 'setCleanupParagraph': $return = setCleanupParagraph(); break;
 		case 'updateEvent': $return = updateEvent(); break;
+		case 'updateAnswerKey': $return = updateAnswerKey(); break;
+		case 'setAnswer': $return = setAnswer(); break;
 	}
 	print json_encode($return);
 ?>

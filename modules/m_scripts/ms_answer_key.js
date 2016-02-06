@@ -5,6 +5,7 @@ var level3selected = '';
 var level2selected = '';
 var level1selected = '';
 var lastTarget;
+var selectedSeries = '';
 
 //Assigns answer choices to each input box to be displayed, deneding on series number
 function getChoices(series){
@@ -31,6 +32,23 @@ function addSpecialCharacter(bID){
 		break;
 	}
 	$(lastTarget).val($(lastTarget).val()+value);
+
+	//Resubmits the lastTarget after adding the character
+}
+
+function updateAnswerKey(target){
+	var fID = $(target).attr('id');
+	fID = fID.substring(1,4).split('_');
+	obj = new Object;
+	obj.action = 'updateAnswerKey';
+	obj.series = selectedSeries;
+	obj.level = fID[0];
+	obj.choice = fID[1];
+	obj.value = $(target).val();
+	console.log(fID);
+	$.post('../server/admin_control.php',obj,function(data){
+			//Should probably be some GUI change here....
+	});
 }
 
 $(document).ready( function() {
@@ -52,10 +70,29 @@ $(document).ready( function() {
 		addSpecialCharacter(bID);
 	});
 
+	$('.seriesNumbers').click(function(){
+		selectedSeries = $(this).attr('id').substring(1,3);
+		console.log(selectedSeries);
+	});
+
+	$('.level3Set, .level2Set, .level1Set').click(function(){
+		fID = $(this).attr('id').substring(1,4).split('_');
+		obj = new Object;
+		obj.action = 'setAnswer';
+		obj.series = selectedSeries;
+		obj.level = fID[0];
+		obj.choice = fID[1];
+		$.post('../server/admin_control.php',obj,function(data){
+
+		});
+	});
+
 	$('.level3Values, .level2Values, .level1Values').click(function(){
 		lastTarget = $(this);
 	});
 
-
+	$('.level3Values, .level2Values, .level1Values').blur(function(){
+		updateAnswerKey($(this));
+	});
 
 });

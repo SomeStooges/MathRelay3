@@ -89,5 +89,10 @@
 				?>
 			</table>
 		</div>
+		<div id='special_characters'>
+			<button class='special_button' id='PiButton'>&#928</button>
+			<button class='special_button' id='RadicalButton'>&#8730</button>
+			<button class='special_button' id='InfinityButton'>&#8734</button>
+		</div>
 	</body>
 </html>

@@ -1,0 +1,10 @@
+/*Styles sheet for the m_answer_sheet module*/
+
+#body{
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.answerKeyElement{
+  float: left;
+  background-color: #FFFFCC;
+}

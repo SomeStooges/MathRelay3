@@ -48,7 +48,7 @@
 			<h1 id="page_title" style="text-align:center"> Answer Sheet </h1>
 			<h1 id="nickname" style="text-align:center"></h1>
 			<div>
-			<p style="text-align:center"> 
+			<p style="text-align:center">
 				Edit nickname: <input id='nicknameInput' value="Enter a nickname">
 				<button id = 'submitNickname'>SUBMIT</button>
 			</p>
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<p><i> Some GUI to enter series number and show answer history...</i></p>
-		
+
 		<p> Answer sheet for team. </p>
 
 		<!-- Table for interactive question numbers -->
@@ -72,9 +72,9 @@
 							$currentNum = $countIn + (5 * $countOut);
 							if ($currentNum <= $numQuestions) {
 								print "<td><button class='seriesNumbers' id='q" . $currentNum . "'> " . $currentNum . " </button></td>";
-							}	
+							}
 						}
-						print "</tr>"; 				
+						print "</tr>";
 					}
 				?>
 				</table>
@@ -90,7 +90,7 @@
 							for($i=1;$i<=6;$i++){
 								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
 							}
-						?>						
+						?>
 					</table>
 				</div>
 				<div id='level2choice'class="answerLevel">
@@ -101,7 +101,7 @@
 							for($i=1;$i<=6;$i++){
 								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
 							}
-						?>						
+						?>
 					</table>
 				</div>
 				<div id='level1choice'class="answerLevel">
@@ -112,14 +112,13 @@
 							for($i=1;$i<=6;$i++){
 								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
 							}
-						?>						
+						?>
 					</table>
 				</div>
 			</div>
 			<div>Points <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></div>
-			
+
 			<button id="submit_answer"> SUBMIT </button>
 		</div>
 	</body>
 </html>
-

@@ -9,7 +9,7 @@ var level1selected = '';
 //Sends the answer to the server to be graded
 function gradeAnswer(qNum, l3, l2, l1){
 	console.log('Sending answer: series: '+qNum+' ; '+l3+' ; '+l2+' ; '+l1+' ;');
-	obj = new Object;
+	obj = new Object();
 	obj.action = 'gradeAnswer';
 	obj.question = qNum;	//question number, as an INT
 	obj.level3 = l3;		//level 3 answer, as a char
@@ -23,9 +23,9 @@ function gradeAnswer(qNum, l3, l2, l1){
 		var res2 = data[2];	//result for level 2
 		var res3 = data[3];	//result for level 3
 		//console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
-		
+
 		//WRITE GUI CHANGE HERE
-		
+
 		$('#currentPoints').html(data[4]);
 	});
 }
@@ -41,38 +41,43 @@ function getChoices(series){
 $(document).ready( function() {
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
-			console.log("Retrieving nickname if available.");
-			//console.log(JSON.parse(data));
 			if(data){
 				$("#nickname").text(JSON.parse(data));
 			}
 		});
-		
-	
+		$.post("server/user_control.php", action = "action=getPoints", function(data) {
+			if(data){
+				$("#currentPoints").text(JSON.parse(data));
+			}
+		});
+
+		$("#nicknameInput").keypress(function(){
+			if(event.which == 13){
+				$("#submitNickname").click();
+			}
+		});
+
 	$("#submitNickname").click( function(){
-		 obj = new Object;
+		 obj = new Object();
 		 obj.action = "setNickname";
 		 obj.nickname =  $("#nicknameInput").val();
 		$.post("server/user_control.php", obj, function(data) {
-			console.log(data)
-			console.log(nickname)
 			if(data){
-				$("#nickname").text(obj.nickname);
+				$("#nickname").html(obj.nickname);
 				console.log(data);
 			}
 			else {
-				console.log("Oops! Something went wrong. :(")
+				console.log("Oops! Something went wrong. :(");
 			}
-			
 		});
-		document.getElementById("nicknameInput").value = "";
+		$("#nicknameInput").val("");
 	});
-	
+
 	$("#logoutButton").click( function() {
 		action = "action=userLogout";
 		$.post("server/user_control.php", action, function(data) {
-			console.log(data)
-			
+			console.log(data);
+
 			if(data){
 				window.location.href = "index.php";
 			}
@@ -81,20 +86,20 @@ $(document).ready( function() {
 			}
 		});
 	});
-	
+
 	$(".seriesNumbers").click( function(){
 		//resets the selected answers
 		level3selected = '';
 		level2selected = '';
 		level1selected = '';
-		
+
 		//gets the answer choices for the selected series
 		series = $(this).prop('id');
 		series = series.substring(1,series.length);
 		getChoices(series);
 		seriesSelected = series;
 	});
-	
+
 	$(".level3Buttons").click( function(){
 		selid = $(this).prop('id');
 		level3selected = selid.substring(3,4);

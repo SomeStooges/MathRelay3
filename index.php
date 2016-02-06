@@ -12,9 +12,13 @@
 
 	<body>
 		<section>
-		<h1>McNeil HS Math Relay 2016</h1>
+		<h1>
+			<ul><span id="first">Math</span></ul>
+			<ul><span id="second">Relay</span></ul>
+			<ul><span id="third">2016</span></ul>
+		</h1>
 
-		<button id="welcomeButton"> Go to USER LOGIN </button>
+		<button id="welcomeButton" disabled> Go to USER LOGIN </button>
 		<button id="adminButton"> Go to ADMIN </button>
 	</section>
 	</body>

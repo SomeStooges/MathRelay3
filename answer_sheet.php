@@ -41,6 +41,7 @@
 		</script>
 		<script type="text/javascript" src="scripts/scripts_answer_sheet.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/styles_answer_sheet.css"></script>
+		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 
 	<body>
@@ -49,15 +50,12 @@
 			<h1 id="nickname" style="text-align:center"></h1>
 			<div>
 			<p style="text-align:center">
-				Edit nickname: <input id='nicknameInput' value="Enter a nickname">
+				Edit nickname: <input id='nicknameInput' placeholder= "Enter A Team Nickname">
 				<button id = 'submitNickname'>SUBMIT</button>
 			</p>
 			<p> <button id='logoutButton'>LOGOUT</button></p>
 			</div>
 		</div>
-		<p><i> Some GUI to enter series number and show answer history...</i></p>
-
-		<p> Answer sheet for team. </p>
 
 		<!-- Table for interactive question numbers -->
 		<div id="content">
@@ -79,6 +77,9 @@
 				?>
 				</table>
 			</div>
+
+
+
 			<!-- 3 tables for answers -->
 			<div id="answerChoices" >
 				<div id='level3choice'class="answerLevel">
@@ -116,7 +117,8 @@
 					</table>
 				</div>
 			</div>
-			<div>Points <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></div>
+
+			<div id='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></div>
 
 			<button id="submit_answer"> SUBMIT </button>
 		</div>

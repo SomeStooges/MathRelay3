@@ -5,7 +5,8 @@
 
 	//FUNCTION DEFINITIONS
 	function getEvent(){
-		return 'open';
+		$resource = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
+		return $resource[0];
 	}
 
 	function getCleanupParagraph(){

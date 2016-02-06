@@ -1,8 +1,8 @@
 body {
 
     text-align: center;
-    background-image: url('/MathRelay3/images/SAM_1340.jpg');
-    background-size: cover;
+    background-image: url('/MathRelay3/images/GalleryPhoto.jpg');
+    background-size: auto;
 
     font-family: sans-serif;
 
@@ -29,6 +29,5 @@ section {
 h1 {
       font-size: 500%;
       font-family: 'Advent Pro', sans-serif;
-      padding:-5%;
-      margin: -10%:
+
 }

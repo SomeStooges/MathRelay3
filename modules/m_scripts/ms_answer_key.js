@@ -5,7 +5,7 @@ var level3selected = '';
 var level2selected = '';
 var level1selected = '';
 var lastTarget;
-var selectedSeries = '';
+var selectedSeries = 0;
 
 //Assigns answer choices to each input box to be displayed, deneding on series number
 function getChoices(series){
@@ -14,8 +14,23 @@ function getChoices(series){
 			$('#v'+i+'_'+j+'').val(choiceBank[series][i][j]);
 		}
 	}
+
+	$('.level1Set, .level2Set, .level3Set').css('background-color','');
+	for(j=1;j<=3;j++){
+		$('#s'+j+'_'+answerKey[series][j]).css('background-color','lightBlue');
+	}
 }
-function setAnswer(){
+function setAnswer(target){
+	fID = $(target).attr('id').substring(1,4).split('_');
+	obj = new Object;
+	obj.action = 'setAnswer';
+	obj.series = selectedSeries;
+	obj.level = fID[0];
+	obj.choice = fID[1];
+	$.post('../server/admin_control.php',obj,function(data){
+		$('.level'+fID[0]+'Set').css('background-color','');
+		$(target).css('background-color','lightBlue');
+	});
 	//Provide function for when the set answer button is pressed
 }
 
@@ -72,19 +87,12 @@ $(document).ready( function() {
 
 	$('.seriesNumbers').click(function(){
 		selectedSeries = $(this).attr('id').substring(1,3);
-		console.log(selectedSeries);
+		$('.seriesNumbers').css('background-color','');
+		$(this).css('background-color','lightBlue');
 	});
 
 	$('.level3Set, .level2Set, .level1Set').click(function(){
-		fID = $(this).attr('id').substring(1,4).split('_');
-		obj = new Object;
-		obj.action = 'setAnswer';
-		obj.series = selectedSeries;
-		obj.level = fID[0];
-		obj.choice = fID[1];
-		$.post('../server/admin_control.php',obj,function(data){
-
-		});
+		setAnswer($(this));
 	});
 
 	$('.level3Values, .level2Values, .level1Values').click(function(){
@@ -94,5 +102,8 @@ $(document).ready( function() {
 	$('.level3Values, .level2Values, .level1Values').blur(function(){
 		updateAnswerKey($(this));
 	});
+
+	//Automatic Events
+	$('#q1').click();
 
 });

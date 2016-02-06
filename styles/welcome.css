@@ -10,7 +10,7 @@ body {
 
 section {
 
-    font-size: 500%;
+    font-size: 700%;
     color: white;
     margin: 5%;
 
@@ -26,13 +26,24 @@ section {
 }
 
 h1 {
-
     margin: auto;
-    color: rgb(16, 86, 146); <!--Blue color -->
-
 }
 
+ul {
+  display: inline;
+}
 
+span#first {
+  color: rgb(94, 138, 103); <!--Light Green Color -->
+}
+
+span#second {
+  color: rgb(20, 102, 100); <!--Dark Green Color -->
+}
+
+span#third {
+    color: rgb(32, 70, 93); <!--Dark Blue Color -->
+}
 
 
 

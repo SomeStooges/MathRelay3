@@ -14,7 +14,7 @@
 		<section>
 		<h1>McNeil HS Math Relay 2016</h1>
 
-		<button id="welcomeButton"> Go to USER LOGIN </button>
+		<button id="welcomeButton" disabled> Go to USER LOGIN </button>
 		<button id="adminButton"> Go to ADMIN </button>
 	</section>
 	</body>

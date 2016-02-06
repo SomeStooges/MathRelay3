@@ -2,7 +2,6 @@
 	session_start();
 
 	require 'utilities.php'; //imports some universal utilities
-
 	function gradeAnswer(){
 		//Get the variables that were submitted
 		$teamID = $_SESSION['teamID'];

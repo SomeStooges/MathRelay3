@@ -35,6 +35,11 @@ div#ribbon {
 
 	background-color: rgba(94, 138, 103, 0.6); <!--Light Green Color -->
 }
+
+.questions {
+	width: 100%;
+
+}
 #answerChoices {
 	float: left;
 	background-color: #377638;
@@ -57,19 +62,26 @@ div#ribbon {
 
 #points	{
 	margin-top: 0;
+	padding-left: 0;
 	color: white;
 	font-size: 200%;
-	margin-bottom: 5%;
-	padding: 2%;
+	/*margin-bottom: 5%;
+	padding: 2%;*/
+	height: 25px;
+}
+
+#submit {
+	margin-bottom: 0;
+	height: 250px;
+	padding-left: 0;
+	margin: 0;
+
+
 }
 
 #submit_answer {
-	height: 250px;
-	width: 110%;
-	margin-right: 10px;
-	padding-left: 0;
-	float: left;
-
+	width: 100%;
+	height: 100%;
 }
 
 #level3choice {
@@ -99,30 +111,27 @@ div#ribbon {
 	float: left;
 }
 .level3Buttons{
-	width: 225px;
+
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
+	width: 200px;
 
 }
 .level2Buttons{
-	width: 225px;
+	width: 200px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 
 }
 .level1Buttons{
-	width: 225px;
+	width: 200px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 }
 
-.questions {
-	margin-left:  30%;
-	margin-right: 30%;
-}
 
 /*td.choiceButtons{
 	height: 1px;

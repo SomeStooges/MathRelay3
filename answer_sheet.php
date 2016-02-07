@@ -123,7 +123,7 @@
 			</div>
 
 			<div id='rightside'>
-			<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span>
+			<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></ul>
 
 			<ul id='submit'><button id="submit_answer"> SUBMIT </button>
 		</div>

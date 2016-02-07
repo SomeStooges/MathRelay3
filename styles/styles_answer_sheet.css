@@ -1,8 +1,7 @@
 body {
 
 	background-image: url('/MathRelay3/images/Background_3.jpg');
-	background-size: auto;
-	/*background-position: center;*/
+	background-size: cover;
 	text-align: center;
 }
 
@@ -25,11 +24,11 @@ div#ribbon {
 	    border:5%;
 	    border-radius: 20px;
 	    position:relative;
-	    background-color: rgba(0,0,0,0.8);
+	    /*background-color: rgba(0,0,0,0.8);*/
 }
 
 #questionGrid {
-	height: 400px;
+	height: 300px;
 	width: 20%;
 	float: left;
 	/*border: 2px solid black;*/
@@ -40,7 +39,7 @@ div#ribbon {
 	float: left;
 	background-color: #377638;
 	width: 60%;
-	height: 400px;
+	height: 300px;
 	/*border-top: 2px solid black;
 	border-bottom: 2px solid black;*/
 
@@ -50,7 +49,7 @@ div#ribbon {
 #rightside {
 	float: left;
 	width: 20%;
-	height: 400px;
+	height: 300px;
 	/*border: 2px solid black;*/
 	background-color: rgba(32, 70, 93, 0.6); <!--Dark Blue Color -->
 
@@ -65,7 +64,7 @@ div#ribbon {
 }
 
 #submit_answer {
-	height: 350px;
+	height: 250px;
 	width: 110%;
 	margin-right: 10px;
 	padding-left: 0;
@@ -101,24 +100,23 @@ div#ribbon {
 }
 .level3Buttons{
 	width: 225px;
-	height: 50px;
+	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 
 }
 .level2Buttons{
 	width: 225px;
-	height: 50px;
+	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 
 }
 .level1Buttons{
 	width: 225px;
-	height: 50px;
+	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
-
 }
 
 .questions {

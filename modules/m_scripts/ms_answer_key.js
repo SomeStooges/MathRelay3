@@ -5,6 +5,7 @@ var level3selected = '';
 var level2selected = '';
 var level1selected = '';
 var lastTarget;
+var selectedSeries = 0;
 
 //Assigns answer choices to each input box to be displayed, deneding on series number
 function getChoices(series){
@@ -13,8 +14,23 @@ function getChoices(series){
 			$('#v'+i+'_'+j+'').val(choiceBank[series][i][j]);
 		}
 	}
+
+	$('.level1Set, .level2Set, .level3Set').css('background-color','');
+	for(j=1;j<=3;j++){
+		$('#s'+j+'_'+answerKey[series][j]).css('background-color','lightBlue');
+	}
 }
-function setAnswer(){
+function setAnswer(target){
+	fID = $(target).attr('id').substring(1,4).split('_');
+	obj = new Object;
+	obj.action = 'setAnswer';
+	obj.series = selectedSeries;
+	obj.level = fID[0];
+	obj.choice = fID[1];
+	$.post('../server/admin_control.php',obj,function(data){
+		$('.level'+fID[0]+'Set').css('background-color','');
+		$(target).css('background-color','lightBlue');
+	});
 	//Provide function for when the set answer button is pressed
 }
 
@@ -31,6 +47,23 @@ function addSpecialCharacter(bID){
 		break;
 	}
 	$(lastTarget).val($(lastTarget).val()+value);
+
+	//Resubmits the lastTarget after adding the character
+}
+
+function updateAnswerKey(target){
+	var fID = $(target).attr('id');
+	fID = fID.substring(1,4).split('_');
+	obj = new Object;
+	obj.action = 'updateAnswerKey';
+	obj.series = selectedSeries;
+	obj.level = fID[0];
+	obj.choice = fID[1];
+	obj.value = $(target).val();
+	console.log(fID);
+	$.post('../server/admin_control.php',obj,function(data){
+			//Should probably be some GUI change here....
+	});
 }
 
 $(document).ready( function() {
@@ -52,10 +85,25 @@ $(document).ready( function() {
 		addSpecialCharacter(bID);
 	});
 
+	$('.seriesNumbers').click(function(){
+		selectedSeries = $(this).attr('id').substring(1,3);
+		$('.seriesNumbers').css('background-color','');
+		$(this).css('background-color','lightBlue');
+	});
+
+	$('.level3Set, .level2Set, .level1Set').click(function(){
+		setAnswer($(this));
+	});
+
 	$('.level3Values, .level2Values, .level1Values').click(function(){
 		lastTarget = $(this);
 	});
 
+	$('.level3Values, .level2Values, .level1Values').blur(function(){
+		updateAnswerKey($(this));
+	});
 
+	//Automatic Events
+	$('#q1').click();
 
 });

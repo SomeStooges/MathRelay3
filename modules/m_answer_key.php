@@ -8,7 +8,6 @@
 		$choiceBank[$i] = array();
 		for($j=1;$j<=3;$j++){
 			$tempObj = mysqli_fetch_object($resource);
-			//die(var_dump($tempObj));
 			$choiceBank[$i][$j] = array(
 				1 => $tempObj->choice_1,
 				2 => $tempObj->choice_2,
@@ -19,6 +18,17 @@
 			);
 		}
 	}
+
+	$correctKey = array();
+	$resource = db_Query("SELECT correct_index FROM answer_key ORDER BY series_number ASC, level_number ASC;");
+	for($i=1;$i<=$numQuestions;$i++){
+		$correctKey[$i] = array();
+		for($j=1;$j<=3;$j++){
+			$tempRow = mysqli_fetch_row($resource);
+			$correctKey[$i][$j] = $tempRow[0];
+		}
+	}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -28,6 +38,7 @@
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_answer_key.css">
 		<script type="text/javascript">
 			var choiceBank = JSON.parse('<?php print json_encode($choiceBank) ?>');
+			var answerKey = JSON.parse('<?php print json_encode($correctKey) ?>');
 		</script>
 
 	</head>

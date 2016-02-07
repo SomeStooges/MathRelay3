@@ -3,6 +3,7 @@ body {
     text-align: center;
     background-image: url('/MathRelay3/images/SAM_1343.jpg');
     background-size: cover;
+    font-size: 400%;
 
     font-family: 'Advent Pro', sans-serif;
 
@@ -10,8 +11,6 @@ body {
 
 section {
 
-    font-size: 700%;
-    color: white;
     margin: 5%;
 
     background-position: center;

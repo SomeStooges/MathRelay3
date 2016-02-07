@@ -118,9 +118,10 @@
 				</div>
 			</div>
 
-			<div id='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></div>
+			<div id='rightside'>
+			<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span>
 
-			<button id="submit_answer"> SUBMIT </button>
+			<ul id='submit'><button id="submit_answer"> SUBMIT </button>
 		</div>
 	</body>
 </html>

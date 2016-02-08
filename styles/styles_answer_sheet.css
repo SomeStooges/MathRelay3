@@ -1,8 +1,10 @@
 body {
 
-	background-image: url('/MathRelay3/images/Background_5.jpg');
+	background-image: url('/MathRelay3/images/Background_6_Cropped.jpg');
 	background-size: cover;
+	background-position: cover;
 	text-align: center;
+
 }
 
 h1	{

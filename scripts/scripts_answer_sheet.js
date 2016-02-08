@@ -5,6 +5,9 @@ var seriesSelected = '';
 var level3selected = '';
 var level2selected = '';
 var level1selected = '';
+var selid1 = '';
+var selid2 = '';
+var selid3 = '';
 
 //Checks the current event
 function checkEvent(){
@@ -35,22 +38,22 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 		var res2 = data[2];	//result for level 2
 		var res3 = data[3];	//result for level 3
 
-		console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
+		//console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
 		//WRITE GUI CHANGE HERE
 		switch(res1){
-			case 0:	$('#'+id1).css('background-color','lightRed'); break;
+			case 0:	$('#'+id1).css('background-color','lightCoral'); break;
 			case 1:	$('.level1Buttons').css('background-color','lightGreen'); break;
 			case 3:	$('.level1Buttons').css('background-color','black'); break;
 			case 4: $('.level1Buttons').css('background-color',''); break;
 		}
 		switch(res2){
-			case 0:	$('.level2Buttons').css('background-color','lightRed'); break;
+			case 0:	$('#'+id2).css('background-color','lightCoral'); break;
 			case 1:	$('.level2Buttons').css('background-color','lightGreen'); break;
 			case 3:	$('.level2Buttons').css('background-color','black'); break;
 			case 4: $('.level2Buttons').css('background-color',''); break;
 		}
 		switch(res3){
-			case 0:	$('.level3Buttons').css('background-color','lightRed'); break;
+			case 0:	$('#'+id3).css('background-color','lightCoral'); break;
 			case 1:	$('.level3Buttons').css('background-color','lightGreen'); break;
 			case 3:	$('.level3Buttons').css('background-color','black'); break;
 			case 4: $('.level3Buttons').css('background-color',''); break;
@@ -143,7 +146,7 @@ $(document).ready( function() {
 		//gets attempt history colors
 		//some GUI
 	});
-	var selid1, selid2, selid3;
+
 	$(".level3Buttons").click( function(){
 		selid3 = $(this).prop('id');
 		level3selected = selid3.substring(3,4);

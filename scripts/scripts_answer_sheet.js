@@ -54,8 +54,9 @@ $(document).ready( function() {
 
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
-			if(data){
-				$("#nickname").text(JSON.parse(data));
+			var data = JSON.parse(data);
+			if(data.trim() != ""){
+				$("#page_title").text(JSON.parse(data));
 			}
 		});
 		$.post("server/user_control.php", action = "action=getPoints", function(data) {
@@ -76,8 +77,10 @@ $(document).ready( function() {
 		 obj.nickname =  $("#nicknameInput").val();
 		$.post("server/user_control.php", obj, function(data) {
 			if(data){
-				$("#nickname").html(obj.nickname);
-				console.log(data);
+				if( obj.nickname.trim() != ""){
+					$("#page_title").html(obj.nickname);
+					console.log(data);
+				}
 			}
 			else {
 				console.log("Oops! Something went wrong. :(");

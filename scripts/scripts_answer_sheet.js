@@ -33,7 +33,7 @@ function gradeAnswer(qNum, l3, l2, l1){
 		var res1 = data[1];	//result for level 1: 1 = correct, 0 = incorrect, 3 = too many attempts, 4 = already graded
 		var res2 = data[2];	//result for level 2
 		var res3 = data[3];	//result for level 3
-		//console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
+		console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
 
 		//WRITE GUI CHANGE HERE
 
@@ -108,11 +108,19 @@ $(document).ready( function() {
 		$('.seriesNumbers').css('background-color','');
 		$(this).css('background-color','lightBlue');
 
+		//clears level question colors
+		$('.level3Buttons').css('background-color','');
+		$('.level2Buttons').css('background-color','');
+		$('.level1Buttons').css('background-color','');
+
 		//gets the answer choices for the selected series
 		series = $(this).prop('id');
 		series = series.substring(1,series.length);
 		getChoices(series);
 		seriesSelected = series;
+
+		//gets attempt history colors
+		//some GUI
 	});
 
 	$(".level3Buttons").click( function(){
@@ -126,7 +134,7 @@ $(document).ready( function() {
 		selid = $(this).prop('id');
 		level2selected = selid.substring(3,4);
 		//SOME GUI CHANGE
-		$('.level2Buttons').css('background-color','rgb(5, 65, 198)');
+		$('.level2Buttons').css('background-color','');
 		$(this).css('background-color','rgb(5, 65, 198)');
 	});
 	$(".level1Buttons").click( function(){

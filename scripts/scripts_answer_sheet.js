@@ -75,9 +75,10 @@ $(document).ready( function() {
 
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
-			var data = JSON.parse(data);
+			data = JSON.parse(data);
+			console.log(data);
 			if(data.trim() != ""){
-				$("#page_title").text(JSON.parse(data));
+				$("#page_title").text(data);
 			}
 		});
 		$.post("server/user_control.php", action = "action=getPoints", function(data) {

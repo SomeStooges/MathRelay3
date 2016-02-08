@@ -105,6 +105,8 @@ $(document).ready( function() {
 		level3selected = '';
 		level2selected = '';
 		level1selected = '';
+		$('.seriesNumbers').css('background-color','');
+		$(this).css('background-color','lightBlue');
 
 		//gets the answer choices for the selected series
 		series = $(this).prop('id');
@@ -117,16 +119,22 @@ $(document).ready( function() {
 		selid = $(this).prop('id');
 		level3selected = selid.substring(3,4);
 		//SOME GUI CHANGE
+		$('.level3Buttons').css('background-color','');
+		$(this).css('background-color','rgb(5, 65, 198)');
 	});
 	$(".level2Buttons").click( function(){
 		selid = $(this).prop('id');
 		level2selected = selid.substring(3,4);
 		//SOME GUI CHANGE
+		$('.level2Buttons').css('background-color','rgb(5, 65, 198)');
+		$(this).css('background-color','rgb(5, 65, 198)');
 	});
 	$(".level1Buttons").click( function(){
 		selid = $(this).prop('id');
 		level1selected = selid.substring(3,4);
 		//SOME GUI CHANGE
+		$('.level1Buttons').css('background-color','');
+		$(this).css('background-color','rgb(5, 65, 198)');
 	});
 	$('#submit_answer').click( function(){
 		console.log("submitting answer");

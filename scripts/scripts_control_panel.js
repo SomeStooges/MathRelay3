@@ -65,13 +65,13 @@ function updateEvent(uEvent){
   $.post('server/admin_control.php',obj, function(data){
     var bID = JSON.parse(data);
     $('.ribbonButton').css('background-color','');
-    $('#'+bID).css('background-color','blue');
+    $('#'+bID).css('background-color','#011858');
   });
 }
 
 function updateUI(){
   var currentEvent = $("#cEvent").text().trim();
-  $('#'+currentEvent).css('background-color','blue');
+  $('#'+currentEvent).css('background-color','#011858');
 }
 
 $(document).ready(function() {

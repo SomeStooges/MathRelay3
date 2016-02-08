@@ -132,4 +132,6 @@ $(document).ready( function() {
 		console.log("submitting answer");
 		gradeAnswer(seriesSelected,level3selected,level2selected,level1selected);
 	});
+
+	$('#q1').click();
 });

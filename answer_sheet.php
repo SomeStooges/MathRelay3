@@ -62,6 +62,7 @@
 		</div>
 
 		<!-- Table for interactive question numbers -->
+		<div id="buttons">
 		<div id="content">
 			<div id="questionGrid">
 				<h3>Questions</h3>
@@ -127,5 +128,6 @@
 
 			<ul id='submit'><button id="submit_answer"> SUBMIT </button>
 		</div>
+	</div>
 	</body>
 </html>

@@ -15,12 +15,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title> Answer Sheet </title>
+		<title> Congratulations! </title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="scripts/scripts_finish_page.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/finish_page.css"></script>
 	</head>
 
 	<body>
+		<section>
 		<h1> Finish Page </h1>
 		<div id = "congratulations">
 			<?php
@@ -57,5 +59,6 @@
 				print "<span>".$text."</span>";
 			?>
 		</div>
+	</section>
 	</body>
 </html>

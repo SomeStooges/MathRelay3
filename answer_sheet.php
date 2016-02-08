@@ -51,7 +51,6 @@
 	<body>
 		<div id="ribbon">
 			<h1 id="page_title" style="text-align:center"> Answer Sheet </h1>
-			<h1 id="nickname" style="text-align:center"></h1>
 			<div>
 			<p style="text-align:center">
 				Edit nickname: <input id='nicknameInput' placeholder= "Enter A Team Nickname">

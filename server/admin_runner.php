@@ -52,6 +52,7 @@
 		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $startTime . "' WHERE `name` = 'startTime'");
 	}
 
+	//Returns team_data's contents
 	function updateTeamData(){
 		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data ORDER BY `points` DESC;");
 		$returnRow = array();

@@ -15,16 +15,18 @@
 				require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';
 			}
 
-			$resource = db_Query("SELECT team_id,team_nickname,password,points,rank_freetime,last_checkin_time,last_point FROM team_data;");
+			$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data;");
 			$teamData = array();
 			while($teamRow = mysqli_fetch_row($resource)){
 				$teamData[] = $teamRow;
 			}
 
 			print "<table id='teamDataTable'>";
-			print "<tr><th>Team ID</th><th>Team Nickname</th><th>Password</th><th>Points</th><th>Rank at Freetime</th><th>Last Point Time</th><th>Last Check-in Time</th></tr>";
+			print "<tr><th>Current Rank</th><th>Team ID</th><th>Team Nickname</th><th>Password</th><th>Points</th><th>Rank at Freetime</th><th>Last Point Time</th><th>Last Check-in Time</th></tr>";
 			for($i=0;$i<count($teamData);$i++){
-				print "<tr>";
+				print "<tr id='dataRow" . $i . "'>";
+				$rank = $i + 1;
+				print "<td> " . $rank . " </td>";
 				for($j=0;$j<count($teamData[$i]);$j++){
 					print "<td>" . $teamData[$i][$j] . "</td>";
 				}

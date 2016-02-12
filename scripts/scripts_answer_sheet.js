@@ -9,11 +9,11 @@ var selid1 = '';
 var selid2 = '';
 var selid3 = '';
 var seriesID = '';
+var selected = '';
 
 //Checks the current event
 function checkEvent(){
 	$.post('server/user_runner.php', 'action=getEvent', function(data) {
-		console.log(data);
 		var checker = JSON.parse(data);
 		if(checker == "close"){
 			window.location.href = "finish_page.php";
@@ -26,14 +26,16 @@ function retrieveHistory(){
 	$.post('server/user_runner.php', 'action=retrieveHistory', function(data) {
 		var strhis = JSON.parse(data);
 		var arrhis = strhis.split(";");
-		console.log(arrhis);
 		for (var a = 0; a < arrhis.length; a++){
 			var b = a+1;
 			switch(arrhis[a]){
-				case "1": $('#q'+b).prop('disabled', true); break;
-				case "3": $('#q'+b).prop('disabled', true); break;
+				case "1": $('#q'+b).prop('disabled', true);
+					$('#q'+b).css('background-color', 'lightGreen');
+					break;
+				case "3": $('#q'+b).prop('disabled', true);
+				$('#q'+b).css('background-color', 'lightCoral');
+				break;
 			}
-			console.log(b);
 		}
 	});
 }
@@ -92,8 +94,12 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 		console.log(list);
 		console.log(list[temp-1]);
 		switch(list[temp-1]){
-			case "1": $('#'+seriesID).prop('disabled', true); break;
-			case "3": $('#'+seriesID).prop('disabled', true); break;
+			case "1": $('#'+seriesID).prop('disabled', true);
+				$('#'+seriesID).css('background-color', 'lightGreen');
+				break;
+			case "3": $('#'+seriesID).prop('disabled', true);
+				$('#'+seriesID).css('background-color', 'lightCoral');
+				break;
 		}
 	});
 }
@@ -166,9 +172,11 @@ $(document).ready( function() {
 		level3selected = '';
 		level2selected = '';
 		level1selected = '';
-		$('.seriesNumbers').css('background-color','');
-		$(this).css('background-color','lightBlue');
-
+		$('#'+selected).css('background-color', '');
+		var temp = $(this).prop('id');
+		$('#'+temp).css('background-color','lightBlue');
+		selected = temp;
+		console.log(selected);
 		//clears level question colors
 		$('.level3Buttons').css('background-color','');
 		$('.level2Buttons').css('background-color','');

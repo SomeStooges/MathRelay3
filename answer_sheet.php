@@ -93,7 +93,7 @@
 							$numChoices = 6;
 							$level = 3;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
 							}
 						?>
 					</table>
@@ -104,7 +104,7 @@
 						<?php
 							$level = 2;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
 							}
 						?>
 					</table>
@@ -115,7 +115,7 @@
 						<?php
 							$level = 1;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
 							}
 						?>
 					</table>

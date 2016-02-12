@@ -115,6 +115,7 @@ function getChoices(series){
 $(document).ready( function() {
 	setInterval(checkEvent,1000);
 	retrieveHistory();
+	$('#submit_answer').prop('disabled', true);
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			data = JSON.parse(data);
@@ -169,6 +170,7 @@ $(document).ready( function() {
 
 	$(".seriesNumbers").click( function(){
 		//resets the selected answers
+		$('#submit_answer').prop('disabled', false);
 		level3selected = '';
 		level2selected = '';
 		level1selected = '';
@@ -219,5 +221,4 @@ $(document).ready( function() {
 		gradeAnswer(seriesSelected,level3selected,level2selected,level1selected,selid1,selid2,selid3);
 	});
 
-	$('#q1').click();
 });

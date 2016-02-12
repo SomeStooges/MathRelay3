@@ -26,15 +26,17 @@ function retrieveHistory(){
 	$.post('server/user_runner.php', 'action=retrieveHistory', function(data) {
 		var strhis = JSON.parse(data);
 		var arrhis = strhis.split(";");
+		console.log(arrhis);
 		for (var a = 0; a < arrhis.length; a++){
 			var b = a+1;
 			switch(arrhis[a]){
 				case "1": $('#q'+b).prop('disabled', true);
 					$('#q'+b).css('background-color', 'lightGreen');
 					break;
+				case "2": $('#q'+b).css('background-color', 'yellow'); break;
 				case "3": $('#q'+b).prop('disabled', true);
 				$('#q'+b).css('background-color', 'lightCoral');
-				break;
+					break;
 			}
 		}
 	});
@@ -97,6 +99,7 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 			case "1": $('#'+seriesID).prop('disabled', true);
 				$('#'+seriesID).css('background-color', 'lightGreen');
 				break;
+			case "2": $('#'+seriesID).css('background-color', 'yellow'); break;
 			case "3": $('#'+seriesID).prop('disabled', true);
 				$('#'+seriesID).css('background-color', 'lightCoral');
 				break;
@@ -182,8 +185,10 @@ $(document).ready( function() {
 		level1selected = '';
 		$('#'+selected).css('background-color', '');
 		var temp = $(this).prop('id');
+		selected = temp.split('q');
 		$('#'+temp).css('background-color','lightBlue');
 		selected = temp;
+		retrieveHistory(); //Communicates with server. May cause lag
 		//clears level question colors
 		$('.level3Buttons').css('background-color','');
 		$('.level2Buttons').css('background-color','');

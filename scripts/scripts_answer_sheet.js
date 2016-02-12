@@ -186,7 +186,7 @@ $(document).ready( function() {
 		$('#'+selected).css('background-color', '');
 		var temp = $(this).prop('id');
 		selected = temp.split('q');
-		$('#'+temp).css('background-color','lightBlue');
+		$('#'+temp).css('background-color','rgb(101, 123, 201)');
 		selected = temp;
 		retrieveHistory(); //Communicates with server. May cause lag
 		//clears level question colors
@@ -210,21 +210,21 @@ $(document).ready( function() {
 		level3selected = selid3.substring(3,4);
 		//SOME GUI CHANGE
 		$('.level3Buttons').css('background-color','');
-		$(this).css('background-color','rgb(5, 65, 198)');
+		$(this).css('background-color','rgb(101, 123, 201)');
 	});
 	$(".level2Buttons").click( function(){
 		selid2 = $(this).prop('id');
 		level2selected = selid2.substring(3,4);
 		//SOME GUI CHANGE
 		$('.level2Buttons').css('background-color','');
-		$(this).css('background-color','rgb(5, 65, 198)');
+		$(this).css('background-color','rgb(101, 123, 201)');
 	});
 	$(".level1Buttons").click( function(){
 		selid1 = $(this).prop('id');
 		level1selected = selid1.substring(3,4);
 		//SOME GUI CHANGE
 		$('.level1Buttons').css('background-color','');
-		$(this).css('background-color','rgb(5, 65, 198)');
+		$(this).css('background-color','rgb(101, 123, 201)');
 	});
 	$('#submit_answer').click( function(){
 		console.log("submitting answer");

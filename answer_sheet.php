@@ -93,7 +93,7 @@
 							$numChoices = 6;
 							$level = 3;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons' class='answerChoiceButton'></button><td></tr>";
 							}
 						?>
 					</table>

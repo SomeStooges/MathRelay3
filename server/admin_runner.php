@@ -52,11 +52,21 @@
 		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $startTime . "' WHERE `name` = 'startTime'");
 	}
 
+	function updateTeamData(){
+		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data ORDER BY `points` DESC;");
+		$returnRow = array();
+		while($tempRow = mysqli_fetch_row($resource)){
+			$returnRow[]=$tempRow;
+		}
+		return $returnRow;
+	}
+
 	$action = $_REQUEST['action'];
 	$return = false;
 	switch( $action ){
 		case 'getLeaderboard': $return = getLeaderboard(); break;
 		case 'setStartTime': $return = setStartTime(); break;
+		case 'updateTeamData': $return = updateTeamData(); break;
 	}
 	print json_encode($return);
 

@@ -40,6 +40,7 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 
 		//console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
 		//WRITE GUI CHANGE HERE
+		//Note: this change is not evident upon reloading the series. Needs to have a way of storing these cases.
 		switch(res1){
 			case 0:	$('#'+id1).css('background-color','lightCoral'); break;
 			case 1:	$('.level1Buttons').css('background-color','lightGreen'); break;
@@ -77,7 +78,7 @@ $(document).ready( function() {
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			data = JSON.parse(data);
 			console.log(data);
-			if(data.trim() != ""){
+			if(data.trim() !== ""){
 				$("#page_title").text(data);
 			}
 		});
@@ -99,7 +100,7 @@ $(document).ready( function() {
 		 obj.nickname =  $("#nicknameInput").val();
 		$.post("server/user_control.php", obj, function(data) {
 			if(data){
-				if( obj.nickname.trim() != ""){
+				if( obj.nickname.trim() !== ""){
 					$("#page_title").html(obj.nickname);
 					console.log(data);
 				}

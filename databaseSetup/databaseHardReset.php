@@ -80,6 +80,7 @@
 	print "<p> ...and those ever important relay options!";
 	mysqli_query($con, "INSERT INTO `relay_options`(`class`, `name`, `value`) VALUES
 	('event','currentEvent','none'),
+	('event','startTime',''),
 	('admin','adminPassword','admin'),
 	('admin','adminLastAction','0'),
 	('display','idColumn','false'),

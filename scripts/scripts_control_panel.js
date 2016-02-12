@@ -59,7 +59,7 @@ function getAdminLog() {
 }
 
 function updateEvent(uEvent){
-  obj = new Object;
+  obj = new Object();
   obj.action = 'updateEvent';
   obj.uEvent = uEvent;
   $.post('server/admin_control.php',obj, function(data){
@@ -80,6 +80,13 @@ $(document).ready(function() {
   $("#start").click(function() {
     timer();
     $("#start").prop("disabled", true);
+    var currentTime = new Date();
+    obj = new Object();
+    obj.action = 'setStartTime';
+    obj.startTime = currentTime.getTime();
+    $.post("server/admin_runner.php", obj, function(data) {
+
+    });
   });
 
   //Event handler for stop event button

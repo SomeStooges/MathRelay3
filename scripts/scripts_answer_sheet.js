@@ -116,6 +116,9 @@ $(document).ready( function() {
 	setInterval(checkEvent,1000);
 	retrieveHistory();
 	$('#submit_answer').prop('disabled', true);
+	$('.level1Buttons').prop('disabled', true);
+	$('.level2Buttons').prop('disabled', true);
+	$('.level3Buttons').prop('disabled', true);
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			data = JSON.parse(data);
@@ -171,6 +174,9 @@ $(document).ready( function() {
 	$(".seriesNumbers").click( function(){
 		//resets the selected answers
 		$('#submit_answer').prop('disabled', false);
+		$('.level1Buttons').prop('disabled', false);
+		$('.level2Buttons').prop('disabled', false);
+		$('.level3Buttons').prop('disabled', false);
 		level3selected = '';
 		level2selected = '';
 		level1selected = '';
@@ -178,7 +184,6 @@ $(document).ready( function() {
 		var temp = $(this).prop('id');
 		$('#'+temp).css('background-color','lightBlue');
 		selected = temp;
-		console.log(selected);
 		//clears level question colors
 		$('.level3Buttons').css('background-color','');
 		$('.level2Buttons').css('background-color','');

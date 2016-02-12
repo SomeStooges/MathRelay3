@@ -8,6 +8,7 @@ var level1selected = '';
 var selid1 = '';
 var selid2 = '';
 var selid3 = '';
+var seriesID = '';
 
 //Checks the current event
 function checkEvent(){
@@ -45,21 +46,38 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 			case 0:	$('#'+id1).css('background-color','lightCoral'); break;
 			case 1:	$('.level1Buttons').css('background-color','lightGreen'); break;
 			case 3:	$('.level1Buttons').css('background-color','black'); break;
-			case 4: $('.level1Buttons').css('background-color',''); break;
+			case 4: $('.level1Buttons').css('background-color','black');
+				//$('.level1Buttons').prop('disabled', true);
+				break;
 		}
 		switch(res2){
 			case 0:	$('#'+id2).css('background-color','lightCoral'); break;
 			case 1:	$('.level2Buttons').css('background-color','lightGreen'); break;
 			case 3:	$('.level2Buttons').css('background-color','black'); break;
-			case 4: $('.level2Buttons').css('background-color',''); break;
+			case 4: $('.level2Buttons').css('background-color','black');
+				//$('.level2Buttons').prop('disabled', true);
+				break;
 		}
 		switch(res3){
 			case 0:	$('#'+id3).css('background-color','lightCoral'); break;
 			case 1:	$('.level3Buttons').css('background-color','lightGreen'); break;
 			case 3:	$('.level3Buttons').css('background-color','black'); break;
-			case 4: $('.level3Buttons').css('background-color',''); break;
+			case 4: $('.level3Buttons').css('background-color','black');
+				//$('.level3Buttons').prop('disabled', true);
+				break;
 		}
 		$('#currentPoints').html(data[4]);
+
+		//checks to see if  the answer was correct or had too many attempts, and disables the series button.
+		var list = hist.split(";");
+		var id = seriesID.split("q");
+		var temp = parseInt(id[1]);
+		console.log(list);
+		console.log(list[temp-1]);
+		switch(list[temp-1]){
+			case "1": $('#'+seriesID).prop('disabled', true); break;
+			case "3": $('#'+seriesID).prop('disabled', true); break;
+		}
 	});
 }
 
@@ -141,6 +159,7 @@ $(document).ready( function() {
 
 		//gets the answer choices for the selected series
 		series = $(this).prop('id');
+		seriesID = series;
 		series = series.substring(1,series.length);
 		getChoices(series);
 		seriesSelected = series;

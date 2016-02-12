@@ -1,12 +1,19 @@
 <!--Content for Team Activity tab -->
 <?php
 	require '../server/utilities.php';
+
+	$startTime = mysqli_fetch_object(db_Query("SELECT `value` FROM relay_options WHERE `name` = 'startTime'"));
+	$startTime = $startTime->value;
  ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="m_scripts/ms_team_activity.js"></script>
+		<script type="text/javascript">
+			var startTime = JSON.parse('<?php print json_encode($startTime) ?>');
+			console.log(startTime);
+		</script>
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_team_activity.css">
 	</head>
 	<body>

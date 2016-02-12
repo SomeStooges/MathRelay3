@@ -7,6 +7,12 @@
 		$resource = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
 		return $resource[0];
 	}
+	function retrieveHistory(){
+		$teamID = $_SESSION['teamID'];
+		$resource = mysqli_fetch_object(db_Query("SELECT `history` FROM `team_data` WHERE `team_id` = '$teamID'"));
+		$resource = $resource->history;
+		return $resource;
+	}
 
 	function gradeAnswer(){
 		//Get the variables that were submitted
@@ -88,6 +94,7 @@
 	switch( $action ){
 		case 'gradeAnswer': $return = gradeAnswer(); break;
 		case 'getEvent': $return = getEvent(); break;
+		case 'retrieveHistory': $return = retrieveHistory(); break;
 	}
 	print json_encode($return);
 ?>

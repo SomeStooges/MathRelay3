@@ -21,6 +21,23 @@ function checkEvent(){
 	});
 }
 
+//Retrieves answer history in the case that there is a premature logout or refresh or closed window
+function retrieveHistory(){
+	$.post('server/user_runner.php', 'action=retrieveHistory', function(data) {
+		var strhis = JSON.parse(data);
+		var arrhis = strhis.split(";");
+		console.log(arrhis);
+		for (var a = 0; a < arrhis.length; a++){
+			var b = a+1;
+			switch(arrhis[a]){
+				case "1": $('#q'+b).prop('disabled', true); break;
+				case "3": $('#q'+b).prop('disabled', true); break;
+			}
+			console.log(b);
+		}
+	});
+}
+
 //Sends the answer to the server to be graded
 function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 	console.log('Sending answer: series: '+qNum+' ; '+l3+' ; '+l2+' ; '+l1+' ;');
@@ -91,7 +108,7 @@ function getChoices(series){
 
 $(document).ready( function() {
 	setInterval(checkEvent,1000);
-
+	retrieveHistory();
 	var action;
 		$.post("server/user_control.php", action= "action=getNickname", function(data) {
 			data = JSON.parse(data);

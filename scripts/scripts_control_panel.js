@@ -152,12 +152,16 @@ $(document).ready(function() {
         break;
 
       case "open":
-        $(".ribbonButton").prop("disabled", false);
-        $("#open").prop("disabled", true);
+        $(".ribbonButton").prop("disabled", true);
+        $("#none").prop("disabled", false);
+        $("#start").prop("disabled", false);
         break;
 
       case "start":
         timer();
+        $(".ribbonButton").prop("disabled", false);
+        $("#freezeLeaderboard").prop("disabled", true);
+        $("#close").prop("disabled", true);
         $("#start").prop("disabled", true);
         var currentTime = new Date();
         obj = new Object();
@@ -166,9 +170,25 @@ $(document).ready(function() {
         $.post("server/admin_runner.php", obj, function(data) {});
         break;
 
+      case "freetime":
+        $(".ribbonButton").prop("disabled", false);
+        $("#freetime").prop("disabled", true);
+        $("#start").prop("disabled", true);
+        $("#close").prop("disabled", true);
+        break;
+
+      case "freezeLeaderboard":
+        $("#ribbonButton").prop("disabled", false);
+        $("#freetime").prop("disabled", true);
+
+
+        break;
       case "stop":
         clearTimeout(t);
-        $("#start").prop("disabled", false);
+        $(".ribbonButton").prop("disabled", false);
+        $("#freetime").prop("disabled", true);
+        $("#freezeLeaderboard").prop("disabled", true);
+        $("#stop").prop("disabled", true);
         break;
 
       case "close":

@@ -94,17 +94,6 @@ function updateUI(){
 
 $(document).ready(function() {
   updateUI();
-
-  /*$("#start").click(function() {
-    timer();
-    $("#start").prop("disabled", true);
-    var currentTime = new Date();
-    obj = new Object();
-    obj.action = 'setStartTime';
-    obj.startTime = currentTime.getTime();
-    $.post("server/admin_runner.php", obj, function(data) {});
-  });*/
-
   //Event handler for stop event button
   $("#stop").click(function() {
     clearTimeout(t);

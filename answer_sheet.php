@@ -6,6 +6,10 @@
 	}
 	require 'server/utilities.php';
 	$checkEvent = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
+	switch($checkEvent[0]){
+		case "close":	header('location: finish_page.php');break;
+		case "open": $temp = "open"; //may delete later
+	}
 	if($checkEvent[0] == "close"){
 		header('location: finish_page.php');
 	}

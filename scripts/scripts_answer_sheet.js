@@ -10,13 +10,46 @@ var selid2 = '';
 var selid3 = '';
 var seriesID = '';
 var selected = '';
+//Global history variables
+var strhis;
+var arrhis;
+var counter = 0;
 
 //Checks the current event
 function checkEvent(){
 	$.post('server/user_runner.php', 'action=getEvent', function(data) {
 		var checker = JSON.parse(data);
-		if(checker == "close"){
-			window.location.href = "finish_page.php";
+		console.log(checker);
+		switch(checker){
+			case "none":
+						window.location.href = "user_login.php";
+						break;
+			case "open":
+						$('.seriesNumbers').prop('disabled', true);
+						$('.level1Buttons').prop('disabled', true);
+						$('.level2Buttons').prop('disabled', true);
+						$('.level3Buttons').prop('disabled', true);
+						break;
+			case "start":
+						if(counter<1){
+							$('.seriesNumbers').prop('disabled', false);
+							$('.level1Buttons').prop('disabled', false);
+							$('.level2Buttons').prop('disabled', false);
+							$('.level3Buttons').prop('disabled', false);
+							counter++	;
+						}
+						break;
+			case "stop":
+						$('.seriesNumbers').prop('disabled', true);
+						$('.level1Buttons').prop('disabled', true);
+						$('.level2Buttons').prop('disabled', true);
+						$('.level3Buttons').prop('disabled', true);
+						break;
+			case "close":
+						window.location.href = "finish_page.php";
+						break;
+			default:
+						counter =0;
 		}
 	});
 }
@@ -24,8 +57,8 @@ function checkEvent(){
 //Retrieves answer history in the case that there is a premature logout or refresh or closed window
 function retrieveHistory(){
 	$.post('server/user_runner.php', 'action=retrieveHistory', function(data) {
-		var strhis = JSON.parse(data);
-		var arrhis = strhis.split(";");
+		strhis = JSON.parse(data);
+		arrhis = strhis.split(";");
 		console.log(arrhis);
 		for (var a = 0; a < arrhis.length; a++){
 			var b = a+1;
@@ -115,7 +148,23 @@ function getChoices(series){
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(document).ready( function() {
+	checkEvent();
 	setInterval(checkEvent,1000);
 	retrieveHistory();
 	$('#submit_answer').prop('disabled', true);

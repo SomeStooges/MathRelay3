@@ -74,10 +74,28 @@ function updateUI(){
   $('#'+currentEvent).css('background-color','#011858');
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(document).ready(function() {
   updateUI();
 
-  $("#start").click(function() {
+  /*$("#start").click(function() {
     timer();
     $("#start").prop("disabled", true);
     var currentTime = new Date();
@@ -85,7 +103,7 @@ $(document).ready(function() {
     obj.action = 'setStartTime';
     obj.startTime = currentTime.getTime();
     $.post("server/admin_runner.php", obj, function(data) {});
-  });
+  });*/
 
   //Event handler for stop event button
   $("#stop").click(function() {
@@ -124,7 +142,42 @@ $(document).ready(function() {
 
   //Event Handler for event buttons
   $('.ribbonButton').click(function(){
-    updateEvent( $(this).attr('id') );
+    var ribbonID = $(this).attr('id');
+    updateEvent(ribbonID);
+    switch (ribbonID) {
+      case "none":
+        $(".ribbonButton").prop("disabled", true);
+        $("#open").prop("disabled", false);
+        $("#logoutButton").prop("disabled", false);
+        break;
+
+      case "open":
+        $(".ribbonButton").prop("disabled", false);
+        $("#open").prop("disabled", true);
+        break;
+
+      case "start":
+        timer();
+        $("#start").prop("disabled", true);
+        var currentTime = new Date();
+        obj = new Object();
+        obj.action = 'setStartTime';
+        obj.startTime = currentTime.getTime();
+        $.post("server/admin_runner.php", obj, function(data) {});
+        break;
+
+      case "stop":
+        clearTimeout(t);
+        $("#start").prop("disabled", false);
+        break;
+
+      case "close":
+        $(".ribbonButton").prop("disabled", true);
+        $("#none").prop("disabled", false);
+        $("#open").prop("disabled", false);
+        $("#logoutButton").prop("disabled", false);
+        break;
+    }
   });
 
   //Event Handler for logout button

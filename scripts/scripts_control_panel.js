@@ -4,6 +4,7 @@ var seconds = 0;
 var minutes = 0;
 var hours = 0;
 var t;
+var time;
 function timer() {
   t = setTimeout(add, 1000);
 }
@@ -18,7 +19,8 @@ function add() {
       hours++;
     }
   }
-  $("#timer").text((hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds));
+  time = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+  $("#timer").text(time);
   timer();
 }
 
@@ -72,21 +74,84 @@ function updateEvent(uEvent){
 function updateUI(){
   var currentEvent = $("#cEvent").text().trim();
   $('#'+currentEvent).css('background-color','#011858');
+  toggleButtons(currentEvent);
 }
+function toggleButtons(ribbonID){
+  switch (ribbonID) {
+    case "none":
+      $(".ribbonButton").prop("disabled", true);
+      $("#open").prop("disabled", false);
+      $("#logoutButton").prop("disabled", false);
+      break;
+
+    case "open":
+      $(".ribbonButton").prop("disabled", true);
+      $("#none").prop("disabled", false);
+      $("#start").prop("disabled", false);
+      break;
+
+    case "start":
+      timer();
+      $(".ribbonButton").prop("disabled", false);
+      $("#freezeLeaderboard").prop("disabled", true);
+      $("#close").prop("disabled", true);
+      $("#start").prop("disabled", true);
+      var currentTime = new Date();
+      obj = new Object();
+      obj.action = 'setStartTime';
+      obj.startTime = currentTime.getTime();
+      $.post("server/admin_runner.php", obj, function(data) {});
+      break;
+
+    case "freetime":
+      $(".ribbonButton").prop("disabled", false);
+      $("#freetime").prop("disabled", true);
+      $("#start").prop("disabled", true);
+      $("#close").prop("disabled", true);
+      break;
+
+    case "freezeLeaderboard":
+      $("#ribbonButton").prop("disabled", false);
+      $("#freetime").prop("disabled", true);
+      $("#freezeLeaderboard").prop("disabled", true);
+
+      break;
+    case "stop":
+      clearTimeout(t);
+      $(".ribbonButton").prop("disabled", false);
+      $("#freetime").prop("disabled", true);
+      $("#freezeLeaderboard").prop("disabled", true);
+      $("#stop").prop("disabled", true);
+      break;
+
+    case "close":
+      $(".ribbonButton").prop("disabled", true);
+      $("#none").prop("disabled", false);
+      $("#open").prop("disabled", false);
+      $("#logoutButton").prop("disabled", false);
+      break;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(document).ready(function() {
   updateUI();
-
-  $("#start").click(function() {
-    timer();
-    $("#start").prop("disabled", true);
-    var currentTime = new Date();
-    obj = new Object();
-    obj.action = 'setStartTime';
-    obj.startTime = currentTime.getTime();
-    $.post("server/admin_runner.php", obj, function(data) {});
-  });
-
   //Event handler for stop event button
   $("#stop").click(function() {
     clearTimeout(t);
@@ -124,7 +189,9 @@ $(document).ready(function() {
 
   //Event Handler for event buttons
   $('.ribbonButton').click(function(){
-    updateEvent( $(this).attr('id') );
+    var ribbonID = $(this).attr('id');
+    updateEvent(ribbonID);
+    toggleButtons(ribbonID);
   });
 
   //Event Handler for logout button

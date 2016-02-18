@@ -62,6 +62,17 @@
 		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $startTime . "' WHERE `name` = 'startTime'");
 	}
 
+	function getStartTime(){
+		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'startTime'"));
+		if($resource){
+			$resource = $resource->value;
+		}
+		else{
+			$resource = false;
+		}
+		return $resource;
+	}
+
 	//Returns team_data's contents
 	function updateTeamData(){
 		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data ORDER BY `points` DESC;");
@@ -77,6 +88,7 @@
 	switch( $action ){
 		case 'getLeaderboard': $return = getLeaderboard(); break;
 		case 'setStartTime': $return = setStartTime(); break;
+		case 'getStartTime': $return = getStartTime(); break;
 		case 'updateTeamData': $return = updateTeamData(); break;
 		case 'getTeamLog': $return = getTeamLog(); break;
 	}

@@ -77,6 +77,7 @@ function updateEvent(uEvent){
 function updateUI(){
   var currentEvent = $("#cEvent").text().trim();
   $('#'+currentEvent).css('background-color','#011858');
+  console.log(currentEvent);
   toggleButtons(currentEvent);
 }
 function toggleButtons(ribbonID){
@@ -96,7 +97,14 @@ function toggleButtons(ribbonID){
       break;
 
     case "start":
-      timer();
+      $.post("server/admin_runner.php", "action=getStartTime", function(data){
+        console.log(JSON.parse(data));
+        if(JSON.parse(data) === ''){
+          console.log("No previous time");
+          timer();
+        }
+      });
+    //  timer();
       $(".ribbonButton").prop("disabled", false);
       $("#freezeLeaderboard").prop("disabled", true);
       $("#close").prop("disabled", true);
@@ -136,10 +144,6 @@ function toggleButtons(ribbonID){
       $("#logoutButton").prop("disabled", false);
       break;
   }
-}
-//Stores the current time on timer in to the database upon logging back in.
-function storeTime(){
-
 }
 
 
@@ -219,5 +223,4 @@ $(document).ready(function() {
 //Activates upon unloading the page (to be used to account for premature admin logout)
   $(window).unload(function(){
       console.log("unloading");
-      storeTime();
   });

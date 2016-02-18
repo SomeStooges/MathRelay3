@@ -104,7 +104,6 @@ function toggleButtons(ribbonID){
           timer();
         }
       });
-    //  timer();
       $(".ribbonButton").prop("disabled", false);
       $("#freezeLeaderboard").prop("disabled", true);
       $("#close").prop("disabled", true);

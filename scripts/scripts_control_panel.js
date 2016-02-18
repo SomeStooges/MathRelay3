@@ -1,4 +1,7 @@
 // Script for the admin control panel
+//Universal ID variables
+var ribbonID;
+var toolbarID;
 //Universal timer variables
 var seconds = 0;
 var minutes = 0;
@@ -134,8 +137,10 @@ function toggleButtons(ribbonID){
       break;
   }
 }
+//Stores the current time on timer in to the database upon logging back in.
+function storeTime(){
 
-
+}
 
 
 
@@ -164,10 +169,14 @@ $(document).ready(function() {
   $(".toolbarButton").click(function() {
     $('.contentMod').css('display', 'none'); //Resets all to none by default
     var target; //to save the value of the pointer
-    switch ($(this).attr("id")) {
+    toolbarID = $(this).attr("id");
+    switch (toolbarID) {
       case "teamData":
         target = $('#mod1');
         break; //get the pointer
+      case "leaderboardLink":
+        window.open("leaderboard.php");
+        break;
       case "answerKey":
         target = $('#mod3');
         break;
@@ -184,14 +193,11 @@ $(document).ready(function() {
     $(target).css('display', 'block'); //display the pointer's reference
   });
 
-  //Event Handler for leaderboard link
-  $('#leaderboardLink').click(function() {
-    window.location.href = "leaderboard.php";
-  });
+
 
   //Event Handler for event buttons
   $('.ribbonButton').click(function(){
-    var ribbonID = $(this).attr('id');
+    ribbonID = $(this).attr('id');
     updateEvent(ribbonID);
     toggleButtons(ribbonID);
   });
@@ -209,3 +215,9 @@ $(document).ready(function() {
     });
   });
 });
+
+//Activates upon unloading the page (to be used to account for premature admin logout)
+  $(window).unload(function(){
+      console.log("unloading");
+      storeTime();
+  });

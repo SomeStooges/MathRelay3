@@ -136,12 +136,7 @@
 		}
 		return $response;
 	}
-
-	function getTeamLog(){
-		$resource;
-		$response;
-		return $response;
-	}
+	
 	function getStatistics(){
 		$resource;
 		$response;

@@ -45,6 +45,16 @@
 
 	}
 
+	function getTeamLog(){
+		$lastUp = $_REQUEST['lastUp'];	//The latest time that the computer currently has
+		$resource = db_Query("SELECT * FROM admin_log WHERE `timestamp` > $lastUp ORDER BY `timestamp` ASC;");
+		$return = array();
+		while($row = mysqli_fetch_row($resource)){
+			$return[] = $row;
+		}
+		return $return;
+	}
+
 	function setStartTime(){
 		//sets the start time of the event
 		$startTime = $_REQUEST['startTime'];
@@ -68,6 +78,7 @@
 		case 'getLeaderboard': $return = getLeaderboard(); break;
 		case 'setStartTime': $return = setStartTime(); break;
 		case 'updateTeamData': $return = updateTeamData(); break;
+		case 'getTeamLog': $return = getTeamLog(); break;
 	}
 	print json_encode($return);
 

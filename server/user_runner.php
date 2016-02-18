@@ -50,7 +50,7 @@
 				$ansHis[ $series-1 ] = '1';
 				$lastPoint = time();
 
-				$ctime = date('g:i:s');
+				$ctime = time();
 				db_Query("INSERT INTO admin_log VALUES ('$teamID','$ctime','$series','$award','$points');");
 			} else {
 				//if incorrect

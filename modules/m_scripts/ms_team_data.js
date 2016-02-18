@@ -1,4 +1,6 @@
 //Scripts for the m_team_data module
+
+//Requests team_data database from the server and reprints the table's contents
 function updateTable(){
   $.post('/MathRelay3/server/admin_runner.php','action=updateTeamData',function(data){
     console.log(data);

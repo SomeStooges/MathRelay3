@@ -28,23 +28,8 @@ $(document).ready( function() {
 
 
 	$("#welcomeButton").click( function() {
-		obj = new Object();
-		obj.action = 'getEvent';
-		$.post('server/user_control.php',obj,function(data){
-			console.log(data);
-			var currentEvent = JSON.parse(data);
-			//TEMPORARY FIX, UNTIL BETTER DATABASE INITIALIZER
-			currentEvent = "open";
-
-			switch( currentEvent ){
-				case "open":
-					window.location.href = "user_login.php";
-					break;
-				default:
-					console.log("The event is incorrect");
-					break;
-			}
-		});
+		window.location.href = "user_login.php";
+		
 	});
 
 	$("#adminButton").click( function() {

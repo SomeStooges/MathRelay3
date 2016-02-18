@@ -44,6 +44,7 @@ function checkEvent(){
 						$('.level1Buttons').prop('disabled', true);
 						$('.level2Buttons').prop('disabled', true);
 						$('.level3Buttons').prop('disabled', true);
+						eventCounter = 0;
 						break;
 			case "close":
 						window.location.href = "finish_page.php";
@@ -285,6 +286,9 @@ $(document).ready( function() {
 	$('#submit_answer').click( function(){
 		console.log("submitting answer");
 		gradeAnswer(seriesSelected,level3selected,level2selected,level1selected,selid1,selid2,selid3);
+		selid1 = 'NaN';
+		selid2 = 'NaN';
+		selid3 = 'NaN';
 	});
 
 });

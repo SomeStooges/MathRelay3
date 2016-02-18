@@ -10,9 +10,6 @@ function checkEvent(){
 			case "none":
 						window.location.href = "index.php";
 						break;
-			case "stop":
-						window.location.href = "index.php";
-						break;
 		}
 	});
 }

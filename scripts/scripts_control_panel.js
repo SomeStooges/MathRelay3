@@ -79,12 +79,14 @@ function updateUI(){
 function toggleButtons(ribbonID){
   switch (ribbonID) {
     case "none":
+      clearTimeout(t);
       $(".ribbonButton").prop("disabled", true);
       $("#open").prop("disabled", false);
       $("#logoutButton").prop("disabled", false);
       break;
 
     case "open":
+      clearTimeout(t);
       $(".ribbonButton").prop("disabled", true);
       $("#none").prop("disabled", false);
       $("#start").prop("disabled", false);
@@ -152,7 +154,7 @@ function toggleButtons(ribbonID){
 
 $(document).ready(function() {
   updateUI();
-  //Event handler for stop event button
+  //Event handler for 'stop' event button
   $("#stop").click(function() {
     clearTimeout(t);
     $("#start").prop("disabled", false);

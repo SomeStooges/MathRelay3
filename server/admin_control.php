@@ -85,15 +85,6 @@
 		return $response;
 	}
 
-	function getAnswerKey(){
-		$resource = db_Query("SELECT * FROM answer_key;");
-		$response = array();
-		while($teamRow = mysqli_fetch_row($resource)){
-			$response[] = $teamRow;
-		}
-		return $response;
-	}
-
 	function setCleanupParagraph(){
 		$fileName = "cleanupParagraph.txt";
 		$myfile = fopen($fileName,'w');
@@ -105,6 +96,38 @@
 		return $text;
 	}
 
+	function getAnswerKey(){
+		$choiceBank = array();
+		$numQuestions = getOption('answerkey','numQuestion');
+		$resource = db_Query("SELECT choice_1,choice_2,choice_3,choice_4,choice_5,choice_6 FROM answer_key ORDER BY series_number ASC, level_number ASC;");
+		for($i=1;$i<=$numQuestions;$i++){
+			$choiceBank[$i] = array();
+			for($j=1;$j<=3;$j++){
+				$tempObj = mysqli_fetch_object($resource);
+				$choiceBank[$i][$j] = array(
+					1 => $tempObj->choice_1,
+					2 => $tempObj->choice_2,
+					3 => $tempObj->choice_3,
+					4 => $tempObj->choice_4,
+					5 => $tempObj->choice_5,
+					6 => $tempObj->choice_6
+				);
+			}
+		}
+
+		$correctKey = array();
+		$resource = db_Query("SELECT correct_index FROM answer_key ORDER BY series_number ASC, level_number ASC;");
+		for($i=1;$i<=$numQuestions;$i++){
+			$correctKey[$i] = array();
+			for($j=1;$j<=3;$j++){
+				$tempRow = mysqli_fetch_row($resource);
+				$correctKey[$i][$j] = $tempRow[0];
+			}
+		}
+		$p = json_encode($choiceBank) . "_+_" . json_encode($correctKey);
+		return $p;
+	}
+
 	function getSettings(){
 		$resource = db_Query("SELECT * FROM relay_options;");
 		$response = array();
@@ -113,12 +136,7 @@
 		}
 		return $response;
 	}
-
-	function getTeamLog(){
-		$resource;
-		$response;
-		return $response;
-	}
+	
 	function getStatistics(){
 		$resource;
 		$response;

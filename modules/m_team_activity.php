@@ -24,7 +24,7 @@
 			<?php
 				$numTeams = 50;
 				for($i=1;$i<=$numTeams;$i++){
-					print "<tr><td class='teamIDdiv'>";
+					print "<tr><td id='t" . $i . "' class='teamIDdiv'>";
 					print $i;
 					print "</td></tr>";
 				}

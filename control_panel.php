@@ -26,6 +26,9 @@
 			<span id='uTime'>
 				<?php print getOption('event','unloadTime'); ?>
 			</span>
+			<span id='pTime'>
+				<?php print getOption('event','stopTime')?>
+			</span>
 		</div>
 		<div id = "ribbon">
 		<!-- The banner running across the top -->

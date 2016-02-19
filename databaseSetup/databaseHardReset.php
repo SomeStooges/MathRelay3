@@ -92,6 +92,7 @@
 	('event','currentEvent','none'),
 	('event','startTime',''),
 	('event','unloadTime',''),
+	('event','stopTime',''),
 	('admin','adminPassword','admin'),
 	('admin','adminLastAction','0'),
 	('display','idColumn','false'),

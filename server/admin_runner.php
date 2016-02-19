@@ -29,13 +29,17 @@
 		$getValues = substr($getValues,0,strlen($getValues)-2);	//clips off trailing ', ' to correct for SQL
 */
 		//Query the database for the number of teams to fetch
-		$numTeams = 10;//= getOption("display","numTeams"); for right now
+		$numTeams = getOption('display','numTeams');//= getOption("display","numTeams"); for right now
 
 		//Query the databse for the selected columns from team_data
 		//if($getValues != ""){ //checks that at least one column was selected
-			$resource = db_Query("SELECT `team_nickname`,`points` FROM team_data ORDER BY `points` DESC LIMIT $numTeams;");
+			$resource = db_Query("SELECT `team_nickname`,`points`,`team_id` FROM team_data ORDER BY `points` DESC LIMIT $numTeams;");
 			$retfield = array();
 			while( $tempObj = mysqli_fetch_row($resource) ){
+				if($tempObj[0] == ""){
+					$tempObj[0] = '<i>Team ' . $tempObj[2] . '</i>';
+				}
+				unset($tempObj[2]);
 				$retField[] = $tempObj;
 			}
 	//	}

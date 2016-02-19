@@ -3,9 +3,9 @@
 
 	require 'utilities.php'; //imports some universal utilities
 
-	function getLeaderboard(){
+	function updateLeaderboard(){
 		//GEts the display settings and packs them in an object array
-		$resource = db_Query("SELECT name,value FROM relay_options WHERE class='display';");
+/*		$resource = db_Query("SELECT name,value FROM relay_options WHERE class='display';");
 		$settings = array();
 		while( $tempObj = mysqli_fetch_object($resource) ){
 			$settings[] = $tempObj;
@@ -26,23 +26,21 @@
 				}
 			}
 		}
-		$getValues = substr($getValues,0,strlen($getValues)-2);	//clips off trailing ', ' to correctly for SQL
-
+		$getValues = substr($getValues,0,strlen($getValues)-2);	//clips off trailing ', ' to correct for SQL
+*/
 		//Query the database for the number of teams to fetch
-		$numTeams = getOption("display","numTeams");
+		$numTeams = 10;//= getOption("display","numTeams"); for right now
 
 		//Query the databse for the selected columns from team_data
-		if($getValues != ""){ //checks that at least one column was selected
-			$resource = db_Query("SELECT $getValues FROM team_data ORDER BY level_3 DESC LIMIT $numTeams;");
+		//if($getValues != ""){ //checks that at least one column was selected
+			$resource = db_Query("SELECT `team_nickname`,`points` FROM team_data ORDER BY `points` DESC LIMIT $numTeams;");
 			$retfield = array();
-			while( $tempObj = mysqli_fetch_object($resource) ){
+			while( $tempObj = mysqli_fetch_row($resource) ){
 				$retField[] = $tempObj;
 			}
-		}
-
+	//	}
 		//return the object array containing the leading teams' data
 		return $retField;
-
 	}
 
 	function getTeamLog(){
@@ -102,7 +100,7 @@
 	$action = $_REQUEST['action'];
 	$return = false;
 	switch( $action ){
-		case 'getLeaderboard': $return = getLeaderboard(); break;
+		case 'updateLeaderboard': $return = updateLeaderboard(); break;
 		case 'setStartTime': $return = setStartTime(); break;
 		case 'getStartTime': $return = getStartTime(); break;
 		case 'updateTeamData': $return = updateTeamData(); break;

@@ -15,7 +15,8 @@
 
 	<body style="text-align:center">
 		<h1> Leaderboard </h1>
-		<p> <span id='leaderboardTable'> <i> Some table to display information in a fancy manner... </i> </span> </p>
+		<table id='leaderboardTable1'> </table>
+		<table id='leaderboardTable2'> </table>
 		<button id="back_button">BACK</button>
 	</body>
 </html>

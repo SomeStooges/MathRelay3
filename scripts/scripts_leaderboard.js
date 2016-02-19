@@ -9,8 +9,11 @@ function updateLeaderboard(){
 		for(i=0;i<data.length;i++){
 			rows2[i] = "<tr id='row" + i + "'><td> "+ data[i][0] +" </td><td> "+ data[i][1] +" </td></tr>";
 		}
-		rows1 = rows2.slice(0,5).join("");
-		rows2 = rows2.splice(5,10).join("");
+
+		var half = Math.ceil(data.length);
+
+		rows1 = rows2.slice(0,half).join("");
+		rows2 = rows2.splice(half,data.length).join("");
 
 		$('#leaderboardTable1').html(rows1);
 		$('#leaderboardTable2').html(rows2);
@@ -18,7 +21,7 @@ function updateLeaderboard(){
 }
 
 $(document).ready(function() {
-	setInterval(updateLeaderboard,1000);
+	window.setInterval(updateLeaderboard,1000);
 
 	$("#back_button").click(function() {
 		window.location.href = "control_panel.php";

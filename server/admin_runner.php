@@ -73,6 +73,22 @@
 		return $resource;
 	}
 
+	function setUnloadTime(){
+		$unloadTime = $_REQUEST['unloadTime'];
+		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $unloadTime . "' WHERE `name` = 'unloadTime'");
+	}
+
+	function getUnloadTime(){
+		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'unloadTime'"));
+		if($resource){
+			$resource = $resource->value;
+		}
+		else{
+			$resource = false;
+		}
+		return $resource;
+	}
+
 	//Returns team_data's contents
 	function updateTeamData(){
 		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data ORDER BY `points` DESC;");
@@ -91,6 +107,8 @@
 		case 'getStartTime': $return = getStartTime(); break;
 		case 'updateTeamData': $return = updateTeamData(); break;
 		case 'getTeamLog': $return = getTeamLog(); break;
+		case 'setUnloadTime': $return = setUnloadTime(); break;
+		case 'getUnloadTime': $return = getUnloadTime(); break;
 	}
 	print json_encode($return);
 

@@ -20,6 +20,12 @@
 			<span id='cEvent'>
 				<?php print getOption('event','currentEvent'); ?>
 			</span>
+			<span id='sTime'>
+				<?php print getOption('event','startTime'); ?>
+			</span>
+			<span id='uTime'>
+				<?php print getOption('event','unloadTime'); ?>
+			</span>
 		</div>
 		<div id = "ribbon">
 		<!-- The banner running across the top -->

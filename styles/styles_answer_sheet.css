@@ -102,34 +102,42 @@ div#ribbon {
 	border: none;
 }
 
+#necessary {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 100%;
+}
+
 #level3choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 6.667%;
-	margin-right: 6.667%;
+	margin-left: 10%;
+	margin-right: 5%;
 }
 
 #level2choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 6.667%;
-	margin-right: 6.667%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 #level1choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 6.667%;
-	margin-right: 6.667%;
+	margin-left: 5%;
+	margin-right: 10%;
 }
 
 #logoutButton {
 	margin-top: 0;
 	float: right;
 }
+
 
 .seriesNumbers{
 	width: 35px;
@@ -142,9 +150,9 @@ div#ribbon {
 }
 
 .level3Buttons{
+	width: 160px;
 
 	position: center;
-	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
@@ -153,7 +161,7 @@ div#ribbon {
 }
 .level2Buttons{
 	position: center;
-	width: 220px;
+	width: 160px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
@@ -161,7 +169,7 @@ div#ribbon {
 }
 .level1Buttons{
 	position: center;
-	width: 220px;
+	width: 160px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;

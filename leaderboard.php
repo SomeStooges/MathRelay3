@@ -15,8 +15,10 @@
 
 	<body style="text-align:center">
 		<h1> Leaderboard </h1>
-		<table id='leaderboardTable1'> </table>
-		<table id='leaderboardTable2'> </table>
+		<div>
+			<table id='leaderboardTable1'> </table>
+			<table id='leaderboardTable2'> </table>
+		</div>
 		<button id="back_button">BACK</button>
 	</body>
 </html>

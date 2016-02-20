@@ -241,9 +241,11 @@ $(document).ready( function() {
 		level2selected = '';
 		level1selected = '';
 		$('#'+selected).css('background-color', '');
+		$('#'+selected).css('border-style', '');
 		var temp = $(this).prop('id');
 		selected = temp.split('q');
 		$('#'+temp).css('background-color','rgb(101, 123, 201)');
+		$('#'+temp).css('border-style','solid');
 		selected = temp;
 		retrieveHistory(); //Communicates with server. May cause lag
 		//clears level question colors

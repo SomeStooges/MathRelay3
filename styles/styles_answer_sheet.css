@@ -23,11 +23,12 @@ div#ribbon {
 	margin-bottom: 0.4%;
 	    color: white;
 	    background-position: center;
-	    border: 3px solid grey;
+	    border: 0px solid grey;
 	    border:5%;
 	    border-radius: 20px;
 	    position:relative;
-	    background-color: rgba(0,0,0,0.2);
+	    /*background-color: rgba(0,76,153,0.1);*/
+			background-color: rgba(0,0,0,0.0);
 }
 
 #questionGrid {
@@ -116,15 +117,15 @@ div#ribbon {
 
 #level3choice {
 	text-align: center;
-	width: 18%;
+	width: 20%;
 	margin-top: 1%;
-	margin-left: 13%;
+	margin-left: 10%;
 	margin-right: 5%;
 }
 
 #level2choice {
 	text-align: center;
-	width: 18%;
+	width: 20%;
 	margin-top: 1%;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -132,13 +133,14 @@ div#ribbon {
 
 #level1choice {
 	text-align: center;
-	width: 18%;
+	width: 20%;
 	margin-top: 1%;
 	margin-left: 5%;
-	margin-right: 13%;
+	margin-right: 10%;
 }
 
 #logoutButton {
+	margin-top: 0;
 	float: right;
 }
 
@@ -146,23 +148,28 @@ div#ribbon {
 .answerLevel{
 	float: left;
 }
+
 .level3Buttons{
 
+	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
-	width: 200px;
 
 }
 .level2Buttons{
-	width: 200px;
+
+	position: center;
+	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 
 }
 .level1Buttons{
-	width: 200px;
+
+	position: center;
+	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;

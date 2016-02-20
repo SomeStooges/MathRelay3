@@ -29,6 +29,8 @@
 			}
 			$query = substr( $query, 0, strlen($query)-2) . ";";
 
+			setOption('event','startTime',0);
+			setOption('event','stopTime',0);
 			//inserts the values
 			db_Query($query);
 		}
@@ -136,7 +138,7 @@
 		}
 		return $response;
 	}
-	
+
 	function getStatistics(){
 		$resource;
 		$response;

@@ -8,7 +8,7 @@ var toolbarID;
 var intervalID = '';
 var startTime;
 var stopTime;
-
+var count = 0;
 function startTimer(){
   //Sets the startTime if this is the first time the event is being set.
   console.log("StartTime: " + startTime);
@@ -21,15 +21,30 @@ function startTimer(){
       console.log("From startTimer" + data);
       startTime = obj.startTime;
     });
-    if(intervalID == ''){
-      intervalID = window.setInterval(updateTimer,1000);
-    }
+  }
+  if(intervalID == ''){
+    intervalID = window.setInterval(updateTimer,1000);
   }
 }
 
 function updateTimer(){
   var currentTime = new Date;
-  var time = Math.floor( currentTime.getTime() / 1000 );
+  var time;
+  var temp;
+  if(stopTime == 0){
+    time = Math.floor( currentTime.getTime() / 1000);
+  }
+  if (count == 1){
+    count++;
+    temp = stopTime;
+    time = temp;
+    stopTime = 0;
+  }
+  if (count == 2){
+    time = (Math.floor( currentTime.getTime() / 1000) - time) + temp;
+    console.log("time = " + time);
+  }
+
   console.log("Current Time: " + time);
   var etime = time - startTime;
   console.log("Elapsed Time: " + etime);
@@ -45,14 +60,24 @@ function stopTimer(){
     var currentTime = new Date;
     var obj = new Object;
     obj.action = 'setStopTime';
-    obj.stopTimer = currentTime.getTime();
+    obj.stopTimer = Math.floor(currentTime.getTime()/1000);
     $.post('server/admin_runner.php',obj,function(data){
       console.log("From stopTimer" + data);
     });
+    stopTime = obj.stopTimer;
   }
   if(intervalID != ''){
     window.clearInterval(intervalID);
+    intervalID = '';
   }
+  console.log(stopTime);
+  var etime = stopTime - startTime;
+  console.log("Elapsed Time: " + etime);
+  var tempH = parseInt(etime/3600);
+  var tempM = parseInt((etime%3600)/60);
+  var tempS = (etime%60);
+  var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
+  $('#timer').html(response);
 }
 
 function setCleanupParagraph(inputText) {
@@ -149,6 +174,7 @@ function toggleButtons(ribbonID){
       break;
 
     case "stop":
+      count++;
       stopTimer();
       $(".ribbonButton").prop("disabled", false);
       $("#freetime").prop("disabled", true);
@@ -172,6 +198,8 @@ function toggleButtons(ribbonID){
 $(document).ready(function() {
   startTime = $('#startTimeDiv').html().trim();
   stopTime = $('#stopTimeDiv').html().trim();
+  startTime = parseInt(startTime);
+  stopTime = parseInt(stopTime);
   updateUI();
 
 

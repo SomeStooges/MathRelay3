@@ -14,5 +14,10 @@ function getSettings() {
 
 $(document).ready( function(){
   getSettings();
-
+  $("#reset_button").click(function() {
+    console.log('checkpoint 1');
+    $.post("../server/admin_control.php", 'action=adminReset', function(data) {
+      console.log(data);
+    });
+  });
 });

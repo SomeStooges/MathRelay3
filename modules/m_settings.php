@@ -34,5 +34,7 @@
 			<tr><td>New Admin Password: </td><td><input id='newPassword'></td></tr>
 			<tr><td>Repeat New Admin Password: </td><td><input id='repeatPassword'></td></tr>
 		</table>
+		<p> <button id="reset_button">RESET</button> Push RESET to clear all points, change passwords, and change the number of teams. </p>
+		
 	</body>
 </html>

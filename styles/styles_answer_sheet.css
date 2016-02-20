@@ -1,10 +1,8 @@
 body {
-
 	background-image: url('/MathRelay3/images/Background_6_Cropped.jpg');
 	background-size: cover;
 	background-position: cover;
 	text-align: center;
-
 }
 
 h1	{
@@ -13,7 +11,6 @@ h1	{
 		margin-bottom: 2%;
 		font-size: 400%;
 	  font-family: 'Advent Pro', sans-serif;
-
 }
 
 div#ribbon {
@@ -43,12 +40,10 @@ div#ribbon {
 	border: 3px solid grey;
 	border:5%;
 	border-radius: 20px;
-
 }
 
 .questions {
 	width: 100%;
-
 }
 #answerChoices {
 	padding-top: 0.05%;
@@ -65,17 +60,11 @@ div#ribbon {
 	border: 3px solid grey;
 	border:5%;
 	border-radius: 20px;
-
-
-
-
-
 }
 
 #buttons {
 	padding-top: 1%;
 }
-
 
 #rightside {
 	float: left;
@@ -87,7 +76,6 @@ div#ribbon {
 	border: 3px solid grey;
 	border:5%;
 	border-radius: 20px;
-
 }
 
 #points	{
@@ -99,7 +87,6 @@ div#ribbon {
 	/*margin-bottom: 5%;
 	padding: 2%;*/
 	height: 25px;
-
 }
 
 #submit {
@@ -107,7 +94,6 @@ div#ribbon {
 	height: 225px;
 	padding-left: 0;
 	margin: 0;
-
 }
 
 #submit_answer {
@@ -120,24 +106,24 @@ div#ribbon {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 10%;
-	margin-right: 5%;
+	margin-left: 6.667%;
+	margin-right: 6.667%;
 }
 
 #level2choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 6.667%;
+	margin-right: 6.667%;
 }
 
 #level1choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 5%;
-	margin-right: 10%;
+	margin-left: 6.667%;
+	margin-right: 6.667%;
 }
 
 #logoutButton {
@@ -156,25 +142,20 @@ div#ribbon {
 }
 
 .level3Buttons{
-
 	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
-
 }
 .level2Buttons{
-
 	position: center;
 	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border: none;
-
 }
 .level1Buttons{
-
 	position: center;
 	width: 220px;
 	height: 30px;
@@ -182,9 +163,3 @@ div#ribbon {
 	margin-bottom: 2%;
 	border: none;
 }
-
-
-/*td.choiceButtons{
-	height: 1px;
-	width: 125px;
-}*/

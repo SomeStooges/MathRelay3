@@ -90,8 +90,10 @@
 
 			<!-- 3 tables for answers -->
 			<div id="answerChoices" >
+				<div id = 'necessary'>
 				<div id='level3choice'class="answerLevel">
 				<b>Level 3</b>
+
 					<table class='choiceButtons'>
 						<?php
 							$numChoices = 6;
@@ -123,6 +125,7 @@
 							}
 						?>
 					</table>
+				</div>
 				</div>
 			</div>
 

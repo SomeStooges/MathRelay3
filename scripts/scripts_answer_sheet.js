@@ -89,6 +89,7 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 		obj.level2 = l2;		//level 2 answer, as a char
 		obj.level1 = l1;		//level 1 answer, as a char
 		//id1 = "'#" + id1 + "'";
+
 		$.post('server/user_runner.php',obj,function(data){
 			console.log(data);
 			data = JSON.parse(data);

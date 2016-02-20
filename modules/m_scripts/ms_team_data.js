@@ -1,31 +1,32 @@
 //Scripts for the m_team_data module
-function reloadModules() {
-  $.post('/mathrelay3/modules/m_team_data.php', function(data) {
-    $('#mod1').html(data);
-    console.log(data);
-    console.log('something worked!');
-  });
-  $.post('/mathrelay3/modules/m_answer_key.php', function(data) {
-    $('#mod3').html(data);
-  });
-  $.post('/mathrelay3/modules/m_team_activity.php', function(data) {
-    $('#mod4').html(data);
-  });
-  $.post('/mathrelay3/modules/m_statistics.php', function(data) {
-    $('#mod5').html(data);
-  });
-  $.post('/mathrelay3/modules/m_settings.php', function(data) {
-    $('#mod6').html(data);
+
+//Requests team_data database from the server and reprints the table's contents
+function updateTable(){
+  $.post('/MathRelay3/server/admin_runner.php','action=updateTeamData',function(data){
+    //console.log(data);
+    var teamData = JSON.parse(data);
+    p = "<tr><th>Current Rank</th><th>Team ID</th><th>Team Nickname</th><th>Password</th><th>Points</th><th>Rank at Freetime</th><th>Last Point Time</th><th>Last Check-in Time</th><th>Final Rank</th></tr>";
+    for(i=0;i<teamData.length;i++){
+      p += "<tr id='dataRow" + i + "'>";
+      rank = i + 1;
+      p += "<td> " + rank + " </td>";
+      for(j=0;j<teamData[i].length;j++){
+        p += "<td>" + teamData[i][j] + "</td>";
+      }
+      p += "</tr>";
+    }
+
+    $("#teamDataTable").html(p);
   });
 }
 
-$(document).ready( function() {
+$(document).ready( function(){
+  window.setInterval(updateTable,1000);
+
   $("#reset_button").click(function() {
     console.log('checkpoint 1');
     $.post("../server/admin_control.php", 'action=adminReset', function(data) {
       console.log(data);
-      reloadModules();
-      location.reload();
     });
   });
 

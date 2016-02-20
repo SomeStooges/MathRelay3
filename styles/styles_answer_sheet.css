@@ -113,6 +113,7 @@ div#ribbon {
 #submit_answer {
 	width: 90%;
 	height: 100%;
+	border: none;
 }
 
 #level3choice {
@@ -144,7 +145,12 @@ div#ribbon {
 	float: right;
 }
 
+.seriesNumbers{
+	width: 35px;
+	height: 23px;
 
+	border: none;
+}
 .answerLevel{
 	float: left;
 }
@@ -164,6 +170,7 @@ div#ribbon {
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
+	border: none;
 
 }
 .level1Buttons{
@@ -173,6 +180,7 @@ div#ribbon {
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
+	border: none;
 }
 
 

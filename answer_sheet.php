@@ -6,6 +6,10 @@
 	}
 	require 'server/utilities.php';
 	$checkEvent = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
+	switch($checkEvent[0]){
+		case "close":	header('location: finish_page.php');break;
+		case "open": $temp = "open"; //may delete later
+	}
 	if($checkEvent[0] == "close"){
 		header('location: finish_page.php');
 	}
@@ -93,7 +97,7 @@
 							$numChoices = 6;
 							$level = 3;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons' class='answerChoiceButton'></button><td></tr>";
 							}
 						?>
 					</table>
@@ -104,7 +108,7 @@
 						<?php
 							$level = 2;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
 							}
 						?>
 					</table>
@@ -115,7 +119,7 @@
 						<?php
 							$level = 1;
 							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'>c".$level."_".$i."</button><td></tr>";
+								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
 							}
 						?>
 					</table>

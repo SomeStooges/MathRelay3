@@ -20,19 +20,6 @@ function getChoices(series){
 		$('#s'+j+'_'+answerKey[series][j]).css('background-color','lightBlue');
 	}
 }
-function setAnswer(target){
-	fID = $(target).attr('id').substring(1,4).split('_');
-	obj = new Object;
-	obj.action = 'setAnswer';
-	obj.series = selectedSeries;
-	obj.level = fID[0];
-	obj.choice = fID[1];
-	$.post('../server/admin_control.php',obj,function(data){
-		$('.level'+fID[0]+'Set').css('background-color','');
-		$(target).css('background-color','lightBlue');
-	});
-	//Provide function for when the set answer button is pressed
-}
 
 function addSpecialCharacter(bID){
 	switch(bID){
@@ -51,6 +38,22 @@ function addSpecialCharacter(bID){
 	//Resubmits the lastTarget after adding the character
 }
 
+
+function setAnswer(target){
+	fID = $(target).attr('id').substring(1,4).split('_');
+	obj = new Object;
+	obj.action = 'setAnswer';
+	obj.series = selectedSeries;
+	obj.level = fID[0];
+	obj.choice = fID[1];
+	$.post('../server/admin_control.php',obj,function(data){
+		$('.level'+fID[0]+'Set').css('background-color','');
+		$(target).css('background-color','lightBlue');
+		answerKey[obj.series][obj.level] = obj.choice;
+	});
+	//Provide function for when the set answer button is pressed
+}
+
 function updateAnswerKey(target){
 	var fID = $(target).attr('id');
 	fID = fID.substring(1,4).split('_');
@@ -62,7 +65,7 @@ function updateAnswerKey(target){
 	obj.value = $(target).val();
 	console.log(fID);
 	$.post('../server/admin_control.php',obj,function(data){
-			//Should probably be some GUI change here....
+			choiceBank[obj.series][obj.level][obj.choice] = obj.value;
 	});
 }
 

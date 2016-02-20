@@ -1,5 +1,21 @@
 // Script for the user_login.php page
+function checkEvent(){
+	$.post('server/user_runner.php', 'action=getEvent', function(data) {
+		var checker = JSON.parse(data);
+		console.log(checker);
+		switch(checker){
+			case "close":
+						window.location.href = "index.php";
+						break;
+			case "none":
+						window.location.href = "index.php";
+						break;
+		}
+	});
+}
 $(document).ready( function() {
+	checkEvent();
+	setInterval(checkEvent, 1000);
 	$("#back_button").click(function() {
 		window.location.href = "index.php";
 	});

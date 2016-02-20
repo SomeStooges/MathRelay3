@@ -59,6 +59,10 @@
 				print "<span>".$text."</span>";
 			?>
 		</div>
+		<div>
+			<br>
+			<button id="returnTitle">Return to Title Page</button>
+		</div>
 	</section>
 	</body>
 </html>

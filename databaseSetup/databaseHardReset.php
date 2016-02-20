@@ -62,6 +62,16 @@
 		  `attempts` varchar(150) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 
+		mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `stat_log` (
+			  `team_id` int(8) NOT NULL,
+			  `series_number` int(8) NOT NULL,
+			  `level_3_result` int(8) NOT NULL,
+			  `level_2_result` int(8) NOT NULL,
+			  `level_1_result` int(8) NOT NULL,
+			  `attempt` int(8) NOT NULL,
+				`timesptamp` int(30) NOT NULL
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
+
 	//Adds records to the tables, especially configuration infroatmion to relay_options.
 	print "<p> Our wonderful trolls will even fill the database with some important information for the teams!</p>";
 	mysqli_query($con, "INSERT INTO `team_data` (`team_id`, `team_nickname`, `password`, `points`, `rank_freetime`, `last_checkin_time`, `last_point`, `rank_final`, `history`,`attempts`) VALUES
@@ -80,6 +90,9 @@
 	print "<p> ...and those ever important relay options!";
 	mysqli_query($con, "INSERT INTO `relay_options`(`class`, `name`, `value`) VALUES
 	('event','currentEvent','none'),
+	('event','startTime',''),
+	('event','unloadTime',''),
+	('event','stopTime',''),
 	('admin','adminPassword','admin'),
 	('admin','adminLastAction','0'),
 	('display','idColumn','false'),

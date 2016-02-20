@@ -18,3 +18,9 @@ section {
 
   background-color: rgba(0,0,0,0.4);
 }
+
+#returnTitle{
+	width: 200 px;
+	height: 100 px;
+	border: none;
+}

@@ -7,6 +7,12 @@
 		$resource = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
 		return $resource[0];
 	}
+	function retrieveHistory(){
+		$teamID = $_SESSION['teamID'];
+		$resource = mysqli_fetch_object(db_Query("SELECT `history` FROM `team_data` WHERE `team_id` = '$teamID'"));
+		$resource = $resource->history;
+		return $resource;
+	}
 
 	function gradeAnswer(){
 		//Get the variables that were submitted
@@ -35,6 +41,7 @@
 		$numAtt = intval($attempts[ $series-1 ]) + 1;
 		$attempts[ $series-1 ] = strval($numAtt);
 		$lastPoint = $resource->last_point;
+		$ctime = time();
 
 		if( $numAtt < 6 && strval($ansHis[ $series-1 ])!='1'){
 			if($res1 && $res2 && $res3){
@@ -44,7 +51,6 @@
 				$ansHis[ $series-1 ] = '1';
 				$lastPoint = time();
 
-				$ctime = date('g:i:s');
 				db_Query("INSERT INTO admin_log VALUES ('$teamID','$ctime','$series','$award','$points');");
 			} else {
 				//if incorrect
@@ -62,6 +68,8 @@
 			}
 		}
 
+		//updates the statistics log
+		db_query("INSERT INTO stat_log VALUES ('$teamID','$series','$res3','$res2','$res1','" . $attempts[ $series-1 ] . "','$ctime')");
 
 		$ansHis = implode(';', $ansHis);
 		$attempts = implode(';',$attempts);
@@ -88,6 +96,7 @@
 	switch( $action ){
 		case 'gradeAnswer': $return = gradeAnswer(); break;
 		case 'getEvent': $return = getEvent(); break;
+		case 'retrieveHistory': $return = retrieveHistory(); break;
 	}
 	print json_encode($return);
 ?>

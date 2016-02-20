@@ -5,15 +5,22 @@ function checkEvent(){
 	$.post('server/user_control.php', 'action=getEvent', function(data) {
 		$('#welcomeButton').prop('disabled', true);
 		getEvent = JSON.parse(data);
-		if (getEvent != "none")
-		{
-			$('#welcomeButton').prop('disabled', false);
+		switch(getEvent){
+			case "none":
+						$('#welcomeButton').prop('disabled', true);
+						break;
+			case "close":
+						$('#welcomeButton').prop('disabled', true);
+						break;
+			default:
+						$('#welcomeButton').prop('disabled', false);
 		}
 	});
 }
 
 $(document).ready( function() {
 	var eventChecker;
+	checkEvent();
 	setInterval(checkEvent,1000);
 
 
@@ -21,23 +28,8 @@ $(document).ready( function() {
 
 
 	$("#welcomeButton").click( function() {
-		obj = new Object();
-		obj.action = 'getEvent';
-		$.post('server/user_control.php',obj,function(data){
-			console.log(data);
-			var currentEvent = JSON.parse(data);
-			//TEMPORARY FIX, UNTIL BETTER DATABASE INITIALIZER
-			currentEvent = "open";
-
-			switch( currentEvent ){
-				case "open":
-					window.location.href = "user_login.php";
-					break;
-				default:
-					console.log("The event is incorrect");
-					break;
-			}
-		});
+		window.location.href = "user_login.php";
+		
 	});
 
 	$("#adminButton").click( function() {

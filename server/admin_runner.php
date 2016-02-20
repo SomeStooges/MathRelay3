@@ -1,16 +1,16 @@
 <?php
 	session_start();
-	
+
 	require 'utilities.php'; //imports some universal utilities
-	
-	function getLeaderboard(){
+
+	function updateLeaderboard(){
 		//GEts the display settings and packs them in an object array
-		$resource = db_Query("SELECT name,value FROM relay_options WHERE class='display';");
+/*		$resource = db_Query("SELECT name,value FROM relay_options WHERE class='display';");
 		$settings = array();
 		while( $tempObj = mysqli_fetch_object($resource) ){
 			$settings[] = $tempObj;
 		}
-		
+
 		//Translates the object array into and SQL query to get the correct columns
 		$getValues = "";
 		$totalPoints = false;	//currently does nothing
@@ -26,30 +26,106 @@
 				}
 			}
 		}
-		$getValues = substr($getValues,0,strlen($getValues)-2);	//clips off trailing ', ' to correctly for SQL
-		
+		$getValues = substr($getValues,0,strlen($getValues)-2);	//clips off trailing ', ' to correct for SQL
+*/
 		//Query the database for the number of teams to fetch
-		$numTeams = getOption("display","numTeams");
-		
+		$numTeams = getOption('display','numTeams');//= getOption("display","numTeams"); for right now
+
 		//Query the databse for the selected columns from team_data
-		if($getValues != ""){ //checks that at least one column was selected
-			$resource = db_Query("SELECT $getValues FROM team_data ORDER BY level_3 DESC LIMIT $numTeams;");
+		//if($getValues != ""){ //checks that at least one column was selected
+			$resource = db_Query("SELECT `team_nickname`,`points`,`team_id` FROM team_data ORDER BY `points` DESC LIMIT $numTeams;");
 			$retfield = array();
-			while( $tempObj = mysqli_fetch_object($resource) ){
+			while( $tempObj = mysqli_fetch_row($resource) ){
+				if($tempObj[0] == ""){
+					$tempObj[0] = '<i>Team ' . $tempObj[2] . '</i>';
+				}
+				unset($tempObj[2]);
 				$retField[] = $tempObj;
 			}
-		}
-		
+	//	}
 		//return the object array containing the leading teams' data
 		return $retField;
+	}
+
+	function getTeamLog(){
+		$lastUp = $_REQUEST['lastUp'];	//The latest time that the computer currently has
+		$resource = db_Query("SELECT * FROM admin_log WHERE `timestamp` > $lastUp ORDER BY `timestamp` ASC;");
+		$return = array();
+		while($row = mysqli_fetch_row($resource)){
+			$return[] = $row;
+		}
+		return $return;
+	}
+
+	function setStartTime(){
+		//sets the start time of the event
+		$startTime = $_REQUEST['startTime'];
+		//sends the time in to the database
+		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $startTime . "' WHERE `name` = 'startTime'");
+	}
+
+	function getStartTime(){
+		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'startTime'"));
+		if($resource){
+			$resource = $resource->value;
+		}
+		else{
+			$resource = false;
+		}
+		return $resource;
+	}
+
+	function setUnloadTime(){
+		$unloadTime = $_REQUEST['unloadTime'];
+		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $unloadTime . "' WHERE `name` = 'unloadTime'");
+	}
+
+	function setStopTime(){
+		$stopTime = $_REQUEST['stopTime'];
+		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $stopTime . "' WHERE `name` = 'stopTime'");
 
 	}
-	
+
+	function getStopTime(){
+		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'stopTime'"));
+		$resource = $resource->value;
+		return $resource;
+	}
+
+	function getUnloadTime(){
+		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'unloadTime'"));
+		if($resource){
+			$resource = $resource->value;
+		}
+		else{
+			$resource = false;
+		}
+		return $resource;
+	}
+
+	//Returns team_data's contents
+	function updateTeamData(){
+		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data ORDER BY `points` DESC;");
+		$returnRow = array();
+		while($tempRow = mysqli_fetch_row($resource)){
+			$returnRow[]=$tempRow;
+		}
+		return $returnRow;
+	}
+
 	$action = $_REQUEST['action'];
 	$return = false;
 	switch( $action ){
-		case 'getLeaderboard': $return = getLeaderboard(); break;
+		case 'updateLeaderboard': $return = updateLeaderboard(); break;
+		case 'setStartTime': $return = setStartTime(); break;
+		case 'getStartTime': $return = getStartTime(); break;
+		case 'setStopTime':		$return = setStopTime(); break;
+		case 'getStopTime':		$return = getStopTime(); break;
+		case 'updateTeamData': $return = updateTeamData(); break;
+		case 'getTeamLog': $return = getTeamLog(); break;
+		case 'setUnloadTime': $return = setUnloadTime(); break;
+		case 'getUnloadTime': $return = getUnloadTime(); break;
 	}
 	print json_encode($return);
-	
+
 ?>

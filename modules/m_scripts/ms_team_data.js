@@ -23,11 +23,4 @@ function updateTable(){
 $(document).ready( function(){
   window.setInterval(updateTable,1000);
 
-  $("#reset_button").click(function() {
-    console.log('checkpoint 1');
-    $.post("../server/admin_control.php", 'action=adminReset', function(data) {
-      console.log(data);
-    });
-  });
-
 });

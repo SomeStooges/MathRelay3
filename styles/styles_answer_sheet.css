@@ -102,34 +102,42 @@ div#ribbon {
 	border: none;
 }
 
+#necessary {
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	height: 100%;
+}
+
 #level3choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 6.667%;
-	margin-right: 6.667%;
+	margin-left: 10%;
+	margin-right: 5%;
 }
 
 #level2choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 6.667%;
-	margin-right: 6.667%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 #level1choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 6.667%;
-	margin-right: 6.667%;
+	margin-left: 5%;
+	margin-right: 10%;
 }
 
 #logoutButton {
 	margin-top: 0;
 	float: right;
 }
+
 
 .seriesNumbers{
 	width: 35px;

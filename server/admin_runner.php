@@ -58,49 +58,13 @@
 	}
 
 	function setStartTime(){
-		//sets the start time of the event
 		$startTime = $_REQUEST['startTime'];
-		//sends the time in to the database
-		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $startTime . "' WHERE `name` = 'startTime'");
-	}
-
-	function getStartTime(){
-		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'startTime'"));
-		if($resource){
-			$resource = $resource->value;
-		}
-		else{
-			$resource = false;
-		}
-		return $resource;
-	}
-
-	function setUnloadTime(){
-		$unloadTime = $_REQUEST['unloadTime'];
-		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $unloadTime . "' WHERE `name` = 'unloadTime'");
+		$resource = db_Query("UPDATE `relay_options` SET `value` = '$startTime' WHERE `name` = 'startTime'");
 	}
 
 	function setStopTime(){
 		$stopTime = $_REQUEST['stopTime'];
-		$resource = db_Query("UPDATE `relay_options` SET `value` = '". $stopTime . "' WHERE `name` = 'stopTime'");
-
-	}
-
-	function getStopTime(){
-		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'stopTime'"));
-		$resource = $resource->value;
-		return $resource;
-	}
-
-	function getUnloadTime(){
-		$resource = mysqli_fetch_object(db_Query("SELECT `value` FROM `relay_options` WHERE `name` = 'unloadTime'"));
-		if($resource){
-			$resource = $resource->value;
-		}
-		else{
-			$resource = false;
-		}
-		return $resource;
+		$resource = db_Query("UPDATE `relay_options` SET `value` = '$stopTime' WHERE `name` = 'stopTime'");
 	}
 
 	//Returns team_data's contents
@@ -118,13 +82,10 @@
 	switch( $action ){
 		case 'updateLeaderboard': $return = updateLeaderboard(); break;
 		case 'setStartTime': $return = setStartTime(); break;
-		case 'getStartTime': $return = getStartTime(); break;
 		case 'setStopTime':		$return = setStopTime(); break;
-		case 'getStopTime':		$return = getStopTime(); break;
 		case 'updateTeamData': $return = updateTeamData(); break;
 		case 'getTeamLog': $return = getTeamLog(); break;
 		case 'setUnloadTime': $return = setUnloadTime(); break;
-		case 'getUnloadTime': $return = getUnloadTime(); break;
 	}
 	print json_encode($return);
 

@@ -157,10 +157,12 @@ div#ribbon {
 
 .level3Buttons{
 
+	position: center;
 	width: 220px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
+	border: none;
 
 }
 .level2Buttons{

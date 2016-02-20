@@ -17,6 +17,11 @@
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_team_activity.css">
 	</head>
 	<body>
+		<div id='dataStore' style='display: none;'>
+			<span id='sTime'>
+				<?php print getOption('event','startTime'); ?>
+			</span>
+		</div>
 		<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
 		<!-- Content for Team Activity log tab-->
 		<b> Team ID </b> <button id='freezeButton'>Freeze Log</button>

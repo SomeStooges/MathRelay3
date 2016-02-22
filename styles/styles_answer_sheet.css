@@ -111,9 +111,9 @@ div#ribbon {
 
 #level3choice {
 	text-align: center;
-	width: 20%;
+	width: 30%;
 	margin-top: 1%;
-	margin-left: 10%;
+	margin-left: 0%;
 	margin-right: 5%;
 }
 
@@ -127,10 +127,10 @@ div#ribbon {
 
 #level1choice {
 	text-align: center;
-	width: 20%;
+	width: 30%;
 	margin-top: 1%;
 	margin-left: 5%;
-	margin-right: 10%;
+	margin-right: 0%;
 }
 
 #logoutButton {
@@ -150,7 +150,7 @@ div#ribbon {
 }
 
 .level3Buttons{
-	width: 160px;
+	width: 150px;
 
 	position: center;
 	height: 30px;

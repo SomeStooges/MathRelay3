@@ -6,8 +6,10 @@ var ribbonID;
 var toolbarID;
 //Universal timer variables
 var intervalID = '';
-var startTime;
-var stopTime;
+var startTime = 0;
+var stopTime = 0;
+var count = 0;
+var temp = 0;
 
 function startTimer(){
   //Sets the startTime if this is the first time the event is being set.
@@ -21,15 +23,30 @@ function startTimer(){
       console.log("From startTimer" + data);
       startTime = obj.startTime;
     });
-    if(intervalID == ''){
-      intervalID = window.setInterval(updateTimer,1000);
-    }
+  }
+  //assigns temp to be stopTime
+  temp = stopTime;
+  if(intervalID == ''){
+    intervalID = window.setInterval(updateTimer,1000);
   }
 }
 
 function updateTimer(){
   var currentTime = new Date;
-  var time = Math.floor( currentTime.getTime() / 1000 );
+  var time;
+  //Assigns time depending on which value of count it is.
+  //Count = 0 means that this is the first instance of running the timer since last reset of the database. (stopTime is not defined)
+  //Count = 1 updates the timer with a time that continually compounds one second every second.
+  switch(count){
+    case 0:
+      time = Math.floor( currentTime.getTime() / 1000);
+      break;
+    case 1:
+      temp++;
+      time = temp; //assigns the time to be subtracted from as the growing temp
+      break;
+  }
+  //Parses the difference in time(currentTime OR temp) and startTime
   console.log("Current Time: " + time);
   var etime = time - startTime;
   console.log("Elapsed Time: " + etime);
@@ -41,18 +58,46 @@ function updateTimer(){
 }
 
 function stopTimer(){
-  if(stopTime == 0){
-    var currentTime = new Date;
-    var obj = new Object;
-    obj.action = 'setStopTime';
-    obj.stopTimer = currentTime.getTime();
-    $.post('server/admin_runner.php',obj,function(data){
-      console.log("From stopTimer" + data);
-    });
+  //Sets Stop Time
+  var currentTime = new Date;
+  var obj = new Object;
+  obj.action = 'setStopTime';
+  //Assigns the stopTime depending on what temp is.
+  //if temp = 0, then there is no temp stored. assigns the current time when the stop button was clicked as the stopTimer
+  //if temp != 0, then the default case is called and obj.startTimer is assigned to be temp.
+  switch(temp){
+    case 0:
+      obj.stopTimer = Math.floor(currentTime.getTime()/1000);
+      $.post('server/admin_runner.php',obj,function(data){
+        console.log("From stopTimer" + data);
+      });
+      break;
+    default:
+      obj.stopTimer = temp;
+      //updates the database value for stopTime as temp.
+      $.post('server/admin_runner.php',obj,function(data){
+        console.log("From stopTimer" + data);
+      });
   }
+  stopTime = obj.stopTimer;
+  //Only runs this if statement when both startTime and stopTime are defined.
+  if(stopTime != 0 && startTime != 0){
+    count=1;
+  }
+  //Clears the setInterval
   if(intervalID != ''){
     window.clearInterval(intervalID);
+    intervalID = '';
   }
+  //Parses the difference between stopTime(currentTime OR temp)
+  console.log(stopTime);
+  var etime = stopTime - startTime;
+  console.log("Elapsed Time: " + etime);
+  var tempH = parseInt(etime/3600);
+  var tempM = parseInt((etime%3600)/60);
+  var tempS = (etime%60);
+  var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
+  $('#timer').html(response);
 }
 
 function setCleanupParagraph(inputText) {
@@ -228,6 +273,8 @@ function toggleButtons(ribbonID){
 $(document).ready(function() {
   startTime = $('#startTimeDiv').html().trim();
   stopTime = $('#stopTimeDiv').html().trim();
+  startTime = parseInt(startTime);
+  stopTime = parseInt(stopTime);
   updateUI();
 
 

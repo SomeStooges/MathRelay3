@@ -47,9 +47,9 @@ function updateTimer(){
       break;
   }
   //Parses the difference in time(currentTime OR temp) and startTime
-  console.log("Current Time: " + time);
+  //console.log("Current Time: " + time);
   var etime = time - startTime;
-  console.log("Elapsed Time: " + etime);
+  //console.log("Elapsed Time: " + etime);
   var tempH = parseInt(etime/3600);
   var tempM = parseInt((etime%3600)/60);
   var tempS = (etime%60);

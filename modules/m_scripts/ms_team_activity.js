@@ -2,14 +2,11 @@
 var lastUp = 0;
 
 function parseTime(time){
-  var startTime = $("#sTime").text().trim();
-  var tempt = parseInt(time);
+  time = time % (24*3600) - 3600*6;
 
-  var temp = Math.floor(tempt - parseInt(startTime)/100);// number of seconds elapsed
-  console.log(temp);
-  var tempH = parseInt(temp/3600);
-  var tempM = parseInt((temp%3600)/60);
-  var tempS = (temp%60);
+  var tempH = parseInt(time/3600);
+  var tempM = parseInt((time%3600)/60);
+  var tempS = (time%60);
 
   var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
   return response;

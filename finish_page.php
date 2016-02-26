@@ -49,6 +49,7 @@
 					}
 			?>
 		</div>
+		<br>
 		<!-- We can probably run the PHP from here and not a JQUERY post, except to reject the page if too premature -->
 		<div id = "cleanUpParagraph">
 			<?php
@@ -56,7 +57,7 @@
 				$myfile = fopen($fileName,'r');
 				$text = fread($myfile, filesize($fileName));
 				fclose($myfile);
-				print "<span>".$text."</span>";
+				print "<div id='cleanup'>".$text."</div>";
 			?>
 		</div>
 		<div>

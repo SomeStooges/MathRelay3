@@ -9,16 +9,15 @@ body {
 section {
   margin: 5%;
 	float: right;
-	width:40%
-	height: 90%;
+	width:40%;
   background-position: center;
-  border: 3px solid navy;
+  border: 3px;
   border:5%;
   padding: 4%;
   border-radius: 20px;
   position:relative;
-
-  background-color: rgba(0,0,0,0.4);
+	word-wrap: break-word;
+  background-color: rgba(0,0,0,.8);
 }
 
 #returnTitle{

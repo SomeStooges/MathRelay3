@@ -111,30 +111,6 @@ function setCleanupParagraph(inputText) {
     //WRITE GUI CHANGE HERE
   });
 }
-//Old function, fate TBD --------------------------------------------------------------------------------------------------------------
-function getTeamData() {
-  $.post('server/admin_control.php', 'action=getTeamData', function(data) {
-    console.log(data);
-    data = JSON.parse(data);
-    /* Returns a two dimensional array containg values of team data, omiting the history and attempts columns
-    	The first index contains the record number
-    	The second index contains the table column, read left to right starting from 0.
-    */
-
-    //WRITE GUI CHANGE HERE
-  });
-}
-
-function getAdminLog() {
-  $.post('server/admin_control.php', 'action=getAdminLog', function(data) {
-    console.log(data);
-    data = JSON.parse(data);
-    /* Data contains an object array, with each column name as a property and each record as an index
-     */
-
-    //WRITE GUI CHANGE HERE
-  });
-}
 
 function updateEvent(uEvent){
   obj = new Object();
@@ -288,7 +264,8 @@ $(document).ready(function() {
         target = $('#mod1');
         break; //get the pointer
       case "leaderboardLink":
-        window.open("leaderboard.php");
+        window.open("leaderboard.php","_blank");
+        target = $('#mod1');
         break;
       case "answerKey":
         target = $('#mod3');

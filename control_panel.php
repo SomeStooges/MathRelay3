@@ -47,10 +47,10 @@
 		</div>
 		<div id = "toolbar">
 		<!-- The box running down the left side -->
-			<button class="toolbarButton" id="teamData">Display Team Data</button>
-			<button class="toolbarButton" id="leaderboardLink">GO TO LEADERBOARD</button>
+			<button class="toolbarButton" id="teamData">Teams</button>
+			<button class="toolbarButton" id="leaderboardLink">Leaderboard</button>
 			<button class="toolbarButton" id="answerKey">Answer Key</button>
-			<button class="toolbarButton" id="teamLog">Team Activity Log</button>
+			<button class="toolbarButton" id="teamLog">Activity</button>
 			<button class="toolbarButton" id="statistics">Statistics</button>
 			<button class="toolbarButton" id="settings">Settings</button>
 		</div>

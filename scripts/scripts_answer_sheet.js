@@ -98,11 +98,8 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 			var res2 = data[2];	//result for level 2
 			var res3 = data[3];	//result for level 3
 
-			//console.log("hist "+hist+" ; "+res1+" "+res2+" "+res3);
-			//WRITE GUI CHANGE HERE
-			//Note: this change is not evident upon reloading the series. Needs to have a way of storing these cases.
 			switch(res1){
-				case 0:	$('#'+id1).css('background-color','lightCoral'); break;
+				case 0:	$('#'+id1).css('background-color','lightCoral'); selid='NaN'; break;
 				case 1:	$('.level1Buttons').css('background-color','lightGreen'); break;
 				case 3:	$('.level1Buttons').css('background-color','black'); break;
 				case 4: $('.level1Buttons').css('background-color','black');
@@ -110,7 +107,7 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 					break;
 			}
 			switch(res2){
-				case 0:	$('#'+id2).css('background-color','lightCoral'); break;
+				case 0:	$('#'+id2).css('background-color','lightCoral'); selid='NaN'; break;
 				case 1:	$('.level2Buttons').css('background-color','lightGreen'); break;
 				case 3:	$('.level2Buttons').css('background-color','black'); break;
 				case 4: $('.level2Buttons').css('background-color','black');
@@ -118,7 +115,7 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 					break;
 			}
 			switch(res3){
-				case 0:	$('#'+id3).css('background-color','lightCoral'); break;
+				case 0:	$('#'+id3).css('background-color','lightCoral'); selid='NaN'; break;
 				case 1:	$('.level3Buttons').css('background-color','lightGreen'); break;
 				case 3:	$('.level3Buttons').css('background-color','black'); break;
 				case 4: $('.level3Buttons').css('background-color','black');
@@ -268,14 +265,12 @@ $(document).ready( function() {
 	$(".level3Buttons").click( function(){
 		selid3 = $(this).prop('id');
 		level3selected = selid3.substring(3,4);
-		//SOME GUI CHANGE
 		$('.level3Buttons').css('background-color','');
 		$(this).css('background-color','rgb(101, 123, 201)');
 	});
 	$(".level2Buttons").click( function(){
 		selid2 = $(this).prop('id');
 		level2selected = selid2.substring(3,4);
-		//SOME GUI CHANGE
 		$('.level2Buttons').css('background-color','');
 		$(this).css('background-color','rgb(101, 123, 201)');
 	});
@@ -286,12 +281,10 @@ $(document).ready( function() {
 		$('.level1Buttons').css('background-color','');
 		$(this).css('background-color','rgb(101, 123, 201)');
 	});
+
 	$('#submit_answer').click( function(){
 		console.log("submitting answer");
 		gradeAnswer(seriesSelected,level3selected,level2selected,level1selected,selid1,selid2,selid3);
-		selid1 = 'NaN';
-		selid2 = 'NaN';
-		selid3 = 'NaN';
 	});
 
 });

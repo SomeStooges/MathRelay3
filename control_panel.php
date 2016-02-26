@@ -23,9 +23,6 @@
 			<span id='startTimeDiv'>
 				<?php print getOption('event','startTime'); ?>
 			</span>
-		<!--	<span id='uTime'>
-		<		?php print getOption('event','unloadTime'); ?>
-			</span>-->
 			<span id='stopTimeDiv'>
 				<?php print getOption('event','stopTime')?>
 			</span>

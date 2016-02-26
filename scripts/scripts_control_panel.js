@@ -145,6 +145,62 @@ function updateEvent(uEvent){
     $('.ribbonButton').css('background-color','');
     $('#'+bID).css('background-color','#011858');
   });
+
+  switch (ribbonID) {
+    case "none":
+      $(".ribbonButton").prop("disabled", true);
+      $("#open").prop("disabled", false);
+      $("#logoutButton").prop("disabled", false);
+      break;
+
+    case "open":
+      $(".ribbonButton").prop("disabled", true);
+      $("#none").prop("disabled", false);
+      $("#start").prop("disabled", false);
+      break;
+
+    case "start":
+      startTimer();
+      $(".ribbonButton").prop("disabled", false);
+      $("#freezeLeaderboard").prop("disabled", true);
+      $("#close").prop("disabled", true);
+      $("#start").prop("disabled", true);
+      break;
+
+    case "freetime":
+      startTimer();
+      $(".ribbonButton").prop("disabled", false);
+      $("#freetime").prop("disabled", true);
+      $("#start").prop("disabled", true);
+      $("#close").prop("disabled", true);
+      break;
+
+    case "freezeLeaderboard":
+      startTimer();
+      $("#ribbonButton").prop("disabled", false);
+      $("#freetime").prop("disabled", true);
+      $("#freezeLeaderboard").prop("disabled", true);
+
+      break;
+
+    case "stop":
+      stopTimer();
+      $(".ribbonButton").prop("disabled", false);
+      $("#freetime").prop("disabled", true);
+      $("#freezeLeaderboard").prop("disabled", true);
+      $("#stop").prop("disabled", true);
+      //$.post("server/admin_runner.php", obj, function(data){});
+      break;
+
+    case "close":
+      stopTimer();
+      $(".ribbonButton").prop("disabled", true);
+      $("#none").prop("disabled", false);
+      $("#open").prop("disabled", false);
+      $("#logoutButton").prop("disabled", false);
+      break;
+  }
+
 }
 
 function updateUI(){

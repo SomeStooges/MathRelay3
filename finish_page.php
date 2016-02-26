@@ -57,7 +57,7 @@
 				$myfile = fopen($fileName,'r');
 				$text = fread($myfile, filesize($fileName));
 				fclose($myfile);
-				//print "<div id='cleanup'>".$text."</div>";
+				print "<div id='cleanup'>".$text."</div>";
 			?>
 		</div>
 		<div>

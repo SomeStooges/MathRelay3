@@ -15,8 +15,8 @@ function startTimer(){
   //Sets the startTime if this is the first time the event is being set.
   console.log("StartTime: " + startTime);
   if(startTime == 0){
-    var currentTime = new Date;
-    var obj = new Object;
+    var currentTime = new Date();
+    var obj = new Object();
     obj.action = 'setStartTime';
     obj.startTime = Math.floor( currentTime.getTime() / 1000 ); //Send the current number of seconds, not miliseconds.
     $.post('server/admin_runner.php',obj,function(data){
@@ -32,7 +32,7 @@ function startTimer(){
 }
 
 function updateTimer(){
-  var currentTime = new Date;
+  var currentTime = new Date();
   var time;
   //Assigns time depending on which value of count it is.
   //Count = 0 means that this is the first instance of running the timer since last reset of the database. (stopTime is not defined)
@@ -59,8 +59,8 @@ function updateTimer(){
 
 function stopTimer(){
   //Sets Stop Time
-  var currentTime = new Date;
-  var obj = new Object;
+  var currentTime = new Date();
+  var obj = new Object();
   obj.action = 'setStopTime';
   //Assigns the stopTime depending on what temp is.
   //if temp = 0, then there is no temp stored. assigns the current time when the stop button was clicked as the stopTimer
@@ -327,4 +327,8 @@ $(document).ready(function() {
       }
     });
   });
+});
+
+$(window).unload(function(){
+  $.ajax();
 });

@@ -7,6 +7,9 @@
 
 	//regenerates all the team data
 	function adminReset() {
+		//Sets any admin defined number of teams and password lengths in to the database
+		//code
+
 		//gets initial parameters
 		$numTeams = getOption("reset","numTeams");
 		$passwordLength = getOption("reset",'passwordLength');
@@ -138,6 +141,13 @@
 		}
 		return $response;
 	}
+	function setSettings(){
+		$class = $_REQUEST['c'];
+		$name = $_REQUEST['n'];
+		$value = $_REQUEST['v'];
+
+		$resource = setOption($class, $name, $value);
+	}
 
 	function getStatistics(){
 		$resource;
@@ -188,6 +198,7 @@
 		case 'getAdminLog': $return = getAdminLog(); break;
 		case 'getAnswerKey': $return = getAnswerKey(); break;
 		case 'getSettings': $return = getSettings(); break;
+		case 'setSettings': $return = setSettings(); break;
 		case 'getTeamLog': $return = getTeamLog(); break;
 		case 'getStatistics': $return = getStatistics(); break;
 		case 'adminLogout': $return = adminLogout(); break;

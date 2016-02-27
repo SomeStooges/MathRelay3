@@ -19,22 +19,26 @@
 			<tr><td>Show Points</td><td><input type='checkbox' id='showPoints'></td></tr>
 			<tr><td>Number of Teams to Show</td><td><input id='numTeamsShow'></td></tr>
 		</table>
-		<b> Reset Settings </b>
-		<table>
-			<tr><td>Number of Teams to Generate</td><td><input id='numTeamsGen'></td></tr>
-			<tr><td>Number of Teams to Generate</td><td><input id='numTeamsGen'></td></tr>
-		</table>
-		<b> Test Settings </b>
-		<table>
-			<tr><td>Number of Questions</td><td><input id='numQuestions'></td></tr>
-		</table>
+		<br>
 		<b> Password Reset </b>
 		<table>
-			<tr><td>Old Admin Password: </td><td><input id='oldPassword'></td></tr>
+			<tr><td>Old Admin Password: </td><td><input id='oldPassword'><span id = 'checkPass'></span></td></tr>
 			<tr><td>New Admin Password: </td><td><input id='newPassword'></td></tr>
-			<tr><td>Repeat New Admin Password: </td><td><input id='repeatPassword'></td></tr>
+			<tr><td>Repeat New Admin Password: </td><td><input id='repeatPassword'><span id = 'matchPass'></span></td></tr>
+			<tr><td><button id = 'setAdminPass'>Submit New Password</button></td></tr>
 		</table>
+		<br>
+		<b> Reset Settings (Note: These changes will not be applied unless the RESET button is pressed!)</b>
+		<table>
+			<tr><td>Number of Teams to Generate:</td><td><input id='numTeamsGen'></td><td><button id = 'saveTeams'>Save</button></td></tr>
+			<tr><td>Number of Digits in Password to Generate:</td><td><input id='numDigPass'></td><td><button id = 'savePass'>Save</button></td></tr>
+		</table>
+		<!-- <b> Test Settings </b>
+		<table>
+			<tr><td>Number of Questions</td><td><input id='numQuestions'></td></tr>
+		</table> -->
+		<br>
 		<p> <button id="reset_button">RESET</button> Push RESET to clear all points, change passwords, and change the number of teams. </p>
-		
+
 	</body>
 </html>

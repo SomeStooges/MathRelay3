@@ -18,8 +18,8 @@
 			<ul><span id="third">2016</span></ul>
 		</h1>
 
-		<button id="welcomeButton" disabled> Go to USER LOGIN </button>
-		<button id="adminButton"> Go to ADMIN </button>
+		<button class = 'indexButton' id="welcomeButton" disabled> Go to USER LOGIN </button>
+		<button class = 'indexButton' id="adminButton"> Go to ADMIN </button>
 	</section>
 	</body>
 </html>

@@ -31,3 +31,15 @@ h1 {
       font-family: 'Advent Pro', sans-serif;
 
 }
+#back_button{
+  width: 150px;
+  height: 75px;
+  border:none;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  transition: background-color 0.4s ease;
+}
+#back_button:hover{
+  background-color: #1d521e;
+}

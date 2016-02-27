@@ -32,3 +32,22 @@ h1 {
       padding:-5%;
       margin: -10%:
 }
+
+.loginField{
+  background-color: rgb(42, 46, 48);
+  border: none;
+  height: 25px;
+  padding = 2px;
+}
+.userLoginButton{
+  width: 150px;
+  height: 75px;
+  border:none;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  transition: background-color 0.4s ease;
+}
+.userLoginButton:hover{
+  background-color: #011858;
+}

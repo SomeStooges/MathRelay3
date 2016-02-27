@@ -199,6 +199,7 @@ function toggleButtons(ribbonID){
       $(".ribbonButton").prop("disabled", true);
       $("#none").prop("disabled", false);
       $("#start").prop("disabled", false);
+      $("#logoutButton").prop("disabled", false);
       break;
 
     case "start":

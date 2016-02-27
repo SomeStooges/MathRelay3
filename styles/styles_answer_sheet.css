@@ -100,6 +100,7 @@ div#ribbon {
 	width: 90%;
 	height: 100%;
 	border: none;
+	border-radius: 20px;
 }
 
 #necessary {
@@ -144,6 +145,7 @@ div#ribbon {
 	height: 23px;
 
 	border: none;
+	border-radius: 5px;
 }
 .answerLevel{
 	float: left;
@@ -157,6 +159,7 @@ div#ribbon {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border: none;
+	border-radius: 7px;
 
 }
 .level2Buttons{
@@ -166,6 +169,7 @@ div#ribbon {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border: none;
+	border-radius: 7px;
 }
 .level1Buttons{
 	position: center;
@@ -174,4 +178,5 @@ div#ribbon {
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border: none;
+	border-radius: 7px;
 }

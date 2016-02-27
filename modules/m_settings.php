@@ -22,11 +22,12 @@
 		<br>
 		<b> Password Reset </b>
 		<table>
-			<tr><td>Old Admin Password: </td><td><input id='oldPassword'><span id = 'checkPass'></span></td></tr>
-			<tr><td>New Admin Password: </td><td><input id='newPassword'></td></tr>
-			<tr><td>Repeat New Admin Password: </td><td><input id='repeatPassword'><span id = 'matchPass'></span></td></tr>
+			<tr><td>Old Admin Password: </td><td><input type = 'password' id='oldPassword'><span id = 'checkPass'></span></td></tr>
+			<tr><td>New Admin Password: </td><td><input type = 'password' id='newPassword'><span id = 'isNew'></span></td></tr>
+			<tr><td>Repeat New Admin Password: </td><td><input type = 'password' id='repeatPassword'><span id = 'matchPass'></span></td></tr>
 			<tr><td><button id = 'setAdminPass'>Submit New Password</button></td></tr>
 		</table>
+		<p id = 'passComplete'></p>
 		<br>
 		<b> Reset Settings (Note: These changes will not be applied unless the RESET button is pressed!)</b>
 		<table>

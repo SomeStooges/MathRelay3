@@ -1,5 +1,6 @@
 //Scripts for the m_settings module
-
+//Universal variables
+var newPassword, repeatPassword, currentPassword, t, auth;
 function getSettings() {
   $.post('../server/admin_control.php', 'action=getSettings', function(data) {
     console.log(data);
@@ -30,6 +31,67 @@ function getSettings() {
 
     //WRITE GUI CHANGE HERE
   });
+}
+function checkNewPassword(){
+  newPassword = $('#newPassword').val().trim();
+  repeatPassword = $('#repeatPassword').val().trim();
+  currentPassword = $('#oldPassword').val().trim();
+  console.log(newPassword);
+  if(newPassword === '' && repeatPassword === ''){
+    $('#matchPass').text("Please enter a new password.");
+    $('#matchPass').css('color', 'red');
+    auth = 0;
+  }
+  if(newPassword !== currentPassword){
+    if(newPassword === repeatPassword && newPassword !== '' && repeatPassword !== ''){
+      $('#matchPass').text("The passwords match.");
+      $('#matchPass').css('color', 'green');
+      auth = 1;
+    }
+    if(newPassword !== repeatPassword && newPassword !== '' && repeatPassword !== ''){
+      $('#matchPass').text("The passwords don't match.");
+      $('#matchPass').css('color', 'red');
+      auth = 0;
+    }
+  }else{
+    $('#isNew').text("Please enter a new password that is different from the old one.");
+    $('#isNew').css('color', 'red');
+    auth = 0;
+  }
+}
+function startCheck(){
+  t = setInterval(checkNewPassword, 1000);
+}
+function clearCheck(){
+  clearInterval(t);
+}
+function setAdminPassword(){
+  $('#passComplete').text('');
+  var passHandler = new Object();
+  passHandler.action = 'adminLogin';
+  passHandler.adminPassword = $('#oldPassword').val().trim();
+  $.post("../server/admin_control.php", passHandler, function(data) {
+    data = JSON.parse(data);
+    if (data === "Successful") {
+      if(auth === 1){
+        passHandler.action = 'setSettings';
+        passHandler.c = 'admin';
+        passHandler.n = 'adminPassword';
+        passHandler.v = newPassword;
+        $.post("../server/admin_control.php", passHandler, function(data){});
+        $('#passComplete').text('New Password Set!');
+        $('#passComplete').css('color', 'green');
+      }else{
+        $('#passComplete').text('Please make sure that you entered a valid new password, and that your passwords match.');
+        $('#passComplete').css('color', 'red');
+      }
+    }
+    else {
+      $('#checkPass').text('Incorrect Password.');
+      $('#checkPass').css('color', 'red');
+    }
+  });
+
 }
 
 $(document).ready( function(){
@@ -78,7 +140,6 @@ $(document).ready( function(){
     obj.v = teamShow;
     $.post('../server/admin_control.php', obj, function(data) {
       var temp = JSON.parse(data);
-      console.log("setSettings called: "+temp);
     });
     $('#a').text('Set!');
   });
@@ -94,6 +155,20 @@ $(document).ready( function(){
   });*/
 
   //Password Reset
+  $('#repeatPassword').focus(function(){
+    startCheck();
+  });
+  $('#repeatPassword').blur(function(){
+    clearCheck();
+    if(newPassword === repeatPassword && newPassword !== '' && repeatPassword !== ''){
+      $('#matchPass').text('');
+    }
+  });
+
+  //Validates old admin password, sets new password.
+  $('#setAdminPass').click(function(){
+    setAdminPassword();
+  });
 
   //Saves number of teams to be generated
   $('#saveTeams').click(function(){
@@ -119,9 +194,7 @@ $(document).ready( function(){
   });
 
   $("#reset_button").click(function() {
-    console.log('checkpoint 1');
     $.post("../server/admin_control.php", 'action=adminReset', function(data) {
-      console.log(data);
       window.top.location.reload();
     });
   });

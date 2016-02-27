@@ -7,6 +7,23 @@ function getSettings() {
     /* Data is a two dimensional array. THe first index determines which setting it is for.
     the second index lists the class, name, and value of the setting, in that order (from 0 to 2).
     */
+    var showTeamID = data[5][2];
+    var showNickname = data[6][2];
+    var showPoints = data[7][2];
+    var showTeamNum = data[11][2];
+    var numTeams = data[12][2];
+    var passLength = data[13][2];
+    $('#showTeamID').prop('checked', showTeamID);
+    $('#showNickname').prop('checked', showNickname);
+    $('#showPoints').prop('checked', showPoints);
+    $('#numTeamsShow').prop('value', showTeamNum);
+
+    $('#numTeamsGen').prop('value', numTeams);
+    $('#numDigPass').prop('value', passLength);
+
+
+
+
 
     //WRITE GUI CHANGE HERE
   });

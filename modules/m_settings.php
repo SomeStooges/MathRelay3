@@ -14,10 +14,10 @@
 		<!-- Content for settings tab -->
 		<b> Leaderboard Display Option </b>
 		<table>
-			<tr><td>Show Team ID</td><td><input type='checkbox' id='showTeamID'></td></tr>
-			<tr><td>Show Nickname</td><td><input type='checkbox' id='showNickname'></td></tr>
-			<tr><td>Show Points</td><td><input type='checkbox' id='showPoints'></td></tr>
-			<tr><td>Number of Teams to Show</td><td><input id='numTeamsShow'></td></tr>
+			<tr><td>Show Team ID</td><td><input type='checkbox' id='showTeamID' class='checkbox'></td></tr>
+			<tr><td>Show Nickname</td><td><input type='checkbox' id='showNickname' class = 'checkbox'></td></tr>
+			<tr><td>Show Points</td><td><input type='checkbox' id='showPoints' class = 'checkbox'></td></tr>
+			<tr><td>Number of Teams to Show</td><td><input id='numTeamsShow'></td><td><button>Save</button></td><td><span id = 'a' style = 'color : green'></span></td></tr>
 		</table>
 		<br>
 		<b> Password Reset </b>
@@ -30,8 +30,8 @@
 		<br>
 		<b> Reset Settings (Note: These changes will not be applied unless the RESET button is pressed!)</b>
 		<table>
-			<tr><td>Number of Teams to Generate:</td><td><input id='numTeamsGen'></td><td><button id = 'saveTeams'>Save</button></td></tr>
-			<tr><td>Number of Digits in Password to Generate:</td><td><input id='numDigPass'></td><td><button id = 'savePass'>Save</button></td></tr>
+			<tr><td>Number of Teams to Generate:</td><td><input id='numTeamsGen'></td><td><button id = 'saveTeams'>Save</button></td><td><span style = "color: green" id = 's1'></span></td></tr>
+			<tr><td>Number of Digits in Password to Generate:</td><td><input id='numDigPass'></td><td><button id = 'savePass'>Save</button></td><td><span style = "color: green" id = 's2'></span></td></tr>
 		</table>
 		<!-- <b> Test Settings </b>
 		<table>

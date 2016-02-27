@@ -7,19 +7,22 @@ function getSettings() {
     /* Data is a two dimensional array. THe first index determines which setting it is for.
     the second index lists the class, name, and value of the setting, in that order (from 0 to 2).
     */
-    var showTeamID = data[5][2];
-    var showNickname = data[6][2];
-    var showPoints = data[7][2];
+    var showTeamID = data[5][2] == 'true';
+    var showNickname = data[6][2] == 'true';
+    var showPoints = data[7][2] == 'true';
     var showTeamNum = data[11][2];
     var numTeams = data[12][2];
     var passLength = data[13][2];
+    console.log(showTeamID);
     $('#showTeamID').prop('checked', showTeamID);
     $('#showNickname').prop('checked', showNickname);
     $('#showPoints').prop('checked', showPoints);
-    $('#numTeamsShow').prop('value', showTeamNum);
+    $('#numTeamsShow').prop('placeholder', showTeamNum);
+    $('#a').text('Set!');
 
-    $('#numTeamsGen').prop('value', numTeams);
-    $('#numDigPass').prop('value', passLength);
+    $('#numTeamsGen').prop('placeholder', numTeams);
+    $('#numDigPass').prop('placeholder', passLength);
+
 
 
 
@@ -38,7 +41,36 @@ $(document).ready( function(){
   //Show team ID?
   //Show Nickname?
   //Show Points?
+  $('.checkbox').click(function(){
+    var checkboxID = $(this).attr("id");
+    var value;
+    obj.c = 'display';
+    switch(checkboxID){
+      case 'showTeamID':
+        value = $('#showTeamID').prop('checked');
+        obj.n = 'idColumn';
+        obj.v = value;
+        break;
+      case 'showNickname':
+        value = $('#showNickname').prop('checked');
+        obj.n = 'nicknameColumn';
+        obj.v = value;
+        break;
+      case 'showPoints':
+        value = $('#showPoints').prop('checked');
+        obj.n = 'totalPoints';
+        obj.v = value;
+        break;
+    }
+    $.post('../server/admin_control.php', obj, function(data) {});
+  });
+
+
+
   //Number of teams displayed in leaderboard
+  $('#numTeamsShow').focus( function(){
+    $('#a').text('');
+  });
   $('#numTeamsShow').blur( function(){
     var teamShow = $('#numTeamsShow').val().trim();
     obj.c = 'display';
@@ -48,6 +80,7 @@ $(document).ready( function(){
       var temp = JSON.parse(data);
       console.log("setSettings called: "+temp);
     });
+    $('#a').text('Set!');
   });
 
   //Number of questions to be generated
@@ -71,6 +104,7 @@ $(document).ready( function(){
       obj.v = teamGen;
       $.post('../server/admin_control.php', obj);
     }
+    $('#s1').text('Saved!');
   });
   //Saves length of passwords to be generated
   $('#savePass').click(function(){
@@ -80,6 +114,7 @@ $(document).ready( function(){
       obj.n = 'passwordLength';
       obj.v = digPass;
       $.post('../server/admin_control.php', obj);
+      $('#s2').text('Saved!');
      }
   });
 
@@ -87,6 +122,7 @@ $(document).ready( function(){
     console.log('checkpoint 1');
     $.post("../server/admin_control.php", 'action=adminReset', function(data) {
       console.log(data);
+      window.top.location.reload();
     });
   });
 });

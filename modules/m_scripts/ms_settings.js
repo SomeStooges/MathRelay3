@@ -43,6 +43,7 @@ function checkNewPassword(){
     auth = 0;
   }
   if(newPassword !== currentPassword){
+    $('#isNew').text('');
     if(newPassword === repeatPassword && newPassword !== '' && repeatPassword !== ''){
       $('#matchPass').text("The passwords match.");
       $('#matchPass').css('color', 'green');

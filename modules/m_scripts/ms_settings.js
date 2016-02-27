@@ -14,29 +14,20 @@ function getSettings() {
     var showTeamNum = data[11][2];
     var numTeams = data[12][2];
     var passLength = data[13][2];
-    console.log(showTeamID);
+    //WRITE GUI CHANGE HERE
     $('#showTeamID').prop('checked', showTeamID);
     $('#showNickname').prop('checked', showNickname);
     $('#showPoints').prop('checked', showPoints);
     $('#numTeamsShow').prop('placeholder', showTeamNum);
     $('#a').text('Set!');
-
     $('#numTeamsGen').prop('placeholder', numTeams);
     $('#numDigPass').prop('placeholder', passLength);
-
-
-
-
-
-
-    //WRITE GUI CHANGE HERE
   });
 }
 function checkNewPassword(){
   newPassword = $('#newPassword').val().trim();
   repeatPassword = $('#repeatPassword').val().trim();
   currentPassword = $('#oldPassword').val().trim();
-  console.log(newPassword);
   if(newPassword === '' && repeatPassword === ''){
     $('#matchPass').text("Please enter a new password.");
     $('#matchPass').css('color', 'red');
@@ -92,18 +83,15 @@ function setAdminPassword(){
       $('#checkPass').css('color', 'red');
     }
   });
-
 }
 
 $(document).ready( function(){
   //Upon reloading, retrieve current settings
   getSettings();
-
   var obj = new Object();
   obj.action = 'setSettings';
-  //Show team ID?
-  //Show Nickname?
-  //Show Points?
+
+  //Handles checkbox values
   $('.checkbox').click(function(){
     var checkboxID = $(this).attr("id");
     var value;
@@ -128,8 +116,6 @@ $(document).ready( function(){
     $.post('../server/admin_control.php', obj, function(data) {});
   });
 
-
-
   //Number of teams displayed in leaderboard
   $('#numTeamsShow').focus( function(){
     $('#a').text('');
@@ -146,11 +132,9 @@ $(document).ready( function(){
       });
       $('#a').text('Set!');
       $('#a').css('color', 'green');
-
     }else{
       $('#a').text('Must be a positive integer.');
       $('#a').css('color', 'red');
-
     }
   });
 
@@ -200,6 +184,7 @@ $(document).ready( function(){
       $('#s1').css('color', 'red');
     }
   });
+
   //Saves length of passwords to be generated
   $('#savePass').click(function(){
     var digPass = $('#numDigPass').val().trim();
@@ -221,6 +206,7 @@ $(document).ready( function(){
     }
   });
 
+  //Resets points, passwords, and number of teams
   $("#reset_button").click(function() {
     $.post("../server/admin_control.php", 'action=adminReset', function(data) {
       window.top.location.reload();

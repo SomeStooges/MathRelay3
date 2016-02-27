@@ -1,6 +1,17 @@
 //Scripts for the m_team_data module
 
 //Requests team_data database from the server and reprints the table's contents
+function parseTime(time){
+  time = time % (24*3600) - 3600*6;
+
+  var tempH = parseInt(time/3600);
+  var tempM = parseInt((time%3600)/60);
+  var tempS = (time%60);
+
+  var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
+  return response;
+}
+
 function updateTable(){
   $.post('/MathRelay3/server/admin_runner.php','action=updateTeamData',function(data){
     //console.log(data);
@@ -11,6 +22,13 @@ function updateTable(){
       rank = i + 1;
       p += "<td> " + rank + " </td>";
       for(j=0;j<teamData[i].length;j++){
+        if( j == 5 || j == 6){
+          if( teamData[i][j] == 0){
+            teamData[i][j] = "---";
+          }else{
+            teamData[i][j] = parseTime(teamData[i][j]);
+          }
+        }
         p += "<td>" + teamData[i][j] + "</td>";
       }
       p += "</tr>";

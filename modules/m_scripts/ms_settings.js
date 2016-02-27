@@ -136,13 +136,22 @@ $(document).ready( function(){
   });
   $('#numTeamsShow').blur( function(){
     var teamShow = $('#numTeamsShow').val().trim();
-    obj.c = 'display';
-    obj.n = 'numTeams';
-    obj.v = teamShow;
-    $.post('../server/admin_control.php', obj, function(data) {
-      var temp = JSON.parse(data);
-    });
-    $('#a').text('Set!');
+    console.log(Math.floor(teamShow));
+    if(Math.floor(teamShow) === parseInt(teamShow) && Math.abs(teamShow) === parseInt(teamShow)){
+      obj.c = 'display';
+      obj.n = 'numTeams';
+      obj.v = teamShow;
+      $.post('../server/admin_control.php', obj, function(data) {
+        var temp = JSON.parse(data);
+      });
+      $('#a').text('Set!');
+      $('#a').css('color', 'green');
+
+    }else{
+      $('#a').text('Must be a positive integer.');
+      $('#a').css('color', 'red');
+
+    }
   });
 
   //Number of questions to be generated
@@ -175,23 +184,41 @@ $(document).ready( function(){
   $('#saveTeams').click(function(){
     var teamGen = $('#numTeamsGen').val().trim();
     if(teamGen !== ''){
-      obj.c = 'reset';
-      obj.n = 'numTeams';
-      obj.v = teamGen;
-      $.post('../server/admin_control.php', obj);
+      if(Math.floor(teamGen) === parseInt(teamGen) && Math.abs(teamGen) === parseInt(teamGen)){
+        obj.c = 'reset';
+        obj.n = 'numTeams';
+        obj.v = teamGen;
+        $.post('../server/admin_control.php', obj);
+        $('#s1').text('Saved!');
+        $('#s1').css('color', 'green');
+      }else{
+        $('#s1').text('Must be a positive integer.');
+        $('#s1').css('color', 'red');
+      }
+    }else{
+      $('#s1').text('Please enter a valid integer.');
+      $('#s1').css('color', 'red');
     }
-    $('#s1').text('Saved!');
   });
   //Saves length of passwords to be generated
   $('#savePass').click(function(){
     var digPass = $('#numDigPass').val().trim();
     if(digPass !== ''){
-      obj.c = 'reset';
-      obj.n = 'passwordLength';
-      obj.v = digPass;
-      $.post('../server/admin_control.php', obj);
-      $('#s2').text('Saved!');
-     }
+      if(Math.floor(digPass) === parseInt(digPass) && Math.abs(digPass) === parseInt(digPass)){
+        obj.c = 'reset';
+        obj.n = 'passwordLength';
+        obj.v = digPass;
+        $.post('../server/admin_control.php', obj);
+        $('#s2').text('Saved!');
+        $('#s2').css('color', 'green');
+      }else{
+        $('#s2').text('Must be a positive integer.');
+        $('#s2').css('color', 'red');
+      }
+    }else{
+      $('#s2').text('Please enter a valid integer.');
+      $('#s2').css('color', 'red');
+    }
   });
 
   $("#reset_button").click(function() {

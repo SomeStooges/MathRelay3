@@ -10,10 +10,12 @@ function updateLeaderboard(){
 			rows2[i+1] = "<tr id='row" + i + "'><td class='left'> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td></tr>";
 		}
 
-		var half = Math.ceil(data.length);
+		var half = Math.ceil(data.length/2);
 
 		rows1 = rows2.slice(0,half).join("");
-		rows2 = rows2.splice(half,data.length).join("");
+		rows2 = "<tr id='title'><th class='left'>Name</th><th class='right'>Total Points</th></tr>" + rows2.splice(half,data.length).join("");
+
+		console.log(rows2);
 
 		$('#leaderboardTable1').html(rows1);
 		$('#leaderboardTable2').html(rows2);
@@ -29,7 +31,8 @@ function updateLeaderboard(){
 }
 
 $(document).ready(function() {
-	window.setInterval(updateLeaderboard,1000);
+	updateLeaderboard();
+	//window.setInterval(updateLeaderboard,1000);
 
 	$("#back_button").click(function() {
 		window.location.href = "control_panel.php";

@@ -21,7 +21,7 @@
 			<h1> Leaderboard </h1>
 			<div id='leaderboard' align = 'center'>
 				<table id='leaderboardTable1'> </table>
-				<!--<table id='leaderboardTable2'> </table>-->
+				<table id='leaderboardTable2'> </table>
 			</div>
 			<!--<button id="back_button">BACK</button>-->
 		</section>

@@ -20,7 +20,7 @@ function updateLeaderboard(){
 		$('#row0').css('color', 'rgb(193, 161, 25)');
 		$('#row0').css('font-size', '150%');
 
-		$('#row1').css('color', 'rgb(115, 123, 125)');
+		$('#row1').css('color', 'rgb(167, 170, 171)');
 		$('#row1').css('font-size', '150%');
 
 		$('#row2').css('color', 'rgb(158, 103, 9)');

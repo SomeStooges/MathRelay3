@@ -9,16 +9,21 @@
 <html>
 	<head>
 		<title> Leaderboard </title>
+		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="scripts/scripts_leaderboard.js"></script>
+		<link rel="stylesheet" type="text/css" href="../MathRelay3/styles/styles_leaderboard.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 
 	<body style="text-align:center">
-		<h1> Leaderboard </h1>
-		<div>
-			<table id='leaderboardTable1'> </table>
-			<table id='leaderboardTable2'> </table>
-		</div>
-		<button id="back_button">BACK</button>
+		<section>
+			<h1> Leaderboard </h1>
+			<div id='leaderboard' align = 'center'>
+				<table id='leaderboardTable1'> </table>
+				<!--<table id='leaderboardTable2'> </table>-->
+			</div>
+			<!--<button id="back_button">BACK</button>-->
+		</section>
 	</body>
 </html>

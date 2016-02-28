@@ -23,10 +23,10 @@ function getTeamLog() {
         var utime = data[i][1];
         var htime = parseTime(utime);
         var m = "<td>";
-        m += "Question " + data[i][2] + "<br>";
-        m += "Award: " + data[i][3] + "<br>";
-        m += "Total: " + data[i][4] + "<br>";
-        m += "Time: " + htime;
+        m += " Question " + data[i][2] + "<br>";
+        m += " Award: " + data[i][3] + "<br>";
+        m += " Total: " + data[i][4] + "<br>";
+        m += " Time: " + htime + '<br>';
         m += "</td>";
         $("#t"+data[i][0]).after(m);
       }

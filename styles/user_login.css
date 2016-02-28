@@ -37,6 +37,7 @@ h1 {
   background-color: rgb(42, 46, 48);
   border: none;
   height: 25px;
+  color: white;
   padding = 2px;
 }
 .userLoginButton{

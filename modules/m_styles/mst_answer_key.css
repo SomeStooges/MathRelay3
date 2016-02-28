@@ -4,7 +4,32 @@
   white-space: nowrap;
   overflow-x: hidden;
 }
+
+#special_characters{
+  text-align: center;
+  float:left;
+  width: calc(100% - 150px);
+}
+.special_button{
+  width: 50px;
+  height: 50px;
+}
 .answerKeyElement{
   float: left;
   background-color: #FFFFCC;
+  text-align: center;
+}
+.seriesNumbers{
+  width: 35px;
+  height: 35px;
+}
+.answerKeyElement{
+  padding: 15px;
+}
+.questionInput{
+  height: 50px;
+  width: 15vw;
+}
+.questionButton{
+  height: 50px;
 }

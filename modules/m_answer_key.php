@@ -70,8 +70,8 @@
 					$numChoices = 6;
 					$level = 3;
 					for($i=1;$i<=6;$i++){
-						print "<tr><td><input id='v".$level."_".$i."' class='level".$level."Values'></td>";
-						print "<td><button id='s".$level."_".$i."' class='level".$level."Set'>Select</button></td></tr>";
+						print "<tr><td><input id='v".$level."_".$i."' class='questionInput' class='level".$level."Values'></td>";
+						print "<td><button id='s".$level."_".$i."' class='questionButton' class='level".$level."Set'>Select</button></td></tr>";
 					}
 				?>
 			</table>
@@ -82,8 +82,8 @@
 				<?php
 					$level = 2;
 					for($i=1;$i<=6;$i++){
-						print "<tr><td><input id='v".$level."_".$i."' class='level".$level."Values'></td>";
-						print "<td><button id='s".$level."_".$i."' class='level".$level."Set'>Select</button></td></tr>";
+						print "<tr><td><input id='v".$level."_".$i."' class='questionInput' class='level".$level."Values'></td>";
+						print "<td><button id='s".$level."_".$i."' class='questionButton' class='level".$level."Set'>Select</button></td></tr>";
 					}
 				?>
 			</table>
@@ -94,13 +94,15 @@
 				<?php
 					$level = 1;
 					for($i=1;$i<=6;$i++){
-						print "<tr><td><input id='v".$level."_".$i."' class='level".$level."Values'></td>";
-						print "<td><button id='s".$level."_".$i."' class='level".$level."Set'>Select</button></td></tr>";
+						print "<tr><td><input id='v".$level."_".$i."' class='questionInput' class='level".$level."Values'></td>";
+						print "<td><button id='s".$level."_".$i."' class='questionButton' class='level".$level."Set'>Select</button></td></tr>";
 					}
 				?>
 			</table>
 		</div>
+		<br>
 		<div id='special_characters'>
+			<b>Special Characters</b><br>
 			<button class='special_button' id='PiButton'>&#928</button>
 			<button class='special_button' id='RadicalButton'>&#8730</button>
 			<button class='special_button' id='InfinityButton'>&#8734</button>

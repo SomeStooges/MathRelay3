@@ -18,6 +18,7 @@ function getChoices(series){
 	$('.level1Set, .level2Set, .level3Set').css('background-color','');
 	for(j=1;j<=3;j++){
 		$('#s'+j+'_'+answerKey[series][j]).css('background-color','lightBlue');
+		console.log(answerKey[series][j]);
 	}
 }
 

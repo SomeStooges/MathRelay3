@@ -1,7 +1,12 @@
 /*Styles sheet for the m_team_activity module*/
+#table{
+  width: calc(100vw - 17px);
+  white-space:nowrap;
+}
 table{
 border-collapse:collapse;
 border:1px solid #000000;
+
 }
 
 table td{

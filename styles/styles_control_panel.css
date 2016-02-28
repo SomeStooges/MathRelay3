@@ -15,28 +15,36 @@
   font-family: inherit;
   vertical-align: baseline;
 }
-#body {
+body {
   max-width: 100%;
-  overflow-x: scroll;
   margin: 0;
+  overflow:scroll;
+}
+#everything{
+  position:relative;
+  width: 1263px;
 }
 #ribbon {
-  width: 100vw;
+  width: 100%;
   margin: 0;
+  position: absolute;
+  white-space: nowrap;
+  overflow: inherit;
 }
 #ribbon1 {
+  position: absolute;
+  background-color: #377638;
+  padding-left: 17px;
+  height: 93px;
+  width: 300px;
+}
+#ribbon2 {
+  position: absolute;
   white-space: nowrap;
   background-color: #377638;
   height: 93px;
-  width: 25%;
-  float: left;
-}
-#ribbon2 {
-  overflow: hidden;
-  background-color: #377638;
-  height: 93px;
-  width: 75%;
-  float: left;
+  width: calc(100% - 300px);
+  right:0;
 }
 #container {
   width: 100%;
@@ -47,9 +55,13 @@
   overflow: hidden;
 }
 #toolbar {
+  postion: absolute;
+  white-space: normal;
   background-color: LightGray;
   width: 150px;
+  min-height: 300px;
   height: calc(100vh - 110px);
+  margin-top: 93px;
   float: left;
 }
 #freezeLeaderboard {
@@ -77,10 +89,13 @@
   margin: 0px;
 }
 .iframeMod {
-  width: 100%;
+  position: absolute;
+  width: 1113px;
   height: calc(100vh - 110px);
-  position: fixed;
-  overflow: hidden;
+  border: none;
+  overflow: auto;
+  top: 93px;
+  left: 150px;
 }
 .contentMod{
   overflow: hidden;

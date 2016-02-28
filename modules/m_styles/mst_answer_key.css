@@ -26,10 +26,24 @@
 .answerKeyElement{
   padding: 15px;
 }
-.questionInput{
+.level1Set{
+  height: 50px;
+}
+.level2Set{
+  height: 50px;
+}
+.level3Set{
+  height: 50px;
+}
+.level1Values{
   height: 50px;
   width: 15vw;
 }
-.questionButton{
+.level2Values{
   height: 50px;
+  width: 15vw;
+}
+.level3Values{
+  height: 50px;
+  width: 15vw;
 }

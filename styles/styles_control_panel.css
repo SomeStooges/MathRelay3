@@ -18,11 +18,11 @@
 body {
   max-width: 100%;
   margin: 0;
-  overflow:scroll;
+  overflow:auto;
 }
 #everything{
   position:relative;
-  width: 1263px;
+  width: 1280px;
 }
 #ribbon {
   width: 100%;
@@ -30,6 +30,7 @@ body {
   position: absolute;
   white-space: nowrap;
   overflow: inherit;
+  font-family: 'Advent Pro', sans-serif;
 }
 #ribbon1 {
   position: absolute;
@@ -57,15 +58,15 @@ body {
 #toolbar {
   postion: absolute;
   white-space: normal;
-  background-color: LightGray;
+  background-color: rgba(38, 38, 38, 0.32);
   width: 150px;
   min-height: 300px;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 93px);
   margin-top: 93px;
   float: left;
 }
 #freezeLeaderboard {
-  width: 145px;
+  width: 170px;
   height: 93px;
   text-align: left;
   background: none;
@@ -80,6 +81,7 @@ body {
 #timer {
   background-color: #377638;
   float: right;
+  font-size: 20px;
   height: 40px;
   margin-top: 27px;
   padding: 12px;
@@ -90,7 +92,7 @@ body {
 }
 .iframeMod {
   position: absolute;
-  width: 1113px;
+  width: 1130px;
   height: calc(100vh - 110px);
   border: none;
   overflow: auto;
@@ -107,6 +109,8 @@ body {
   padding: 10px;
   border: none;
   transition: background-color 0.25s ease;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 15px;
 }
 .toolbarButton:hover {
   background-color: DimGray;
@@ -117,6 +121,8 @@ body {
   background: none;
   padding: 0;
   border: none;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
   transition: background-color 0.5s ease;
   transition: color 0.25s ease;
 }

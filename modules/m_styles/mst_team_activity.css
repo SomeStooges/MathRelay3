@@ -1,5 +1,6 @@
 /*Styles sheet for the m_team_activity module*/
 #table{
+  margin-top: 20px;
   width: calc(100vw - 17px);
   white-space:nowrap;
 }

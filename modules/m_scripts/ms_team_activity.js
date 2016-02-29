@@ -31,7 +31,6 @@ function getTeamLog() {
         $("#t"+data[i][0]).after(m);
       }
       lastUp = data[ data.length-1 ][1];
-      console.log("Updated Activity");
     }
   });
 }

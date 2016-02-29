@@ -257,9 +257,11 @@ $(document).ready(function() {
 
   //Event Handler for toolbar buttons
   $(".toolbarButton").click(function() {
+    $(".toolbarButton").css('background-color', '');
     $('.contentMod').css('display', 'none'); //Resets all to none by default
     var target; //to save the value of the pointer
     toolbarID = $(this).attr("id");
+    $("#"+toolbarID).css('background-color', 'DimGray');
     switch (toolbarID) {
       case "teamData":
         target = $('#mod1');

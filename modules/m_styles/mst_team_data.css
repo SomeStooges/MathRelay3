@@ -1,1 +1,22 @@
 /*Styles sheet for the m_team_data module*/
+body{
+  background-color: none;
+  padding:0;
+  margin:0;
+}
+#teamDataTable{
+  margin:0;
+  padding:0;
+  border-collapse: collapse;
+  text-align: center;
+}
+td{
+  border-top:1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding-left: 20px;
+  padding-right:20px;
+}
+th{
+  padding-left: 20px;
+  padding-right: 20px;
+}

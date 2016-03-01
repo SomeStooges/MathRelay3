@@ -150,10 +150,7 @@ function updateEvent(uEvent){
       $("#start").prop("disabled", true);
       $("#close").prop("disabled", true);
       $.post('server/admin_control.php', 'action=setRankFreetime', function(data){
-        console.log('Setting ranks at freetime.');
         var temp = JSON.parse(data);
-        console.log(data);
-        console.log(temp);
       });
       break;
 
@@ -172,6 +169,8 @@ function updateEvent(uEvent){
       $("#freezeLeaderboard").prop("disabled", true);
       $("#stop").prop("disabled", true);
       //$.post("server/admin_runner.php", obj, function(data){});
+      $.post('server/admin_control.php', 'action=setFinalRank', function(data){
+      });
       break;
 
     case "close":

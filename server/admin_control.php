@@ -202,6 +202,21 @@
 		return $response;
 
 	}
+	function setFinalRank(){
+		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point DESC;');
+		$response = array();
+		while($tempRow = mysqli_fetch_row($query)){
+			$response[] = $tempRow;
+		}
+		$numRows = count($response);
+
+		for($finalRank = 1; $finalRank < $numRows+1; $finalRank++){
+			$ID = $response[$finalRank-1][0];
+			db_Query("UPDATE `team_data` SET rank_final='$finalRank' WHERE team_id='$ID'; ");
+		}
+		return $response;
+
+	}
 
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
@@ -223,6 +238,7 @@
 		case 'updateAnswerKey': $return = updateAnswerKey(); break;
 		case 'setAnswer': $return = setAnswer(); break;
 		case 'setRankFreetime': $return = setRankFreetime(); break;
+		case 'setFinalRank': $return = setFinalRank(); break;
 	}
 	print json_encode($return);
 ?>

@@ -188,7 +188,7 @@
 	}
 
 	function setRankFreetime(){
-		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point DESC;');
+		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point ASC;');
 		$response = array();
 		while($tempRow = mysqli_fetch_row($query)){
 			$response[] = $tempRow;
@@ -203,7 +203,7 @@
 
 	}
 	function setFinalRank(){
-		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point DESC;');
+		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point ASC;');
 		$response = array();
 		while($tempRow = mysqli_fetch_row($query)){
 			$response[] = $tempRow;

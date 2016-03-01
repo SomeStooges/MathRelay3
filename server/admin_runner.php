@@ -33,7 +33,7 @@
 
 		//Query the databse for the selected columns from team_data
 		//if($getValues != ""){ //checks that at least one column was selected
-			$resource = db_Query("SELECT `team_nickname`,`points`,`team_id` FROM team_data ORDER BY `points` DESC LIMIT $numTeams;");
+			$resource = db_Query("SELECT `team_nickname`,`points`,`team_id` FROM team_data ORDER BY `points` DESC, `last_point` ASC LIMIT $numTeams;");
 			$retfield = array();
 			while( $tempObj = mysqli_fetch_row($resource) ){
 				if($tempObj[0] == ""){
@@ -69,7 +69,7 @@
 
 	//Returns team_data's contents
 	function updateTeamData(){
-		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_point`,`last_checkin_time`,`rank_final` FROM team_data ORDER BY `points` DESC;");
+		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_point`,`last_checkin_time`,`rank_final` FROM team_data ORDER BY `points` DESC, `last_point` ASC;");
 		$returnRow = array();
 		while($tempRow = mysqli_fetch_row($resource)){
 			$returnRow[]=$tempRow;

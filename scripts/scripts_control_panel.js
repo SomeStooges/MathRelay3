@@ -149,6 +149,12 @@ function updateEvent(uEvent){
       $("#freetime").prop("disabled", true);
       $("#start").prop("disabled", true);
       $("#close").prop("disabled", true);
+      $.post('server/admin_control.php', 'action=setRankFreetime', function(data){
+        console.log('Setting ranks at freetime.');
+        var temp = JSON.parse(data);
+        console.log(data);
+        console.log(temp);
+      });
       break;
 
     case "freezeLeaderboard":

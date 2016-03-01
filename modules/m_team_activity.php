@@ -12,7 +12,6 @@
 		<script type="text/javascript" src="m_scripts/ms_team_activity.js"></script>
 		<script type="text/javascript">
 			var startTime = JSON.parse('<?php print json_encode($startTime) ?>');
-			console.log(startTime);
 		</script>
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_team_activity.css">
 	</head>

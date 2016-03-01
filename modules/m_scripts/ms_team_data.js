@@ -2,11 +2,11 @@
 
 //Requests team_data database from the server and reprints the table's contents
 function parseTime(time){
-  time = time % (24*3600) - 3600*6;
+  time = time - startTime;
 
-  var tempH = parseInt(time/3600);
-  var tempM = parseInt((time%3600)/60);
-  var tempS = (time%60);
+  var tempH = Math.abs(parseInt(time/3600));
+  var tempM = Math.abs(parseInt((time%3600)/60));
+  var tempS = Math.abs(time%60);
 
   var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
   return response;

@@ -187,6 +187,22 @@
 		return $newEvent;
 	}
 
+	function setRankFreetime(){
+		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point DESC;');
+		$response = array();
+		while($tempRow = mysqli_fetch_row($query)){
+			$response[] = $tempRow;
+		}
+		$numRows = count($response);
+
+		for($rankFreeTime = 1; $rankFreeTime < $numRows+1; $rankFreeTime++){
+			$ID = $response[$rankFreeTime-1][0];
+			db_Query("UPDATE `team_data` SET rank_freetime='$rankFreeTime' WHERE team_id='$ID'; ");
+		}
+		return $response;
+
+	}
+
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
 	$return = false;
@@ -206,6 +222,7 @@
 		case 'updateEvent': $return = updateEvent(); break;
 		case 'updateAnswerKey': $return = updateAnswerKey(); break;
 		case 'setAnswer': $return = setAnswer(); break;
+		case 'setRankFreetime': $return = setRankFreetime(); break;
 	}
 	print json_encode($return);
 ?>

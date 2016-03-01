@@ -74,7 +74,7 @@
 		$ansHis = implode(';', $ansHis);
 		$attempts = implode(';',$attempts);
 
-		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points',last_point='$lastPoint' WHERE team_id='$teamID';");
+		db_Query("UPDATE team_data SET history='$ansHis',attempts='$attempts',points='$points',last_point='$lastPoint',last_checkin_time='$ctime' WHERE team_id='$teamID';");
 
 		//Update the answer log
 		$ctime = date('g:i:s');

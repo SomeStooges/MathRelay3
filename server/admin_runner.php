@@ -69,7 +69,7 @@
 
 	//Returns team_data's contents
 	function updateTeamData(){
-		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_checkin_time`,`last_point`,`rank_final` FROM team_data ORDER BY `points` DESC;");
+		$resource = db_Query("SELECT `team_id`,`team_nickname`,`password`,`points`,`rank_freetime`,`last_point`,`last_checkin_time`,`rank_final` FROM team_data ORDER BY `points` DESC;");
 		$returnRow = array();
 		while($tempRow = mysqli_fetch_row($resource)){
 			$returnRow[]=$tempRow;

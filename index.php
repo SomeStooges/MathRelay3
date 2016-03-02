@@ -5,8 +5,8 @@
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="./scripts/scripts_index.js"></script>
-		<link rel="stylesheet" type="text/css" href="../MathRelay3/styles/welcome.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" type="text/css" href="../MathRelay3/styles/welcome.css"/>
 		<title>Math Relay 2016</title>
 	</head>
 
@@ -18,8 +18,8 @@
 			<ul><span id="third">2016</span></ul>
 		</h1>
 
-		<button class = 'indexButton' id="welcomeButton" disabled> Go to USER LOGIN </button>
-		<button class = 'indexButton' id="adminButton"> Go to ADMIN </button>
+		<button class = 'indexButton' id="welcomeButton" disabled> Student Login </button>
+		<button class = 'indexButton' id="adminButton"> Admin Login </button>
 	</section>
 	</body>
 </html>

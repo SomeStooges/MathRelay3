@@ -45,18 +45,9 @@ span#third {
     color: rgb(32, 70, 93); <!--Dark Blue Color -->
 }
 
-
-
-
-
-
 h2 {
-
-
-    color: rgb(36, 132, 97); <!-- Green color -->
-
+    color: rgb(36, 132, 97); /* <!-- Green color -->*/
 }
-
 
 .indexButton{
   width: 150px;
@@ -66,10 +57,13 @@ h2 {
   background-color: rgba(0,0,0,0);
   transition: background-color 0.4s ease;
   color: white;
+
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
 }
 #welcomeButton:hover{
-  background-color: #011858;
+  background-color: rgb(32, 70, 93);
 }
 #adminButton:hover{
-  background-color: #1d521e;
+  background-color: rgb(94, 138, 103);
 }

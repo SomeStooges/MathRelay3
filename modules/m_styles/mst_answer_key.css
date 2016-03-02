@@ -11,7 +11,10 @@
 *:focus {
     outline: none;
 }
-
+b{
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
+}
 #special_characters{
   float:left;
   width: 170px;
@@ -24,6 +27,11 @@
 .special_button{
   width: 50px;
   height: 50px;
+  border: none;
+  transition: background-color;
+}
+.special_button:hover{
+  background-color: rgb(101, 123, 201);
 }
 .answerKeyElement{
   float: left;
@@ -32,23 +40,51 @@
 .seriesNumbers{
   width: 35px;
   height: 35px;
+  border: none;
+  transition: background-color;
+}
+.seriesNumbers:hover{
+  background-color: rgb(101, 123, 201);
 }
 .answerKeyElement{
   padding: 15px;
 }
 .level1Set{
-  height: 50px;
+  height: 58px;
+  border: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  transition: background-color;
+}
+.level1Set:hover{
+  background-color: rgb(101, 123, 201);
 }
 .level2Set{
-  height: 50px;
+  height: 58px;
+  border: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  transition: background-color;
+}
+.level2Set:hover{
+  background-color: rgb(101, 123, 201);
 }
 .level3Set{
-  height: 50px;
+  height: 58px;
+  border: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  transition: background-color;
+}
+.level3Set:hover{
+  background-color: rgb(101, 123, 201);
 }
 .level1Values{
   height: 38px;
   width: 15vw;
   background-color: rgb(31, 34, 36);
+  border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
   border: none;
   color: white;
   padding: 10px;
@@ -57,6 +93,8 @@
   height: 38px;
   width: 15vw;
   background-color: rgb(42, 46, 48);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
   border: none;
   border: none;
   color: white;
@@ -66,6 +104,8 @@
   height: 38px;
   width: 15vw;
   background-color: rgb(42, 46, 48);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
   border: none;
   color: white;
   padding: 10px;

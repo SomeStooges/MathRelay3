@@ -17,7 +17,7 @@ function getChoices(series){
 
 	$('.level1Set, .level2Set, .level3Set').css('background-color','');
 	for(j=1;j<=3;j++){
-		$('#s'+j+'_'+answerKey[series][j]).css('background-color','lightBlue');
+		$('#s'+j+'_'+answerKey[series][j]).css('background-color','rgb(101, 123, 201)');
 		console.log(answerKey[series][j]);
 	}
 }
@@ -49,7 +49,7 @@ function setAnswer(target){
 	obj.choice = fID[1];
 	$.post('../server/admin_control.php',obj,function(data){
 		$('.level'+fID[0]+'Set').css('background-color','');
-		$(target).css('background-color','lightBlue');
+		$(target).css('background-color','rgb(101, 123, 201)');
 		answerKey[obj.series][obj.level] = obj.choice;
 	});
 	//Provide function for when the set answer button is pressed
@@ -92,7 +92,7 @@ $(document).ready( function() {
 	$('.seriesNumbers').click(function(){
 		selectedSeries = $(this).attr('id').substring(1,3);
 		$('.seriesNumbers').css('background-color','');
-		$(this).css('background-color','lightBlue');
+		$(this).css('background-color','rgb(101, 123, 201)');
 	});
 
 	$('.level3Set, .level2Set, .level1Set').click(function(){

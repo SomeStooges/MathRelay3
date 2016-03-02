@@ -40,7 +40,7 @@
 			var choiceBank = JSON.parse('<?php print json_encode($choiceBank) ?>');
 			var answerKey = JSON.parse('<?php print json_encode($correctKey) ?>');
 		</script>
-
+		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 	<body id="body">
 		<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>

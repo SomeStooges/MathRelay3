@@ -19,7 +19,7 @@
     outline: none;
 }
 body {
-  background-image: url('/MathRelay3/images/IMG_1544 (2).jpg');
+  background-image: url('/MathRelay3/images/IMG_2050.jpg');
 	background-size: cover;
   max-width: 100%;
   margin: 0;
@@ -82,11 +82,10 @@ body {
   white-space: normal;
   background-color: black;
   width: 150px;
-  min-height: 300px;
+  min-height: 450px;
   height: calc(96vh - 93px);
   margin-top: 93px;
   float: left;
-  border
 }
 #freezeLeaderboard {
   width: 173px;
@@ -121,6 +120,7 @@ iframe{
 }
 .iframeMod {
   position: absolute;
+  min-height: 450px;
   width: calc(98% - 151px);
   height: calc(96vh - 93px);
   border-bottom-right-radius: 20px;

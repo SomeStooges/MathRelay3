@@ -14,6 +14,7 @@ body{
   width: calc(100vw - 17px);
   white-space:nowrap;
   border-radius: 20 px;
+  font-family: Arial;
 }
 table{
 border-collapse:collapse;

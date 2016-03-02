@@ -15,37 +15,55 @@
   font-family: inherit;
   vertical-align: baseline;
 }
+*:focus {
+    outline: none;
+}
 body {
+  background-image: url('/MathRelay3/images/IMG_1544 (2).jpg');
+	background-size: cover;
   max-width: 100%;
   margin: 0;
-  overflow:auto;
+  overflow:hidden;
 }
 #everything{
   position:relative;
   width: 1280px;
+  margin: 1%;
 }
 #ribbon {
-  width: 100%;
+  width: 98%;
+  background-color: black;
+  color: white;
   margin: 0;
   position: absolute;
   white-space: nowrap;
   overflow: inherit;
   font-family: 'Advent Pro', sans-serif;
+  border-bottom: 1px solid white;
+  border-top: none;
+  opacity: 0.7;
+
 }
 #ribbon1 {
   position: absolute;
-  background-color: #377638;
+  background-color: inherit;
   padding-left: 17px;
   height: 93px;
-  width: 300px;
+  width: 200px;
+  border-top-left-radius: 20px;
+  border-bottom: 1px solid white;
+  border-top: none;
 }
 #ribbon2 {
   position: absolute;
   white-space: nowrap;
-  background-color: #377638;
+  background-color: inherit;
   height: 93px;
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
   right:0;
+  border-top-right-radius: 20px;
+  border-bottom: 1px solid white;
+  border-top: none;
 }
 #container {
   width: 100%;
@@ -56,14 +74,19 @@ body {
   overflow: hidden;
 }
 #toolbar {
+  border-right: 1px solid white;
+  border-bottom-left-radius: 20px;
+  border-top: 1px solid white;
+  opacity: 0.7;
   postion: absolute;
   white-space: normal;
-  background-color: rgba(38, 38, 38, 0.32);
+  background-color: black;
   width: 150px;
   min-height: 300px;
-  height: calc(100vh - 93px);
+  height: calc(96vh - 93px);
   margin-top: 93px;
   float: left;
+  border
 }
 #freezeLeaderboard {
   width: 173px;
@@ -75,42 +98,56 @@ body {
   transition: background-color 0.25s ease;
 }
 #freezeLeaderboard:hover {
-  color: white;
-  background-color: #011858;
+  background-color: dimgray;
 }
 #timer {
-  background-color: #377638;
+  background-color: inherit;
   float: right;
   font-size: 20px;
   height: 40px;
   margin-top: 27px;
   padding: 12px;
+  padding-top: 7px;
+  color: white;
 }
 #logoutButton {
   float: right;
   margin: 0px;
 }
+iframe{
+  overflow:hidden;
+  opacity: 0.85;
+
+}
 .iframeMod {
   position: absolute;
-  width: 1130px;
-  height: calc(100vh - 110px);
+  width: calc(98% - 151px);
+  height: calc(96vh - 93px);
+  border-bottom-right-radius: 20px;
   border: none;
   overflow: auto;
   top: 93px;
   left: 150px;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  background-color: black;
 }
 .contentMod{
   overflow: hidden;
 }
 .toolbarButton {
   width: 150px;
-  text-align: left;
+  height: 75px;
+  border-radius: 20px;
+
+  text-align: center;
   background: none;
   padding: 10px;
   border: none;
   transition: background-color 0.25s ease;
   font-family: 'Advent Pro', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
+  color: white;
 }
 .toolbarButton:hover {
   background-color: DimGray;
@@ -121,13 +158,16 @@ body {
   background: none;
   padding: 0;
   border: none;
+  border-radius: 20px;
+  color: white;
   font-family: 'Advent Pro', sans-serif;
   font-size: 20px;
-  transition: background-color 0.5s ease;
-  transition: color 0.25s ease;
+  transition: background-color,color 0.5s ease;
 }
 .ribbonButton:hover {
-  color: white;
-  background-color: #011858;
+  background-color: dimgray;
+}
+.ribbonButton:disabled{
+  color: black;
 }
 </style>

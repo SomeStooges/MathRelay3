@@ -10,7 +10,9 @@ h1{
 	font-family: 'Advent Pro', sans-serif;
 	font-size: 400%;
 }
-
+*:focus {
+    outline: none;
+}
 section {
 	font-family:sans-serif;
 

@@ -12,10 +12,10 @@
 	<section>
 		<h1>Admin Login</h1>
 		<p> Password: <input type = "password" name= "password" placeholder="Enter Password" id='adminPassword'>
-		<button id="admin_login"> LOGIN </button> <br>
 		<br>
 		<p style="color: red" id="passErr"></p>
 		<p>If you are not an administrator, please click the back button below. Thank you.</p>
+		<button id="admin_login"> LOGIN </button>
 		<button id="back_button">BACK</button>
 		<div id="adminverify"><div>
 	</section>

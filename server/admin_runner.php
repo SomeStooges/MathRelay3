@@ -76,6 +76,10 @@
 		}
 		return $returnRow;
 	}
+	function getEvent(){
+		$resource = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
+		return $resource[0];
+	}
 
 	$action = $_REQUEST['action'];
 	$return = false;
@@ -86,6 +90,7 @@
 		case 'updateTeamData': $return = updateTeamData(); break;
 		case 'getTeamLog': $return = getTeamLog(); break;
 		case 'setUnloadTime': $return = setUnloadTime(); break;
+		case 'getEvent': $return = getEvent(); break;
 	}
 	print json_encode($return);
 

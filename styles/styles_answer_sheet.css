@@ -4,7 +4,9 @@ body {
 	background-position: cover;
 	text-align: center;
 }
-
+*:focus {
+    outline: none;
+}
 h1	{
 		padding: 0%;
 		margin: 0%;
@@ -45,6 +47,31 @@ div#ribbon {
 .questions {
 	width: 100%;
 }
+#nicknameInput{
+	background-color: rgb(42, 46, 48);
+	margin-left: 0;
+  border: none;
+  height: 25px;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+#submitNickname{
+	height: 45px;
+	border: 1px solid DimGray;
+	margin-left: 0px;
+	padding:10px;
+	color: white;
+	background-color: inherit;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	transition: background-color 0.25s ease;
+
+}
+#submitNickname:hover{
+	background-color: rgb(32, 70, 93);
+}
 #answerChoices {
 	padding-top: 0.05%;
 	color: white;
@@ -60,6 +87,7 @@ div#ribbon {
 	border: 3px solid grey;
 	border:5%;
 	border-radius: 20px;
+	position: relative;
 }
 
 #buttons {
@@ -101,6 +129,10 @@ div#ribbon {
 	height: 100%;
 	border: none;
 	border-radius: 20px;
+	transition: background-color;
+}
+#submit_answer:hover{
+	background-color: rgb(101, 123, 201);
 }
 
 #necessary {
@@ -115,28 +147,46 @@ div#ribbon {
 	width: 20%;
 	margin-top: 1%;
 	margin-left: 10%;
-	margin-right: 5%;
+	padding: 0;
+	position: absolute;
 }
 
 #level2choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 35%;
+	padding: 0;
+	position: absolute;
 }
 
 #level1choice {
 	text-align: center;
 	width: 20%;
 	margin-top: 1%;
-	margin-left: 5%;
-	margin-right: 10%;
+	margin-left: 60%;
+	padding: 0;
+	position: absolute;
 }
-
+#logoutDiv{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100px;
+	height: 75px;
+}
 #logoutButton {
-	margin-top: 0;
-	float: right;
+	width: inherit;
+	height: inherit;
+	border: none;
+	border-radius: 20px;
+	background-color: inherit;
+	color: white;
+	transition: background-color 0.4s ease;
+}
+#logoutButton:hover{
+  background-color: rgb(32, 70, 93);
+
 }
 
 
@@ -146,6 +196,10 @@ div#ribbon {
 
 	border: none;
 	border-radius: 5px;
+	transition: background-color;
+}
+.seriesNumbers:hover{
+	background-color: rgb(101, 123, 201);
 }
 .answerLevel{
 	float: left;
@@ -153,14 +207,16 @@ div#ribbon {
 
 .level3Buttons{
 	width: 150px;
-
 	position: center;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border: none;
 	border-radius: 7px;
-
+	transition: background-color;
+}
+.level3Buttons:hover{
+	background-color: rgb(101, 123, 201);
 }
 .level2Buttons{
 	position: center;
@@ -170,6 +226,10 @@ div#ribbon {
 	margin-bottom: 2%;
 	border: none;
 	border-radius: 7px;
+	transition: background-color;
+}
+.level2Buttons:hover{
+	background-color: rgb(101, 123, 201);
 }
 .level1Buttons{
 	position: center;
@@ -179,4 +239,8 @@ div#ribbon {
 	margin-bottom: 2%;
 	border: none;
 	border-radius: 7px;
+	transition: background-color;
+}
+.level1Buttons:hover{
+	background-color: rgb(101, 123, 201);
 }

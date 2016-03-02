@@ -119,7 +119,7 @@ function updateEvent(uEvent){
   $.post('server/admin_control.php',obj, function(data){
     var bID = JSON.parse(data);
     $('.ribbonButton').css('background-color','');
-    $('#'+bID).css('background-color','#011858');
+    $('#'+bID).css('background-color','dimgray');
   });
 
   switch (ribbonID) {
@@ -187,7 +187,7 @@ function updateEvent(uEvent){
 function updateUI(){
   currentEvent = $("#cEvent").text().trim();
   console.log("Current Event: " + currentEvent);
-  $('#'+currentEvent).css('background-color','#011858');
+  $('#'+currentEvent).css('background-color','dimgray');
   console.log(currentEvent);
   toggleButtons(currentEvent);
 }
@@ -258,6 +258,7 @@ $(document).ready(function() {
   startTime = parseInt(startTime);
   stopTime = parseInt(stopTime);
   updateUI();
+  $("#teamData").css('background-color', 'DimGray');
 
 
   //Event Handler for toolbar buttons
@@ -272,6 +273,8 @@ $(document).ready(function() {
         target = $('#mod1');
         break; //get the pointer
       case "leaderboardLink":
+        $("#leaderboardLink").css('background-color', '');
+        $("#teamData").css('background-color', 'DimGray');
         window.open("leaderboard.php","_blank");
         target = $('#mod1');
         break;

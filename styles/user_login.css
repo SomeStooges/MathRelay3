@@ -25,6 +25,9 @@ section {
     background-color: rgba(0,0,0,0.8);
 
 }
+*:focus {
+    outline: none;
+}
 
 h1 {
       font-size: 500%;
@@ -38,7 +41,8 @@ h1 {
   border: none;
   height: 25px;
   color: white;
-  padding = 2px;
+  padding: 10px;
+  border-radius: 20px;
 }
 .userLoginButton{
   width: 150px;
@@ -48,7 +52,9 @@ h1 {
   background-color: rgba(0,0,0,0);
   color: white;
   transition: background-color 0.4s ease;
+  font-size: 20px;
+  font-family: 'Advent Pro', sans-serif;
 }
 .userLoginButton:hover{
-  background-color: #011858;
+  background-color: rgb(32, 70, 93);
 }

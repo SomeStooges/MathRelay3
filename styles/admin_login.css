@@ -25,11 +25,22 @@ section {
     background-color: rgba(0,0,0,0.8);
 
 }
+*:focus {
+    outline: none;
+}
 
 h1 {
       font-size: 500%;
       font-family: 'Advent Pro', sans-serif;
 
+}
+#adminPassword{
+  background-color: rgb(42, 46, 48);
+  border: none;
+  height: 25px;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
 }
 #back_button{
   width: 150px;
@@ -38,8 +49,24 @@ h1 {
   border-radius: 10px;
   background-color: rgba(0,0,0,0);
   color: white;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
   transition: background-color 0.4s ease;
 }
 #back_button:hover{
-  background-color: #1d521e;
+  background-color: rgb(94, 138, 103);
+}
+#admin_login{
+  width: 150px;
+  height: 75px;
+  border:none;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
+  transition: background-color 0.4s ease;
+}
+#admin_login:hover{
+  background-color: rgb(94, 138, 103);
 }

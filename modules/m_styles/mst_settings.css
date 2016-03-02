@@ -1,1 +1,9 @@
 /*Styles sheet for the m_settings module*/
+*:focus {
+    outline: none;
+}
+body{
+  color: white;
+  opacity: 0.7;
+
+}

@@ -42,7 +42,7 @@ h1 {
   padding: 10px;
   border-radius: 20px;
 }
-#back_button{
+#back_button, #admin_login{
   width: 150px;
   height: 75px;
   border:none;
@@ -53,20 +53,6 @@ h1 {
   font-size: 20px;
   transition: background-color 0.4s ease;
 }
-#back_button:hover{
-  background-color: rgb(94, 138, 103);
-}
-#admin_login{
-  width: 150px;
-  height: 75px;
-  border:none;
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0);
-  color: white;
-  font-family: 'Advent Pro', sans-serif;
-  font-size: 20px;
-  transition: background-color 0.4s ease;
-}
-#admin_login:hover{
+#back_button:hover, #admin_login:hover{
   background-color: rgb(94, 138, 103);
 }

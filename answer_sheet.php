@@ -54,13 +54,13 @@
 
 	<body>
 		<div id="ribbon">
+			<div id='logoutDiv'> <button id='logoutButton'>LOGOUT</button></div>
 			<h1 id="page_title" style="text-align:center"> Answer Sheet </h1>
 			<div>
-			<p style="text-align:center">
-				Edit nickname: <input id='nicknameInput' placeholder= "Enter A Team Nickname">
-				<button id = 'submitNickname'>SUBMIT</button>
-			</p>
-			<p> <button id='logoutButton'>LOGOUT</button></p>
+				<p style="text-align:center">
+					<input id='nicknameInput' placeholder= "Edit Team Nickname">
+					<button id = 'submitNickname'>SUBMIT</button>
+				</p>
 			</div>
 		</div>
 
@@ -126,7 +126,7 @@
 						?>
 					</table>
 				</div>
-				</div>
+			</div>
 			</div>
 
 			<div id='rightside'>

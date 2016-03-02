@@ -258,6 +258,7 @@ $(document).ready(function() {
   startTime = parseInt(startTime);
   stopTime = parseInt(stopTime);
   updateUI();
+  $("#teamData").css('background-color', 'DimGray');
 
 
   //Event Handler for toolbar buttons
@@ -272,6 +273,8 @@ $(document).ready(function() {
         target = $('#mod1');
         break; //get the pointer
       case "leaderboardLink":
+        $("#leaderboardLink").css('background-color', '');
+        $("#teamData").css('background-color', 'DimGray');
         window.open("leaderboard.php","_blank");
         target = $('#mod1');
         break;

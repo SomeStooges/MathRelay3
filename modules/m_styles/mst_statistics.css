@@ -1,1 +1,7 @@
 /*Styles sheet for the m_statistics module*/
+body{
+  background-color: rgb(17, 22, 42);
+  color: white;
+  opacity: 0.7;
+
+}

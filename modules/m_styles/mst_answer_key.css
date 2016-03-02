@@ -3,20 +3,31 @@
 #body{
   white-space: nowrap;
   overflow-x: hidden;
+  background-color: rgb(17, 22, 42);
+  color: white;
+  opacity: 0.7;
+  position: relative;
+
+}
+*:focus {
+    outline: none;
 }
 
 #special_characters{
-  text-align: center;
   float:left;
-  width: calc(100% - 150px);
+  width: 170px;
+  position: absolute;
+  left: 33px;
+  top: 385px;
+  text-align: center;
 }
+
 .special_button{
   width: 50px;
   height: 50px;
 }
 .answerKeyElement{
   float: left;
-  background-color: #FFFFCC;
   text-align: center;
 }
 .seriesNumbers{
@@ -36,14 +47,27 @@
   height: 50px;
 }
 .level1Values{
-  height: 50px;
+  height: 38px;
   width: 15vw;
+  background-color: rgb(31, 34, 36);
+  border: none;
+  color: white;
+  padding: 10px;
 }
 .level2Values{
-  height: 50px;
+  height: 38px;
   width: 15vw;
+  background-color: rgb(42, 46, 48);
+  border: none;
+  border: none;
+  color: white;
+  padding: 10px;
 }
 .level3Values{
-  height: 50px;
+  height: 38px;
   width: 15vw;
+  background-color: rgb(42, 46, 48);
+  border: none;
+  color: white;
+  padding: 10px;
 }

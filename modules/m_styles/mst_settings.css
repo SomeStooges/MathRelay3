@@ -1,1 +1,10 @@
 /*Styles sheet for the m_settings module*/
+*:focus {
+    outline: none;
+}
+body{
+  background-color: rgb(17, 22, 42);
+  color: white;
+  opacity: 0.7;
+
+}

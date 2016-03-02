@@ -59,11 +59,10 @@ div#ribbon {
 }
 #submitNickname{
 	height: 45px;
-	border: 1px solid DimGray;
+	border: none;
 	margin-left: 0px;
 	padding:10px;
-	color: white;
-	background-color: inherit;
+	background-color: none;
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 20px;
 	transition: background-color 0.25s ease;

@@ -49,63 +49,23 @@ b{
 .answerKeyElement{
   padding: 15px;
 }
-.level1Set{
+.level1Set, .level2Set, .level3Set{
   height: 58px;
   border: none;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   transition: background-color;
 }
-.level1Set:hover{
+.level1Set:hover, .level2Set:hover, .level3Set:hover{
   background-color: rgb(101, 123, 201);
 }
-.level2Set{
-  height: 58px;
-  border: none;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  transition: background-color;
-}
-.level2Set:hover{
-  background-color: rgb(101, 123, 201);
-}
-.level3Set{
-  height: 58px;
-  border: none;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  transition: background-color;
-}
-.level3Set:hover{
-  background-color: rgb(101, 123, 201);
-}
-.level1Values{
+
+.level1Values, .level2Values, .level3Values{
   height: 38px;
   width: 15vw;
   background-color: rgb(31, 34, 36);
   border-top-left-radius: 25px;
 	border-bottom-left-radius: 25px;
-  border: none;
-  color: white;
-  padding: 10px;
-}
-.level2Values{
-  height: 38px;
-  width: 15vw;
-  background-color: rgb(42, 46, 48);
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border: none;
-  border: none;
-  color: white;
-  padding: 10px;
-}
-.level3Values{
-  height: 38px;
-  width: 15vw;
-  background-color: rgb(42, 46, 48);
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
   border: none;
   color: white;
   padding: 10px;

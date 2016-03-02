@@ -28,7 +28,7 @@ body {
 #everything{
   position:relative;
   width: 1280px;
-  margin: 1%;
+  margin: 1% auto;
 }
 #ribbon {
   width: 98%;

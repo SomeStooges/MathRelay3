@@ -197,42 +197,14 @@ div#ribbon {
 	border-radius: 5px;
 	transition: background-color;
 }
-.seriesNumbers:hover{
-	background-color: rgb(101, 123, 201);
-}
+
 .answerLevel{
 	float: left;
 }
 
-.level3Buttons{
-	width: 150px;
-	position: center;
-	height: 30px;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	border: none;
-	border-radius: 7px;
-	transition: background-color;
-}
-.level3Buttons:hover{
-	background-color: rgb(101, 123, 201);
-}
-.level2Buttons{
-	position: center;
+.level3Buttons, .level2Buttons, .level1Buttons{
 	width: 160px;
-	height: 30px;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	border: none;
-	border-radius: 7px;
-	transition: background-color;
-}
-.level2Buttons:hover{
-	background-color: rgb(101, 123, 201);
-}
-.level1Buttons{
 	position: center;
-	width: 160px;
 	height: 30px;
 	margin-top: 2%;
 	margin-bottom: 2%;
@@ -240,6 +212,6 @@ div#ribbon {
 	border-radius: 7px;
 	transition: background-color;
 }
-.level1Buttons:hover{
-	background-color: rgb(101, 123, 201);
+.level3Buttons:hover, .level2Buttons:hover, .level1Buttons:hover, .seriesNumbers:hover{
+	background-color: rgb(101, 123, 201); /*Blue Tinting*/
 }

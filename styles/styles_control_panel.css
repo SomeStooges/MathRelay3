@@ -50,7 +50,7 @@ body {
   background-color: inherit;
   padding-left: 17px;
   height: 93px;
-  width: 300px;
+  width: 200px;
   border-top-left-radius: 20px;
   border-bottom: 1px solid white;
   border-top: none;
@@ -99,8 +99,7 @@ body {
   transition: background-color 0.25s ease;
 }
 #freezeLeaderboard:hover {
-  color: white;
-  background-color: #011858;
+  background-color: dimgray;
 }
 #timer {
   background-color: rgb(17, 22, 42);
@@ -140,7 +139,7 @@ iframe{
   height: 75px;
   border-radius: 20px;
 
-  text-align: left;
+  text-align: center;
   background: none;
   padding: 10px;
   border: none;
@@ -163,10 +162,8 @@ iframe{
   font-family: 'Advent Pro', sans-serif;
   font-size: 20px;
   transition: background-color 0.5s ease;
-  transition: color 0.25s ease;
 }
 .ribbonButton:hover {
-  color: white;
-  background-color: #011858;
+  background-color: dimgray;
 }
 </style>

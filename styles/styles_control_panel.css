@@ -24,7 +24,6 @@ body {
   max-width: 100%;
   margin: 0;
   overflow:hidden;
-  background-color: black;
 }
 #everything{
   position:relative;
@@ -33,7 +32,7 @@ body {
 }
 #ribbon {
   width: 98%;
-  background-color: rgb(17, 22, 42);
+  background-color: black;
   color: white;
   margin: 0;
   position: absolute;
@@ -81,7 +80,7 @@ body {
   opacity: 0.7;
   postion: absolute;
   white-space: normal;
-  background-color: rgb(17, 22, 42);
+  background-color: black;
   width: 150px;
   min-height: 300px;
   height: calc(96vh - 93px);
@@ -102,7 +101,7 @@ body {
   background-color: dimgray;
 }
 #timer {
-  background-color: rgb(17, 22, 42);
+  background-color: inherit;
   float: right;
   font-size: 20px;
   height: 40px;
@@ -117,7 +116,7 @@ body {
 }
 iframe{
   overflow:hidden;
-  opacity: 0.9;
+  opacity: 0.85;
 
 }
 .iframeMod {
@@ -131,6 +130,7 @@ iframe{
   left: 150px;
   border-left: 1px solid white;
   border-top: 1px solid white;
+  background-color: black;
 }
 .contentMod{
   overflow: hidden;
@@ -146,7 +146,7 @@ iframe{
   border: none;
   transition: background-color 0.25s ease;
   font-family: 'Advent Pro', sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   color: white;
 }
 .toolbarButton:hover {

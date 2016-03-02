@@ -4,6 +4,7 @@
 	if(!isset($_SESSION['admin'])){
 		header('location: index.php');
 	}
+	require 'server/utilities.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -17,6 +18,11 @@
 	</head>
 
 	<body style="text-align:center">
+		<div id='dataStore' style='display: none;'>
+			<span id='cEvent'>
+				<?php print getOption('event','currentEvent'); ?>
+			</span>
+		</div>
 		<section>
 			<h1> Leaderboard </h1>
 			<div id='leaderboard' align = 'center'>

@@ -47,3 +47,15 @@ h1{
   text-align: right;
   width: 50%
 }
+#row0{
+  color: rgb(193, 161, 25);
+  font-size: 150%;
+}
+#row1{
+  color: rgb(167, 170, 171);
+  font-size: 150%;
+}
+#row2{
+  color: rgb(158, 103, 9);
+  font-size: 150%;
+}

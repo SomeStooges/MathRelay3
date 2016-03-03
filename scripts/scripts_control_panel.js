@@ -18,29 +18,24 @@ var EventTimer = function(startTime, elapsedTime){
     var date = new Date();
     this.startTime = parseInt(Math.floor( date.getTime() / 1000 ));
     console.log("this.startTime : " + this.startTime + " " + typeof this.startTime);
-    this.updateTimer()
     //this.intervalID = window.setInterval(this.updateTimer,1000);
+    this.intervalID = window.setInterval(function(){myTimer.updateTimer()}, 1000);
   }
 
   this.parseToTimerDisplay = function(etime){
-
-  }
-
-  this.updateTimer = function(){
-    console.log("Updating the Timer");
-    var date = new Date();
-    console.log("IDENTITY : " + JSON.stringify(this.starTime));
-    console.log("datatype : " + this.startTime)
-    this.elapsedTime = parseInt(Math.floor( date.getTime() / 1000 ) - this.startTime);
-    //console.log("this.elapsedTime : " + this.elapsedTime + " " + typeof this.elapsedTime);
-  //  console.log("Elapsed Time : " + this.elapsedTime);
-    var etime = this.elapsedTime;
     var tempH = parseInt(etime/3600);
     var tempM = parseInt((etime%3600)/60);
     var tempS = (etime%60);
     var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
     $('#timer').html(response);
-    //this.parseToTimerDisplay(this.elapsedTime);
+  }
+
+  this.updateTimer = function(){
+    console.log("Updating the Timer");
+    var date = new Date();
+    console.log("datatype : " + this.startTime)
+    this.elapsedTime = parseInt(Math.floor( date.getTime() / 1000 ) - this.startTime);
+    this.parseToTimerDisplay(this.elapsedTime);
   }
 
   this.stopTimer = function(){
@@ -76,6 +71,7 @@ function updateEvent(uEvent){
 
       case "start":
         myTimer.startTimer();
+        console.log("myTimer.updateTimer : " + myTimer.updateTimer);
         var obj = new Object();
         obj.action = 'setStartTime';
         obj.startTime = myTimer.startTime;

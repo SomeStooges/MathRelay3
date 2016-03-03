@@ -5,99 +5,49 @@ var currentEvent;
 var ribbonID;
 var toolbarID;
 //Universal timer variables
-var intervalID = '';
-var startTime = 0;
-var stopTime = 0;
 var count = 0;
 var temp = 0;
 
-function startTimer(){
-  //Sets the startTime if this is the first time the event is being set.
-  console.log("StartTime: " + startTime);
-  if(startTime == 0){
-    var currentTime = new Date();
-    var obj = new Object();
-    obj.action = 'setStartTime';
-    obj.startTime = Math.floor( currentTime.getTime() / 1000 ); //Send the current number of seconds, not miliseconds.
-    $.post('server/admin_runner.php',obj,function(data){
-      console.log("From startTimer" + data);
-      startTime = obj.startTime;
-    });
-  }
-  //assigns temp to be stopTime
-  temp = stopTime;
-  if(intervalID == ''){
-    intervalID = window.setInterval(updateTimer,1000);
-  }
-}
+var EventTimer = function(startTime, elapsedTime){
+  this.startTime = startTime;     //The time, in seconds since epoch, when the timer started
+  this.elapsedTime = elapsedTime; //The number of seconds between the current time and the start time, or until the stop time was pushed
+  this.intervalID;                //Saves the reference ID of the window.setInterval
 
-function updateTimer(){
-  var currentTime = new Date();
-  var time;
-  //Assigns time depending on which value of count it is.
-  //Count = 0 means that this is the first instance of running the timer since last reset of the database. (stopTime is not defined)
-  //Count = 1 updates the timer with a time that continually compounds one second every second.
-  switch(count){
-    case 0:
-      time = Math.floor( currentTime.getTime() / 1000);
-      break;
-    case 1:
-      temp++;
-      time = temp; //assigns the time to be subtracted from as the growing temp
-      break;
+  this.startTimer = function(){
+    console.log("Starting the Timer");
+    var date = new Date();
+    this.startTime = parseInt(Math.floor( date.getTime() / 1000 ));
+    console.log("this.startTime : " + this.startTime + " " + typeof this.startTime);
+    this.updateTimer()
+    //this.intervalID = window.setInterval(this.updateTimer,1000);
   }
-  //Parses the difference in time(currentTime OR temp) and startTime
-  //console.log("Current Time: " + time);
-  var etime = time - startTime;
-  //console.log("Elapsed Time: " + etime);
-  var tempH = parseInt(etime/3600);
-  var tempM = parseInt((etime%3600)/60);
-  var tempS = (etime%60);
-  var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
-  $('#timer').html(response);
-}
 
-function stopTimer(){
-  //Sets Stop Time
-  var currentTime = new Date();
-  var obj = new Object();
-  obj.action = 'setStopTime';
-  //Assigns the stopTime depending on what temp is.
-  //if temp = 0, then there is no temp stored. assigns the current time when the stop button was clicked as the stopTimer
-  //if temp != 0, then the default case is called and obj.startTimer is assigned to be temp.
-  switch(temp){
-    case 0:
-      obj.stopTimer = Math.floor(currentTime.getTime()/1000);
-      $.post('server/admin_runner.php',obj,function(data){
-        console.log("From stopTimer" + data);
-      });
-      break;
-    default:
-      obj.stopTimer = temp;
-      //updates the database value for stopTime as temp.
-      $.post('server/admin_runner.php',obj,function(data){
-        console.log("From stopTimer" + data);
-      });
+  this.parseToTimerDisplay = function(etime){
+
   }
-  stopTime = obj.stopTimer;
-  //Only runs this if statement when both startTime and stopTime are defined.
-  if(stopTime != 0 && startTime != 0){
-    count=1;
+
+  this.updateTimer = function(){
+    console.log("Updating the Timer");
+    var date = new Date();
+    console.log("IDENTITY : " + JSON.stringify(this.starTime));
+    console.log("datatype : " + this.startTime)
+    this.elapsedTime = parseInt(Math.floor( date.getTime() / 1000 ) - this.startTime);
+    //console.log("this.elapsedTime : " + this.elapsedTime + " " + typeof this.elapsedTime);
+  //  console.log("Elapsed Time : " + this.elapsedTime);
+    var etime = this.elapsedTime;
+    var tempH = parseInt(etime/3600);
+    var tempM = parseInt((etime%3600)/60);
+    var tempS = (etime%60);
+    var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
+    $('#timer').html(response);
+    //this.parseToTimerDisplay(this.elapsedTime);
   }
-  //Clears the setInterval
-  if(intervalID != ''){
-    window.clearInterval(intervalID);
-    intervalID = '';
+
+  this.stopTimer = function(){
+    console.log("Stopping the Timer");
+    window.clearInterval(this.intervalID);
+    this.updateTimer();
   }
-  //Parses the difference between stopTime(currentTime OR temp)
-  console.log(stopTime);
-  var etime = stopTime - startTime;
-  console.log("Elapsed Time: " + etime);
-  var tempH = parseInt(etime/3600);
-  var tempM = parseInt((etime%3600)/60);
-  var tempS = (etime%60);
-  var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
-  $('#timer').html(response);
 }
 
 function setCleanupParagraph(inputText) {
@@ -107,8 +57,6 @@ function setCleanupParagraph(inputText) {
   $.post('server/admin_control.php', obj, function(data) {
     console.log(data);
     data = JSON.parse(data);
-
-    //WRITE GUI CHANGE HERE
   });
 }
 
@@ -118,82 +66,59 @@ function updateEvent(uEvent){
   obj.uEvent = uEvent;
   $.post('server/admin_control.php',obj, function(data){
     var bID = JSON.parse(data);
-    $('.ribbonButton').css('background-color','');
-    $('#'+bID).css('background-color','dimgray');
+    console.log("bID : " + bID);
+    switch (bID) {
+      case "none":
+        break;
+
+      case "open":
+        break;
+
+      case "start":
+        myTimer.startTimer();
+        var obj = new Object();
+        obj.action = 'setStartTime';
+        obj.startTime = myTimer.startTime;
+        $.post('server/admin_runner.php',obj);
+        break;
+
+      case "freetime":
+        $.post('server/admin_control.php', 'action=setRankFreetime', function(data){
+          var temp = JSON.parse(data);
+        });
+        break;
+
+      case "freezeLeaderboard":
+        break;
+
+      case "stop":
+        var obj = new Object();
+        obj.action = 'setStopTime';
+        obj.stopTime = myTimer.elapsedTime;
+        $.post('server/admin_runner.php',obj);
+        myTimer.stopTimer();
+        $.post('server/admin_control.php', 'action=setFinalRank', function(data){});
+        break;
+
+      case "close":
+        break;
+    }
+    toggleButtons(bID);
   });
-
-  switch (ribbonID) {
-    case "none":
-      $(".ribbonButton").prop("disabled", true);
-      $("#open").prop("disabled", false);
-      $("#logoutButton").prop("disabled", false);
-      break;
-
-    case "open":
-      $(".ribbonButton").prop("disabled", true);
-      $("#none").prop("disabled", false);
-      $("#start").prop("disabled", false);
-      break;
-
-    case "start":
-      startTimer();
-      $(".ribbonButton").prop("disabled", false);
-      $("#freezeLeaderboard").prop("disabled", true);
-      $("#close").prop("disabled", true);
-      $("#start").prop("disabled", true);
-      break;
-
-    case "freetime":
-      startTimer();
-      $(".ribbonButton").prop("disabled", false);
-      $("#freetime").prop("disabled", true);
-      $("#start").prop("disabled", true);
-      $("#close").prop("disabled", true);
-      $.post('server/admin_control.php', 'action=setRankFreetime', function(data){
-        var temp = JSON.parse(data);
-      });
-      break;
-
-    case "freezeLeaderboard":
-      startTimer();
-      $("#ribbonButton").prop("disabled", false);
-      $("#freetime").prop("disabled", true);
-      $("#freezeLeaderboard").prop("disabled", true);
-
-      break;
-
-    case "stop":
-      stopTimer();
-      $(".ribbonButton").prop("disabled", false);
-      $("#freetime").prop("disabled", true);
-      $("#freezeLeaderboard").prop("disabled", true);
-      $("#stop").prop("disabled", true);
-      //$.post("server/admin_runner.php", obj, function(data){});
-      $.post('server/admin_control.php', 'action=setFinalRank', function(data){
-      });
-      break;
-
-    case "close":
-      stopTimer();
-      $(".ribbonButton").prop("disabled", true);
-      $("#none").prop("disabled", false);
-      $("#open").prop("disabled", false);
-      $("#logoutButton").prop("disabled", false);
-      break;
-  }
-
 }
 
+//Restores state upon loading of the page
 function updateUI(){
   currentEvent = $("#cEvent").text().trim();
   console.log("Current Event: " + currentEvent);
-  $('#'+currentEvent).css('background-color','dimgray');
-  console.log(currentEvent);
   toggleButtons(currentEvent);
 }
 
-function toggleButtons(ribbonID){
-  switch (ribbonID) {
+//Handles all view change (css,html) of the webpage for a change in the event
+function toggleButtons(event1){
+  $('.ribbonButton').css('background-color','');
+  $('#'+event1).css('background-color','dimgray');
+  switch (event1) {
     case "none":
       $(".ribbonButton").prop("disabled", true);
       $("#open").prop("disabled", false);
@@ -208,7 +133,6 @@ function toggleButtons(ribbonID){
       break;
 
     case "start":
-      startTimer();
       $(".ribbonButton").prop("disabled", false);
       $("#freezeLeaderboard").prop("disabled", true);
       $("#close").prop("disabled", true);
@@ -216,7 +140,6 @@ function toggleButtons(ribbonID){
       break;
 
     case "freetime":
-      startTimer();
       $(".ribbonButton").prop("disabled", false);
       $("#freetime").prop("disabled", true);
       $("#start").prop("disabled", true);
@@ -224,7 +147,6 @@ function toggleButtons(ribbonID){
       break;
 
     case "freezeLeaderboard":
-      startTimer();
       $("#ribbonButton").prop("disabled", false);
       $("#freetime").prop("disabled", true);
       $("#freezeLeaderboard").prop("disabled", true);
@@ -232,7 +154,6 @@ function toggleButtons(ribbonID){
       break;
 
     case "stop":
-      stopTimer();
       $(".ribbonButton").prop("disabled", false);
       $("#freetime").prop("disabled", true);
       $("#freezeLeaderboard").prop("disabled", true);
@@ -241,7 +162,6 @@ function toggleButtons(ribbonID){
       break;
 
     case "close":
-      stopTimer();
       $(".ribbonButton").prop("disabled", true);
       $("#none").prop("disabled", false);
       $("#open").prop("disabled", false);
@@ -251,15 +171,14 @@ function toggleButtons(ribbonID){
 }
 
 //---------------------------------------------------------------------------------------------------------
-
+var myTimer = new EventTimer(0,0);
 $(document).ready(function() {
-  startTime = $('#startTimeDiv').html().trim();
-  stopTime = $('#stopTimeDiv').html().trim();
-  startTime = parseInt(startTime);
-  stopTime = parseInt(stopTime);
-  updateUI();
-  $("#teamData").css('background-color', 'DimGray');
+  //Creates new EventTimer object and assigns it to pointer myTimer
+  myTimer.startTime = parseInt( $('#startTimeDiv').html().trim() );
+  myTimer.elapsedTime = parseInt( $('#stopTimeDiv').html().trim() );
 
+  updateUI();
+  //$("#teamData").css('background-color', 'DimGray');
 
   //Event Handler for toolbar buttons
   $(".toolbarButton").click(function() {
@@ -294,13 +213,10 @@ $(document).ready(function() {
     $(target).css('display', 'block'); //display the pointer's reference
   });
 
-
-
   //Event Handler for event buttons
   $('.ribbonButton').click(function(){
     ribbonID = $(this).attr('id');
     updateEvent(ribbonID);
-    toggleButtons(ribbonID);
   });
 
   //Event Handler for logout button
@@ -315,8 +231,5 @@ $(document).ready(function() {
       }
     });
   });
-});
 
-$(window).unload(function(){
-  $.ajax();
 });

@@ -28,6 +28,7 @@ body {
 #everything{
   position:relative;
   margin: 1%;
+  width: 98%
 }
 #ribbon {
   min-width:1254.4px;

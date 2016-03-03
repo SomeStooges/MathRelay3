@@ -179,7 +179,7 @@ $(document).ready( function() {
 			data = JSON.parse(data);
 			console.log(data);
 			if(data.trim() !== ""){
-				$("#page_title").text(data);
+				$("#nicknameInput").val(data);
 			}
 		});
 		$.post("server/user_control.php", action = "action=getPoints", function(data) {
@@ -201,7 +201,7 @@ $(document).ready( function() {
 		$.post("server/user_control.php", obj, function(data) {
 			if(data){
 				if( obj.nickname.trim() !== ""){
-					$("#page_title").html(obj.nickname);
+					$("#nicknameInput").val(obj.nickname);
 					console.log(data);
 				}
 			}

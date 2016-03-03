@@ -53,87 +53,87 @@
 	</head>
 
 	<body>
-		<div id="ribbon">
-			<div id='logoutDiv'> <button id='logoutButton'>LOGOUT</button></div>
-			<h1 id="page_title" style="text-align:center"> Answer Sheet </h1>
-			<div>
-				<p style="text-align:center">
-					<input id='nicknameInput' placeholder= "Edit Team Nickname">
-					<button id = 'submitNickname'>SUBMIT</button>
-				</p>
+		<div id="everything">
+			<div id="ribbon">
+				<div id='logoutDiv'> <button id='logoutButton'>LOGOUT</button></div>
+				<div id="title">
+					<p style="text-align:center">
+						<input id='nicknameInput' value="Answer Sheet">
+						<button id = 'submitNickname'>Edit</button>
+					</p>
+				</div>
 			</div>
-		</div>
 
-		<!-- Table for interactive question numbers -->
-		<div id="buttons">
-		<div id="content">
-			<div id="questionGrid">
-				<h3>Questions</h3>
-				<table class='questions'>
-				<?php
-					$numQuestions = getOption('answerkey','numQuestion');
-					for ($countOut = 0; $countOut < ($numQuestions / 5); $countOut++) {
-						print "<tr class='questions'>";
-						for ($countIn = 1; $countIn <= 5; $countIn++) {
-							$currentNum = $countIn + (5 * $countOut);
-							if ($currentNum <= $numQuestions) {
-								print "<td><button class='seriesNumbers' id='q" . $currentNum . "'> " . $currentNum . " </button></td>";
+			<!-- Table for interactive question numbers -->
+			<div id="content">
+				<div id="questionGrid">
+					<h3>Questions</h3>
+					<table class='questions'>
+					<?php
+						$numQuestions = getOption('answerkey','numQuestion');
+						for ($countOut = 0; $countOut < ($numQuestions / 5); $countOut++) {
+							print "<tr class='questions'>";
+							for ($countIn = 1; $countIn <= 5; $countIn++) {
+								$currentNum = $countIn + (5 * $countOut);
+								if ($currentNum <= $numQuestions) {
+									print "<td><button class='seriesNumbers' id='q" . $currentNum . "'> " . $currentNum . " </button></td>";
+								}
 							}
+							print "</tr>";
 						}
-						print "</tr>";
-					}
-				?>
-				</table>
-			</div>
-
-
-
-			<!-- 3 tables for answers -->
-			<div id="answerChoices" >
-				<div id = 'necessary'>
-				<div id='level3choice'class="answerLevel">
-				<b>Level 3</b>
-
-					<table class='choiceButtons'>
-						<?php
-							$numChoices = 6;
-							$level = 3;
-							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons' class='answerChoiceButton'></button><td></tr>";
-							}
-						?>
+					?>
 					</table>
 				</div>
-				<div id='level2choice'class="answerLevel">
-				<b>Level 2</b>
-					<table class='choiceButtons'>
-						<?php
-							$level = 2;
-							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
-							}
-						?>
-					</table>
-				</div>
-				<div id='level1choice'class="answerLevel">
-				<b>Level 1</b>
-					<table class='choiceButtons'>
-						<?php
-							$level = 1;
-							for($i=1;$i<=6;$i++){
-								print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
-							}
-						?>
-					</table>
-				</div>
-			</div>
-			</div>
 
-			<div id='rightside'>
-			<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></ul>
 
-			<ul id='submit'><button id="submit_answer"> SUBMIT </button>
+
+				<!-- 3 tables for answers -->
+				<div id="answerChoices" >
+					<div id = 'necessary'>
+					<div id='level3choice'class="answerLevel">
+					<b>Level 3</b>
+
+						<table class='choiceButtons'>
+							<?php
+								$numChoices = 6;
+								$level = 3;
+								for($i=1;$i<=6;$i++){
+									print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons' class='answerChoiceButton'></button><td></tr>";
+								}
+							?>
+						</table>
+					</div>
+					<div id='level2choice'class="answerLevel">
+					<b>Level 2</b>
+						<table class='choiceButtons'>
+							<?php
+								$level = 2;
+								for($i=1;$i<=6;$i++){
+									print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
+								}
+							?>
+						</table>
+					</div>
+					<div id='level1choice'class="answerLevel">
+					<b>Level 1</b>
+						<table class='choiceButtons'>
+							<?php
+								$level = 1;
+								for($i=1;$i<=6;$i++){
+									print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
+								}
+							?>
+						</table>
+					</div>
+				</div>
+				</div>
+
+				<div id='rightside'>
+				<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></ul>
+
+				<ul id='submit'><button id="submit_answer"> SUBMIT </button>
+			</div>
 		</div>
-	</div>
+		</div>
 	</body>
 </html>

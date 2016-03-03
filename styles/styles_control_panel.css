@@ -28,7 +28,6 @@ body {
 #everything{
   position:relative;
   margin: 1%;
-  width: 98%
 }
 #ribbon {
   min-width:1254.4px;
@@ -122,8 +121,8 @@ iframe{
 .iframeMod {
   position: absolute;
   min-height: 450px;
-  width: 87.96%;
-  min-width:1103.4px;
+  width: 88%;
+  min-width:1103.87px;
   height: calc(96vh - 93px);
   border-bottom-right-radius: 20px;
   border: none;

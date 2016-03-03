@@ -26,13 +26,12 @@ body {
   overflow:auto;
 }
 #everything{
-  position:relative;
+  position: relative;
   margin: 1%;
 }
 #ribbon {
   min-width:1254.4px;
   width:100%;
-
   background-color: black;
   color: white;
   margin: 0;
@@ -61,7 +60,8 @@ body {
   white-space: nowrap;
   background-color: inherit;
   height: 93px;
-  width: calc(100% - 200px);
+  width: 84%;
+  min-width: calc(100% - 200px);
   right:0;
   border-top-right-radius: 20px;
   border-bottom: 1px solid white;
@@ -99,6 +99,9 @@ body {
   padding: 10px;
   border: none;
 }
+#freezeLeaderboard:hover{
+  background-color: dimgray;
+}
 #timer {
   background-color: inherit;
   float: right;
@@ -108,6 +111,8 @@ body {
   padding: 12px;
   padding-top: 7px;
   color: white;
+  text-align: center;
+  width: 9%;
 }
 #logoutButton {
   float: right;
@@ -116,13 +121,14 @@ body {
 iframe{
   overflow:hidden;
   opacity: 0.85;
-
+  width: 100%;
 }
 .iframeMod {
   position: absolute;
   min-height: 450px;
   width: 88%;
   min-width:1103.87px;
+  margin-right: 0;
   height: calc(96vh - 93px);
   border-bottom-right-radius: 20px;
   border: none;
@@ -137,7 +143,7 @@ iframe{
 }
 .toolbarButton {
   width: 100%;
-  height: 75px;
+  height: 16.7%;
   border-radius: 20px;
 
   text-align: center;

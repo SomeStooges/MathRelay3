@@ -9,6 +9,7 @@ body {
 h1{
 	font-family: 'Advent Pro', sans-serif;
 	font-size: 400%;
+	margin: 10px;
 }
 *:focus {
     outline: none;
@@ -16,9 +17,9 @@ h1{
 section {
 	font-family:sans-serif;
 
-  margin: 5%;
+  margin: 2vh 5%;
 	float: right;
-	width:40%;
+	width:35%;
   background-position: center;
   border: 3px;
   border:5%;
@@ -30,7 +31,7 @@ section {
 }
 
 #returnTitle{
-	width: 200 px;
+	width: 130 px;
 	height: 100 px;
 	border: none;
 }

@@ -59,7 +59,6 @@
 				<div id="title">
 					<p style="text-align:center">
 						<input id='nicknameInput' value="Answer Sheet">
-						<button id = 'submitNickname'>Edit</button>
 					</p>
 				</div>
 			</div>
@@ -67,8 +66,9 @@
 			<!-- Table for interactive question numbers -->
 			<div id="questionGrid">
 				<div class='necessary2'>
+					<div id='questions'>
 					<b>Questions</b>
-					<table class='questions'>
+					<table id='series'>
 					<?php
 						$numQuestions = getOption('answerkey','numQuestion');
 						for ($countOut = 0; $countOut < ($numQuestions / 5); $countOut++) {
@@ -83,6 +83,7 @@
 						}
 					?>
 					</table>
+				</div>
 				</div>
 			</div>
 

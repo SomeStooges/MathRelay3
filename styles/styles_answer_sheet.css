@@ -21,7 +21,7 @@ body {
 
 table{
 	position: absolute;
-	height: 80%;
+	height: 100%;
 
 }
 
@@ -32,6 +32,7 @@ table{
 #everything{
 	margin:1%;
 	position:relative;
+	min-width: 1254px;
 }
 #ribbon {
 
@@ -41,33 +42,38 @@ table{
   border:5%;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
-  position:relative;
+  position:absolute;
 	background-color: rgba(0,0,0,0.8);
-	height: 14.5%;
-	min-height: 90px;
+	width: 100%;
+	min-width:1237px;
+	margin: 0;
+	height: 90px;
 	border-bottom: 1px solid white;
 }
-
-.questions {
+#questions{
+	position:absolute;
+	width:100%;
+	height:80%;
+	margin-top: 8%;
+}
+#series {
 	width: 100%;
 }
 #title{
 	position: absolute;
-	width: 30%;
-	margin-left: 35%;
-	margin-right: 35%;
+	width: calc(100% - 200px);
+	margin-left: 100px;
 	top:0;
 }
 #nicknameInput{
-	background-color: rgb(42, 46, 48);
+	background-color: inherit;
 	margin-right:0;
   border: none;
   height: 70px;
   color: white;
   padding: 10px;
-  border-top-left-radius: 45px;
-	border-bottom-left-radius: 45px;
-	width: 80%;
+  border-radius: 45px;
+	width: 100%;
 	font-size: 300%;
 	font-family: 'Advent Pro', sans-serif;
 	text-align: center;
@@ -75,48 +81,33 @@ table{
 	left:0;
 	top:0;
 }
-#submitNickname{
-	height: 90px;
-	border: none;
-	margin-left: 0px;
-	padding:10px;
-	background-color: none;
-	border-top-right-radius: 45px;
-	border-bottom-right-radius: 45px;
-	transition: background-color 0.25s ease;
-	width:20%;
-	position: absolute;
-	right: 0;
-	top:0;
-
-}
-#submitNickname:hover{
-	background-color: rgb(32, 70, 93);
-}
 
 #questionGrid {
 	position:absolute;
 	color: white;
 	height: calc(96vh - 90px);
 	width: 30%;
+	min-width:371px;
 	/*border: 2px solid black;*/
 	background-color: rgba(0,0,0,0.8);
 	border:5%;
 	border-bottom-left-radius: 20px;
+	top: 90px;
+	min-height:504px;
 }
 #answerChoices {
 	color: white;
 	background-color: #377638;
 	width: 50%;
+	min-width: 619px;
 	height: calc(96vh - 90px);
-	/*border-top: 2px solid black;
-	border-bottom: 2px solid black;*/
 	background-color: rgba(0,0,0,0.8);
 	border:5%;
 	position: absolute;
 	left: 30%;
 	border-left: 1px solid white;
-
+	top: 90px;
+	min-height:504px;
 }
 
 #buttons {
@@ -126,13 +117,15 @@ table{
 #rightside {
 	position:absolute;
 	width: 20%;
+	min-width: 247px;
 	height: calc(96vh - 90px);
 	/*border: 2px solid black;*/
 	background-color: rgba(0,0,0,0.8);
-	border:5%;
-	left: 80%;
+	right: 0px;
 	border-bottom-right-radius: 20px;
 	border-left: 1px solid white;
+	top: 90px;
+	min-height:504px;
 }
 
 #points	{
@@ -169,16 +162,17 @@ table{
 .necessary {
 	width: 100%;
 	margin:0;
-	height: 100%;
-	position:relative;
-	padding-top: 5%;
+	height: calc(96vh - 90px);
+	position:absolute;
+	padding-top: 0;
 }
 .necessary2{
 	width: 100%;
 	margin:0;
-	height: 100%;
+	height: calc(96vh - 90px);
 	position:relative;
-	padding-top: 8%;
+	padding-top: 8;
+	display: hidden;
 }
 
 #level3choice {
@@ -186,8 +180,9 @@ table{
 	white-space: normal;
 	text-align: center;
 	width: 27.3%;
-	height:100%;
+	height:95%;
 	left: 4.5%;
+	margin-top: 5%;
 }
 
 #level2choice {
@@ -195,16 +190,18 @@ table{
 	white-space: normal;
 	text-align: center;
 	width: 27.3%;
-	height:100%;
+	height:95%;
 	left: 36.3%;
+	margin-top: 5%;
 }
 
 #level1choice {
 	position: absolute;
 	text-align: center;
 	width: 27.3%;
-	height:100%;
+	height:95%;
 	left: 68.1%;
+	margin-top: 5%;
 }
 #logoutDiv{
 	position: absolute;

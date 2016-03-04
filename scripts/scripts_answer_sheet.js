@@ -59,16 +59,22 @@ function retrieveHistory(){
 	$.post('server/user_runner.php', 'action=retrieveHistory', function(data) {
 		strhis = JSON.parse(data);
 		arrhis = strhis.split(";");
-		console.log(arrhis);
 		for (var a = 0; a < arrhis.length; a++){
 			var b = a+1;
 			switch(arrhis[a]){
-				case "1": $('#q'+b).prop('disabled', true);
+				case "1":
+					$('#q'+b).prop('disabled', true);
 					$('#q'+b).css('background-color', 'lightGreen');
+					$('#q'+b).css('color', 'black');
 					break;
-				case "2": $('#q'+b).css('background-color', 'yellow'); break;
-				case "3": $('#q'+b).prop('disabled', true);
-				$('#q'+b).css('background-color', 'lightCoral');
+				case "2":
+					$('#q'+b).css('background-color', 'yellow');
+					$('#q'+b).css('color', 'black');
+				 	break;
+				case "3":
+					$('#q'+b).prop('disabled', true);
+					$('#q'+b).css('background-color', 'lightCoral');
+					$('#q'+b).css('color', 'black');
 					break;
 			}
 		}
@@ -138,6 +144,7 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 					$('#'+seriesID).css('background-color', 'lightCoral');
 					break;
 			}
+			$('#'+seriesID).css('color', 'black');
 		});
 	}
 }
@@ -189,11 +196,11 @@ $(document).ready( function() {
 
 		$("#nicknameInput").keypress(function(){
 			if(event.which == 13){
-				$("#submitNickname").click();
+				$("#nicknameInput").blur();
 			}
 		});
 
-	$("#submitNickname").click( function(){
+	$("#nicknameInput").blur( function(){
 		 obj = new Object();
 		 obj.action = "setNickname";
 		 obj.nickname =  $("#nicknameInput").val();

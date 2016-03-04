@@ -173,6 +173,7 @@ function getChoices(series){
 
 
 $(document).ready( function() {
+	$('#teamNumber').text('Team '+id);
 	checkEvent();
 	setInterval(checkEvent,1000);
 	retrieveHistory();

@@ -26,7 +26,7 @@ function getChoices(series){
 function addSpecialCharacter(bID){
 	switch(bID){
 		case 'PiButton':
-			value=$("<span>").html("&#928;").text();
+			value=$("<span>").html("&#960;").text();
 		break;
 		case 'RadicalButton':
 			value=$("<span>").html("&#8730;").text();

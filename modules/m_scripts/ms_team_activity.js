@@ -36,8 +36,8 @@ function getTeamLog() {
 }
 
 $(document).ready( function(){
-  setInterval(getTeamLog,1500);
   getTeamLog();
+  setInterval(getTeamLog,1500);
   $("#freezeButton").click( function(){
     console.log("Freeze button clicked. Needs actual functionality");
 

@@ -46,7 +46,7 @@
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `relay_options` (
 		  `class` varchar(12) NOT NULL,
 		  `name` varchar(24) NOT NULL,
-		  `value` varchar(12) NOT NULL
+		  `value` varchar(20) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `team_data` (

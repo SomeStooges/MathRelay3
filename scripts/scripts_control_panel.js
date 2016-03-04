@@ -5,20 +5,36 @@ var currentEvent;
 var ribbonID;
 var toolbarID;
 //Universal timer variables
-var count = 0;
 var temp = 0;
 
 var EventTimer = function(startTime, elapsedTime){
   this.startTime = startTime;     //The time, in seconds since epoch, when the timer started
   this.elapsedTime = elapsedTime; //The number of seconds between the current time and the start time, or until the stop time was pushed
   this.intervalID;                //Saves the reference ID of the window.setInterval
+  this.isReloading = false;
 
   this.startTimer = function(){
-    console.log("Starting the Timer");
-    var date = new Date();
-    this.startTime = parseInt(Math.floor( date.getTime() / 1000 ));
-    console.log("this.startTime : " + this.startTime + " " + typeof this.startTime);
-    //this.intervalID = window.setInterval(this.updateTimer,1000);
+      var date = new Date();
+    if(this.isReloading == false){
+      if(this.startTime == 0 || this.startTime == 'NaN'){
+        //First time the clock is started
+        console.log("Starting the Timer; startTime = " + this.startTime);
+        this.startTime = parseInt(Math.floor( date.getTime() / 1000 ));
+        //console.log("this.startTime : " + this.startTime + " " + typeof this.startTime);
+      } else {
+        //clock is restarted; so that "start time" is adjusted to be however many second ago the button was first pushed.
+        console.log("Restarting the timer; startTime = " + this.startTime);
+        this.startTime  = parseInt(Math.floor( date.getTime() / 1000 )) - this.elapsedTime;
+      }
+    } else {
+      //nothing happens; the startTime is already set to whatever was last correct
+      console.log("Reloading the timer; startTime = " + this.startTime)
+    }
+
+    var obj = new Object();
+    obj.action = 'setStartTime';
+    obj.startTime = this.startTime;
+    $.post('server/admin_runner.php',obj);
     this.intervalID = window.setInterval(function(){myTimer.updateTimer()}, 1000);
   }
 
@@ -31,28 +47,33 @@ var EventTimer = function(startTime, elapsedTime){
   }
 
   this.updateTimer = function(){
-    console.log("Updating the Timer");
     var date = new Date();
-    console.log("datatype : " + this.startTime)
     this.elapsedTime = parseInt(Math.floor( date.getTime() / 1000 ) - this.startTime);
+    this.parseToTimerDisplay(this.elapsedTime);
+    console.log("Updating the Timer; elapsedTime = " + this.elapsedTime);
+  }
+
+  this.displayElapsedTime = function(){
     this.parseToTimerDisplay(this.elapsedTime);
   }
 
   this.stopTimer = function(){
+    var date = new Date();
     console.log("Stopping the Timer");
+    var obj = new Object();
+    obj.action = 'setStopTime';
+    obj.stopTime = this.elapsedTime;
+    $.post('server/admin_runner.php',obj);
+
+    this.startTime  = parseInt(Math.floor( date.getTime() / 1000 )) - this.elapsedTime;
+    obj.action = 'setStartTime';
+    obj.startTime = this.startTime;
+    $.post('server/admin_runner.php',obj);
+
     window.clearInterval(this.intervalID);
     this.updateTimer();
-  }
-}
 
-function setCleanupParagraph(inputText) {
-  obj = new Object();
-  obj.action = 'setCleanupParagraph';
-  obj.paragraph = inputText;
-  $.post('server/admin_control.php', obj, function(data) {
-    console.log(data);
-    data = JSON.parse(data);
-  });
+  }
 }
 
 function updateEvent(uEvent){
@@ -71,7 +92,6 @@ function updateEvent(uEvent){
 
       case "start":
         myTimer.startTimer();
-        console.log("myTimer.updateTimer : " + myTimer.updateTimer);
         var obj = new Object();
         obj.action = 'setStartTime';
         obj.startTime = myTimer.startTime;
@@ -108,6 +128,36 @@ function updateUI(){
   currentEvent = $("#cEvent").text().trim();
   console.log("Current Event: " + currentEvent);
   toggleButtons(currentEvent);
+  switch (currentEvent) {
+    case "none":
+      break;
+
+    case "open":
+      break;
+
+    case "start":
+    myTimer.isReloading = true;
+    myTimer.startTimer();
+      break;
+
+    case "freetime":
+    myTimer.isReloading = true;
+    myTimer.startTimer();
+      break;
+
+    case "freezeLeaderBoard":
+    myTimer.isReloading = true;
+    myTimer.startTimer();
+      break;
+
+    case "stop":
+    myTimer.displayElapsedTime();
+      break;
+
+    case "close":
+    myTimer.displayElapsedTime();
+      break;
+  }
 }
 
 //Handles all view change (css,html) of the webpage for a change in the event
@@ -170,8 +220,9 @@ function toggleButtons(event1){
 var myTimer = new EventTimer(0,0);
 $(document).ready(function() {
   //Creates new EventTimer object and assigns it to pointer myTimer
-  myTimer.startTime = parseInt( $('#startTimeDiv').html().trim() );
+  myTimer.startTime = $('#startTimeDiv').html().trim();
   myTimer.elapsedTime = parseInt( $('#stopTimeDiv').html().trim() );
+  console.log("From ready: myTimer = " + $('#startTimeDiv').html().trim());
 
   updateUI();
   //$("#teamData").css('background-color', 'DimGray');

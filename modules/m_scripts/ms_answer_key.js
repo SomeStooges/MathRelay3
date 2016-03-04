@@ -5,6 +5,7 @@ var level3selected = '';
 var level2selected = '';
 var level1selected = '';
 var lastTarget;
+var lastTargetID;
 var selectedSeries = 0;
 
 //Assigns answer choices to each input box to be displayed, deneding on series number
@@ -87,6 +88,7 @@ $(document).ready( function() {
 	$('.special_button').click(function(){
 		bID = $(this).attr('id');
 		addSpecialCharacter(bID);
+		$('#'+lastTargetID).focus();
 	});
 
 	$('.seriesNumbers').click(function(){
@@ -101,6 +103,7 @@ $(document).ready( function() {
 
 	$('.level3Values, .level2Values, .level1Values').click(function(){
 		lastTarget = $(this);
+		lastTargetID = $(this).attr('id');
 	});
 
 	$('.level3Values, .level2Values, .level1Values').blur(function(){

@@ -35,12 +35,12 @@
 		  `series_number` int(8) NOT NULL,
 		  `level_number` int(8) NOT NULL,
 		  `correct_index` int(8) NOT NULL,
-		  `choice_1` varchar(16) NOT NULL,
-		  `choice_2` varchar(16) NOT NULL,
-		  `choice_3` varchar(16) NOT NULL,
-		  `choice_4` varchar(16) NOT NULL,
-		  `choice_5` varchar(16) NOT NULL,
-		  `choice_6` varchar(16) NOT NULL
+		  `choice_2` varchar(32) NOT NULL,
+			`choice_1` varchar(32) NOT NULL,
+		  `choice_3` varchar(32) NOT NULL,
+		  `choice_4` varchar(32) NOT NULL,
+		  `choice_5` varchar(32) NOT NULL,
+		  `choice_6` varchar(32) NOT NULL
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;');
 
 	mysqli_query($con, 'CREATE TABLE IF NOT EXISTS `relay_options` (

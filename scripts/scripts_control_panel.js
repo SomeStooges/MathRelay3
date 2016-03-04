@@ -213,6 +213,12 @@ function toggleButtons(event1){
       $("#open").prop("disabled", false);
       $("#logoutButton").prop("disabled", false);
       break;
+
+    //Activates only when the database is reset.
+    default:
+      $('#none').css('background-color','dimgray');
+      $("#teamData").css('background-color', 'DimGray');
+
   }
 }
 

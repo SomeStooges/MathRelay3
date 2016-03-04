@@ -33,6 +33,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="m_scripts/ms_answer_key.js"></script>
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_answer_key.css">
@@ -103,7 +104,7 @@
 		<br>
 		<div id='special_characters'>
 			<b>Special Characters</b><br>
-			<button class='special_button' id='PiButton'>&#928</button>
+			<button class='special_button' id='PiButton'>&#960</button>
 			<button class='special_button' id='RadicalButton'>&#8730</button>
 			<button class='special_button' id='InfinityButton'>&#8734</button>
 		</div>

@@ -46,6 +46,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript">
 			var choiceBank = JSON.parse('<?php print json_encode($choiceBank) ?>');
+			var id = JSON.parse('<?php print json_encode($_SESSION['teamID']) ?>')
 		</script>
 		<script type="text/javascript" src="scripts/scripts_answer_sheet.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/styles_answer_sheet.css"></script>
@@ -56,6 +57,7 @@
 		<div id="everything">
 			<div id="ribbon">
 				<div id='logoutDiv'> <button id='logoutButton'>LOGOUT</button></div>
+				<h1 id='teamNumber'></h1>
 				<div id="title">
 					<p style="text-align:center">
 						<input id='nicknameInput' value="Answer Sheet">

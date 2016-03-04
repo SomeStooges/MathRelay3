@@ -33,6 +33,7 @@ table{
 	margin:1%;
 	position:relative;
 	min-width: 1254px;
+	opacity: 0.9;
 }
 #ribbon {
 
@@ -89,11 +90,14 @@ table{
 	width: 30%;
 	min-width:371px;
 	/*border: 2px solid black;*/
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.95);
 	border:5%;
 	border-bottom-left-radius: 20px;
+	border-top: 1px solid white;
 	top: 90px;
 	min-height:504px;
+	font-family: 'Advent Pro', sans-serif;
+
 }
 #answerChoices {
 	color: white;
@@ -101,13 +105,16 @@ table{
 	width: 50%;
 	min-width: 619px;
 	height: calc(96vh - 90px);
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.95);
 	border:5%;
 	position: absolute;
 	left: 30%;
 	border-left: 1px solid white;
+	border-top: 1px solid white;
 	top: 90px;
 	min-height:504px;
+	font-family: 'Advent Pro', sans-serif;
+
 }
 
 #buttons {
@@ -120,12 +127,15 @@ table{
 	min-width: 247px;
 	height: calc(96vh - 90px);
 	/*border: 2px solid black;*/
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.95);
 	right: 0px;
 	border-bottom-right-radius: 20px;
 	border-left: 1px solid white;
+	border-top: 1px solid white;
 	top: 90px;
 	min-height:504px;
+	font-family: 'Advent Pro', sans-serif;
+
 }
 
 #points	{
@@ -179,9 +189,9 @@ table{
 	position: absolute;
 	white-space: normal;
 	text-align: center;
-	width: 27.3%;
+	width: 30%;
 	height:95%;
-	left: 4.5%;
+	left: 2.5%;
 	margin-top: 5%;
 }
 
@@ -189,18 +199,18 @@ table{
 	position: absolute;
 	white-space: normal;
 	text-align: center;
-	width: 27.3%;
+	width: 30%;
 	height:95%;
-	left: 36.3%;
+	left: 35%;
 	margin-top: 5%;
 }
 
 #level1choice {
 	position: absolute;
 	text-align: center;
-	width: 27.3%;
+	width: 30%;
 	height:95%;
-	left: 68.1%;
+	left: 67.5%;
 	margin-top: 5%;
 }
 #logoutDiv{
@@ -233,6 +243,9 @@ table{
 	transition: background-color;
 	background-color: rgb(46, 46, 46);
 	color: white;
+	font-size: 150%;
+	font-family: 'Advent Pro', sans-serif;
+
 }
 
 .answerLevel{
@@ -249,8 +262,16 @@ table{
 	border-radius: 7px;
 	background-color: rgb(46, 46, 46);
 	color: white;
+	font-size: 120%;
 	transition: background-color;
+	font-family: 'Advent Pro', sans-serif;
+padding:0;
 }
 .level3Buttons:hover, .level2Buttons:hover, .level1Buttons:hover, .seriesNumbers:hover{
 	background-color: rgb(101, 123, 201); /*Blue Tinting*/
+}
+
+*:disabled{
+	background-color: black;
+	color:rgba(0, 0, 0, .95);
 }

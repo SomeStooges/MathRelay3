@@ -29,9 +29,20 @@ section {
 	word-wrap: break-word;
   background-color: rgba(0,0,0,.8);
 }
-
+#congratulations{
+	font-size: 30px;
+}
 #returnTitle{
-	width: 130 px;
-	height: 100 px;
-	border: none;
+	width: 200px;
+  height: 75px;
+  border:none;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 0.4s ease;
+  color: white;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 20px;
+}
+#returnTitle:hover{
+	background-color: rgb(32, 70, 93);
 }

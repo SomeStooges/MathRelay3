@@ -25,7 +25,7 @@
 
 	<body>
 		<section>
-		<h1 id='pageTitle'> Congratulations! </h1>
+		<h1 id='pageTitle'> Congratulations! </h1><br>
 		<div id = "congratulations">
 			<?php
 				$team_ID = $_SESSION['teamID'];
@@ -51,6 +51,8 @@
 					}
 			?>
 		</div>
+		<br>
+		<br>
 		<br>
 		<!-- We can probably run the PHP from here and not a JQUERY post, except to reject the page if too premature -->
 		<div id = "cleanUpParagraph">

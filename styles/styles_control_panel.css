@@ -27,6 +27,7 @@ body {
 }
 #everything{
   position: relative;
+  min-width: 1254px;
   margin: 1%;
 }
 #ribbon {
@@ -132,7 +133,7 @@ iframe{
   border-bottom-right-radius: 20px;
   border: none;
   top: 93px;
-  left: 12%;
+  right: 0%;
   border-left: 1px solid white;
   border-top: 1px solid white;
   background-color: black;

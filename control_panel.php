@@ -78,6 +78,7 @@
 					<div id='mod6' style='display: none;' class='contentMod'>
 						<iframe src='modules/m_settings.php' class='iframeMod'></iframe>
 					</div>
+				</div>
 			</div>
 		</div>
 	</body>

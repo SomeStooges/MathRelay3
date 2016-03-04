@@ -65,9 +65,9 @@
 			</div>
 
 			<!-- Table for interactive question numbers -->
-			<div id="content">
-				<div id="questionGrid">
-					<h3>Questions</h3>
+			<div id="questionGrid">
+				<div class='necessary2'>
+					<b>Questions</b>
 					<table class='questions'>
 					<?php
 						$numQuestions = getOption('answerkey','numQuestion');
@@ -84,56 +84,47 @@
 					?>
 					</table>
 				</div>
+			</div>
 
 
 
 				<!-- 3 tables for answers -->
-				<div id="answerChoices" >
-					<div id = 'necessary'>
+			<div id="answerChoices" >
+				<div class='necessary'>
 					<div id='level3choice'class="answerLevel">
-					<b>Level 3</b>
-
-						<table class='choiceButtons'>
+						<b>Level 3</b>
 							<?php
 								$numChoices = 6;
 								$level = 3;
 								for($i=1;$i<=6;$i++){
-									print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons' class='answerChoiceButton'></button><td></tr>";
+									print "<button id='c".$level."_".$i."' class='level".$level."Buttons'></button>";
 								}
 							?>
-						</table>
 					</div>
 					<div id='level2choice'class="answerLevel">
-					<b>Level 2</b>
-						<table class='choiceButtons'>
-							<?php
-								$level = 2;
-								for($i=1;$i<=6;$i++){
-									print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
-								}
-							?>
-						</table>
+							<b>Level 2</b>
+								<?php
+									$level = 2;
+									for($i=1;$i<=6;$i++){
+										print "<button id='c".$level."_".$i."' class='level".$level."Buttons'></button>";
+									}
+								?>
 					</div>
 					<div id='level1choice'class="answerLevel">
-					<b>Level 1</b>
-						<table class='choiceButtons'>
+						<b>Level 1</b>
 							<?php
 								$level = 1;
 								for($i=1;$i<=6;$i++){
-									print "<tr><td><button id='c".$level."_".$i."' class='level".$level."Buttons'></button><td></tr>";
+									print "<button id='c".$level."_".$i."' class='level".$level."Buttons'></button>";
 								}
 							?>
-						</table>
 					</div>
 				</div>
-				</div>
-
-				<div id='rightside'>
+			</div>
+			<div id='rightside'>
 				<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></ul>
-
 				<ul id='submit'><button id="submit_answer"> SUBMIT </button>
 			</div>
-		</div>
 		</div>
 	</body>
 </html>

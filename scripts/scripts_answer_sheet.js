@@ -1,5 +1,4 @@
 // Scripts for the corresponding answer_sheet.php page
-
 //Global variables saving whatever answer has been selected.
 var seriesSelected = '';
 var level3selected = '';

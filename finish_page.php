@@ -25,7 +25,7 @@
 
 	<body>
 		<section>
-		<h1> Finish Page </h1>
+		<h1 id='pageTitle'> Congratulations! </h1>
 		<div id = "congratulations">
 			<?php
 				$team_ID = $_SESSION['teamID'];

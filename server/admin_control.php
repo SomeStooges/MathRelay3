@@ -32,11 +32,10 @@
 			}
 			$query = substr( $query, 0, strlen($query)-2) . ";";
 
-			setOption('event','startTime',0);
-			setOption('event','stopTime',0);
-			//inserts the values
 			db_Query($query);
 		}
+
+		adminClear();
 		return "Regenerated all team data";
 	}
 
@@ -45,16 +44,12 @@
 		$newhistory = "";
 		for($i = 0; $i<$numQuestions; $i++){ $newhistory .= "0;"; }
 		$newhistory = substr( $newhistory, 0, strlen($newhistory)-1);
-			db_Query('DELETE FROM admin_log;');
-			db_Query('DELETE FROM stat_log');
-			setOption('event','currentEvent','none');
-			setOption('event','startTime',0);
-			setOption('event','stopTime',0);
-
-
-			db_Query("UPDATE team_data SET `team_nickname`='',`points`=0, `rank_freetime`=0, `last_checkin_time`=0,`last_point`=0,`rank_final`=0,`history`='$newhistory',`attempts`='$newhistory'");
-
-
+		db_Query('DELETE FROM admin_log;');
+		db_Query('DELETE FROM stat_log');
+		setOption('event','currentEvent','none');
+		setOption('event','startTime',0);
+		setOption('event','stopTime',0);
+		db_Query("UPDATE team_data SET `team_nickname`='',`points`=0, `rank_freetime`=0, `last_checkin_time`=0,`last_point`=0,`rank_final`=0,`history`='$newhistory',`attempts`='$newhistory'");
 	}
 
 	function makePassword($size){

@@ -40,6 +40,23 @@
 		return "Regenerated all team data";
 	}
 
+	function adminClear(){
+		$numQuestions = getOption('answerkey','numQuestion');
+		$newhistory = "";
+		for($i = 0; $i<$numQuestions; $i++){ $newhistory .= "0;"; }
+		$newhistory = substr( $newhistory, 0, strlen($newhistory)-1);
+			db_Query('DELETE FROM admin_log;');
+			db_Query('DELETE FROM stat_log');
+			setOption('event','currentEvent','none');
+			setOption('event','startTime',0);
+			setOption('event','stopTime',0);
+
+
+			db_Query("UPDATE team_data SET `team_nickname`='',`points`=0, `rank_freetime`=0, `last_checkin_time`=0,`last_point`=0,`rank_final`=0,`history`='$newhistory',`attempts`='$newhistory'");
+
+
+	}
+
 	function makePassword($size){
 		$chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ123456789';
 		$length = strlen( $chars ) - 1;
@@ -202,6 +219,7 @@
 		return $response;
 
 	}
+
 	function setFinalRank(){
 		$query = db_Query('SELECT team_id,points,last_point FROM `team_data` ORDER BY points DESC ,last_point ASC;');
 		$response = array();
@@ -223,6 +241,7 @@
 	$return = false;
 	switch( $action ){
 		case 'adminReset': $return = adminReset(); break;
+		case 'adminClear': $return = adminClear(); break;
 		case 'adminLogin': $return = adminLogin(); break;
 		case 'getOption': $return = getOption($_REQUEST['class'],$_REQUEST['name']); break;
 		case 'getTeamData': $return = getTeamData(); break;

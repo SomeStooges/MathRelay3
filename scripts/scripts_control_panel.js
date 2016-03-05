@@ -222,17 +222,27 @@ function toggleButtons(event1){
   }
 }
 
+function adminClear(){
+  $.post('server/admin_control.php', 'action=adminClear',function(){
+    //Sets the local model to the server model;
+    toggleButtons('none');
+    myTimer.startTime = 0;
+    myTimer.elapsedTime = 0;
+  });
+}
+
 //---------------------------------------------------------------------------------------------------------
 var myTimer = new EventTimer(0,0);
 $(document).ready(function() {
+
+
   //Creates new EventTimer object and assigns it to pointer myTimer
   myTimer.startTime = $('#startTimeDiv').html().trim();
   myTimer.elapsedTime = parseInt( $('#stopTimeDiv').html().trim() );
   console.log("From ready: myTimer = " + $('#startTimeDiv').html().trim());
 
   updateUI();
-  //$("#teamData").css('background-color', 'DimGray');
-
+  
   //Event Handler for toolbar buttons
   $(".toolbarButton").click(function() {
     $(".toolbarButton").css('background-color', '');

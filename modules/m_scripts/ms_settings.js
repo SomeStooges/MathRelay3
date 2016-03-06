@@ -164,6 +164,10 @@ $(document).ready( function(){
     setAdminPassword();
   });
 
+  $('#cleanupParagraph').blur(function(){
+    console.log('got this far');
+  });
+
   //Saves number of teams to be generated
   $('#saveTeams').click(function(){
     var teamGen = $('#numTeamsGen').val().trim();

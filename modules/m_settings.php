@@ -12,7 +12,7 @@
 	<body>
 		<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
 		<!-- Content for settings tab -->
-		<div id='table1'>
+		<div id='table1' class='optionblock'>
 			<b> Leaderboard Display Option </b>
 			<table>
 				<tr><td>Show Team ID</td><td><input type='checkbox' id='showTeamID' class='checkbox'></td></tr>
@@ -21,7 +21,7 @@
 				<tr><td>Number of Teams to Show</td><td><input id='numTeamsShow'></td><td><button>Save</button></td><td><span id = 'a' style = 'color : green'></span></td></tr>
 			</table>
 		</div>
-		<div id='table2'>
+		<div id='table2' class='optionblock'>
 			<b> Password Reset </b>
 			<table>
 				<tr><td>Old Admin Password: </td><td><input type = 'password' id='oldPassword'><span id = 'checkPass'></span></td></tr>
@@ -31,7 +31,19 @@
 			</table>
 			<p id = 'passComplete'></p>
 		</div>
-		<div id='table3'>
+		<div id='table4' class='optionblock'>
+			<b> Clean-Up Paragraph </b>
+			<br><textarea id='cleanupParagraph' rows='4' cols='50' maxlength='200' >
+				<?php
+					$fileName = '../../server/cleanupParagraph.txt';
+					$myfile = fopen($fileName,'r');
+					$text = fread($myfile, filesize($fileName));
+					fclose($myfile);
+					return $text;
+				 ?>
+			</textarea>
+		</div>
+		<div id='table3' class='optionblock'>
 			<b> Reset Settings (Note: These changes will not be applied unless the RESET button is pressed!)</b>
 			<table>
 				<tr><td>Number of Teams to Generate:</td><td><input id='numTeamsGen'></td><td><button id = 'saveTeams'>Save</button></td><td><span style = "color: green" id = 's1'></span></td></tr>

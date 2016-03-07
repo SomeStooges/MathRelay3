@@ -33,15 +33,14 @@
 		</div>
 		<div id='table4' class='optionblock'>
 			<b> Clean-Up Paragraph </b>
-			<br><textarea id='cleanupParagraph' rows='4' cols='50' maxlength='200' >
-				<?php
-					$fileName = '../../server/cleanupParagraph.txt';
+			<br><textarea id='cleanupParagraph' rows='4' cols='100' maxlength='200' ><?php
+					$fileName = '..\server\cleanupParagraph.txt';
 					$myfile = fopen($fileName,'r');
 					$text = fread($myfile, filesize($fileName));
 					fclose($myfile);
-					return $text;
-				 ?>
-			</textarea>
+					print $text;
+				 ?></textarea>
+			<br><button id = 'saveCleanupParagraph'>Save</button>
 		</div>
 		<div id='table3' class='optionblock'>
 			<b> Reset Settings (Note: These changes will not be applied unless the RESET button is pressed!)</b>

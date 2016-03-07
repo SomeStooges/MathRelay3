@@ -168,6 +168,19 @@ $(document).ready( function(){
     console.log('got this far');
   });
 
+  $('#saveCleanupParagraph').click(function(){
+    var cleanupText = $('#cleanupParagraph').val().trim();
+    console.log(cleanupText);
+    console.log ('hello world');
+    var obj = new Object;
+    obj.action = 'setCleanupParagraph';
+    obj.paragraph = cleanupText;
+    $.post("../server/admin_control.php", obj, function(data) {
+      console.log(data);
+      $('#cleanupParagraph').val( JSON.parse(data) );
+    });
+  });
+
   //Saves number of teams to be generated
   $('#saveTeams').click(function(){
     var teamGen = $('#numTeamsGen').val().trim();

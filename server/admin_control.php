@@ -36,6 +36,7 @@
 		}
 
 		adminClear();
+
 		return "Regenerated all team data";
 	}
 

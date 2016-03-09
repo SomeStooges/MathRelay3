@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="m_styles/mst_statistics.css">
 
   </head>
-  <body>
+  <body style='background-color: black'>
     <?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
-    <!-- Content for statistics tab -->
-    <b> Fuzzy math goes here </b>
+    <button id='forceStatUpdate'>Update Now</button>
   </body>
 </html>

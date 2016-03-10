@@ -46,6 +46,7 @@
 					<button class="ribbonButton" id="stop">Stop</button>
 					<button class="ribbonButton" id="close">Close</button>
 					<button class="ribbonButton" id="logoutButton">Logout</button>
+					<button id="clear">Clear</button>
 					<div id="timer">00:00:00</div>
 				</div>
 			</div>

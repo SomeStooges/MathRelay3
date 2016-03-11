@@ -46,7 +46,7 @@ function checkNewPassword(){
       auth = 0;
     }
   }else{
-    $('#isNew').text("Please enter a new password that is different from the old one.");
+    $('#isNew').html("Please enter a different <br>password.");
     $('#isNew').css('color', 'red');
     auth = 0;
   }

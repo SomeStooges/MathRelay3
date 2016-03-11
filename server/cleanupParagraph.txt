@@ -1,1 +1,1 @@
-There, out in the darkness!
+<script>window.alert("hi")</script>

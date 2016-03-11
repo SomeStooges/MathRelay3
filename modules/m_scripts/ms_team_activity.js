@@ -1,5 +1,7 @@
 //Scripts for the m_team_activity module
 var lastUp = 0;
+var t;
+var counter;
 
 function parseTime(time){
   time = time - startTime;
@@ -10,6 +12,14 @@ function parseTime(time){
 
   var response = (tempH ? (tempH > 9 ? tempH : "0" + tempH) : "00") + ":" + (tempM ? (tempM > 9 ? tempM : "0" + tempM) : "00") + ":" + (tempS > 9 ? tempS : "0" + tempS);
   return response;
+}
+
+function startInterval(){
+  t=setInterval(getTeamLog,1500);
+}
+
+function stopInterval(){
+  clearInterval(t);
 }
 
 function getTeamLog() {
@@ -37,9 +47,20 @@ function getTeamLog() {
 
 $(document).ready( function(){
   getTeamLog();
-  setInterval(getTeamLog,1500);
+  startInterval();
+  counter = 1;
   $("#freezeButton").click( function(){
-    console.log("Freeze button clicked. Needs actual functionality");
-
+    switch(counter){
+      case 1:
+        stopInterval();
+        counter=0;
+        $("#freezeButton").text('Unfreeze Log');
+        break;
+      case 0:
+        startInterval();
+        counter=1;
+        $("#freezeButton").text('Freeze Log');
+        break;
+    }
   });
 });

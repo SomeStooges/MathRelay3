@@ -242,8 +242,12 @@ $(document).ready(function() {
   console.log("From ready: myTimer = " + $('#startTimeDiv').html().trim());
 
   updateUI();
-  
+
   //Event Handler for toolbar buttons
+  $("#clear").click(function(){
+    adminClear();
+    window.top.location.reload();
+  });
   $(".toolbarButton").click(function() {
     $(".toolbarButton").css('background-color', '');
     $('.contentMod').css('display', 'none'); //Resets all to none by default

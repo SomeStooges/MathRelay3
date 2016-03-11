@@ -28,18 +28,24 @@ b{
 #table1{
   border-right: 1px solid white;
   width: calc(50vw - 2%);
-  padding-left: 1%;
-  padding-right: 1%;
+  padding: 1%;
   height: 43vh;
   text-align: center;
+  border-bottom: 1px solid white;
+  position:absolute;
+  left: 0;
+  top: 0;
 }
 #table2{
   border-right: 1px solid white;
   width: calc(50vw - 2%);
-  padding-left: 1%;
-  padding-right: 1%;
-  height: 53vh;
+  padding:1%;
+  padding-top: 2.5%;
+  height: 49vh;
   text-align: center;
+  position:absolute;
+  left: 0;
+  top: 43vh;
 }
 #cleanupParagraph{
   max-width: calc(100% - 12px);
@@ -47,22 +53,26 @@ b{
   background-color: rgb(225, 225, 225);
   border-radius: 10px;
   color: black;
+  resize:none;
 }
 
 #table3{
-  width: 45%;
+  width: 48vw;
   position: absolute;
   top:0px;
-  right: 0px;
+  left: 50vw;
   padding-left: 1%;
   padding-right: 1%;
   padding-top: 1%;
+  border-bottom: 1px solid white;
+  height: 57%;
+  text-align: center;
 }
 #table4{
-  width: 45%;
+  width: 48vw;
   position: absolute;
-  top:65%;
-  right: 0px;
+  top:60%;
+  left: 50vw;
   padding-left: 1%;
   padding-right: 1%;
   text-align: center;
@@ -73,7 +83,7 @@ b{
 }
 #reset_button, #setAdminPass{
   width: 150px;
-  height: 75px;
+  height: 60px;
   border:none;
   border-radius: 10px;
   background-color: rgb(32, 70, 93);

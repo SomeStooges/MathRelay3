@@ -38,13 +38,14 @@
 		</div>
 		<div id='table4' class='optionblock'>
 			<b> Clean-Up Paragraph </b>
-			<br><textarea id='cleanupParagraph' rows='4' cols='100' maxlength='200' ><?php
+			<br><textarea id='cleanupParagraph' rows='6' cols='100' maxlength='500'><?php
 					$fileName = '..\server\cleanupParagraph.txt';
 					$myfile = fopen($fileName,'r');
 					$text = fread($myfile, filesize($fileName));
 					fclose($myfile);
 					print $text;
 				 ?></textarea>
+			<br><span id='textarea_feedback'></span>
 			<br><button id = 'saveCleanupParagraph' class='save'>Save</button>
 		</div>
 		<div id='table3' class='optionblock'>

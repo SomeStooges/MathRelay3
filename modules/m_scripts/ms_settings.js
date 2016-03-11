@@ -91,6 +91,11 @@ $(document).ready( function(){
   var obj = new Object();
   obj.action = 'setSettings';
 
+  var text_max = $('#cleanupParagraph').attr('maxlength');
+  var text_length = $('#cleanupParagraph').val().length;
+  var text_remaining = text_max - text_length;
+  $('#textarea_feedback').html(text_remaining + ' characters remaining');
+
   //Handles checkbox values
   $('.checkbox').click(function(){
     var checkboxID = $(this).attr("id");
@@ -169,6 +174,12 @@ $(document).ready( function(){
   $('#cleanupParagraph').blur(function(){
     console.log('got this far');
   });
+
+  $('#cleanupParagraph').keyup(function() {
+      text_length = $('#cleanupParagraph').val().length;
+      text_remaining = text_max - text_length;
+      $('#textarea_feedback').html(text_remaining + ' characters remaining');
+   });
 
   $('#saveCleanupParagraph').click(function(){
     var cleanupText = $('#cleanupParagraph').val().trim();

@@ -15,13 +15,10 @@
 		<!-- Content for settings tab -->
 		<div id='table1' class='optionblock'>
 			<b> Leaderboard Display Option </b>
-			<table>
-				<tr><td>Show Team ID</td><td><input type='checkbox' id='showTeamID' class='checkbox'></td></tr>
-				<tr><td>Show Nickname</td><td><input type='checkbox' id='showNickname' class = 'checkbox'></td></tr>
-				<tr><td>Show Points</td><td><input type='checkbox' id='showPoints' class = 'checkbox'></td></tr>
-				<tr><td>Number of Teams to Show:</td><td><input id='numTeamsShow'></td><td><button class ='save'>Save</button></td><td><span id = 'a' style = 'color : green'></span></td></tr>
-				<tr><td></td><td id='error'></td></tr>
-			</table>
+			<br><br>Number of Teams to Show:
+			<br><input id='numTeamsShow'><br>
+			<br><button class ='save'>Save</button><br>
+			<span id = 'a' style = 'color : green'></span>
 		</div>
 		<div id='table2' class='optionblock'>
 			<b> Password Reset </b>

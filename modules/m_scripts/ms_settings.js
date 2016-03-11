@@ -137,11 +137,9 @@ $(document).ready( function(){
       });
       $('#a').text('Set!');
       $('#a').css('color', 'green');
-      $('#error').text('');
     }else{
-      $('#a').text('');
-      $('#error').text('Must be a positive integer.');
-      $('#error').css('color', 'red');
+      $('#a').text('Must be a positive integer.');
+      $('#a').css('color', 'red');
     }
   });
 

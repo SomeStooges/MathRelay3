@@ -46,3 +46,6 @@ section {
 #returnTitle:hover{
 	background-color: rgb(32, 70, 93);
 }
+#rank{
+	font-size: 200%;
+}

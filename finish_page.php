@@ -34,7 +34,7 @@
 					if($teamRank<20){
 						if($teamRank>10 && $teamRank<20){
 							$finalRank = $teamRank . "th";
-							print "<span>Congratulations on finishing the Math Relay! You ranked " . $finalRank . "!</span>";
+							print "<span>You have finished the Math Relay! Your team ranked " . $finalRank . "!</span>";
 
 						}else{
 							$temp = $teamRank%10;
@@ -44,10 +44,10 @@
 								case 3: $finalRank = $teamRank . "rd"; break;
 								default: $finalRank = $teamRank . "th"; break;
 							}
-							print "<span>Congratulations on finishing the Math Relay! You ranked " . $finalRank . "!</span>";
+							print "<span>You have finished the Math Relay! Your team ranked " . $finalRank . "!</span>";
 						}
 					}else{
-						print "<span>Congratulations on finishing the Math Relay! Thanks for participating!</span>";
+						print "<span>You have finished the Math Relay! Thanks for participating!</span>";
 					}
 			?>
 		</div>

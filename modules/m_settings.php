@@ -26,12 +26,15 @@
 		<div id='table2' class='optionblock'>
 			<b> Password Reset </b>
 			<table>
-				<tr><td>Old Admin <br>Password: </td><td><input type = 'password' id='oldPassword'></td><td><span id = 'checkPass'></span></td></tr>
-				<tr><td>New Admin <br>Password: </td><td><input type = 'password' id='newPassword'></td><td><span id = 'isNew'></span></td></tr>
+				<tr><td>Old Admin Password: </td><td><input type = 'password' id='oldPassword'></td><td><span id = 'checkPass'></span></td></tr>
+				<tr><td>New Admin Password: </td><td><input type = 'password' id='newPassword'></td><td><span id = 'isNew'></span></td></tr>
 				<tr><td>Repeat New Admin <br>Password: </td><td><input type = 'password' id='repeatPassword'></td><td><span id = 'matchPass'></span></td></tr>
-				<tr><td colspan = '2' id='setButton'><button id = 'setAdminPass'>Submit New Password</button></td></tr>
+				<tr></tr>
 			</table>
-			<p id = 'passComplete'></p>
+			<div style='position: absolute; top: 70%;'>
+				<button id = 'setAdminPass' style='float:left'>Submit New Password</button>
+				<p id = 'passComplete' style='width: 70%; margin-left: 160px;'></p>
+			</div>
 		</div>
 		<div id='table4' class='optionblock'>
 			<b> Clean-Up Paragraph </b>

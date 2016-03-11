@@ -8,7 +8,7 @@ body{
 }
 table{
   position:absolute;
-  left: 6%;
+
   text-align: left;
 }
 td{
@@ -108,4 +108,5 @@ b{
 }
 #setButton{
   text-align: center;
+  background-color: red;
 }

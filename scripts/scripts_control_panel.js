@@ -34,7 +34,10 @@ var EventTimer = function(startTime, elapsedTime){
     var obj = new Object();
     obj.action = 'setStartTime';
     obj.startTime = this.startTime;
-    $.post('server/admin_runner.php',obj);
+    $.post('server/admin_runner.php',obj, function(){
+      document.getElementById('iframe1').contentWindow.location.reload();
+      document.getElementById('iframe3').contentWindow.location.reload();
+    });
     this.intervalID = window.setInterval(function(){myTimer.updateTimer()}, 1000);
   }
 

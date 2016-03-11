@@ -186,6 +186,8 @@ function toggleButtons(event1){
       $("#freezeLeaderboard").prop("disabled", true);
       $("#close").prop("disabled", true);
       $("#start").prop("disabled", true);
+      $("#none").prop("disabled", true);
+      $("#open").prop("disabled", true);
       break;
 
     case "freetime":
@@ -193,13 +195,16 @@ function toggleButtons(event1){
       $("#freetime").prop("disabled", true);
       $("#start").prop("disabled", true);
       $("#close").prop("disabled", true);
+      $("#none").prop("disabled", true);
+      $("#open").prop("disabled", true);
       break;
 
     case "freezeLeaderboard":
       $("#ribbonButton").prop("disabled", false);
       $("#freetime").prop("disabled", true);
       $("#freezeLeaderboard").prop("disabled", true);
-
+      $("#none").prop("disabled", true);
+      $("#open").prop("disabled", true);
       break;
 
     case "stop":

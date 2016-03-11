@@ -132,9 +132,11 @@ $(document).ready( function(){
       });
       $('#a').text('Set!');
       $('#a').css('color', 'green');
+      $('#error').text('');
     }else{
-      $('#a').text('Must be a positive integer.');
-      $('#a').css('color', 'red');
+      $('#a').text('');
+      $('#error').text('Must be a positive integer.');
+      $('#error').css('color', 'red');
     }
   });
 
@@ -181,6 +183,14 @@ $(document).ready( function(){
     });
   });
 
+  $('#numTeamsGen').focus(function(){
+    $('#s1').text('');
+  });
+  $('#numTeamsGen').keypress(function(){
+    if(event.which == 13){
+      $('#saveTeams').click();
+    }
+  });
   //Saves number of teams to be generated
   $('#saveTeams').click(function(){
     var teamGen = $('#numTeamsGen').val().trim();
@@ -192,16 +202,27 @@ $(document).ready( function(){
         $.post('../server/admin_control.php', obj);
         $('#s1').text('Saved!');
         $('#s1').css('color', 'green');
+        $('#s3').text('');
       }else{
-        $('#s1').text('Must be a positive integer.');
-        $('#s1').css('color', 'red');
+        $('#s1').text('');
+        $('#s3').text('Must be a positive integer.');
+        $('#s3').css('color', 'red');
       }
     }else{
-      $('#s1').text('Please enter a valid integer.');
-      $('#s1').css('color', 'red');
+      $('#s1').text('');
+      $('#s3').text('Please enter a valid integer.');
+      $('#s3').css('color', 'red');
     }
   });
 
+  $('#numDigPass').focus(function(){
+    $('#s2').text('');
+  });
+  $('#numDigPass').keypress(function(){
+    if(event.which == 13){
+      $('#savePass').click();
+    }
+  });
   //Saves length of passwords to be generated
   $('#savePass').click(function(){
     var digPass = $('#numDigPass').val().trim();
@@ -213,13 +234,16 @@ $(document).ready( function(){
         $.post('../server/admin_control.php', obj);
         $('#s2').text('Saved!');
         $('#s2').css('color', 'green');
+        $('#s4').text('');
       }else{
-        $('#s2').text('Must be a positive integer.');
-        $('#s2').css('color', 'red');
+        $('#s2').text('');
+        $('#s4').text('Must be a positive integer.');
+        $('#s4').css('color', 'red');
       }
     }else{
-      $('#s2').text('Please enter a valid integer.');
-      $('#s2').css('color', 'red');
+      $('#s2').text('');
+      $('#s4').text('Please enter a valid integer.');
+      $('#s4').css('color', 'red');
     }
   });
 

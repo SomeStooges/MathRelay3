@@ -15,23 +15,38 @@ td{
   max-width: calc(50vw - 300px);
 }
 input{
-  background-color: rgb(131, 131, 131);
-  color: white;
+  background-color: rgb(225, 225, 225);
+  color: black;
   border: none;
   height: 30px;
   padding: 5px;
   border-radius: 10px;
 }
-#table1, #table2{
+b{
+  font-size: 150%;
+}
+#table1{
   border-right: 1px solid white;
   width: calc(50vw - 2%);
-  padding: 1%;
-  height: 42vh;
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 43vh;
+  text-align: center;
+}
+#table2{
+  border-right: 1px solid white;
+  width: calc(50vw - 2%);
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 53vh;
   text-align: center;
 }
 #cleanupParagraph{
   max-width: calc(100% - 12px);
   width: 98%;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  color: black;
 }
 
 #table3{
@@ -39,14 +54,17 @@ input{
   position: absolute;
   top:0px;
   right: 0px;
-  padding: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
 }
 #table4{
   width: 45%;
   position: absolute;
-  top:62%;
+  top:65%;
   right: 0px;
-  padding: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
   text-align: center;
 }
 #in{
@@ -75,7 +93,7 @@ input{
   font-size: 20px;
   font-family: 'Advent Pro', sans-serif;
 }
-#reset_button:hover, #setAdminPass:hover{
+#reset_button:hover, #setAdminPass:hover, .save:hover{
   background-color: rgb(94, 138, 103);
 }
 #setButton{

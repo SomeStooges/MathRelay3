@@ -34,7 +34,10 @@ var EventTimer = function(startTime, elapsedTime){
     var obj = new Object();
     obj.action = 'setStartTime';
     obj.startTime = this.startTime;
-    $.post('server/admin_runner.php',obj);
+    $.post('server/admin_runner.php',obj, function(){
+      document.getElementById('iframe1').contentWindow.location.reload();
+      document.getElementById('iframe3').contentWindow.location.reload();
+    });
     this.intervalID = window.setInterval(function(){myTimer.updateTimer()}, 1000);
   }
 
@@ -183,6 +186,8 @@ function toggleButtons(event1){
       $("#freezeLeaderboard").prop("disabled", true);
       $("#close").prop("disabled", true);
       $("#start").prop("disabled", true);
+      $("#none").prop("disabled", true);
+      $("#open").prop("disabled", true);
       break;
 
     case "freetime":
@@ -190,13 +195,16 @@ function toggleButtons(event1){
       $("#freetime").prop("disabled", true);
       $("#start").prop("disabled", true);
       $("#close").prop("disabled", true);
+      $("#none").prop("disabled", true);
+      $("#open").prop("disabled", true);
       break;
 
     case "freezeLeaderboard":
       $("#ribbonButton").prop("disabled", false);
       $("#freetime").prop("disabled", true);
       $("#freezeLeaderboard").prop("disabled", true);
-
+      $("#none").prop("disabled", true);
+      $("#open").prop("disabled", true);
       break;
 
     case "stop":

@@ -46,7 +46,7 @@ function checkNewPassword(){
       auth = 0;
     }
   }else{
-    $('#isNew').text("Please enter a new password that is different from the old one.");
+    $('#isNew').html("Please enter a different <br>password.");
     $('#isNew').css('color', 'red');
     auth = 0;
   }
@@ -90,6 +90,11 @@ $(document).ready( function(){
   getSettings();
   var obj = new Object();
   obj.action = 'setSettings';
+
+  var text_max = $('#cleanupParagraph').attr('maxlength');
+  var text_length = $('#cleanupParagraph').val().length;
+  var text_remaining = text_max - text_length;
+  $('#textarea_feedback').html(text_remaining + ' characters remaining');
 
   //Handles checkbox values
   $('.checkbox').click(function(){
@@ -168,6 +173,12 @@ $(document).ready( function(){
     console.log('got this far');
   });
 
+  $('#cleanupParagraph').keyup(function() {
+      text_length = $('#cleanupParagraph').val().length;
+      text_remaining = text_max - text_length;
+      $('#textarea_feedback').html(text_remaining + ' characters remaining');
+   });
+
   $('#saveCleanupParagraph').click(function(){
     var cleanupText = $('#cleanupParagraph').val().trim();
     console.log(cleanupText);
@@ -181,6 +192,14 @@ $(document).ready( function(){
     });
   });
 
+  $('#numTeamsGen').focus(function(){
+    $('#s1').text('');
+  });
+  $('#numTeamsGen').keypress(function(){
+    if(event.which == 13){
+      $('#saveTeams').click();
+    }
+  });
   //Saves number of teams to be generated
   $('#saveTeams').click(function(){
     var teamGen = $('#numTeamsGen').val().trim();
@@ -192,16 +211,27 @@ $(document).ready( function(){
         $.post('../server/admin_control.php', obj);
         $('#s1').text('Saved!');
         $('#s1').css('color', 'green');
+        $('#s3').text('');
       }else{
-        $('#s1').text('Must be a positive integer.');
-        $('#s1').css('color', 'red');
+        $('#s1').text('');
+        $('#s3').text('Must be a positive integer.');
+        $('#s3').css('color', 'red');
       }
     }else{
-      $('#s1').text('Please enter a valid integer.');
-      $('#s1').css('color', 'red');
+      $('#s1').text('');
+      $('#s3').text('Please enter a valid integer.');
+      $('#s3').css('color', 'red');
     }
   });
 
+  $('#numDigPass').focus(function(){
+    $('#s2').text('');
+  });
+  $('#numDigPass').keypress(function(){
+    if(event.which == 13){
+      $('#savePass').click();
+    }
+  });
   //Saves length of passwords to be generated
   $('#savePass').click(function(){
     var digPass = $('#numDigPass').val().trim();
@@ -213,13 +243,16 @@ $(document).ready( function(){
         $.post('../server/admin_control.php', obj);
         $('#s2').text('Saved!');
         $('#s2').css('color', 'green');
+        $('#s4').text('');
       }else{
-        $('#s2').text('Must be a positive integer.');
-        $('#s2').css('color', 'red');
+        $('#s2').text('');
+        $('#s4').text('Must be a positive integer.');
+        $('#s4').css('color', 'red');
       }
     }else{
-      $('#s2').text('Please enter a valid integer.');
-      $('#s2').css('color', 'red');
+      $('#s2').text('');
+      $('#s4').text('Please enter a valid integer.');
+      $('#s4').css('color', 'red');
     }
   });
 

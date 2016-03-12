@@ -162,14 +162,6 @@
 		$resource = setOption($class, $name, $value);
 	}
 
-	function getStatistics(){
-		//Get the event start time
-		//get the last pull time
-		//Pull all data from the database
-		//Group the number of attempts and number of correct responses together into 1 minute blocks based on the elapsed time
-		//Parse the number of seconds into a minute:second format
-		//Group 
-	}
 
 	function updateAnswerKey(){
 		$series = $_REQUEST['series'];

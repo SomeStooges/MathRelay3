@@ -4,12 +4,17 @@
 	function getStatistics(){
 		//Get the event start time and determine how many minutes have passed
     $startTime = getOption('event','startTime');
-    $ctime = time();
+		$elapsedTime = getOption('event','stopTime');
+		$event = getOption('event','currentEvent');
 
-    $numMinPassed = floor( ($ctime - $startTime) / 60 );
-    if( $numMinPassed < 30 ){
-      $numMinPassed = 30;
-    }
+		if( $event = 'close' || $event = 'stop' || $event = 'none' || $event = 'open'){
+			$numMinPassed = floor( ($elapsedTime) / 60 );
+		} else {
+			$numMinPassed = floor( $ctime - $startTime );
+		}
+		if( $numMinPassed < 30 ){
+			$numMinPassed = 30;
+		}
 
 		//Pull all data from the database after the last pull time
     $resource = db_Query( "SELECT * FROM stat_log;" );
@@ -22,10 +27,10 @@
     $attemptsByTime = array_fill( 0 , $numMinPassed , 0 ); //blank array; each index is one minuts
     $correctByTime  = array_fill( 0 , $numMinPassed , 0 ); //blank array; each index is one minuts
     $scatterQuestionTime;
-    $attemptsByTeam = array_fill( 1 , 50 , 0);
-    $correctByTeam = array_fill( 1 , 50 , 0 );
-    $attemptsByQuestion = array_fill( 1 , 40 , 0);
-    $correctByQuestion = array_fill( 1 , 40 , 0 );
+    $attemptsByTeam = array_fill( 0 , 51 , 0);
+    $correctByTeam = array_fill( 0 , 51 , 0 );
+    $attemptsByQuestion = array_fill( 0 , 41 , 0);
+    $correctByQuestion = array_fill( 0 , 41 , 0 );
 
     for( $i = 0 ; $i < count($info) ; $i++ ){
       $obj = $info[$i];
@@ -48,18 +53,18 @@
       }
 
       //Determine elapsed time for each question (question/time scatter)
-      $scatterQuestionTime[] = [ 0 => $obj->series_number,   1 => $obj->timesptamp];
+      $scatterQuestionTime[] = [ "y" => $obj->series_number,   "x" => $obj->timesptamp];
 
       //Determine number of attempts for each team and the number of correct responses for each team (responses/team bar)
-      $attemptsByTeam[ $obj->team_id ] += 1;
+      $attemptsByTeam[ intval($obj->team_id) ] += 1;//intval($obj->team_id)
       if( $isCorrect ){
-        $correctByTeam[ $obj->team_id ] += 1;
+        $correctByTeam[ intval($obj->team_id) ] += 1;
       }
 
       ////Determine number of correct responses and number of total responses for each question (responses/question bar)
-      $attemptsByQuestion[ $obj->series_number ] += 1;
+      $attemptsByQuestion[ intval($obj->series_number) ] += 1;
       if( $isCorrect ){
-        $correctByQuestion[ $obj->series_number ] += 1;
+        $correctByQuestion[ intval($obj->series_number) ] += 1;
       }
     }
 
@@ -73,9 +78,9 @@
       "attemptsByQuestion" => $attemptsByQuestion,
       "correctByQuestion" => $correctByQuestion
     ];
-
     return $ret;
   }
+
 
   print json_encode(getStatistics());
 ?>

@@ -1,7 +1,3 @@
-<!-- Content for the Statistics tab -->
-<?php
-	require '../server/utilities.php';
- ?>
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -10,14 +6,12 @@
 		<script src="../scripts/Chart.Scatter.min.js"></script>
     <script type="text/javascript" src="m_scripts/ms_statistics.js"></script>
     <link rel="stylesheet" type="text/css" href="m_styles/mst_statistics.css">
-
   </head>
   <body style='background-color: black'>
-    <?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
-    <button id='forceStatUpdate'>Update Now</button>
-		<canvas id="attemptsVTime" width="400" height="400"></canvas>
-		<canvas id="questionVTime" width="400" height="400"></canvas>
-		<canvas id="attemptsVTeam" width="400" height="400"></canvas>
-		<canvas id="attemptsVQuestion" width="400" height="400"></canvas>
+    <button id='forceStatUpdate'>Update Now</button><br>
+    <div  class='graphwrap'><canvas id="attemptsVTime" width='1000' height='500'></canvas></div><br>
+		<div  class='graphwrap'><canvas id="questionVTime" width="5000" height="500"></canvas></div><br>
+		<div  class='graphwrap'><canvas id="attemptsVTeam" width="1000" height="500"></canvas></div><br>
+		<div  class='graphwrap'><canvas id="attemptsVQuestion" width="1000" height="500"></canvas></div><br>
   </body>
 </html>

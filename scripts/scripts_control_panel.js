@@ -148,7 +148,7 @@ function updateUI(){
     myTimer.startTimer();
       break;
 
-    case "freezeLeaderBoard":
+    case "freezeLeaderboard":
     myTimer.isReloading = true;
     myTimer.startTimer();
       break;
@@ -205,6 +205,7 @@ function toggleButtons(event1){
       $("#freezeLeaderboard").prop("disabled", true);
       $("#none").prop("disabled", true);
       $("#open").prop("disabled", true);
+      $("#close").prop("disabled", true);
       break;
 
     case "stop":

@@ -14,6 +14,7 @@
 			var startTime = JSON.parse('<?php print json_encode($startTime) ?>');
 		</script>
 		<link rel="stylesheet" type="text/css" href="m_styles/mst_team_activity.css">
+		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 	<body>
 		<div id='dataStore' style='display: none;'>
@@ -22,8 +23,9 @@
 			</span>
 		</div>
 		<?php if(!function_exists('db_Query')){require $_SERVER['DOCUMENT_ROOT'] . 'MathRelay3/server/utilities.php';} ?>
-		<b> Team ID </b> <button id='freezeButton'>Freeze Log</button>
+		<!--<b> Team ID </b>--> <button id='freezeButton'>Freeze Log</button>
 		<div id = 'table'>
+			<th><b> Team ID </b></th>
 			<table id='teamActivity'>
 				<?php
 					$numTeams = getOption('reset','numTeams');

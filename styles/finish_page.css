@@ -27,7 +27,7 @@ section {
   border-radius: 20px;
   position:relative;
 	word-wrap: break-word;
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0,0,0,.6);
 }
 #congratulations{
 	font-size: 30px;

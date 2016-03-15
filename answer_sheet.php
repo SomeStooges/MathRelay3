@@ -69,7 +69,7 @@
 			<div id="questionGrid">
 				<div class='necessary2'>
 					<div id='questions'>
-					<b>Questions</b>
+					<h1>Questions</h1>
 					<table id='series'>
 					<?php
 						$numQuestions = getOption('answerkey','numQuestion');
@@ -95,7 +95,7 @@
 			<div id="answerChoices" >
 				<div class='necessary'>
 					<div id='level3choice'class="answerLevel">
-						<b>Level 3</b>
+						<h1>Level 3</h1>
 							<?php
 								$numChoices = 6;
 								$level = 3;
@@ -105,7 +105,7 @@
 							?>
 					</div>
 					<div id='level2choice'class="answerLevel">
-							<b>Level 2</b>
+							<h1>Level 2</h1>
 								<?php
 									$level = 2;
 									for($i=1;$i<=6;$i++){
@@ -114,7 +114,7 @@
 								?>
 					</div>
 					<div id='level1choice'class="answerLevel">
-						<b>Level 1</b>
+						<h1>Level 1</h1>
 							<?php
 								$level = 1;
 								for($i=1;$i<=6;$i++){
@@ -125,8 +125,8 @@
 				</div>
 			</div>
 			<div id='rightside'>
-				<ul id ='points'>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></ul>
-				<ul id='submit'><button id="submit_answer"> SUBMIT </button>
+				<h1>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></h1>
+				<!--<ul id='submit'>--><button id="submit_answer"> SUBMIT </button>
 			</div>
 		</div>
 	</body>

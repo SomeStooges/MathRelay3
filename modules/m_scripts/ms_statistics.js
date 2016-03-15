@@ -1,7 +1,6 @@
 //Scripts for the m_statistics module
 //Global viewing window width
-var vw = $(window).width() - 100;
-var vh = Math.floor(($(window).height())*9/10) -70;
+
 
 function range(start, finish) {
     var r = [];
@@ -55,22 +54,7 @@ function bindScatter(scatterQuestionTime){
     pointColor: '#F16220',
     pointStrokeColor: '#fff',
     data: scatterQuestionTime
-  }/*,
-  {
-    label: 'My Second dataset',
-    strokeColor: '#007ACC',
-    pointColor: '#007ACC',
-    pointStrokeColor: '#fff',
-    data: [
-      { x: 19, y: 75, r: 4 },
-      { x: 27, y: 69, r: 7 },
-      { x: 28, y: 70, r: 5 },
-      { x: 40, y: 31, r: 3 },
-      { x: 48, y: 76, r: 6 },
-      { x: 52, y: 23, r: 3 },
-      { x: 24, y: 32, r: 4 }
-      ]
-    }*/
+  }
   ];
   var chart2 = new Chart(ctx2).Scatter(data);
 }
@@ -144,27 +128,27 @@ function getStatistics() {
     bindScatter(data.scatterQuestionTime);
     bindBar1( data.attemptsByTeam , data.correctByTeam );
     bindBar2( data.attemptsByQuestion , data.correctByQuestion );
-    //Add data to attemps/time line graph
-    //Add data to question/time scatter plot
-    //Add data to attempts/team bar graph
-    //add data to attempts/question bar graph
   });
 }
 
 $(document).ready( function(){
-  /*var h = $('.graphwrap').;
-  var w = $('.graphwrap').width();
-  $("#attemptsVTime").attr({ "height" : h , "width" : w });
-  $("#questionVTime").attr({ "height" : h , "width" : w });
-  $("#attemptsVTeam").attr({ "height" : h , "width" : w });
-  $("#attemptsVQuestion").attr({ "height" : h , "width" : w });*/
-  console.log("Viewing width: " + vw);
-  console.log("Viewing height: " + vh);
-  $('#questionVTime').attr('width',String(vw));
-  $('.graph').attr('height',String(vh));
-  getStatistics();
+  var windowIntervalID;
+
+  $( window ).resize(function(){
+    console.log("DEBUG: window was resized, so running.");
+    var vw = $(window).width() - 100;
+    var vh = Math.floor(($(window).height())*9/10) -70;
+    console.log("Viewing width: " + vw);
+    console.log("Viewing height: " + vh);
+    $('#questionVTime').attr('width',String(vw));
+    $('.graph').attr('height',String(vh));
+    getStatistics();
+    $('#bindLineButton').click();
+    windowInvtervalID = window.setInterval(getStatistics, 5000)//Currently reset to a refresh of 5 seconds for debug; will be extended to a refresh of 30000 miliseconds
+  });
+
   $('#forceStatUpdate').click(function(){
-    location.reload();
+    getStatistics();
   });
 
   $('.selectorButton').click(function(){

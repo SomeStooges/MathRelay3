@@ -6,6 +6,7 @@
     $startTime = getOption('event','startTime');
 		$elapsedTime = getOption('event','stopTime');
 		$event = getOption('event','currentEvent');
+		$numTeams = getOption('reset','numTeams') +1;
 
 		if( $event = 'close' || $event = 'stop' || $event = 'none' || $event = 'open'){
 			$numMinPassed = floor( ($elapsedTime) / 60 );
@@ -27,8 +28,8 @@
     $attemptsByTime = array_fill( 0 , $numMinPassed , 0 ); //blank array; each index is one minuts
     $correctByTime  = array_fill( 0 , $numMinPassed , 0 ); //blank array; each index is one minuts
     $scatterQuestionTime;
-    $attemptsByTeam = array_fill( 0 , 51 , 0);
-    $correctByTeam = array_fill( 0 , 51 , 0 );
+    $attemptsByTeam = array_fill( 0 , $numTeams , 0);
+    $correctByTeam = array_fill( 0 , $numTeams , 0 );
     $attemptsByQuestion = array_fill( 0 , 41 , 0);
     $correctByQuestion = array_fill( 0 , 41 , 0 );
 

@@ -281,7 +281,6 @@ $(document).ready(function() {
         break;
       case "statistics":
         target = $('#mod5');
-        document.getElementById('iframe4').contentWindow.location.reload();
         break;
       case "settings":
         target = $('#mod6');

@@ -30,6 +30,8 @@ body{
   height: 100%;
   background-color: inherit;
   color:white;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 120%;
 }
 .selectorButton:hover{
   background-color: dimgray;

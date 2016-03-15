@@ -29,7 +29,7 @@
 		$getValues = substr($getValues,0,strlen($getValues)-2);	//clips off trailing ', ' to correct for SQL
 */
 		//Query the database for the number of teams to fetch
-		$numTeams = getOption('display','numTeams')+1;//= getOption("display","numTeams"); for right now
+		$numTeams = getOption('display','numTeams');//= getOption("display","numTeams"); for right now
 
 		//Query the databse for the selected columns from team_data
 		//if($getValues != ""){ //checks that at least one column was selected

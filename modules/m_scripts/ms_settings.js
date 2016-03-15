@@ -209,18 +209,15 @@ $(document).ready( function(){
         obj.n = 'numTeams';
         obj.v = teamGen;
         $.post('../server/admin_control.php', obj);
-        $('#s1').text('Saved!');
+        $('#s1').html('Saved!');
         $('#s1').css('color', 'green');
-        $('#s3').text('');
       }else{
-        $('#s1').text('');
-        $('#s3').text('Must be a positive integer.');
-        $('#s3').css('color', 'red');
+        $('#s1').html('Must be a <br>positive integer.');
+        $('#s1').css('color', 'red');
       }
     }else{
-      $('#s1').text('');
-      $('#s3').text('Please enter a valid integer.');
-      $('#s3').css('color', 'red');
+      $('#s1').html('Please enter a <br>valid integer.');
+      $('#s1').css('color', 'red');
     }
   });
 
@@ -241,18 +238,15 @@ $(document).ready( function(){
         obj.n = 'passwordLength';
         obj.v = digPass;
         $.post('../server/admin_control.php', obj);
-        $('#s2').text('Saved!');
+        $('#s2').html('Saved!');
         $('#s2').css('color', 'green');
-        $('#s4').text('');
       }else{
-        $('#s2').text('');
-        $('#s4').text('Must be a positive integer.');
-        $('#s4').css('color', 'red');
+        $('#s2').html('Must be a <br>positive integer.');
+        $('#s2').css('color', 'red');
       }
     }else{
-      $('#s2').text('');
-      $('#s4').text('Please enter a valid integer.');
-      $('#s4').css('color', 'red');
+      $('#s2').html('Please enter a <br>valid integer.');
+      $('#s2').css('color', 'red');
     }
   });
 

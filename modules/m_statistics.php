@@ -6,6 +6,7 @@
 		<script src="../scripts/Chart.Scatter.min.js"></script>
     <script type="text/javascript" src="m_scripts/ms_statistics.js"></script>
     <link rel="stylesheet" type="text/css" href="m_styles/mst_statistics.css">
+    <link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
   </head>
   <body style='background-color: black'>
     <div id='buttons'>

@@ -176,7 +176,7 @@ $(document).ready( function(){
         $('#bindScatter').hide();
         $('#bindBar1').hide();
         $('#bindBar2').hide();
-        $('#x-axis').text('Time in Seconds');
+        $('#x-axis').text('Time in Minutes');
         $('#y-axis').text('Number of Attempts');
         break;
       case 'bindScatterButton':

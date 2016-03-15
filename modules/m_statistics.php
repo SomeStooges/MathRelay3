@@ -15,6 +15,8 @@
       <button class='selectorButton' id='bindBar1Button'>Attempts vs Team</button>
       <button class='selectorButton' id='bindBar2Button'>Attempts vs Question</button>
     </div>
+    <div id='y-axis'></div>
+    <div id='x-axis'></div>
     <div  class='graphwrap' id='bindLine'><canvas id="attemptsVTime" class='graph' width='1000' height='500'></canvas></div><br>
 		<div  class='graphwrap' id='bindScatter'><canvas id="questionVTime" class='graph' width="5000" height="500"></canvas></div><br>
 		<div  class='graphwrap' id='bindBar1'><canvas id="attemptsVTeam" class='graph' width="1000" height="500"></canvas></div><br>

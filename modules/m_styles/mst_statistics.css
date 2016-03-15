@@ -39,8 +39,22 @@ body{
   display: none;
   position:absolute;
   top: 12%;
-  right: 50px;
+  left: 50px;
 }
 #attemptsVTime{
   display: inline;
+}
+#y-axis{
+  position:absolute;
+  left: 10px;
+  top: 70%;
+  transform: rotate(270deg);
+	transform-origin: left top 0;
+  font-size:130%;
+}
+#x-axis{
+  position:fixed;
+  bottom: 20px;
+  left:40%;
+  font-size: 130%;
 }

@@ -1,7 +1,7 @@
 //Scripts for the m_statistics module
 //Global viewing window width
-var vw = $(window).width() - 50;
-var vh = Math.floor(($(window).height())*9/10) -20;
+var vw = $(window).width() - 100;
+var vh = Math.floor(($(window).height())*9/10) -70;
 
 function range(start, finish) {
     var r = [];
@@ -160,7 +160,7 @@ $(document).ready( function(){
   $("#attemptsVQuestion").attr({ "height" : h , "width" : w });*/
   console.log("Viewing width: " + vw);
   console.log("Viewing height: " + vh);
-  //$('#questionVTime').attr('width',String(vw));
+  $('#questionVTime').attr('width',String(vw));
   $('.graph').attr('height',String(vh));
   getStatistics();
   $('#forceStatUpdate').click(function(){
@@ -176,24 +176,32 @@ $(document).ready( function(){
         $('#bindScatter').hide();
         $('#bindBar1').hide();
         $('#bindBar2').hide();
+        $('#x-axis').text('Time in Seconds');
+        $('#y-axis').text('Number of Attempts');
         break;
       case 'bindScatterButton':
         $('#bindLine').hide();
         $('#bindScatter').show();
         $('#bindBar1').hide();
         $('#bindBar2').hide();
+        $('#x-axis').text('Time in Seconds');
+        $('#y-axis').text('Question Number');
         break;
       case 'bindBar1Button':
         $('#bindLine').hide();
         $('#bindScatter').hide();
         $('#bindBar1').show();
         $('#bindBar2').hide();
+        $('#x-axis').text('Team Number');
+        $('#y-axis').text('Number of Attempts');
         break;
       case 'bindBar2Button':
         $('#bindLine').hide();
         $('#bindScatter').hide();
         $('#bindBar1').hide();
         $('#bindBar2').show();
+        $('#x-axis').text('Question Number');
+        $('#y-axis').text('Number of Attempts');
         break;
     }
     $('#'+selectedID).css('background-color', 'dimgray');

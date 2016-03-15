@@ -1,4 +1,8 @@
 //Scripts for the m_statistics module
+//Global viewing window width
+var vw = $(window).width() - 50;
+var vh = Math.floor(($(window).height())*9/10) -20;
+
 function range(start, finish) {
     var r = [];
     for (var i = start; i <= finish; i++) {
@@ -12,7 +16,7 @@ function bindLine(attemptsByTime , correctByTime ){
   //  ctx.canvas.width = $("#div1").width();
   //ctx.canvas.height = $("#div1").height();
   var numMinutes = attemptsByTime.length;
-  console.log("DEBUG: attemptsByTime = " + attemptsByTime)
+  console.log("DEBUG: attemptsByTime = " + attemptsByTime);
   console.log("DEBUG: numMinutes = " + numMinutes);
   var data = {
   labels: range(1,numMinutes),
@@ -154,6 +158,44 @@ $(document).ready( function(){
   $("#questionVTime").attr({ "height" : h , "width" : w });
   $("#attemptsVTeam").attr({ "height" : h , "width" : w });
   $("#attemptsVQuestion").attr({ "height" : h , "width" : w });*/
+  console.log("Viewing width: " + vw);
+  console.log("Viewing height: " + vh);
+  //$('#questionVTime').attr('width',String(vw));
+  $('.graph').attr('height',String(vh));
   getStatistics();
+  $('#forceStatUpdate').click(function(){
+    location.reload();
+  });
 
+  $('.selectorButton').click(function(){
+    var selectedID = $(this).attr("id");
+    $('.selectorButton').css('background-color', '');
+    switch(selectedID){
+      case 'bindLineButton':
+        $('#bindLine').show();
+        $('#bindScatter').hide();
+        $('#bindBar1').hide();
+        $('#bindBar2').hide();
+        break;
+      case 'bindScatterButton':
+        $('#bindLine').hide();
+        $('#bindScatter').show();
+        $('#bindBar1').hide();
+        $('#bindBar2').hide();
+        break;
+      case 'bindBar1Button':
+        $('#bindLine').hide();
+        $('#bindScatter').hide();
+        $('#bindBar1').show();
+        $('#bindBar2').hide();
+        break;
+      case 'bindBar2Button':
+        $('#bindLine').hide();
+        $('#bindScatter').hide();
+        $('#bindBar1').hide();
+        $('#bindBar2').show();
+        break;
+    }
+    $('#'+selectedID).css('background-color', 'dimgray');
+  });
 });

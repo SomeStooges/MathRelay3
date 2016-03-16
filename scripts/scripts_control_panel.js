@@ -18,17 +18,17 @@ var EventTimer = function(startTime, elapsedTime){
     if(this.isReloading == false){
       if(this.startTime == 0 || this.startTime == 'NaN'){
         //First time the clock is started
-        console.log("Starting the Timer; startTime = " + this.startTime);
+        //console.log("Starting the Timer; startTime = " + this.startTime);
         this.startTime = parseInt(Math.floor( date.getTime() / 1000 ));
         //console.log("this.startTime : " + this.startTime + " " + typeof this.startTime);
       } else {
         //clock is restarted; so that "start time" is adjusted to be however many second ago the button was first pushed.
-        console.log("Restarting the timer; startTime = " + this.startTime);
+      0///  console.log("Restarting the timer; startTime = " + this.startTime);
         this.startTime  = parseInt(Math.floor( date.getTime() / 1000 )) - this.elapsedTime;
       }
     } else {
       //nothing happens; the startTime is already set to whatever was last correct
-      console.log("Reloading the timer; startTime = " + this.startTime)
+      //console.log("Reloading the timer; startTime = " + this.startTime)
     }
 
     var obj = new Object();
@@ -53,7 +53,7 @@ var EventTimer = function(startTime, elapsedTime){
     var date = new Date();
     this.elapsedTime = parseInt(Math.floor( date.getTime() / 1000 ) - this.startTime);
     this.parseToTimerDisplay(this.elapsedTime);
-    console.log("Updating the Timer; elapsedTime = " + this.elapsedTime);
+    //console.log("Updating the Timer; elapsedTime = " + this.elapsedTime);
   }
 
   this.displayElapsedTime = function(){
@@ -62,7 +62,7 @@ var EventTimer = function(startTime, elapsedTime){
 
   this.stopTimer = function(){
     var date = new Date();
-    console.log("Stopping the Timer");
+    //console.log("Stopping the Timer");
     var obj = new Object();
     obj.action = 'setStopTime';
     obj.stopTime = this.elapsedTime;

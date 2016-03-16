@@ -5,8 +5,11 @@ body{
   opacity: 0.7;
   padding:0;
   margin:0;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: auto;
+}
+*:focus {
+    outline: none;
 }
 #buttons{
   width:100vw;
@@ -14,18 +17,15 @@ body{
   height:10vh;
   background-color: black;
   margin: 0;
+  border-bottom: 1px solid white;
 }
-.graphwrap{
-  height: 500px;
-  width: 1000px;
-}
+
 .selectorButton{
   float:left;
   width:20%;
   margin:0;
   border:none;
-  border-left: 1px solid white;
-  border-bottom: 1px solid white;
+  border-radius: 20px;
   transition: background-color 0.5s ease;
   height: 100%;
   background-color: inherit;
@@ -53,10 +53,12 @@ body{
   transform: rotate(270deg);
 	transform-origin: left top 0;
   font-size:130%;
+  font-family: 'Advent Pro', sans-serif;
 }
 #x-axis{
   position:fixed;
   bottom: 20px;
   left:40%;
   font-size: 130%;
+  font-family: 'Advent Pro', sans-serif;
 }

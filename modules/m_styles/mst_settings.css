@@ -26,6 +26,8 @@ input{
 }
 b{
   font-size: 150%;
+  font-family: 'Advent Pro', sans-serif;
+
 }
 #table1{
   border-right: 1px solid white;

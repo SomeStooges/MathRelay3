@@ -185,7 +185,7 @@ iframe{
   color: white;
   font-family: 'Advent Pro', sans-serif;
   font-size: 20px;
-  transition: background-color,color 0.5s ease;
+  transition: background-color 0.5s ease;
 }
 .ribbonButton:hover {
   background-color: dimgray;

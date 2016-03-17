@@ -226,6 +226,14 @@
 		return $response;
 
 	}
+	function getPrintout(){
+		$resource = db_Query("SELECT team_id,password FROM team_data;");
+		$response = array();
+		while($teamRow = mysqli_fetch_row($resource)){
+			$response[] = $teamRow;
+		}
+		return $response;
+	}
 
 	//REQUEST SWITCH
 	$action = $_REQUEST['action'];
@@ -249,6 +257,7 @@
 		case 'setAnswer': $return = setAnswer(); break;
 		case 'setRankFreetime': $return = setRankFreetime(); break;
 		case 'setFinalRank': $return = setFinalRank(); break;
+		case 'getPrintout': $return = getPrintout(); break;
 	}
 	print json_encode($return);
 ?>

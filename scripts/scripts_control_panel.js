@@ -285,6 +285,13 @@ $(document).ready(function() {
       case "settings":
         target = $('#mod6');
         break;
+      case "printTeamData":
+        $("#printTeamData").css('background-color', '');
+        $("#teamData").css('background-color', 'DimGray');
+        window.open("printout.php","_blank");
+        target = $('#mod1');
+        break;
+
     }
     $(target).css('display', 'block'); //display the pointer's reference
   });

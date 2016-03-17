@@ -58,6 +58,7 @@
 				<button class="toolbarButton" id="teamLog">Activity</button>
 				<button class="toolbarButton" id="statistics">Statistics</button>
 				<button class="toolbarButton" id="settings">Settings</button>
+				<button class="toolbarButton" id="printTeamData">Print Team Data</button>
 			</div>
 			<div id="container">
 			<!-- Adds margin between content and toolbar and ribbon -->

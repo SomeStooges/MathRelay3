@@ -1,0 +1,28 @@
+/*Stylesheet for printout.php*/
+table{
+  border-collapse: collapse;
+  width: 45%;
+}
+td{
+  border: 1px solid black;
+  text-align: center;
+  width: 50%;
+  height: 10mm;
+}
+#teamDataTable1{
+  float:left;
+}
+#teamDataTable2{
+  float:right;
+}
+@page {
+  size: A4;
+  /*margin-top: 0;*/
+}
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  /* ... the rest of the rules ... */
+}

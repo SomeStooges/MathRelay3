@@ -137,10 +137,12 @@ function gradeAnswer(qNum, l3, l2, l1, id1, id2, id3){
 			console.log(list[temp-1]);
 			switch(list[temp-1]){
 				case "1": $('#'+seriesID).prop('disabled', true);
+					$('#submit_answer').prop('disabled', true);
 					$('#'+seriesID).css('background-color', 'lightGreen');
 					break;
 				case "2": $('#'+seriesID).css('background-color', 'yellow'); break;
 				case "3": $('#'+seriesID).prop('disabled', true);
+					$('#submit_answer').prop('disabled', true);
 					$('#'+seriesID).css('background-color', 'lightCoral');
 					break;
 			}

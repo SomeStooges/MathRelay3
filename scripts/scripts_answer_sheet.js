@@ -24,31 +24,45 @@ function checkEvent(){
 						window.location.href = "user_login.php";
 						break;
 			case "open":
+						$('#questions').hide();
+						$('.answerLevel').hide();
+						$('#submit_answer').hide();
 						$('.seriesNumbers').prop('disabled', true);
 						$('.level1Buttons').prop('disabled', true);
 						$('.level2Buttons').prop('disabled', true);
 						$('.level3Buttons').prop('disabled', true);
+						$('#freetimeDiv').hide();
 						break;
 			case "start":
+						$('#questions').show();
+						$('.answerLevel').show()
+						$('#submit_answer').show();
+
 						if(eventCounter<1){
 							$('.seriesNumbers').prop('disabled', false);
 							$('.level1Buttons').prop('disabled', false);
 							$('.level2Buttons').prop('disabled', false);
 							$('.level3Buttons').prop('disabled', false);
+							$('#freetimeDiv').hide();
 							eventCounter++	;
 						}
 						break;
 			case "stop":
+						$('#questions').hide();
+						$('.answerLevel').hide();
+						$('#submit_answer').hide();
 						$('.seriesNumbers').prop('disabled', true);
 						$('.level1Buttons').prop('disabled', true);
 						$('.level2Buttons').prop('disabled', true);
 						$('.level3Buttons').prop('disabled', true);
+						$('#freetimeDiv').hide();
 						eventCounter = 0;
 						break;
 			case "close":
 						window.location.href = "finish_page.php";
 						break;
 			default:
+						$('#freetimeDiv').show();
 						eventCounter =0;
 		}
 	});

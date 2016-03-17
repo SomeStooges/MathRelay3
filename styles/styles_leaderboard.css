@@ -5,6 +5,7 @@ body{
   background-image: url('/MathRelay3/images/SAM_1343.jpg');
   background-size: cover;
   font-family: 'Advent Pro', sans-serif;
+  min-width: 1280px;
 }
 section{
   margin: 5%;

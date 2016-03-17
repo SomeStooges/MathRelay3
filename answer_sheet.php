@@ -63,6 +63,7 @@
 						<input id='nicknameInput' value="Answer Sheet">
 					</p>
 				</div>
+				<div id='freetimeDiv'>Free Time!</div>
 			</div>
 
 			<!-- Table for interactive question numbers -->
@@ -126,7 +127,7 @@
 			</div>
 			<div id='rightside'>
 				<h1>Points: <span id='currentPoints'>0<!-- Should fix this to display the correct number of points of page initialization. --></span></h1>
-				<!--<ul id='submit'>--><button id="submit_answer"> SUBMIT </button>
+				<!--<ul id='submit'>--><button id="submit_answer"> Submit </button>
 			</div>
 		</div>
 	</body>

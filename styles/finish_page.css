@@ -2,8 +2,10 @@ body {
 
 	background-image: url('/MathRelay3/images/IMG_1544 (2).jpg');
 	background-size: cover;
+	background:
 	text-align: center;
   color: white;
+	min-width: 1280px;
 
 }
 h1{
@@ -16,7 +18,7 @@ h1{
 }
 section {
 	font-family:sans-serif;
-
+	min-width: 448px;
   margin: 2vh 5%;
 	float: right;
 	width:35%;

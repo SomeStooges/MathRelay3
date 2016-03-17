@@ -17,6 +17,7 @@ body {
 	background-position: cover;
 	text-align: center;
 	overflow:auto;
+  min-width: 1280px;
 }
 h1{
   color: white;
@@ -67,6 +68,17 @@ table{
 	margin: 0;
 	height: 90px;
 	border-bottom: 1px solid white;
+}
+#freetimeDiv{
+  position:absolute;
+  top: 7%;
+  display: none;
+  right: 100px;
+  width: 100px;
+  color: red;
+  text-align: center;
+  font-size: 200%;
+  font-family: 'Advent Pro', sans-serif;
 }
 #questions{
 	position:absolute;
@@ -169,6 +181,8 @@ table{
 	border: none;
 	border-radius: 20px;
 	background-color: rgb(46, 46, 46);
+  font-size: 300%;
+  font-family: 'Advent Pro', sans-serif;
 	color: white;
 	transition: background-color;
 }

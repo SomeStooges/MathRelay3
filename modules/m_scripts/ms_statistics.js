@@ -170,13 +170,15 @@ function updateStatistics() {
     chartDataStore[1] = bindScatter(data.scatterQuestionTime); //data.scatterQuestionTime is NOT a two-dimensional array!
 
     //update bar chart 1
-    for(var i = 1; i < data.attemptsByTeam.length-1; i++){
+    console.log(data.attemptsByTeam[0]);
+    for(var i = 0; i < data.attemptsByTeam.length-1; i++){
       chart3.datasets[0].bars[i].value = data.attemptsByTeam[i+1];
       chart3.datasets[1].bars[i].value = data.correctByTeam[i+1];
+      console.log("i = "+i+"; i+1 = "+(i+1));
     }
 
     //update bar chart 2
-    for(var i = 1; i < data.attemptsByQuestion.length-1; i++){
+    for(var i = 0; i < data.attemptsByQuestion.length-1; i++){
       chart4.datasets[0].bars[i].value = data.attemptsByQuestion[i+1];
       chart4.datasets[1].bars[i].value = data.correctByQuestion[i+1];
     }

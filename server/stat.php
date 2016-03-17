@@ -6,7 +6,7 @@
     $startTime = getOption('event','startTime');
 		$elapsedTime = getOption('event','stopTime');
 		$event = getOption('event','currentEvent');
-		$numTeams = getOption('reset','numTeams') +1;
+		$numTeams = getOption('reset','numTeams')+1;
 		$ctime = time();
 
 		if( $event = 'close' || $event = 'stop' || $event = 'none' || $event = 'open'){

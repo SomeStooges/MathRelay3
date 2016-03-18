@@ -18,23 +18,23 @@ td{
 #teamDataTable3{
   page-break-before: always;
   position: absolute;
-  top: 317mm;
+  top: 299mm;
   left: 0mm;
 }
 #teamDataTable4{
   page-break-before: always;
   position: absolute;
-  top: 317mm;
+  top: 299mm;
   right:0mm;
 }
 @page {
-  size: A4;
+  size: Letter;
   margin-bottom: 0;
 }
 @media print {
   html, body {
-    width: 210mm;
-    height: 287mm;
+    width: 216mm;
+    height: 279mm;
     margin: auto;
   }
   /* ... the rest of the rules ... */

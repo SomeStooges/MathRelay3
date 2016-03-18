@@ -30,7 +30,7 @@
         }
 
         print "<table id='teamDataTable1'>";
-        for($i=0;$i<27;$i++){
+        for($i=0;$i<25;$i++){
           print "<tr class='page-break' id='dataRow" . $i . "'>";
           for($j=0;$j<count($teamData[$i]);$j++){
             if($j%2 ==1){
@@ -43,9 +43,9 @@
           print "</tr>";
         }
         print "</table>";
-        if(count($teamData)> 27 && count($teamData) <= 54){
+        if(count($teamData)> 25 && count($teamData) <= 50){
           print "<table id='teamDataTable2'>";
-          for($i=27;$i<count($teamData);$i++){
+          for($i=25;$i<count($teamData);$i++){
             print "<tr class='page-break' id='dataRow" . $i . "'>";
             for($j=0;$j<count($teamData[$i]);$j++){
               if($j%2 ==1){
@@ -57,9 +57,9 @@
             }
             print "</tr>";
           }
-        }else if(count($teamData)> 27 && count($teamData) > 54){
+        }else if(count($teamData)> 25 && count($teamData) > 50){
           print "<table id='teamDataTable2'>";
-          for($i=27;$i<54;$i++){
+          for($i=25;$i<50;$i++){
             print "<tr class='page-break' id='dataRow" . $i . "'>";
             for($j=0;$j<count($teamData[$i]);$j++){
               if($j%2 ==1){
@@ -76,9 +76,9 @@
     </div>
     <div id="page2">
       <?php
-      if(count($teamData)>54 && count($teamData) <= 81){
+      if(count($teamData)>50 && count($teamData) <= 75){
         print "<table id='teamDataTable3'>";
-        for($i=54;$i<count($teamData);$i++){
+        for($i=50;$i<count($teamData);$i++){
           print "<tr class='page-break' id='dataRow" . $i . "'>";
           for($j=0;$j<count($teamData[$i]);$j++){
             if($j%2 ==1){
@@ -90,9 +90,9 @@
           }
           print "</tr>";
         }
-      }else if(count($teamData)>54 && count($teamData) >81){
+      }else if(count($teamData)>50 && count($teamData) >75){
         print "<table id='teamDataTable3'>";
-        for($i=54;$i<81;$i++){
+        for($i=50;$i<75;$i++){
           print "<tr class='page-break' id='dataRow" . $i . "'>";
           for($j=0;$j<count($teamData[$i]);$j++){
             if($j%2 ==1){
@@ -105,9 +105,9 @@
           print "</tr>";
         }
       }
-      if(count($teamData)>81 && count($teamData) <= 108){
+      if(count($teamData)>75 && count($teamData) <= 100){
         print "<table id='teamDataTable4'>";
-        for($i=81;$i<count($teamData);$i++){
+        for($i=75;$i<count($teamData);$i++){
           print "<tr class='page-break' id='dataRow" . $i . "'>";
           for($j=0;$j<count($teamData[$i]);$j++){
             if($j%2 ==1){
@@ -119,9 +119,9 @@
           }
           print "</tr>";
         }
-      }else if(count($teamData)>81 && count($teamData) > 108){
+      }else if(count($teamData)>75 && count($teamData) > 100){
         print "<table id='teamDataTable4'>";
-        for($i=81;$i<108;$i++){
+        for($i=75;$i<100;$i++){
           print "<tr class='page-break' id='dataRow" . $i . "'>";
           for($j=0;$j<count($teamData[$i]);$j++){
             if($j%2 ==1){

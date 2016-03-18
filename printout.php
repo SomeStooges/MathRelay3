@@ -29,20 +29,35 @@
           $teamData[] = $teamRow;
         }
 
-        print "<table id='teamDataTable1'>";
-        for($i=0;$i<25;$i++){
-          print "<tr class='page-break' id='dataRow" . $i . "'>";
-          for($j=0;$j<count($teamData[$i]);$j++){
-            if($j%2 ==1){
-              print "<td>Password: <b>" . $teamData[$i][$j] . "</b></td>";
-            }
-            if($j%2 ==0){
-              print "<td>Team ID: <b>" . $teamData[$i][$j] . "</b></td>";
-            }
-          }
-          print "</tr>";
-        }
-        print "</table>";
+				if(count($teamData)> 0 && count($teamData) <= 25){
+					print "<table id='teamDataTable1'>";
+					for($i=0;$i<count($teamData);$i++){
+						print "<tr class='page-break' id='dataRow" . $i . "'>";
+						for($j=0;$j<count($teamData[$i]);$j++){
+							if($j%2 ==1){
+								print "<td>Password: <b>" . $teamData[$i][$j] . "</b></td>";
+							}
+							if($j%2 ==0){
+								print "<td>Team ID: <b>" . $teamData[$i][$j] . "</b></td>";
+							}
+						}
+						print "</tr>";
+					}
+				}else if(count($teamData)> 0 && count($teamData) > 25){
+					print "<table id='teamDataTable1'>";
+					for($i=0;$i<25;$i++){
+						print "<tr class='page-break' id='dataRow" . $i . "'>";
+						for($j=0;$j<count($teamData[$i]);$j++){
+							if($j%2 ==1){
+								print "<td>Password: <b>" . $teamData[$i][$j] . "</b></td>";
+							}
+							if($j%2 ==0){
+								print "<td>Team ID: <b>" . $teamData[$i][$j] . "</b></td>";
+							}
+						}
+						print "</tr>";
+					}
+				}
         if(count($teamData)> 25 && count($teamData) <= 50){
           print "<table id='teamDataTable2'>";
           for($i=25;$i<count($teamData);$i++){

@@ -1,6 +1,6 @@
 /*Stylesheet for printout.php*/
 table{
-  border-collapse: collapse;
+  /*border-collapse: collapse;*/
   width: 45%;
 }
 td{
@@ -17,20 +17,25 @@ td{
 }
 #teamDataTable3{
   page-break-before: always;
-  float: left;
+  position: absolute;
+  top: 317mm;
+  left: 0mm;
 }
 #teamDataTable4{
   page-break-before: always;
-  float: right;
+  position: absolute;
+  top: 317mm;
+  right:0mm;
 }
 @page {
   size: A4;
-  /*margin-top: 0;*/
+  margin-bottom: 0;
 }
 @media print {
   html, body {
     width: 210mm;
-    height: 297mm;
+    height: 287mm;
+    margin: auto;
   }
   /* ... the rest of the rules ... */
 }

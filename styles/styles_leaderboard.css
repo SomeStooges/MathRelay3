@@ -48,7 +48,13 @@ h1{
 .left{
   padding-right: 8px;
   text-align: right;
-  width: 50%
+  width: 50%;
+  max-width: 10em;
+  word-wrap: break-word;
+
+}
+.rank{
+  text-align: center;
 }
 #row0{
   color: rgb(193, 161, 25);

@@ -60,7 +60,7 @@
 				<h1 id='teamNumber'></h1>
 				<div id="title">
 					<p style="text-align:center">
-						<input id='nicknameInput' value="Answer Sheet">
+						<input id='nicknameInput' maxlength="35" value="Answer Sheet">
 					</p>
 				</div>
 				<div id='freetimeDiv'>Free Time!</div>

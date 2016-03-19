@@ -24,7 +24,7 @@ body {
   max-width: 100%;
   margin: 0;
   overflow:auto;
-  min-width: 1280px;
+  min-height: 565px;
 }
 #everything{
   position: relative;

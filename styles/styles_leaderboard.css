@@ -5,11 +5,11 @@ body{
   background-image: url('/MathRelay3/images/SAM_1343.jpg');
   background-size: cover;
   font-family: 'Advent Pro', sans-serif;
-  min-width: 1280px;
+  overflow: hidden;
+  min-height: 619px;
 }
 section{
   margin: 5%;
-
   background-position: center;
   border: 3px solid black;
   border:5%;
@@ -18,9 +18,11 @@ section{
   position:relative;
   background-color: rgba(0,0,0,0.8);
   color: white;
-
-  margin: 0px;
-  overflow: auto;
+  margin-bottom: 5%;
+  /*overflow: auto;*/
+  min-height:333px;
+  min-width: 444px;
+  height: 70vh;
 }
 h1{
   margin: 0px;

@@ -5,6 +5,7 @@ body {
     background-size: cover;
     font-family: sans-serif;
     overflow: auto;
+    font-family: 'Advent Pro', sans-serif;
 }
 
 section {
@@ -34,6 +35,15 @@ h1 {
       padding:-5%;
       margin: -10%:
 }
+#one{
+  color: rgb(94, 138, 103);
+}
+#two{
+  color: rgb(20, 102, 100);
+}
+#three{
+  color: rgb(32, 70, 93);
+}
 
 .loginField{
   background-color: rgb(42, 46, 48);
@@ -42,6 +52,7 @@ h1 {
   color: white;
   padding: 10px;
   border-radius: 20px;
+  font-family: 'Advent Pro', sans-serif;
 }
 .userLoginButton{
   width: 150px;

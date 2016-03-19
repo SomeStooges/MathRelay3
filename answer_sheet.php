@@ -56,7 +56,7 @@
 	<body>
 		<div id="everything">
 			<div id="ribbon">
-				<div id='logoutDiv'> <button id='logoutButton'>LOGOUT</button></div>
+				<div id='logoutDiv'> <button id='logoutButton'>Logout</button></div>
 				<h1 id='teamNumber'></h1>
 				<div id="title">
 					<p style="text-align:center">

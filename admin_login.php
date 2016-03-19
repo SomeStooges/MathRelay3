@@ -10,7 +10,7 @@
 
 	<body style="text-align:center">
 	<section>
-		<h1>Admin Login</h1>
+		<h1><span id= "one">Admin</span><span id="two"> Login</span></h1>
 		<p> Password: <input type = "password" name= "password" placeholder="Enter Password" id='adminPassword'>
 		<br>
 		<p style="color: red" id="passErr"></p>

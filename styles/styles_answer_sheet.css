@@ -249,6 +249,8 @@ table{
 	background-color: inherit;
 	color: white;
 	transition: background-color 0.4s ease;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 120%;
 }
 #logoutButton:hover{
   background-color: rgb(32, 70, 93);

@@ -63,6 +63,10 @@ h2 {
   font-family: 'Advent Pro', sans-serif;
   font-size: 20px;
 }
+#welcomeButton:disabled{
+  text-decoration: line-through;
+  color: red;
+}
 #welcomeButton:hover{
   background-color: rgb(32, 70, 93);
 }

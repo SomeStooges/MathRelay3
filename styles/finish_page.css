@@ -30,6 +30,9 @@ section {
 	word-wrap: break-word;
   background-color: rgba(0,0,0,.6);
 }
+#pageTitle{
+	color: rgb(94, 138, 103);
+}
 #congratulations{
 	font-size: 30px;
 }

@@ -5,8 +5,6 @@ body{
   background-image: url('/MathRelay3/images/SAM_1343.jpg');
   background-size: cover;
   font-family: 'Advent Pro', sans-serif;
-  overflow: hidden;
-  min-height: 619px;
 }
 section{
   margin: 5%;
@@ -16,27 +14,38 @@ section{
   padding: 3%;
   border-radius: 20px;
   position:relative;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.7);
   color: white;
   margin-bottom: 5%;
   /*overflow: auto;*/
-  min-height:333px;
-  min-width: 444px;
+  min-height:400px;
+  min-width: 824px;
   height: 70vh;
 }
 h1{
   margin: 0px;
   font-size: 400%;
 }
-
+#rank1, #rank2{
+  color: rgb(94, 138, 103);
+}
+#name1, #name2{
+  color: rgb(20, 102, 100);
+}
+#points1, #points2{
+  color: rgb(32, 70, 93);
+}
 #leaderboardTable1{
   width: 50%;
+  min-width: 412px;
   font-size: 150%;
   float: left;
+  border-right: 2px solid white;
 }
 
 #leaderboardTable2{
   width: 50%;
+  min-width: 412px;
   font-size: 150%;
   float: right;
 }

@@ -17,7 +17,7 @@
 
 	<body style="text-align:center">
 	<section>
-		<h1><span id="title"> Team Captain Login </span></h1>
+		<h1><span id="one">Team</span><span id="two"> Captain</span><span id="three"> Login</span></h1>
 		<p><span id="second"> Enter login information below</span></p>
 		<p><span id="third"> Team ID: <input type="text" name="teamID" placeholder="Enter Team ID" id='teamID' class = 'loginField'></p>
 		<p> Team Password: <input type= "password" name="password" placeholder="Enter Password" id='teamPassword' class = 'loginField'></span></p>

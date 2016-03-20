@@ -17,9 +17,11 @@
 			<ul><span id="second">Relay</span></ul>
 			<ul><span id="third">2016</span></ul>
 		</h1>
-
+		<div style='height: 25px;'></div>
 		<button class = 'indexButton' id="welcomeButton" disabled> Student Login </button>
-		<button class = 'indexButton' id="adminButton"> Admin Login </button>
+		<br>
+		<button class = 'indexButton' id="adminButton"> Admin <br>Login </button>
+		<button class = 'indexButton' id="aboutButton"> About This Program </button>
 	</section>
 	</body>
 </html>

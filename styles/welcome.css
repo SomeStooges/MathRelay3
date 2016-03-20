@@ -63,6 +63,10 @@ h2 {
   font-family: 'Advent Pro', sans-serif;
   font-size: 20px;
 }
+#welcomeButton{
+  width: 300px;
+  height: 150px;
+}
 #welcomeButton:disabled{
   text-decoration: line-through;
   color: red;
@@ -72,4 +76,7 @@ h2 {
 }
 #adminButton:hover{
   background-color: rgb(94, 138, 103);
+}
+#aboutButton:hover{
+  background-color: rgb(32, 70, 93);
 }

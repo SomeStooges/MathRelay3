@@ -22,17 +22,13 @@ $(document).ready( function() {
 	var eventChecker;
 	checkEvent();
 	setInterval(checkEvent,1000);
-
-
-
-
-
 	$("#welcomeButton").click( function() {
 		window.location.href = "user_login.php";
-		
 	});
-
 	$("#adminButton").click( function() {
 		window.location.href = "admin_login.php";
+	});
+	$("#aboutButton").click( function() {
+		window.location.href = "documentation.php";
 	});
 });

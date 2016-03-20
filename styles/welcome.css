@@ -66,10 +66,10 @@ h2 {
 #welcomeButton{
   width: 300px;
   height: 150px;
+  font-size: 70%;
 }
 #welcomeButton:disabled{
   text-decoration: line-through;
-  color: red;
 }
 #welcomeButton:hover{
   background-color: rgb(32, 70, 93);

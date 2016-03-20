@@ -13,8 +13,9 @@ body {
 
 section {
 
-    margin: 5%;
-
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     background-position: center;
     border: 3px solid black;
     border:5%;
@@ -72,10 +73,10 @@ h2 {
   text-decoration: line-through;
 }
 #welcomeButton:hover{
-  background-color: rgb(32, 70, 93);
+  background-color: rgb(94, 138, 103);
 }
 #adminButton:hover{
-  background-color: rgb(94, 138, 103);
+  background-color: rgb(20, 102, 100);
 }
 #aboutButton:hover{
   background-color: rgb(32, 70, 93);

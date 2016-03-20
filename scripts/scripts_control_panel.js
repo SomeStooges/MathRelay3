@@ -237,7 +237,15 @@ function adminClear(){
     toggleButtons('none');
     myTimer.startTime = 0;
     myTimer.elapsedTime = 0;
+    window.top.location.reload();
   });
+}
+
+function adminConfirm() {
+    var x;
+    if (confirm("Are you sure you want to clear all of the data?") == true) {
+      adminClear()
+    }
 }
 
 //---------------------------------------------------------------------------------------------------------
@@ -254,8 +262,7 @@ $(document).ready(function() {
 
   //Event Handler for toolbar buttons
   $("#clear").click(function(){
-    adminClear();
-    window.top.location.reload();
+      adminConfirm();
   });
   $(".toolbarButton").click(function() {
     $(".toolbarButton").css('background-color', '');

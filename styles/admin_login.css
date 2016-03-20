@@ -60,5 +60,5 @@ h1 {
   transition: background-color 0.4s ease;
 }
 #back_button:hover, #admin_login:hover{
-  background-color: rgb(94, 138, 103);
+  background-color: rgb(20, 102, 100);
 }

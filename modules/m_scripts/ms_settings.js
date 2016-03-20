@@ -85,6 +85,15 @@ function setAdminPassword(){
   });
 }
 
+function adminConfirm() {
+    var x;
+    if (confirm("Are you sure you want to clear all of the data and regenerate the teams?") == true) {
+      $.post("../server/admin_control.php", 'action=adminReset', function(data) {
+        window.top.location.reload();
+      });
+    }
+}
+
 $(document).ready( function(){
   //Upon reloading, retrieve current settings
   getSettings();
@@ -252,8 +261,6 @@ $(document).ready( function(){
 
   //Resets points, passwords, and number of teams
   $("#reset_button").click(function() {
-    $.post("../server/admin_control.php", 'action=adminReset', function(data) {
-      window.top.location.reload();
-    });
+    adminConfirm()
   });
 });

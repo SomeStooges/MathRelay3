@@ -21,7 +21,7 @@ function updateLeaderboard(){
 					var rows2 = new Array();
 					rows2[0] = "<tr id='title'><th class='rank' id='rank1'>Rank</th><th class='left' id='name1'>Name</th><th class='right' id='points1'>Total Points</th></tr>";
 					for(i=0;i<data.length;i++){
-						rows2[i+1] = "<tr id='row" + i + "'><td class='rank'>"+(i+1)+"</td><td class='left' nowrap> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td></tr>";
+						rows2[i+1] = "<tr id='row" + i + "'><td id='"+(i+1)+"' class='rank'>"+(i+1)+"</td><td class='left' nowrap> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td></tr>";
 					}
 
 					//var half = Math.ceil(data.length/2);
@@ -33,6 +33,9 @@ function updateLeaderboard(){
 
 					//$('#leaderboardTable1').html(rows1);
 					$('#leaderboardTable2').html(rows2);
+					$('#1').text('1st');
+					$('#2').text('2nd');
+					$('#3').text('3rd');
 					/*
 					$('#row0').css('color', 'rgb(193, 161, 25)');
 					$('#row0').css('font-size', '150%');

@@ -54,8 +54,8 @@ function bindScatter(scatterQuestionTime){
   var data = [
   {
     label: 'My First dataset',
-    strokeColor: '#2148f1',
-    pointColor: '#2148f1',
+    strokeColor: '#ed6400',
+    pointColor: '#ed6400',
     pointStrokeColor: '#fff',
     data: scatterQuestionTime
   }
@@ -134,14 +134,14 @@ function bindBar2( attemptsByQuestion , correctByQuestion ){
 var response;
 function createChart(){
   chart1 = new Chart(chartDataStore[0][0]).Line(chartDataStore[0][1], {scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
-  chart2 = new Chart(chartDataStore[1][0]).Scatter(chartDataStore[1][1], {bezierCurve: false, scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
+  chart2 = new Chart(chartDataStore[1][0]).Scatter(chartDataStore[1][1], {datasetStroke: false, scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
   chart3 = new Chart(chartDataStore[2][0]).Bar(chartDataStore[2][1], {scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
   chart4 = new Chart(chartDataStore[3][0]).Bar(chartDataStore[3][1], {scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
 }
 function updateChart(){
   chart1.update();
   chart2.destroy();
-  chart2 = new Chart(chartDataStore[1][0]).Scatter(chartDataStore[1][1], {bezierCurve: false, scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
+  chart2 = new Chart(chartDataStore[1][0]).Scatter(chartDataStore[1][1], {datasetStroke: false, scaleShowGridLines: true, scaleGridLineColor : "rgba(255, 255, 255, 0.5)"});
   chart3.update();
   chart4.update();
 }

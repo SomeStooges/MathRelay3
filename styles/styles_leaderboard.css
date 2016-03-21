@@ -29,7 +29,7 @@ section{
   padding: 3%;
   border-radius: 20px;
   position:relative;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.8);
   color: white;
   /*overflow: auto;*/
   min-height:400px;
@@ -47,7 +47,7 @@ h1{
   color: rgb(20, 102, 100);
 }
 #points1, #points2{
-  color: rgb(32, 70, 93);
+  color: rgb(20, 102, 100);
 }
 /*#leaderboardTable1{
   width: 50%;

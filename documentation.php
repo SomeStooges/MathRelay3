@@ -27,7 +27,7 @@
           <span style='	color: rgb(20, 102, 100); font-size: 150%;'>Roland Ip</span> graduated from McNeil High School with the class of 2015.
           He is currently a mechanical engineering student at the University of Texas at Austin.
           He helped develop the design, HTML, JavaScript, PHP, and database portions of the Math Relay Program,
-          and contributed 6,488 lines of code and 2,350 lines of corrections.
+          and contributed 6,500 lines of code and 2,359 lines of corrections.
         </p>
         <p>
           <span style='	color: rgb(94, 138, 103); font-size: 150%;'>Michael Lam</span> graduated from McNeil High School with the class of 2015.
@@ -65,7 +65,7 @@
           and color-coded responses that indicate if a question has been answered correctly, incorrectly, or missed entirely.
         </p>
         <p>
-          This version of the Math Relay Program has a rough total of 9,689 lines of code.
+          This version of the Math Relay Program has a rough total of 9,692 lines of code.
         </p>
       </div><br>
       <button id='returnTitle'>Back</button>

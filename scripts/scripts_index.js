@@ -8,12 +8,15 @@ function checkEvent(){
 		switch(getEvent){
 			case "none":
 						$('#welcomeButton').prop('disabled', true);
+						$('#welcomeButton').text('Student Login Closed');
 						break;
 			case "close":
 						$('#welcomeButton').prop('disabled', true);
+						$('#welcomeButton').text('Student Login Closed');
 						break;
 			default:
 						$('#welcomeButton').prop('disabled', false);
+						$('#welcomeButton').text('Student Login');
 		}
 	});
 }

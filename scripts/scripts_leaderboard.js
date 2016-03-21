@@ -15,22 +15,23 @@ function updateLeaderboard(){
 			case 'close':
 				obj = new Object();
 				obj.action = 'updateLeaderboard';
+				console.log(' name td width: '+ $('#name1').width());
 				$.post('server/admin_runner.php',obj,function(data){
 					data = JSON.parse(data);
 					var rows2 = new Array();
-					rows2[0] = "<tr id='title'><th class='rank' id='rank1'>Rank</th><th class='left' id='name1'>Name</th><th class='right' id='points1'>Total <br>Points</th></tr>";
+					rows2[0] = "<tr id='title'><th class='rank' id='rank1'>Rank</th><th class='left' id='name1'>Name</th><th class='right' id='points1'>Total Points</th></tr>";
 					for(i=0;i<data.length;i++){
-						rows2[i+1] = "<tr id='row" + i + "'><td class='rank'>"+(i+1)+"</td><td class='left'> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td></tr>";
+						rows2[i+1] = "<tr id='row" + i + "'><td class='rank'>"+(i+1)+"</td><td class='left' nowrap> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td></tr>";
 					}
 
 					//var half = Math.ceil(data.length/2);
 
 					rows1 = rows2.slice(0,4).join("");
-					rows2 = "<tr id='title'><th class='rank' id='rank2'>Rank</th><th class='left' id='name2'>Name</th><th class='right' id='points2'>Total <br>Points</th></tr>" + rows2.splice(4,data.length).join("");
+					//rows2 = "<tr id='title'><th class='rank' id='rank2'>Rank</th><th class='left' id='name2'>Name</th><th class='right' id='points2'>Total <br>Points</th></tr>" + rows2.splice(4,data.length).join("");
 					tempRows1 = rows1;
 					tempRows2 = rows2;
 
-					$('#leaderboardTable1').html(rows1);
+					//$('#leaderboardTable1').html(rows1);
 					$('#leaderboardTable2').html(rows2);
 					/*
 					$('#row0').css('color', 'rgb(193, 161, 25)');

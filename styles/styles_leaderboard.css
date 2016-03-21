@@ -1,13 +1,28 @@
 
 /*Stylesheet for leaderboard.php*/
+#html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
 body{
   text-align: center;
   background-image: url('/MathRelay3/images/SAM_1343.jpg');
   background-size: cover;
   font-family: 'Advent Pro', sans-serif;
+  min-height: 619px;
+  overflow: hidden;
 }
 section{
-  margin: 5%;
+  margin-top: 3%;
+  margin-right: 3%;
+  margin-left: 3%;
   background-position: center;
   border: 3px solid black;
   border:5%;
@@ -16,11 +31,10 @@ section{
   position:relative;
   background-color: rgba(0,0,0,0.7);
   color: white;
-  margin-bottom: 5%;
   /*overflow: auto;*/
   min-height:400px;
-  min-width: 824px;
-  height: 70vh;
+  min-width:600px;
+  height: auto;
 }
 h1{
   margin: 0px;
@@ -35,19 +49,19 @@ h1{
 #points1, #points2{
   color: rgb(32, 70, 93);
 }
-#leaderboardTable1{
+/*#leaderboardTable1{
   width: 50%;
   min-width: 412px;
   font-size: 150%;
   float: left;
   border-right: 2px solid white;
-}
+}*/
 
 #leaderboardTable2{
-  width: 50%;
+  width: 70%;
   min-width: 412px;
   font-size: 150%;
-  float: right;
+  white-space: nowrap;
 }
 
 .right{
@@ -58,22 +72,20 @@ h1{
   padding-right: 8px;
   text-align: right;
   width: 50%;
-  max-width: 10em;
-  word-wrap: break-word;
-
+  max-width: 100em;
 }
 .rank{
   text-align: center;
 }
 #row0{
   color: rgb(193, 161, 25);
-  font-size: 150%;
+  font-size: 130%;
 }
 #row1{
   color: rgb(167, 170, 171);
-  font-size: 150%;
+  font-size: 130%;
 }
 #row2{
   color: rgb(158, 103, 9);
-  font-size: 150%;
+  font-size: 130%;
 }

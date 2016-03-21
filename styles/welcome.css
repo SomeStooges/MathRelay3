@@ -69,9 +69,6 @@ h2 {
   height: 150px;
   font-size: 70%;
 }
-#welcomeButton:disabled{
-  text-decoration: line-through;
-}
 #welcomeButton:hover{
   background-color: rgb(94, 138, 103);
 }

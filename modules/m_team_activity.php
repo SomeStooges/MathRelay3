@@ -9,11 +9,11 @@
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src="m_scripts/ms_team_activity.js"></script>
+		<script type="text/javascript" src="/modules/m_scripts/ms_team_activity.js"></script>
 		<script type="text/javascript">
 			var startTime = JSON.parse('<?php print json_encode($startTime) ?>');
 		</script>
-		<link rel="stylesheet" type="text/css" href="m_styles/mst_team_activity.css">
+		<link rel="stylesheet" type="text/css" href="/modules/m_styles/mst_team_activity.css">
 		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 	<body>

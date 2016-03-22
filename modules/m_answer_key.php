@@ -35,8 +35,8 @@
 	<head>
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src="m_scripts/ms_answer_key.js"></script>
-		<link rel="stylesheet" type="text/css" href="m_styles/mst_answer_key.css">
+		<script type="text/javascript" src="/modules/m_scripts/ms_answer_key.js"></script>
+		<link rel="stylesheet" type="text/css" href="/modules/m_styles/mst_answer_key.css">
 		<script type="text/javascript">
 			var choiceBank = JSON.parse('<?php print json_encode($choiceBank) ?>');
 			var answerKey = JSON.parse('<?php print json_encode($correctKey) ?>');

@@ -1,6 +1,5 @@
 <?php
 	function db_Query($query){
-		echo "querying";
 		$con = mysqli_connect('localhost','root','root','mathrelay3');
 		$result = mysqli_query($con, $query);
 	

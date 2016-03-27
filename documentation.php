@@ -16,6 +16,7 @@
         <button class='selectorButton' id='developerButton'>Developers</button>
         <button class='selectorButton' id='aboutButton'>About</button>
       </div>
+			<div id='ethansQuickFix'>
       <div id='developers'>
         <p>
           <span style='	color: rgb(94, 138, 103); font-size: 150%;'>Ethan Freeburg</span> graduated Salutatorian from McNeil High School with the class of 2015.
@@ -39,7 +40,7 @@
           <span style='	color: rgb(20, 102, 100); font-size: 150%;'>Kyle Murdoch</span> graduated from McNeil High School with the class of 2015.
           He is currently a computer science student at the University of Texas at Dallas.
           He helped develop the HTML and JavaScript portions of the Math Relay Program,
-          and contributed 189 lines of code and 16 ines of corrections.
+          and contributed 189 lines of code and 16 lines of corrections.
       </div>
       <div id='about'>
         <p>
@@ -67,7 +68,8 @@
         <p>
           This version of the Math Relay Program has a rough total of 9,692 lines of code.
         </p>
-      </div><br>
+      </div>
+		</div>
       <button id='returnTitle'>Back</button>
 	  </section>
 	</body>

@@ -10,7 +10,7 @@ section {
   margin: 2%;
   margin-bottom: auto;
   float: right;
-  width: 37%;
+	width: 37%;
   min-width: 474px;
   background-position: center;
   border: 3px;
@@ -21,7 +21,7 @@ section {
   padding-bottom: 2%;
   border-radius: 20px;
   position:relative;
-	word-wrap: break-word;
+	/*word-wrap: break-word;*/
   background-color: rgba(0,0,0,.8);
 }
 *:focus{
@@ -46,27 +46,37 @@ section {
 .selectorButton:hover{
   background-color: rgb(32, 70, 93);
 }
-#developers{
-  text-align: justify;
-  overflow-y: scroll;
+#ethansQuickFix{
+	overflow-y: scroll;
   padding-left: 10px;
   padding-right: 10px;
   height: 45vh;
 }
+#developers{
+  text-align: justify;
+  /*overflow-y: scroll;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 45vh;*/
+}
+#developerButton{
+	margin-left: 0;
+}
 #title{
   font-size: 200%;
   color: rgb(94, 138, 103);
+	font-family: 'Advent Pro', sans-serif;
 }
 b{
   font-size: 120%;
 }
 #about{
-  display: none;
+  /*display: none;*/
   text-align: justify;
-  overflow-y: scroll;
+  /*overflow-y: scroll;
   padding-left: 10px;
   padding-right: 10px;
-  height: 45vh;
+  height: 45vh;*/
 }
 #returnTitle{
 	width: 200px;

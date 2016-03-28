@@ -1,6 +1,6 @@
 <?php
 	//Protection against premature entrance
-	session_save_path('/var/www/html/cgi-bin/tmp');
+	session_save_path('/var/www/cgi-bin/tmp');
 	session_start();
 	if(!isset($_SESSION['admin'])){
 		header('location: index.php');

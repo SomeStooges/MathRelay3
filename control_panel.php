@@ -1,10 +1,9 @@
 <?php
 	//Protection against premature entrance
 	session_start();
-	print $_SESSION['admin'];
-	/*if(!isset($_SESSION['admin'])){
+	if($_SESSION['admin'] != 'Santosh'){
 		header('location: index.php');
-	}*/
+	}
 	require 'server/utilities.php';
 ?>
 

@@ -1,9 +1,9 @@
 <?php
 	//Protection against premature entrance
 	session_start();
-	if(!isset($_SESSION['teamID'])){
+	/*if(!isset($_SESSION['teamID'])){
 		header('location: index.php');
-	}
+	}*/
 	require 'server/utilities.php';
 	$checkEvent = mysqli_fetch_row(db_Query("SELECT `value` FROM `relay_options` WHERE `class`='event';"));
 	switch($checkEvent[0]){

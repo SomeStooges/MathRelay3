@@ -1,10 +1,9 @@
 <?php
 	//Protection against premature entrance
-	session_save_path('/var/www/cgi-bin/tmp');
 	session_start();
-	if(!isset($_SESSION['admin'])){
+	/*if(!isset($_SESSION['admin'])){
 		header('location: index.php');
-	}
+	}*/
 	require 'server/utilities.php';
 ?>
 

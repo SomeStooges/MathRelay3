@@ -1,5 +1,6 @@
 <?php
+  session_start();
   echo $_SERVER['SCRIPT_FILENAME'];
-  //phpinfo()
-  print_r($_SESSION);
+  phpinfo()
+  //$_SESSION['admin']='Santosh';
   ?>

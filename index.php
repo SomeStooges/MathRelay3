@@ -6,7 +6,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="/scripts/scripts_index.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
-		<link rel="stylesheet" type="text/css" href="/styles/welcome.css"/>
+		<link rel="stylesheet" type="text/css" href="./styles/welcome.css"/>
 		<title>Math Relay 2016</title>
 	</head>
 

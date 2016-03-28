@@ -1,5 +1,5 @@
 <?php
-	session_save_path();
+	session_save_path('..www/cgi-bin/tmp');;
 	session_start();
 
 	require 'utilities.php'; //imports some universal utilities

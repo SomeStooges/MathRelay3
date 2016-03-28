@@ -1,9 +1,10 @@
 <?php
 	//Protection against premature entrance
+	session_save_path('/var/lib/php/session');
 	session_start();
-	/*if(!isset($_SESSION['admin'])){
+	if(!isset($_SESSION['admin'])){
 		header('location: index.php');
-	}*/
+	}
 	require 'server/utilities.php';
 ?>
 
@@ -35,7 +36,7 @@
 			<div id = "ribbon">
 			<!-- The banner running across the top -->
 				<div id = "ribbon1">
-					<h1> <?php print $_SESSION['admin']; ?> </h1>
+					<h1> Control Panel </h1>
 				</div>
 				<div id = "ribbon2">
 					<button class="ribbonButton" id="none">None</button>

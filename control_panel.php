@@ -1,9 +1,9 @@
 <?php
 	//Protection against premature entrance
 	session_start();
-	/*if(!isset($_SESSION['admin'])){
+	if(!isset($_SESSION['admin'])){
 		header('location: index.php');
-	}*/
+	}
 	require 'server/utilities.php';
 ?>
 

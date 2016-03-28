@@ -19,7 +19,7 @@ $(document).ready( function() {
 			data = JSON.parse(data);
 			if (data == "Successful") {
 				console.log(obj.adminPassword);
-				window.location.href="control_panel.php";
+				window.location.href="test.php";
 			}
 			else {
 				console.log(obj.adminPassword);

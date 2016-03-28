@@ -1,5 +1,5 @@
 <?php
   echo $_SERVER['SCRIPT_FILENAME'];
-  phpinfo(
-
-)?>
+  //phpinfo()
+  print_r($_SESSION);
+  ?>

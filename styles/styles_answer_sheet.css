@@ -16,7 +16,6 @@ body {
 	margin:0;
 	background-position: cover;
 	text-align: center;
-	overflow:auto;
   min-height: 600px;
   height: 100vh;
 }

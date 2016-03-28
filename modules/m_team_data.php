@@ -8,11 +8,11 @@
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src="/modules/m_scripts/ms_team_data.js"></script>
+		<script type="text/javascript" src="../modules/m_scripts/ms_team_data.js"></script>
 		<script type="text/javascript">
 			var startTime = JSON.parse('<?php print json_encode($startTime) ?>');
 		</script>
-		<link rel="stylesheet" type="text/css" href="/modules/m_styles/mst_team_data.css">
+		<link rel="stylesheet" type="text/css" href="../modules/m_styles/mst_team_data.css">
 	</head>
 	<body>
 		<?php

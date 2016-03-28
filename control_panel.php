@@ -10,7 +10,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title><?php print $_SESSION['admin']; ?></title>
+		<title>Control Panel</title>
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="/scripts/scripts_control_panel.js"></script>
@@ -35,7 +35,7 @@
 			<div id = "ribbon">
 			<!-- The banner running across the top -->
 				<div id = "ribbon1">
-					<h1> Control Panel </h1>
+					<h1> <?php print $_SESSION['admin']; ?> </h1>
 				</div>
 				<div id = "ribbon2">
 					<button class="ribbonButton" id="none">None</button>

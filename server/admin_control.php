@@ -70,7 +70,7 @@
 		$num = mysqli_num_rows(db_Query("SELECT value FROM relay_options WHERE class='admin' AND value='$adminPassword'"));
 		if($num){
 			$_SESSION['admin'] = 'Santosh';
-			$response = "Successful";
+			$response = "Successful ".$_SESSION['admin'];
 		}
 		else{
 			$response = "Failed";

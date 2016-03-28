@@ -17,7 +17,7 @@ $(document).ready( function() {
 		$.post("/server/admin_control.php", obj, function(data) {
 			console.log(data);
 			data = JSON.parse(data);
-			if (data == "Successful") {
+			if (data == "Successful Santosh") {
 				console.log(obj.adminPassword);
 				window.location.href="control_panel.php";
 			}

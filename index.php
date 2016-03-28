@@ -1,3 +1,6 @@
+<?php
+ 	ini_set("session.save_path","/var/lib/php/session");
+ ?>
 <!doctype HTML>
 <html lang = "en">
 <html>

@@ -13,7 +13,7 @@ function parseTime(time){
 }
 
 function updateTable(){
-  $.post('/MathRelay3/server/admin_runner.php','action=updateTeamData',function(data){
+  $.post('../server/admin_runner.php','action=updateTeamData',function(data){
     //console.log(data);
     var teamData = JSON.parse(data);
     p = "<tr><th>Current Rank</th><th>Team ID</th><th>Team Nickname</th><th>Password</th><th>Points</th><th>Rank at Freetime</th><th>Last Point Time</th><th>Last Check-in Time</th><th>Final Rank</th></tr>";

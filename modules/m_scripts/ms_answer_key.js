@@ -65,7 +65,6 @@ function updateAnswerKey(target){
 	obj.level = fID[0];
 	obj.choice = fID[1];
 	obj.value = $(target).val();
-	console.log(fID);
 	$.post('../server/admin_control.php',obj,function(data){
 			choiceBank[obj.series][obj.level][obj.choice] = obj.value;
 	});

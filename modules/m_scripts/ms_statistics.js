@@ -16,8 +16,6 @@ function bindLine(attemptsByTime , correctByTime ){
   //  ctx.canvas.width = $("#div1").width();
   //ctx.canvas.height = $("#div1").height();
   var numMinutes = attemptsByTime.length;
-  console.log("DEBUG: attemptsByTime = " + attemptsByTime);
-  console.log("DEBUG: numMinutes = " + numMinutes);
   var data = {
   labels: range(1,numMinutes),
   datasets: [
@@ -70,9 +68,6 @@ function bindBar1( attemptsByTeam , correctByTeam ){
   attemptsByTeam.shift();
   correctByTeam.shift();
   var enumTeams = range( 1 , attemptsByTeam.length );
-  console.log("DEBUG: length = " + attemptsByTeam.length);
-  console.log("DEBUG: length = " + attemptsByTeam);
-  console.log("DEBUG: length = " + correctByTeam);
   var ctx = $("#attemptsVTeam").get(0).getContext("2d");
   var data = {
     labels: enumTeams,
@@ -170,11 +165,9 @@ function updateStatistics() {
     chartDataStore[1] = bindScatter(data.scatterQuestionTime); //data.scatterQuestionTime is NOT a two-dimensional array!
 
     //update bar chart 1
-    console.log(data.attemptsByTeam[0]);
     for(var i = 0; i < data.attemptsByTeam.length-1; i++){
       chart3.datasets[0].bars[i].value = data.attemptsByTeam[i+1];
       chart3.datasets[1].bars[i].value = data.correctByTeam[i+1];
-      console.log("i = "+i+"; i+1 = "+(i+1));
     }
 
     //update bar chart 2
@@ -194,8 +187,6 @@ $(document).ready( function(){
   //Sets preliminary heights and widths to the graphs upon loading.
   var vw = window.parent.$('#iframe1').width() - 100;                   //Gets active team_data iframe width upon loading
   var vh = Math.floor((window.parent.$('#iframe1').height())*9/10) -70; //Gets active team_data iframe height upon loading
-  console.log("Viewing width: " + vw);
-  console.log("Viewing height: " + vh);
   $('#questionVTime').attr('width',String(vw));
   $('.graph').attr('height',String(vh));
   getStatistics();                                                      //Draws the charts

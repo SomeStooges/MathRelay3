@@ -14,8 +14,8 @@
 		<title>Control Panel</title>
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src="/scripts/scripts_control_panel.js"></script>
-		<link rel="stylesheet" type="text/css" href="/styles/styles_control_panel.css">
+		<script type="text/javascript" src="./scripts/scripts_control_panel.js"></script>
+		<link rel="stylesheet" type="text/css" href="./styles/styles_control_panel.css">
 		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 

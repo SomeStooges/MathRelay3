@@ -48,8 +48,8 @@
 			var choiceBank = JSON.parse('<?php print json_encode($choiceBank) ?>');
 			var id = JSON.parse('<?php print json_encode($_SESSION['teamID']) ?>')
 		</script>
-		<script type="text/javascript" src="/scripts/scripts_answer_sheet.js"></script>
-		<link rel="stylesheet" type="text/css" href="/styles/styles_answer_sheet.css"></script>
+		<script type="text/javascript" src="./scripts/scripts_answer_sheet.js"></script>
+		<link rel="stylesheet" type="text/css" href="./styles/styles_answer_sheet.css"></script>
 		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 	</head>
 

@@ -16,7 +16,7 @@ var eventCounter = 0;
 
 //Checks the current event
 function checkEvent(){
-	$.post('server/user_runner.php', 'action=getEvent', function(data) {
+	$.post('./server/user_runner.php', 'action=getEvent', function(data) {
 		var checker = JSON.parse(data);
 		console.log(checker);
 		switch(checker){
@@ -70,7 +70,7 @@ function checkEvent(){
 
 //Retrieves answer history in the case that there is a premature logout or refresh or closed window
 function retrieveHistory(){
-	$.post('server/user_runner.php', 'action=retrieveHistory', function(data) {
+	$.post('./server/user_runner.php', 'action=retrieveHistory', function(data) {
 		strhis = JSON.parse(data);
 		arrhis = strhis.split(";");
 		for (var a = 0; a < arrhis.length; a++){

@@ -14,7 +14,7 @@ $(document).ready( function() {
 		obj.action = "adminLogin";
 		obj.adminPassword = $('#adminPassword').val();
 
-		$.post("/server/admin_control.php", obj, function(data) {
+		$.post("server/admin_control.php", obj, function(data) {
 			console.log(data);
 			data = JSON.parse(data);
 			if (data == "Successful") {

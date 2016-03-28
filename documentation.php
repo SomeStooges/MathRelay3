@@ -5,8 +5,8 @@
 		<meta charset="utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Advent+Pro:500' rel='stylesheet' type='text/css'/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src="/scripts/scripts_documentation.js"></script>
-		<link rel="stylesheet" type="text/css" href="/styles/styles_documentation.css"></script>
+		<script type="text/javascript" src="./scripts/scripts_documentation.js"></script>
+		<link rel="stylesheet" type="text/css" href="./styles/styles_documentation.css"></script>
 	</head>
 
 	<body>

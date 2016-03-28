@@ -12,8 +12,8 @@
 		<title> Team Data Printout </title>
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="/scripts/scripts_printout.js"></script>
-		<link rel="stylesheet" type="text/css" href="/styles/styles_printout.css"/>
+    <script type="text/javascript" src="./scripts/scripts_printout.js"></script>
+		<link rel="stylesheet" type="text/css" href="./styles/styles_printout.css"/>
 	</head>
 
 	<body>

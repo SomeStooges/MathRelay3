@@ -1,1 +1,5 @@
-<?php echo $_SERVER['SCRIPT_FILENAME']; ?>
+<?php
+  echo $_SERVER['SCRIPT_FILENAME'];
+  phpinfo(
+
+)?>

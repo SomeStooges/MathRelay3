@@ -1,6 +1,6 @@
 <?php
 	//Protection against premature entrance
-	session_save_path('/var/lib/php/session');
+	session_save_path('/var/www/html');
 	session_start();
 	if(!isset($_SESSION['admin'])){
 		header('location: index.php');

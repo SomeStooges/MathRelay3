@@ -1,16 +1,16 @@
 <?php
 	//Protection against premature entrance
 	session_start();
-	if(!isset($_SESSION['admin'])){
+	/*if(!isset($_SESSION['admin'])){
 		header('location: index.php');
-	}
+	}*/
 	require 'server/utilities.php';
 ?>
 
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Control Panel</title>
+		<title><?php print $_SESSION['admin']; ?></title>
 		<meta charset="utf-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="/scripts/scripts_control_panel.js"></script>

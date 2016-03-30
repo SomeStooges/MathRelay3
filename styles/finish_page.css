@@ -35,6 +35,9 @@ section {
 #congratulations{
 	font-size: 30px;
 }
+#cleanUpParagraph{
+	text-align:justify;
+}
 #returnTitle{
 	width: 200px;
   height: 75px;

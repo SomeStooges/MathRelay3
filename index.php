@@ -18,7 +18,6 @@
 		<h1>
 			<ul><span id="first">Math</span></ul>
 			<ul><span id="second">Relay</span></ul>
-			<ul><span id="third">2016</span></ul>
 		</h1>
 		<div style='height: 25px;'></div>
 		<button class = 'indexButton' id="welcomeButton" disabled> Student Login </button>

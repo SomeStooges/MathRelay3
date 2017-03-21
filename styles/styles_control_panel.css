@@ -19,6 +19,7 @@
     outline: none;
 }
 body {
+  background-image: url('../images/IMG_2051.JPG');
   background-color: white;
 	background-size: cover;
   max-width: 100%;

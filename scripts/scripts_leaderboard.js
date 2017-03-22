@@ -19,9 +19,9 @@ function updateLeaderboard(){
 				$.post('server/admin_runner.php',obj,function(data){
 					data = JSON.parse(data);
 					var rows2 = new Array();
-					rows2[0] = "<tr id='title'><th class='rank' id='rank1'>Rank</th><th class='left' id='name1'>Name</th><th class='right' id='points1'>Total Points</th></tr>";
+					rows2[0] = "<tr id='title'><th class='rank' id='rank1'>Rank</th><th id='name1'>Name</th><th class='right' id='points1'>Total Points</th><th>Team ID</th></tr>";
 					for(i=0;i<data.length;i++){
-						rows2[i+1] = "<tr id='row" + i + "'><td id='"+(i+1)+"' class='rank'>"+(i+1)+"</td><td class='left' nowrap> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td></tr>";
+						rows2[i+1] = "<tr id='row" + i + "'><td id='"+(i+1)+"' class='rank'>"+(i+1)+"</td><td class='left' nowrap> "+ data[i][0] +" </td><td class='right'> "+ data[i][1] +" </td><td class='id'> "+ data[i][2] +"</td</tr>";
 					}
 
 					//var half = Math.ceil(data.length/2);
@@ -70,10 +70,6 @@ function updateLeaderboard(){
 $(document).ready(function() {
 	updateLeaderboard();
 	t = window.setInterval(updateLeaderboard,1000);
-
-
-
-
 	$("#back_button").click(function() {
 		window.location.href = "control_panel.php";
 	});

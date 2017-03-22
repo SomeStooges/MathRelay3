@@ -39,7 +39,7 @@
 				if($tempObj[0] == ""){
 					$tempObj[0] = '<i>Team ' . $tempObj[2] . '</i>';
 				}
-				unset($tempObj[2]);
+				//unset($tempObj[2]);
 				$retField[] = $tempObj;
 			}
 	//	}
